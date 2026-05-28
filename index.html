@@ -1,0 +1,869 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="MeiraGroup, bienes raíces en Jarabacoa y República Dominicana. Compra, venta, alquiler, reservas y asesoría inmobiliaria."
+    />
+    <title>MeiraGroup | Bienes Raíces en República Dominicana</title>
+    <link rel="preconnect" href="https://images.unsplash.com" />
+    <link rel="icon" href="assets/brand/meiragroup-favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <header class="site-header" id="top">
+      <a class="brand" href="#top" aria-label="MeiraGroup inicio">
+        <span class="brand-mark" aria-hidden="true">
+          <img src="assets/brand/logo-meirahgroup.png" alt="" />
+        </span>
+        <span>
+          <strong>MeiraGroup</strong>
+          <small data-i18n="brandTag">Bienes Raíces</small>
+        </span>
+      </a>
+
+      <nav class="main-nav" aria-label="Principal">
+        <a href="#properties" data-i18n="navProperties">Propiedades</a>
+        <a href="#map" data-i18n="navMap">Mapa</a>
+        <a href="#financing" data-i18n="navFinancing">Calculadoras</a>
+        <a href="#about" data-i18n="navAbout">Sobre nosotros</a>
+        <a href="#owners" data-i18n="navOwners">Vende/Alquila</a>
+        <a href="#contact" data-i18n="navContact">Contacto</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-button" id="languageToggle" type="button" aria-label="Cambiar idioma">
+          ES
+        </button>
+        <select class="top-select" id="currencySelect" aria-label="Cambiar moneda">
+          <option value="USD">USD</option>
+          <option value="EUR">EUR</option>
+          <option value="DOP">DOP</option>
+        </select>
+        <button class="icon-button theme-toggle" id="themeToggle" type="button" aria-label="Modo claro u oscuro">
+          <i data-lucide="moon"></i>
+        </button>
+        <button class="icon-button" id="adminToggle" type="button" aria-label="Modo admin">
+          <i data-lucide="shield-check"></i>
+        </button>
+        <a
+          class="header-phone"
+          href="https://wa.me/18299905951?text=Hola%20MeiraGroup%2C%20quiero%20informaci%C3%B3n."
+          target="_blank"
+          rel="noreferrer"
+        >
+          WhatsApp Business
+        </a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-media" aria-hidden="true">
+          <img
+            class="is-active"
+            src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1800&q=82"
+            alt=""
+          />
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <p class="eyebrow" data-i18n="heroEyebrow">Jarabacoa como base, República Dominicana como alcance</p>
+          <h1 id="hero-title">MeiraGroup</h1>
+          <p class="hero-copy" data-i18n="heroCopy">
+            Casas, villas, solares y propiedades de inversión con asesoría cercana, procesos claros y seguimiento
+            real desde el primer mensaje hasta la entrega de llaves.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#properties">
+              <i data-lucide="search"></i>
+              <span data-i18n="heroPrimary">Explorar propiedades</span>
+            </a>
+            <a class="button button-ghost" href="#contact">
+              <i data-lucide="message-circle"></i>
+              <span data-i18n="heroSecondary">Quiero asesoría</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="trust-band" aria-label="Indicadores">
+        <div>
+          <strong>42+</strong>
+          <span data-i18n="statProperties">propiedades curadas</span>
+        </div>
+        <div>
+          <strong>24h</strong>
+          <span data-i18n="statFollow">respuesta promedio</span>
+        </div>
+        <div>
+          <strong>ES/EN/PT</strong>
+          <span data-i18n="statLang">atención bilingüe</span>
+        </div>
+        <div>
+          <strong>4.9/5</strong>
+          <span data-i18n="statReviews">referencias verificadas</span>
+        </div>
+      </section>
+
+      <section class="section filters-section" aria-labelledby="filters-title">
+        <div class="section-heading">
+          <p class="eyebrow" data-i18n="filtersEyebrow">Búsqueda inteligente</p>
+          <h2 id="filters-title" data-i18n="filtersTitle">Encuentra una propiedad que encaje con tu próximo paso</h2>
+        </div>
+
+        <form class="filters" id="propertyFilters">
+          <label>
+            <span data-i18n="filterOperation">Operación</span>
+            <select id="filterOperation">
+              <option value="all" data-i18n="optionAll">Todas</option>
+              <option value="sale" data-i18n="optionSale">Venta</option>
+              <option value="rent" data-i18n="optionRent">Alquiler</option>
+              <option value="night" data-i18n="optionNight">Alquiler x noche</option>
+            </select>
+          </label>
+          <label>
+            <span data-i18n="filterType">Tipo</span>
+            <select id="filterType">
+              <option value="all" data-i18n="optionAllTypes">Todos</option>
+              <option value="Villa">Villa</option>
+              <option value="Casa" data-i18n="typeHouse">Casa</option>
+              <option value="Apartamento" data-i18n="typeApartment">Apartamento</option>
+              <option value="Solar" data-i18n="typeLand">Solar</option>
+            </select>
+          </label>
+          <label>
+            <span data-i18n="filterZone">Zona</span>
+            <select id="filterZone">
+              <option value="all" data-i18n="optionAllZones">Todas</option>
+            </select>
+          </label>
+          <label>
+            <span data-i18n="filterMin">Min. USD</span>
+            <input id="filterMin" type="number" min="0" step="1000" placeholder="100000" />
+          </label>
+          <label>
+            <span data-i18n="filterMax">Max. USD</span>
+            <input id="filterMax" type="number" min="0" step="1000" placeholder="450000" />
+          </label>
+          <label>
+            <span data-i18n="filterBeds">Habitaciones</span>
+            <select id="filterBeds">
+              <option value="0" data-i18n="optionAny">Cualquiera</option>
+              <option value="1">1+</option>
+              <option value="2">2+</option>
+              <option value="3">3+</option>
+              <option value="4">4+</option>
+            </select>
+          </label>
+          <label>
+            <span data-i18n="filterArea">m² min.</span>
+            <input id="filterArea" type="number" min="0" step="10" placeholder="120" />
+          </label>
+          <div class="filter-actions">
+            <button class="button button-primary" type="submit">
+              <i data-lucide="sliders-horizontal"></i>
+              <span data-i18n="filterApply">Filtrar</span>
+            </button>
+            <button class="button button-light" id="clearFilters" type="button">
+              <i data-lucide="rotate-ccw"></i>
+              <span data-i18n="filterClear">Limpiar</span>
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <section class="section properties-section" id="properties" aria-labelledby="properties-title">
+        <div class="section-heading row-heading">
+          <div>
+            <p class="eyebrow" data-i18n="propertiesEyebrow">Inventario destacado</p>
+            <h2 id="properties-title" data-i18n="propertiesTitle">Propiedades disponibles</h2>
+          </div>
+          <div class="toolbar">
+            <label class="compact-label">
+              <span data-i18n="sortLabel">Ordenar</span>
+              <select id="sortProperties">
+                <option value="featured" data-i18n="sortFeatured">Destacadas</option>
+                <option value="price-asc" data-i18n="sortPriceAsc">Precio menor</option>
+                <option value="price-desc" data-i18n="sortPriceDesc">Precio mayor</option>
+                <option value="area-desc" data-i18n="sortArea">Más m²</option>
+              </select>
+            </label>
+            <button class="button button-light" id="showFavorites" type="button">
+              <i data-lucide="heart"></i>
+              <span data-i18n="favoritesButton">Favoritos</span>
+              <span class="count-pill" id="favoriteCount">0</span>
+            </button>
+          </div>
+        </div>
+        <div class="results-summary" id="resultsSummary"></div>
+        <div class="property-grid" id="propertyGrid"></div>
+      </section>
+
+      <section class="section map-section" id="map" aria-labelledby="map-title">
+        <div class="section-heading">
+          <p class="eyebrow" data-i18n="mapEyebrow">Ubicación y entorno</p>
+          <h2 id="map-title" data-i18n="mapTitle">Mapa interactivo con distancias a puntos vitales</h2>
+        </div>
+        <div class="map-layout">
+          <div class="map-canvas" id="mapCanvas" aria-label="Mapa de propiedades">
+            <div class="map-road road-one"></div>
+            <div class="map-road road-two"></div>
+            <div class="map-road road-three"></div>
+            <span class="amenity amenity-market">Supermercado</span>
+            <span class="amenity amenity-bank">Banco</span>
+            <span class="amenity amenity-hospital">Clinica</span>
+            <span class="amenity amenity-park">Parque</span>
+          </div>
+          <aside class="map-panel" id="mapPanel"></aside>
+        </div>
+      </section>
+
+      <section class="section split-section" id="financing" aria-labelledby="financing-title">
+        <div class="section-heading">
+          <p class="eyebrow" data-i18n="financeEyebrow">Compra con claridad</p>
+          <h2 id="financing-title" data-i18n="financeTitle">Calculadoras financieras para decidir mejor</h2>
+        </div>
+        <div class="calculator-layout">
+          <aside class="calculator-menu" aria-label="Calculadoras">
+            <h3 data-i18n="calculatorsTitle">Calculadoras</h3>
+            <button class="calculator-card active" type="button" data-calculator="mortgage">
+              <i data-lucide="calculator"></i>
+              <span>
+                <strong data-i18n="mortgageTitle">Calculadora hipotecaria</strong>
+                <small data-i18n="mortgageCardCopy">Calcula tu pago mensual de la hipoteca.</small>
+              </span>
+            </button>
+            <button class="calculator-card" type="button" data-calculator="refinance">
+              <i data-lucide="refresh-cw"></i>
+              <span>
+                <strong data-i18n="refinanceTitle">Calculadora de refinanciacion</strong>
+                <small data-i18n="refinanceCardCopy">Compara tu cuota actual contra una nueva tasa.</small>
+              </span>
+            </button>
+            <button class="calculator-card" type="button" data-calculator="affordability">
+              <i data-lucide="badge-dollar-sign"></i>
+              <span>
+                <strong data-i18n="affordabilityTitle">Calculadora de asequibilidad</strong>
+                <small data-i18n="affordabilityCardCopy">Calcula el precio de casa que puedes permitirte.</small>
+              </span>
+            </button>
+            <button class="calculator-card" type="button" data-calculator="rentbuy">
+              <i data-lucide="scale"></i>
+              <span>
+                <strong data-i18n="rentBuyTitle">Alquilar vs. comprar</strong>
+                <small data-i18n="rentBuyCardCopy">Estima cuando tiene sentido comprar o alquilar.</small>
+              </span>
+            </button>
+            <button class="calculator-card" type="button" data-calculator="autopay">
+              <i data-lucide="credit-card"></i>
+              <span>
+                <strong data-i18n="autopayTitle">Auto-cobro para pagos a plazos</strong>
+                <small data-i18n="autopayCardCopy">Genera un calendario de pagos recurrentes.</small>
+              </span>
+            </button>
+          </aside>
+
+          <div class="calculator-panels">
+            <form class="tool-panel calculator-panel active" id="mortgageForm" data-calculator-panel="mortgage">
+              <h3 data-i18n="mortgageTitle">Calculadora hipotecaria</h3>
+              <div class="two-col">
+                <label>
+                  <span data-i18n="homePrice">Precio de la propiedad</span>
+                  <input id="homePrice" type="number" min="10000" value="285000" />
+                </label>
+                <label>
+                  <span data-i18n="downPayment">Inicial</span>
+                  <input id="downPayment" type="number" min="0" value="57000" />
+                </label>
+                <label>
+                  <span data-i18n="interestRate">Tasa anual</span>
+                  <input id="interestRate" type="number" min="0" step="0.1" value="9.5" />
+                </label>
+                <label>
+                  <span data-i18n="loanYears">Plazo en años</span>
+                  <input id="loanYears" type="number" min="1" max="30" value="20" />
+                </label>
+              </div>
+              <button class="button button-primary" type="submit">
+                <i data-lucide="calculator"></i>
+                <span data-i18n="calculate">Calcular</span>
+              </button>
+              <output class="finance-output" id="mortgageOutput"></output>
+            </form>
+
+            <form class="tool-panel calculator-panel" id="refinanceForm" data-calculator-panel="refinance">
+              <h3 data-i18n="refinanceTitle">Calculadora de refinanciacion</h3>
+              <div class="two-col">
+                <label>
+                  <span data-i18n="currentBalance">Balance actual</span>
+                  <input id="currentBalance" type="number" min="1000" value="220000" />
+                </label>
+                <label>
+                  <span data-i18n="currentRate">Tasa actual</span>
+                  <input id="currentRate" type="number" min="0" step="0.1" value="10.5" />
+                </label>
+                <label>
+                  <span data-i18n="newRate">Nueva tasa</span>
+                  <input id="newRate" type="number" min="0" step="0.1" value="8.75" />
+                </label>
+                <label>
+                  <span data-i18n="remainingYears">Años restantes</span>
+                  <input id="remainingYears" type="number" min="1" max="30" value="18" />
+                </label>
+                <label>
+                  <span data-i18n="closingCosts">Gastos de cierre</span>
+                  <input id="closingCosts" type="number" min="0" value="3500" />
+                </label>
+              </div>
+              <button class="button button-primary" type="submit">
+                <i data-lucide="refresh-cw"></i>
+                <span data-i18n="calculate">Calcular</span>
+              </button>
+              <output class="finance-output" id="refinanceOutput"></output>
+            </form>
+
+            <form class="tool-panel calculator-panel" id="affordabilityForm" data-calculator-panel="affordability">
+              <h3 data-i18n="affordabilityTitle">Calculadora de asequibilidad</h3>
+              <div class="two-col">
+                <label>
+                  <span data-i18n="monthlyIncome">Ingreso mensual</span>
+                  <input id="monthlyIncome" type="number" min="0" value="6500" />
+                </label>
+                <label>
+                  <span data-i18n="monthlyDebt">Deudas mensuales</span>
+                  <input id="monthlyDebt" type="number" min="0" value="700" />
+                </label>
+                <label>
+                  <span data-i18n="affordDown">Inicial disponible</span>
+                  <input id="affordDown" type="number" min="0" value="45000" />
+                </label>
+                <label>
+                  <span data-i18n="interestRate">Tasa anual</span>
+                  <input id="affordRate" type="number" min="0" step="0.1" value="9.5" />
+                </label>
+                <label>
+                  <span data-i18n="loanYears">Plazo en años</span>
+                  <input id="affordYears" type="number" min="1" max="30" value="20" />
+                </label>
+              </div>
+              <button class="button button-primary" type="submit">
+                <i data-lucide="badge-dollar-sign"></i>
+                <span data-i18n="calculate">Calcular</span>
+              </button>
+              <output class="finance-output" id="affordabilityOutput"></output>
+            </form>
+
+            <form class="tool-panel calculator-panel" id="rentBuyForm" data-calculator-panel="rentbuy">
+              <h3 data-i18n="rentBuyTitle">Alquilar vs. comprar</h3>
+              <div class="two-col">
+                <label>
+                  <span data-i18n="monthlyRent">Alquiler mensual</span>
+                  <input id="monthlyRent" type="number" min="0" value="1200" />
+                </label>
+                <label>
+                  <span data-i18n="homePrice">Precio de la propiedad</span>
+                  <input id="compareHomePrice" type="number" min="10000" value="260000" />
+                </label>
+                <label>
+                  <span data-i18n="downPayment">Inicial</span>
+                  <input id="compareDownPayment" type="number" min="0" value="52000" />
+                </label>
+                <label>
+                  <span data-i18n="interestRate">Tasa anual</span>
+                  <input id="compareRate" type="number" min="0" step="0.1" value="9.5" />
+                </label>
+                <label>
+                  <span data-i18n="yearsInHome">Años en la propiedad</span>
+                  <input id="yearsInHome" type="number" min="1" max="30" value="5" />
+                </label>
+              </div>
+              <button class="button button-primary" type="submit">
+                <i data-lucide="scale"></i>
+                <span data-i18n="calculate">Calcular</span>
+              </button>
+              <output class="finance-output" id="rentBuyOutput"></output>
+            </form>
+
+            <form class="tool-panel calculator-panel" id="autopayForm" data-calculator-panel="autopay">
+              <h3 data-i18n="autopayTitle">Auto-cobro para pagos a plazos</h3>
+              <div class="two-col">
+                <label>
+                  <span data-i18n="clientName">Nombre del cliente</span>
+                  <input id="autopayName" type="text" placeholder="Maria Gomez" />
+                </label>
+                <label>
+                  <span data-i18n="paymentAmount">Monto mensual</span>
+                  <input id="autopayAmount" type="number" min="100" value="1250" />
+                </label>
+                <label>
+                  <span data-i18n="paymentDay">Día de cobro</span>
+                  <input id="autopayDay" type="number" min="1" max="28" value="15" />
+                </label>
+                <label>
+                  <span data-i18n="paymentMonths">Cantidad de pagos</span>
+                  <input id="autopayMonths" type="number" min="1" max="60" value="18" />
+                </label>
+              </div>
+              <button class="button button-primary" type="submit">
+                <i data-lucide="credit-card"></i>
+                <span data-i18n="scheduleAutopay">Generar plan</span>
+              </button>
+              <div class="payment-schedule" id="autopaySchedule"></div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section class="section reservation-section" id="reservations" aria-labelledby="reservations-title">
+        <div class="reservation-copy">
+          <p class="eyebrow" data-i18n="reservationEyebrow">Alquileres y estadías</p>
+          <h2 id="reservations-title" data-i18n="reservationTitle">Reservas tipo villa o Airbnb con confirmación rápida</h2>
+          <p data-i18n="reservationCopy">
+            Las propiedades de alquiler muestran tarifa por noche, disponibilidad de referencia, cálculo de cargos y
+            envío directo al equipo para cerrar por WhatsApp o llamada.
+          </p>
+        </div>
+        <div class="reservation-preview" id="reservationPreview"></div>
+      </section>
+
+      <section class="section about-section" id="about" aria-labelledby="about-title">
+        <div class="about-image">
+          <img
+            src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1300&q=80"
+            alt="Equipo inmobiliario revisando documentos"
+          />
+        </div>
+        <div class="about-copy">
+          <p class="eyebrow" data-i18n="aboutEyebrow">Nuestra historia</p>
+          <h2 id="about-title" data-i18n="aboutTitle">Una firma cercana para decisiones grandes</h2>
+          <p data-i18n="aboutTextOne">
+            MeiraGroup nace en Jarabacoa con una idea simple: que comprar, vender o reservar una propiedad no se
+            sienta como entrar a ciegas. Combinamos conocimiento local, criterio comercial y una comunicación clara.
+          </p>
+          <p data-i18n="aboutTextTwo">
+            Detrás de la compañía hay un equipo que conoce el ritmo de la zona, el valor de una buena ubicación y la
+            importancia de cuidar cada documento antes de firmar.
+          </p>
+          <div class="about-values">
+            <span data-i18n="valueOne">Transparencia</span>
+            <span data-i18n="valueTwo">Acompañamiento</span>
+            <span data-i18n="valueThree">Visión de inversión</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section reviews-section" aria-labelledby="reviews-title">
+        <div class="section-heading">
+          <p class="eyebrow" data-i18n="reviewsEyebrow">Referencias</p>
+          <h2 id="reviews-title" data-i18n="reviewsTitle">Clientes que ya dieron el paso</h2>
+        </div>
+        <div class="review-grid">
+          <article class="review-card">
+            <span>4.9</span>
+            <p data-i18n="reviewOne">
+              El equipo nos ayudó a comparar zonas, negociar y entender los costos reales antes de firmar.
+            </p>
+            <strong>Daniel R.</strong>
+          </article>
+          <article class="review-card">
+            <span>5.0</span>
+            <p data-i18n="reviewTwo">
+              Reservamos una villa para un fin de semana familiar. Todo fue rápido, claro y sin sorpresas.
+            </p>
+            <strong>Camila P.</strong>
+          </article>
+          <article class="review-card">
+            <span>4.8</span>
+            <p data-i18n="reviewThree">
+              Vivo fuera del país y necesitaba alguien que respondiera con precisión. MeiraGroup lo hizo fácil.
+            </p>
+            <strong>Anthony M.</strong>
+          </article>
+        </div>
+      </section>
+
+      <section class="section owners-section" id="owners" aria-labelledby="owners-title">
+        <div class="owners-copy">
+          <p class="eyebrow" data-i18n="ownersEyebrow">Para propietarios</p>
+          <h2 id="owners-title" data-i18n="ownersTitle">Vendemos o alquilamos tu propiedad como tu agente inmobiliario</h2>
+          <p data-i18n="ownersCopy">
+            Si tienes una casa, villa, apartamento, solar, finca o local, MeiraGroup puede representarte con estrategia
+            de precio, fotos, promoción, filtros de clientes, visitas, negociación y seguimiento hasta el cierre.
+          </p>
+          <div class="owners-actions">
+            <a class="button button-primary" href="#contact">
+              <i data-lucide="home"></i>
+              <span data-i18n="ownersPrimary">Quiero vender o alquilar</span>
+            </a>
+            <a
+              class="button button-light"
+              href="https://wa.me/18299905951?text=Hola%20MeiraGroup%2C%20quiero%20que%20eval%C3%BAen%20mi%20propiedad%20para%20venta%20o%20alquiler."
+              target="_blank"
+              rel="noreferrer"
+            >
+              <i data-lucide="message-circle"></i>
+              <span data-i18n="ownersWhatsApp">Evaluar por WhatsApp</span>
+            </a>
+          </div>
+        </div>
+        <div class="owners-services">
+          <article>
+            <i data-lucide="badge-check"></i>
+            <h3 data-i18n="ownersSaleTitle">Representación para venta</h3>
+            <p data-i18n="ownersSaleCopy">Análisis de precio, publicación, prospectos calificados, visitas y negociación.</p>
+          </article>
+          <article>
+            <i data-lucide="calendar-check"></i>
+            <h3 data-i18n="ownersRentTitle">Gestión para alquiler</h3>
+            <p data-i18n="ownersRentCopy">Promoción para alquiler fijo o turístico, reservas, disponibilidad y perfilado de clientes.</p>
+          </article>
+          <article>
+            <i data-lucide="map"></i>
+            <h3 data-i18n="ownersLandTitle">Solares y terrenos</h3>
+            <p data-i18n="ownersLandCopy">Presentamos potencial de uso, accesos, servicios cercanos y datos clave de inversión.</p>
+          </article>
+          <article>
+            <i data-lucide="file-check-2"></i>
+            <h3 data-i18n="ownersDocsTitle">Preparación comercial</h3>
+            <p data-i18n="ownersDocsCopy">Ordenamos fotos, descripción, documentos base y argumentos para vender con confianza.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section blog-section" aria-labelledby="blog-title">
+        <div class="section-heading row-heading">
+          <div>
+            <p class="eyebrow" data-i18n="blogEyebrow">Blog y noticias</p>
+            <h2 id="blog-title" data-i18n="blogTitle">Guías para comprar mejor</h2>
+          </div>
+          <a class="text-link" href="#contact" data-i18n="blogCta">Pedir una guia personalizada</a>
+        </div>
+        <div class="blog-grid">
+          <article>
+            <img
+              src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=900&q=80"
+              alt="Casa de montaña"
+            />
+            <p class="eyebrow" data-i18n="blogOneMeta">Inversión</p>
+            <h3 data-i18n="blogOneTitle">Qué mirar antes de comprar una villa en zona turística</h3>
+          </article>
+          <article>
+            <img
+              src="https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=900&q=80"
+              alt="Sala moderna"
+            />
+            <p class="eyebrow" data-i18n="blogTwoMeta">Financiamiento</p>
+            <h3 data-i18n="blogTwoTitle">Inicial, tasa y flujo: cómo estimar tu cuota mensual</h3>
+          </article>
+          <article>
+            <img
+              src="https://images.unsplash.com/photo-1572120360610-d971b9d7767c?auto=format&fit=crop&w=900&q=80"
+              alt="Exterior de propiedad"
+            />
+            <p class="eyebrow" data-i18n="blogThreeMeta">Legal</p>
+            <h3 data-i18n="blogThreeTitle">Documentos básicos que debes validar antes de separar</h3>
+          </article>
+        </div>
+      </section>
+
+      <section class="section member-section" id="members" aria-labelledby="members-title">
+        <div class="member-copy">
+          <p class="eyebrow" data-i18n="memberEyebrow">Acceso privado</p>
+          <h2 id="members-title" data-i18n="memberTitle">Inicio de sesión para socios e interesados</h2>
+          <p data-i18n="memberCopy">
+            Recibe alertas de nuevas propiedades, cambios de disponibilidad, oportunidades de inversión y publicaciones
+            del blog antes de que se pierdan entre mensajes.
+          </p>
+        </div>
+        <form class="member-form" id="memberLoginForm">
+          <label>
+            <span data-i18n="memberEmail">Correo electrónico</span>
+            <input id="memberEmail" type="email" required placeholder="tu@email.com" />
+          </label>
+          <label>
+            <span data-i18n="memberRole">Perfil</span>
+            <select id="memberRole">
+              <option data-i18n="memberPartner">Socio</option>
+              <option data-i18n="memberInvestor">Inversionista</option>
+              <option data-i18n="memberOwner">Propietario</option>
+              <option data-i18n="memberBuyer">Comprador interesado</option>
+            </select>
+          </label>
+          <div class="member-options" aria-label="Preferencias de notificación">
+            <label class="checkbox-line">
+              <input id="notifyProperties" type="checkbox" checked />
+              <span data-i18n="notifyProperties">Nuevas propiedades</span>
+            </label>
+            <label class="checkbox-line">
+              <input id="notifyBlogs" type="checkbox" checked />
+              <span data-i18n="notifyBlogs">Blog y noticias</span>
+            </label>
+            <label class="checkbox-line">
+              <input id="notifyUpdates" type="checkbox" checked />
+              <span data-i18n="notifyUpdates">Actualizaciones del mercado</span>
+            </label>
+          </div>
+          <button class="button button-primary" type="submit">
+            <i data-lucide="log-in"></i>
+            <span data-i18n="memberSubmit">Entrar y recibir alertas</span>
+          </button>
+        </form>
+      </section>
+
+      <section class="section contact-section" id="contact" aria-labelledby="contact-title">
+        <div class="contact-copy">
+          <p class="eyebrow" data-i18n="contactEyebrow">Captura de leads</p>
+          <h2 id="contact-title" data-i18n="contactTitle">Cuéntanos qué buscas y te contactamos</h2>
+          <ul class="contact-list">
+            <li><i data-lucide="map-pin"></i> Av. Federico Basilis, Jarabacoa, La Vega, RD</li>
+            <li><i data-lucide="phone"></i> +1 (829) 990-5951</li>
+            <li><i data-lucide="mail"></i> diegocuetohawa05@hotmail.com</li>
+            <li><i data-lucide="clock"></i> Lun - Sab, 9:00 AM - 6:00 PM</li>
+            <li><i data-lucide="bot"></i> <span data-i18n="aiAdvisory">Asesoría 24/7 con IA para preguntas rápidas sobre propiedades.</span></li>
+          </ul>
+        </div>
+        <form class="lead-form" id="leadForm">
+          <label>
+            <span data-i18n="leadName">Nombre</span>
+            <input id="leadName" type="text" required placeholder="Tu nombre" />
+          </label>
+          <label>
+            <span data-i18n="leadPhone">Teléfono o WhatsApp</span>
+            <input id="leadPhone" type="tel" required placeholder="+1 829 000 0000" />
+          </label>
+          <label>
+            <span data-i18n="leadInterest">Interés</span>
+            <select id="leadInterest">
+              <option data-i18n="leadBuy">Comprar</option>
+              <option data-i18n="leadRent">Alquilar</option>
+              <option data-i18n="leadSell">Vender mi propiedad</option>
+              <option data-i18n="leadInvest">Invertir</option>
+            </select>
+          </label>
+          <label>
+            <span data-i18n="leadMessage">Mensaje</span>
+            <textarea id="leadMessage" rows="4" placeholder="Zona, presupuesto, fecha o cualquier detalle"></textarea>
+          </label>
+          <label class="checkbox-line">
+            <input id="leadConsent" type="checkbox" required />
+            <span data-i18n="leadConsent">Acepto que MeiraGroup me contacte sobre mi solicitud.</span>
+          </label>
+          <button class="button button-primary" type="submit">
+            <i data-lucide="send"></i>
+            <span data-i18n="leadSend">Enviar solicitud</span>
+          </button>
+        </form>
+      </section>
+
+      <section class="section admin-section" id="adminPanel" aria-labelledby="admin-title" hidden>
+        <div class="section-heading row-heading">
+          <div>
+            <p class="eyebrow" data-i18n="adminEyebrow">Modo interno</p>
+            <h2 id="admin-title" data-i18n="adminTitle">Administrar propiedades</h2>
+          </div>
+          <button class="button button-light" id="resetDemo" type="button">
+            <i data-lucide="refresh-cw"></i>
+            <span data-i18n="resetDemo">Restaurar demo</span>
+          </button>
+        </div>
+        <div class="admin-layout">
+          <form class="admin-form" id="adminForm">
+            <label>
+              <span data-i18n="adminSelect">Editar propiedad</span>
+              <select id="adminPropertySelect"></select>
+            </label>
+            <div class="admin-actions">
+              <button class="button button-light" id="newProperty" type="button" data-i18n="newProperty">Nueva</button>
+              <button class="button button-danger" id="deleteProperty" type="button" data-i18n="deleteProperty">
+                Eliminar
+              </button>
+            </div>
+            <label>
+              <span data-i18n="adminName">Nombre</span>
+              <input id="adminTitleInput" type="text" required />
+            </label>
+            <label>
+              <span data-i18n="adminType">Tipo</span>
+              <select id="adminTypeInput">
+                <option>Villa</option>
+                <option>Casa</option>
+                <option>Apartamento</option>
+                <option>Solar</option>
+              </select>
+            </label>
+            <label>
+              <span data-i18n="adminOperation">Operación</span>
+              <select id="adminOperationInput">
+                <option value="sale">Venta</option>
+                <option value="rent">Alquiler</option>
+                <option value="sale,rent">Venta y alquiler</option>
+              </select>
+            </label>
+            <label>
+              <span data-i18n="adminStatus">Estado</span>
+              <select id="adminStatusInput">
+                <option value="sale">En Venta</option>
+                <option value="rent">En Alquiler</option>
+                <option value="reserved">Reservado</option>
+                <option value="sold">Vendido</option>
+              </select>
+            </label>
+            <div class="two-col">
+              <label>
+                <span data-i18n="adminPrice">Precio venta</span>
+                <input id="adminPriceInput" type="number" min="0" />
+              </label>
+              <label>
+                <span data-i18n="adminNight">Precio noche</span>
+                <input id="adminNightInput" type="number" min="0" />
+              </label>
+            </div>
+            <div class="three-col">
+              <label>
+                <span data-i18n="adminBeds">Hab.</span>
+                <input id="adminBedsInput" type="number" min="0" />
+              </label>
+              <label>
+                <span data-i18n="adminBaths">Baños</span>
+                <input id="adminBathsInput" type="number" min="0" step="0.5" />
+              </label>
+              <label>
+                <span data-i18n="adminArea">m²</span>
+                <input id="adminAreaInput" type="number" min="0" />
+              </label>
+            </div>
+            <label>
+              <span data-i18n="adminZone">Zona</span>
+              <input id="adminZoneInput" type="text" />
+            </label>
+            <div class="admin-upload-field">
+              <span data-i18n="adminImages">Imágenes de la propiedad</span>
+              <div class="admin-upload-box">
+                <input id="adminImageFileInput" type="file" accept="image/*" multiple hidden />
+                <button class="button button-light" id="adminUploadLocal" type="button">
+                  <i data-lucide="upload"></i>
+                  <span data-i18n="adminUploadLocal">Cargar</span>
+                </button>
+                <button class="button button-light" id="adminUploadDrive" type="button">
+                  <i data-lucide="cloud"></i>
+                  <span data-i18n="adminUploadDrive">Subir</span>
+                </button>
+                <button class="button button-light" id="adminUploadLink" type="button">
+                  <i data-lucide="link"></i>
+                  <span data-i18n="adminUploadLink">Enlace</span>
+                </button>
+              </div>
+              <textarea id="adminImagesInput" rows="3" hidden></textarea>
+              <div class="admin-image-list" id="adminImageList"></div>
+            </div>
+            <label>
+              <span data-i18n="adminDesc">Descripción</span>
+              <textarea id="adminDescInput" rows="4"></textarea>
+            </label>
+            <button class="button button-primary" type="submit">
+              <i data-lucide="save"></i>
+              <span data-i18n="saveProperty">Guardar propiedad</span>
+            </button>
+          </form>
+          <div class="admin-insights">
+            <h3 data-i18n="adminInsights">Pendientes recomendados</h3>
+            <ul>
+              <li data-i18n="missingOne">Conectar pasarela local o Stripe para cargos reales y webhooks.</li>
+              <li data-i18n="missingTwo">Agregar CRM con seguimiento por etapa: nuevo, calificado, visita, oferta, cierre.</li>
+              <li data-i18n="missingThree">Subir documentos legales por propiedad: título, deslinde, impuestos y autorizaciones.</li>
+              <li data-i18n="missingFour">Crear panel de analíticas: leads, propiedades más vistas y tasa de reservas.</li>
+              <li data-i18n="missingFive">Activar SEO técnico con URLs por propiedad y schema inmobiliario.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        <a class="brand footer-brand" href="#top">
+          <span class="brand-mark" aria-hidden="true">
+            <img src="assets/brand/logo-meirahgroup.png" alt="" />
+          </span>
+          <span>
+            <strong>MeiraGroup</strong>
+            <small data-i18n="footerTag">Compra, venta y alquiler de propiedades</small>
+          </span>
+        </a>
+        <p data-i18n="footerCopy">
+          Asesoría inmobiliaria desde Jarabacoa para clientes locales, inversionistas y visitantes que buscan comprar,
+          vender o alquilar con confianza.
+        </p>
+      </div>
+      <div>
+        <h3 data-i18n="footerCompany">Compañía</h3>
+        <a href="#about" data-i18n="navAbout">Sobre nosotros</a>
+        <a href="#properties" data-i18n="navProperties">Propiedades</a>
+        <a href="#blog-title" data-i18n="blogTitle">Guías para comprar mejor</a>
+      </div>
+      <div>
+        <h3 data-i18n="footerServices">Servicios</h3>
+        <a href="#financing" data-i18n="footerFinancing">Calculadoras</a>
+        <a href="#reservations" data-i18n="footerReservations">Reservas</a>
+        <a href="#owners" data-i18n="footerOwners">Vende o alquila con nosotros</a>
+        <a href="#adminPanel" data-i18n="footerManagement">Administración de inventario</a>
+      </div>
+      <div>
+        <h3 data-i18n="footerContact">Contacto</h3>
+        <p>Av. Federico Basilis, Jarabacoa, RD</p>
+        <p>+1 (829) 990-5951</p>
+        <p>diegocuetohawa05@hotmail.com</p>
+      </div>
+    </footer>
+
+    <a
+      class="whatsapp-float"
+href="https://wa.me/18299905951?text=Hola%20MeiraGroup%2C%20quiero%20informaci%C3%B3n%20sobre%20una%20propiedad."
+      target="_blank"
+      rel="noreferrer"
+      aria-label="WhatsApp MeiraGroup"
+    >
+      <i data-lucide="message-circle"></i>
+    </a>
+
+    <button class="chat-float" id="chatToggle" type="button" aria-label="Abrir chatbot">
+      <i data-lucide="bot"></i>
+    </button>
+
+    <aside class="chat-panel" id="chatPanel" hidden aria-label="Chatbot MeiraGroup">
+      <div class="chat-header">
+        <div>
+          <strong>MeiraBot</strong>
+          <small data-i18n="chatStatus">Responde con datos del negocio</small>
+        </div>
+        <button class="icon-button" id="chatClose" type="button" aria-label="Cerrar chat">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+      <div class="chat-messages" id="chatMessages"></div>
+      <form class="chat-form" id="chatForm">
+        <input id="chatInput" type="text" placeholder="Escribe tu pregunta" autocomplete="off" />
+        <button class="icon-button" type="submit" aria-label="Enviar">
+          <i data-lucide="send"></i>
+        </button>
+      </form>
+    </aside>
+
+    <div class="modal" id="propertyModal" hidden role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-backdrop" data-close-modal></div>
+      <article class="modal-content">
+        <button class="icon-button modal-close" type="button" data-close-modal aria-label="Cerrar">
+          <i data-lucide="x"></i>
+        </button>
+        <div id="modalBody"></div>
+      </article>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
