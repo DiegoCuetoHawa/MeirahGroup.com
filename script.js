@@ -26,13 +26,20 @@ const CURRENCY_RATES = {
   EUR: 0.92,
   DOP: 59,
 };
-const CURRENCY_LOCALES = {
-  USD: "en-US",
-  EUR: "es-ES",
-  DOP: "es-DO",
+const CURRENCY_SYMBOLS = {
+  USD: "$",
+  EUR: "\u20AC",
+  DOP: "$",
 };
+const BUSINESS_NAME = "MeriahGroup";
 const BUSINESS_PHONE_DISPLAY = "+1 (829) 990-5951";
 const BUSINESS_WHATSAPP = "18299905951";
+const VIDEO_SOURCE_PATTERN = /\.(mp4|webm|ogg|mov|m4v)(?:$|[?#])/i;
+const RIVERSTONE_IMAGES = [
+  "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=82",
+  "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1400&q=82",
+  "https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&w=1400&q=82",
+];
 
 const BASE_PROPERTIES = [
   {
@@ -221,11 +228,7 @@ const BASE_PROPERTIES = [
       "Villa premium junto a zona verde, con jacuzzi, área de fogata y cocina abierta para grupos o escapadas corporativas.",
     descriptionEn:
       "Premium villa by a green area with jacuzzi, firepit, and open kitchen for groups or corporate retreats.",
-    images: [
-      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=1400&q=82",
-      "https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?auto=format&fit=crop&w=1400&q=82",
-      "https://images.unsplash.com/photo-1600566752229-250ed79470f8?auto=format&fit=crop&w=1400&q=82",
-    ],
+    images: RIVERSTONE_IMAGES,
   },
 ];
 
@@ -244,7 +247,7 @@ const I18N = {
     heroPrimary: "Explorar propiedades",
     heroSecondary: "Quiero asesoría",
     statProperties: "propiedades curadas",
-    statFollow: "respuesta promedio",
+    statFollow: "asesoría activa",
     statLang: "atención ES/EN/PT",
     statReviews: "referencias verificadas",
     filtersEyebrow: "Búsqueda inteligente",
@@ -318,7 +321,7 @@ const I18N = {
     aboutEyebrow: "Nuestra historia",
     aboutTitle: "Una firma cercana para decisiones grandes",
     aboutTextOne:
-      "MeiraGroup nace en Jarabacoa con una idea simple: que comprar, vender o reservar una propiedad no se sienta como entrar a ciegas. Combinamos conocimiento local, criterio comercial y una comunicación clara.",
+      "MeriahGroup nace en Jarabacoa con una idea simple: que comprar, vender o reservar una propiedad no se sienta como entrar a ciegas. Combinamos conocimiento local, criterio comercial y una comunicación clara.",
     aboutTextTwo:
       "Detrás de la compañía hay un equipo que conoce el ritmo de la zona, el valor de una buena ubicación y la importancia de cuidar cada documento antes de firmar.",
     valueOne: "Transparencia",
@@ -328,11 +331,11 @@ const I18N = {
     reviewsTitle: "Clientes que ya dieron el paso",
     reviewOne: "El equipo nos ayudó a comparar zonas, negociar y entender los costos reales antes de firmar.",
     reviewTwo: "Reservamos una villa para un fin de semana familiar. Todo fue rápido, claro y sin sorpresas.",
-    reviewThree: "Vivo fuera del país y necesitaba alguien que respondiera con precisión. MeiraGroup lo hizo fácil.",
+    reviewThree: "Vivo fuera del país y necesitaba alguien que respondiera con precisión. MeriahGroup lo hizo fácil.",
     ownersEyebrow: "Para propietarios",
     ownersTitle: "Vendemos o alquilamos tu propiedad como tu agente inmobiliario",
     ownersCopy:
-      "Si tienes una casa, villa, apartamento, solar, finca o local, MeiraGroup puede representarte con estrategia de precio, fotos, promoción, filtros de clientes, visitas, negociación y seguimiento hasta el cierre.",
+      "Si tienes una casa, villa, apartamento, solar, finca o local, MeriahGroup puede representarte con estrategia de precio, fotos, promoción, filtros de clientes, visitas, negociación y seguimiento hasta el cierre.",
     ownersPrimary: "Quiero vender o alquilar",
     ownersWhatsApp: "Evaluar por WhatsApp",
     ownersSaleTitle: "Representación para venta",
@@ -362,7 +365,7 @@ const I18N = {
     leadSell: "Vender mi propiedad",
     leadInvest: "Invertir",
     leadMessage: "Mensaje",
-    leadConsent: "Acepto que MeiraGroup me contacte sobre mi solicitud.",
+    leadConsent: "Acepto que MeriahGroup me contacte sobre mi solicitud.",
     leadSend: "Enviar solicitud",
     adminEyebrow: "Modo interno",
     adminTitle: "Administrar propiedades",
@@ -380,7 +383,7 @@ const I18N = {
     adminBaths: "Baños",
     adminArea: "m²",
     adminZone: "Zona",
-    adminImages: "Imágenes de la propiedad",
+    adminImages: "Imágenes y videos de la propiedad",
     adminUploadLocal: "Cargar",
     adminUploadDrive: "Subir",
     adminUploadLink: "Enlace",
@@ -450,9 +453,13 @@ const I18N = {
     checkIn: "Entrada",
     checkOut: "Salida",
     guests: "Huéspedes",
+    reservedDates: "Fechas reservadas",
+    availabilityHint: "Rojo = ocupado",
+    availabilityConflict: "Esas fechas ya están reservadas. Elige otro rango.",
     calculateStay: "Calcular estadía",
     sendReservation: "Solicitar reserva",
     modalPayment: "Plan de pagos",
+    additionalComments: "Comentarios adicionales",
     months: "Meses",
     annualRate: "Tasa anual",
     generate: "Generar",
@@ -472,7 +479,7 @@ const I18N = {
     heroPrimary: "Explore properties",
     heroSecondary: "Get guidance",
     statProperties: "curated properties",
-    statFollow: "average response",
+    statFollow: "active advisory",
     statLang: "ES/EN/PT service",
     statReviews: "verified references",
     filtersEyebrow: "Smart search",
@@ -546,7 +553,7 @@ const I18N = {
     aboutEyebrow: "Our story",
     aboutTitle: "A close firm for big decisions",
     aboutTextOne:
-      "MeiraGroup was born in Jarabacoa with a simple idea: buying, selling, or booking a property should not feel blind. We combine local knowledge, commercial judgment, and clear communication.",
+      "MeriahGroup was born in Jarabacoa with a simple idea: buying, selling, or booking a property should not feel blind. We combine local knowledge, commercial judgment, and clear communication.",
     aboutTextTwo:
       "Behind the company is a team that understands the area's pace, the value of a good location, and the importance of checking every document before signing.",
     valueOne: "Transparency",
@@ -556,11 +563,11 @@ const I18N = {
     reviewsTitle: "Clients who already moved forward",
     reviewOne: "The team helped us compare areas, negotiate, and understand real costs before signing.",
     reviewTwo: "We booked a villa for a family weekend. Everything was fast, clear, and without surprises.",
-    reviewThree: "I live abroad and needed precise answers. MeiraGroup made it easy.",
+    reviewThree: "I live abroad and needed precise answers. MeriahGroup made it easy.",
     ownersEyebrow: "For owners",
     ownersTitle: "We sell or rent your property as your real estate agent",
     ownersCopy:
-      "If you own a house, villa, apartment, lot, farm, or commercial space, MeiraGroup can represent you with pricing strategy, photos, promotion, client filtering, showings, negotiation, and closing follow-up.",
+      "If you own a house, villa, apartment, lot, farm, or commercial space, MeriahGroup can represent you with pricing strategy, photos, promotion, client filtering, showings, negotiation, and closing follow-up.",
     ownersPrimary: "I want to sell or rent",
     ownersWhatsApp: "Evaluate by WhatsApp",
     ownersSaleTitle: "Sales representation",
@@ -590,7 +597,7 @@ const I18N = {
     leadSell: "Sell my property",
     leadInvest: "Invest",
     leadMessage: "Message",
-    leadConsent: "I agree that MeiraGroup may contact me about my request.",
+    leadConsent: "I agree that MeriahGroup may contact me about my request.",
     leadSend: "Send request",
     adminEyebrow: "Internal mode",
     adminTitle: "Manage properties",
@@ -608,7 +615,7 @@ const I18N = {
     adminBaths: "Baths",
     adminArea: "sqm",
     adminZone: "Area",
-    adminImages: "Property images",
+    adminImages: "Property images and videos",
     adminUploadLocal: "Load",
     adminUploadDrive: "Upload",
     adminUploadLink: "Link",
@@ -678,9 +685,13 @@ const I18N = {
     checkIn: "Check-in",
     checkOut: "Check-out",
     guests: "Guests",
+    reservedDates: "Booked dates",
+    availabilityHint: "Red = unavailable",
+    availabilityConflict: "Those dates are already booked. Choose another range.",
     calculateStay: "Calculate stay",
     sendReservation: "Request booking",
     modalPayment: "Payment plan",
+    additionalComments: "Additional comments",
     months: "Months",
     annualRate: "Annual rate",
     generate: "Generate",
@@ -703,7 +714,7 @@ I18N.pt = {
   heroPrimary: "Explorar imóveis",
   heroSecondary: "Quero assessoria",
   statProperties: "imóveis selecionados",
-  statFollow: "tempo médio de resposta",
+  statFollow: "assessoria ativa",
   statLang: "atendimento ES/EN/PT",
   filtersEyebrow: "Busca inteligente",
   filtersTitle: "Encontre um imóvel que combine com seu próximo passo",
@@ -753,7 +764,7 @@ I18N.pt = {
   leadMessage: "Mensagem",
   leadSend: "Enviar solicitação",
   adminTitle: "Administrar imóveis",
-  adminImages: "Imagens do imóvel",
+  adminImages: "Imagens e vídeos do imóvel",
   adminUploadLocal: "Carregar",
   adminUploadDrive: "Subir",
   adminUploadLink: "Link",
@@ -776,7 +787,11 @@ I18N.pt = {
   reservedStatus: "Reservado",
   soldStatus: "Vendido",
   calculateStay: "Calcular estadia",
+  reservedDates: "Datas reservadas",
+  availabilityHint: "Vermelho = indisponível",
+  availabilityConflict: "Essas datas já estão reservadas. Escolha outro período.",
   sendReservation: "Solicitar reserva",
+  additionalComments: "Comentários adicionais",
   contactAdvisor: "Falar com assessor",
   aiAdvisory: "Assessoria 24/7 com IA para perguntas rápidas sobre imóveis.",
   memberEyebrow: "Acesso privado",
@@ -806,20 +821,56 @@ let state = {
 };
 
 const propertyGalleryTimers = new Map();
+let modalGalleryTimer = null;
 
 const $ = (selector, scope = document) => scope.querySelector(selector);
 const $$ = (selector, scope = document) => [...scope.querySelectorAll(selector)];
 
 function loadProperties() {
   const saved = localStorage.getItem(STORAGE.properties);
-  if (!saved) return structuredClone(BASE_PROPERTIES);
+  if (!saved) return normalizeProperties(structuredClone(BASE_PROPERTIES));
 
   try {
     const parsed = JSON.parse(saved);
-    return Array.isArray(parsed) && parsed.length ? parsed : structuredClone(BASE_PROPERTIES);
+    return Array.isArray(parsed) && parsed.length
+      ? normalizeProperties(parsed)
+      : normalizeProperties(structuredClone(BASE_PROPERTIES));
   } catch {
-    return structuredClone(BASE_PROPERTIES);
+    return normalizeProperties(structuredClone(BASE_PROPERTIES));
   }
+}
+
+function repairMojibakeText(value) {
+  if (typeof value !== "string" || !/(?:Ã.|Â)/.test(value)) return value;
+  try {
+    const bytes = Uint8Array.from(value, (character) => character.charCodeAt(0) & 255);
+    return new TextDecoder("utf-8").decode(bytes);
+  } catch {
+    return value;
+  }
+}
+
+function normalizeProperties(list) {
+  return list.map((property) => {
+    const normalizedMedia = (Array.isArray(property.images) ? property.images : [])
+      .map(normalizeMediaItem)
+      .filter(Boolean)
+      .map((item) => item.src);
+    const normalized = {
+      ...property,
+      title: repairMojibakeText(property.title),
+      titleEn: repairMojibakeText(property.titleEn),
+      type: repairMojibakeText(property.type),
+      zone: repairMojibakeText(property.zone),
+      description: repairMojibakeText(property.description),
+      descriptionEn: repairMojibakeText(property.descriptionEn),
+      images: normalizedMedia.length ? normalizedMedia : [DEFAULT_IMAGE],
+    };
+    if (normalized.id === "villa-riverstone") {
+      normalized.images = RIVERSTONE_IMAGES;
+    }
+    return normalized;
+  });
 }
 
 function saveProperties() {
@@ -843,19 +894,75 @@ function escapeHtml(value = "") {
     .replaceAll("'", "&#039;");
 }
 
+function isVideoSource(source = "") {
+  if (typeof source !== "string") return false;
+  const value = source.trim().toLowerCase();
+  return value.startsWith("data:video/") || VIDEO_SOURCE_PATTERN.test(value);
+}
+
+function normalizeMediaItem(entry) {
+  if (!entry) return null;
+  if (typeof entry === "string") {
+    const source = repairMojibakeText(entry).trim();
+    if (!source) return null;
+    return { type: isVideoSource(source) ? "video" : "image", src: source };
+  }
+
+  if (typeof entry === "object") {
+    const source = repairMojibakeText(String(entry.src || entry.url || "")).trim();
+    if (!source) return null;
+    const forcedType = entry.type === "video" || entry.type === "image" ? entry.type : null;
+    return { type: forcedType || (isVideoSource(source) ? "video" : "image"), src: source };
+  }
+
+  return null;
+}
+
+function getPropertyMediaItems(property) {
+  const rawItems = Array.isArray(property?.images) ? property.images : [];
+  const normalized = rawItems.map(normalizeMediaItem).filter(Boolean);
+  return normalized.length ? normalized : [{ type: "image", src: DEFAULT_IMAGE }];
+}
+
+function getPropertyImageSources(property) {
+  return getPropertyMediaItems(property)
+    .filter((item) => item.type === "image")
+    .map((item) => item.src);
+}
+
+function getPropertyCoverImage(property) {
+  const images = getPropertyImageSources(property);
+  return images[0] || DEFAULT_IMAGE;
+}
+
 function formatCurrency(value) {
   const currency = CURRENCIES.includes(state.currency) ? state.currency : "USD";
   const converted = (Number(value) || 0) * CURRENCY_RATES[currency];
-  return new Intl.NumberFormat(CURRENCY_LOCALES[currency] || "en-US", {
-    style: "currency",
-    currency,
-    maximumFractionDigits: 0,
+  const symbol = CURRENCY_SYMBOLS[currency] || "$";
+  const formatted = new Intl.NumberFormat("en-US", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
   }).format(converted);
+  return `${currency} ${symbol}${formatted}`;
+}
+
+function formatNumber(value, decimals = 0) {
+  const number = Number(value) || 0;
+  return new Intl.NumberFormat("en-US", {
+    minimumFractionDigits: decimals,
+    maximumFractionDigits: decimals,
+  }).format(number);
+}
+
+function formatSpecValue(value) {
+  const number = Number(value) || 0;
+  return Number.isInteger(number) ? formatNumber(number, 0) : formatNumber(number, 1);
 }
 
 function toUsd(value) {
   const currency = CURRENCIES.includes(state.currency) ? state.currency : "USD";
-  return (Number(value) || 0) / CURRENCY_RATES[currency];
+  const normalized = typeof value === "string" ? value.replace(/[^0-9.-]/g, "") : value;
+  return (Number(normalized) || 0) / CURRENCY_RATES[currency];
 }
 
 function formatDate(date) {
@@ -869,6 +976,13 @@ function formatDate(date) {
     day: "numeric",
     year: "numeric",
   }).format(date);
+}
+
+function formatDateInput(date) {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
 }
 
 function getTitle(property) {
@@ -909,6 +1023,10 @@ function typeLabel(type) {
   return type;
 }
 
+function shouldShowReservation(property) {
+  return property.operations.includes("rent") && property.status !== "sale";
+}
+
 function primaryPrice(property) {
   if (property.operations.includes("sale") && property.price) return property.price;
   return property.rentNight || 0;
@@ -933,6 +1051,11 @@ function applyCurrencyLabels() {
   const maxLabel = $("[data-i18n='filterMax']");
   if (minLabel) minLabel.textContent = `Min. ${state.currency}`;
   if (maxLabel) maxLabel.textContent = `Max. ${state.currency}`;
+  const minInput = $("#filterMin");
+  const maxInput = $("#filterMax");
+  const symbol = CURRENCY_SYMBOLS[state.currency] || "$";
+  if (minInput) minInput.placeholder = `${state.currency} ${symbol}100,000.00`;
+  if (maxInput) maxInput.placeholder = `${state.currency} ${symbol}450,000.00`;
 }
 
 function applyTheme() {
@@ -1009,8 +1132,9 @@ function getFilteredProperties() {
     if (operation !== "all" && operation !== "night" && !property.operations.includes(operation)) return false;
     if (type !== "all" && property.type !== type) return false;
     if (zone !== "all" && property.zone !== zone) return false;
-    if ((operation === "rent" ? property.rentNight : primaryPrice(property)) < min) return false;
-    if ((operation === "rent" ? property.rentNight : primaryPrice(property)) > max) return false;
+    const filterPrice = operation === "rent" || operation === "night" ? property.rentNight : primaryPrice(property);
+    if (filterPrice < min) return false;
+    if (filterPrice > max) return false;
     if (property.beds < beds) return false;
     if (property.area < area) return false;
     return true;
@@ -1030,7 +1154,7 @@ function renderProperties() {
   const grid = $("#propertyGrid");
   const properties = getFilteredProperties();
   $("#resultsSummary").textContent = properties.length
-    ? `${properties.length} ${text("results")}`
+    ? `${formatNumber(properties.length)} ${text("results")}`
     : text("noResults");
 
   grid.innerHTML = properties.map(renderPropertyCard).join("");
@@ -1038,14 +1162,13 @@ function renderProperties() {
   if (window.lucide) window.lucide.createIcons();
 }
 
-function swapPropertyImage(media, property, nextIndex) {
+function swapPropertyImage(media, imageSources, nextIndex) {
   const images = $$(".property-image", media);
-  if (images.length < 2 || !property.images?.length) return;
+  if (images.length < 2 || imageSources.length < 2) return;
 
   const activeSlot = Number(media.dataset.activeSlot || 0);
   const nextSlot = activeSlot === 0 ? 1 : 0;
-  images[nextSlot].src = property.images[nextIndex];
-  images[nextSlot].alt = getTitle(property);
+  images[nextSlot].src = imageSources[nextIndex];
   images[nextSlot].setAttribute("aria-hidden", "false");
   images[activeSlot].setAttribute("aria-hidden", "true");
 
@@ -1058,10 +1181,10 @@ function swapPropertyImage(media, property, nextIndex) {
   media.dataset.imageIndex = String(nextIndex);
 }
 
-function resetPropertyImage(media, property) {
-  if (!property.images?.length) return;
+function resetPropertyImage(media, imageSources) {
+  if (!imageSources.length) return;
   if (Number(media.dataset.imageIndex || 0) === 0) return;
-  swapPropertyImage(media, property, 0);
+  swapPropertyImage(media, imageSources, 0);
 }
 
 function setupPropertyImageHovers() {
@@ -1070,14 +1193,28 @@ function setupPropertyImageHovers() {
 
   $$("[data-property-gallery]").forEach((media) => {
     const property = state.properties.find((item) => item.id === media.dataset.propertyGallery);
-    if (!property || !property.images || property.images.length < 2) return;
+    if (!property) return;
+
+    const cardVideo = $(".property-video", media);
+    if (cardVideo) {
+      media.addEventListener("mouseenter", () => {
+        cardVideo.play().catch(() => {});
+      });
+      media.addEventListener("mouseleave", () => {
+        cardVideo.pause();
+      });
+      return;
+    }
+
+    const imageSources = getPropertyImageSources(property);
+    if (imageSources.length < 2) return;
 
     media.addEventListener("mouseenter", () => {
       if (propertyGalleryTimers.has(media)) return;
       const timer = setInterval(() => {
         const currentIndex = Number(media.dataset.imageIndex || 0);
-        const nextIndex = (currentIndex + 1) % property.images.length;
-        swapPropertyImage(media, property, nextIndex);
+        const nextIndex = (currentIndex + 1) % imageSources.length;
+        swapPropertyImage(media, imageSources, nextIndex);
       }, 1900);
       propertyGalleryTimers.set(media, timer);
     });
@@ -1086,32 +1223,56 @@ function setupPropertyImageHovers() {
       const timer = propertyGalleryTimers.get(media);
       if (timer) clearInterval(timer);
       propertyGalleryTimers.delete(media);
-      resetPropertyImage(media, property);
+      resetPropertyImage(media, imageSources);
     });
   });
 }
 
+function renderPropertyCardMedia(property) {
+  const mediaItems = getPropertyMediaItems(property);
+  const first = mediaItems[0];
+
+  if (first.type === "video") {
+    const poster = getPropertyCoverImage(property);
+    return `
+      <video
+        class="property-video active"
+        src="${escapeHtml(first.src)}"
+        ${poster ? `poster="${escapeHtml(poster)}"` : ""}
+        muted
+        loop
+        playsinline
+        preload="metadata"
+      ></video>
+    `;
+  }
+
+  const imageSources = getPropertyImageSources(property);
+  const image = imageSources[0] || DEFAULT_IMAGE;
+  const secondImage = imageSources[1] || image;
+  return `
+    <img class="property-image active" src="${escapeHtml(image)}" alt="${escapeHtml(getTitle(property))}" loading="lazy" />
+    <img class="property-image" src="${escapeHtml(secondImage)}" alt="${escapeHtml(getTitle(property))}" loading="lazy" aria-hidden="true" />
+  `;
+}
+
 function renderPropertyCard(property) {
   const isFavorite = state.favorites.has(property.id);
-  const image = property.images?.[0] || DEFAULT_IMAGE;
-  const secondImage = property.images?.[1] || image;
   const price = property.operations.includes("sale") && property.price
     ? formatCurrency(property.price)
     : formatCurrency(property.rentNight);
-  const priceMeta = property.operations.includes("sale") && property.price ? state.currency : text("perNight");
-  const rentButton = property.operations.includes("rent")
+  const rentButton = shouldShowReservation(property)
     ? `<button class="button button-light" type="button" data-open-property="${property.id}" data-focus-booking="true">
         <i data-lucide="calendar-check"></i><span>${text("reserve")}</span>
       </button>`
     : `<a class="button button-light" href="https://wa.me/${BUSINESS_WHATSAPP}?text=${encodeURIComponent(
-        `Hola MeiraGroup, quiero consultar ${getTitle(property)}.`
+        `Hola ${BUSINESS_NAME}, quiero consultar ${getTitle(property)}.`
       )}" target="_blank" rel="noreferrer"><i data-lucide="message-circle"></i><span>${text("ask")}</span></a>`;
 
   return `
     <article class="property-card">
       <div class="property-media" data-property-gallery="${property.id}" data-image-index="0" data-active-slot="0">
-        <img class="property-image active" src="${escapeHtml(image)}" alt="${escapeHtml(getTitle(property))}" loading="lazy" />
-        <img class="property-image" src="${escapeHtml(secondImage)}" alt="${escapeHtml(getTitle(property))}" loading="lazy" aria-hidden="true" />
+        ${renderPropertyCardMedia(property)}
         <div class="badge-row">
           <span class="badge ${escapeHtml(property.status)}">${statusLabel(property.status)}</span>
           <button class="favorite-button ${isFavorite ? "active" : ""}" type="button" data-favorite="${
@@ -1124,11 +1285,11 @@ function renderPropertyCard(property) {
       <div class="property-body">
         <h3>${escapeHtml(getTitle(property))}</h3>
         <p class="property-zone">${escapeHtml(property.zone)} · ${escapeHtml(typeLabel(property.type))}</p>
-        <p class="property-price"><strong>${price}</strong><span>${priceMeta}</span></p>
+        <p class="property-price"><strong>${price}</strong></p>
         <div class="property-specs">
-          <span>${property.beds} ${text("beds")}</span>
-          <span>${property.baths} ${text("baths")}</span>
-          <span>${property.area} ${text("area")}</span>
+          <span>${formatSpecValue(property.beds)} ${text("beds")}</span>
+          <span>${formatSpecValue(property.baths)} ${text("baths")}</span>
+          <span>${formatSpecValue(property.area)} ${text("area")}</span>
         </div>
         <p>${escapeHtml(getDescription(property))}</p>
         <div class="property-actions">
@@ -1173,7 +1334,7 @@ function renderMapPanel(property) {
   if (!property) return;
   const price = property.operations.includes("sale") && property.price
     ? formatCurrency(property.price)
-    : `${formatCurrency(property.rentNight)} ${text("perNight")}`;
+    : formatCurrency(property.rentNight);
   $("#mapPanel").innerHTML = `
     <h3>${escapeHtml(getTitle(property))}</h3>
     <p>${escapeHtml(property.zone)} · ${escapeHtml(typeLabel(property.type))}</p>
@@ -1191,15 +1352,15 @@ function renderMapPanel(property) {
 }
 
 function renderReservationPreview() {
-  const rentals = state.properties.filter((property) => property.operations.includes("rent")).slice(0, 2);
+  const rentals = state.properties.filter((property) => shouldShowReservation(property)).slice(0, 2);
   $("#reservationPreview").innerHTML = rentals
     .map(
       (property) => `
       <button class="mini-stay" type="button" data-open-property="${property.id}" data-focus-booking="true">
-        <img src="${escapeHtml(property.images?.[0] || DEFAULT_IMAGE)}" alt="${escapeHtml(getTitle(property))}" loading="lazy" />
+        <img src="${escapeHtml(getPropertyCoverImage(property))}" alt="${escapeHtml(getTitle(property))}" loading="lazy" />
         <div>
           <h3>${escapeHtml(getTitle(property))}</h3>
-          <p>${formatCurrency(property.rentNight)} ${text("perNight")}</p>
+          <p>${formatCurrency(property.rentNight)}</p>
         </div>
       </button>
     `
@@ -1252,7 +1413,7 @@ function renderRefinance() {
   const savings = current.payment - refinanced.payment;
   const breakEvenMonths = savings > 0 ? Math.ceil(closingCosts / savings) : 0;
   const breakEvenText = breakEvenMonths
-    ? `${breakEvenMonths} ${state.lang === "es" ? "meses" : "months"}`
+    ? `${formatNumber(breakEvenMonths)} ${state.lang === "es" ? "meses" : "months"}`
     : state.lang === "es"
       ? "Sin ahorro mensual"
       : "No monthly savings";
@@ -1347,29 +1508,154 @@ function renderAutopaySchedule(container, amount, months, day) {
   `;
 }
 
+function stopModalGalleryRotation() {
+  if (modalGalleryTimer) {
+    clearInterval(modalGalleryTimer);
+    modalGalleryTimer = null;
+  }
+}
+
+function getModalMediaItems(modal) {
+  try {
+    const parsed = JSON.parse(modal.dataset.media || "[]");
+    const mediaItems = Array.isArray(parsed) ? parsed.map(normalizeMediaItem).filter(Boolean) : [];
+    return mediaItems.length ? mediaItems : [{ type: "image", src: DEFAULT_IMAGE }];
+  } catch {
+    return [{ type: "image", src: DEFAULT_IMAGE }];
+  }
+}
+
+function renderModalMainMedia(mediaItem, title, poster) {
+  if (mediaItem.type === "video") {
+    return `
+      <video
+        class="modal-gallery-main modal-gallery-video"
+        src="${escapeHtml(mediaItem.src)}"
+        ${poster ? `poster="${escapeHtml(poster)}"` : ""}
+        controls
+        playsinline
+        preload="metadata"
+        muted
+      ></video>
+    `;
+  }
+
+  return `<img class="modal-gallery-main" src="${escapeHtml(mediaItem.src)}" alt="${escapeHtml(title)}" />`;
+}
+
+function renderModalThumbnail(mediaItem, index, title, poster, isActive = false) {
+  const activeClass = isActive ? "active" : "";
+  if (mediaItem.type === "video") {
+    return `
+      <button class="${activeClass}" type="button" data-thumbnail="${index}">
+        <video src="${escapeHtml(mediaItem.src)}" ${poster ? `poster="${escapeHtml(poster)}"` : ""} muted playsinline preload="metadata"></video>
+        <span class="thumbnail-type">Video</span>
+      </button>
+    `;
+  }
+
+  return `
+    <button class="${activeClass}" type="button" data-thumbnail="${index}">
+      <img src="${escapeHtml(mediaItem.src)}" alt="${escapeHtml(title)} ${index + 1}" />
+    </button>
+  `;
+}
+
+function setModalImageByIndex(index) {
+  const modal = $("#propertyModal");
+  const mediaItems = getModalMediaItems(modal);
+  if (!mediaItems.length) return;
+  const safeIndex = (index + mediaItems.length) % mediaItems.length;
+  modal.dataset.modalIndex = String(safeIndex);
+  const mediaFrame = $("#modalMainMedia");
+  if (mediaFrame) {
+    const item = mediaItems[safeIndex] || { type: "image", src: DEFAULT_IMAGE };
+    mediaFrame.innerHTML = renderModalMainMedia(item, modal.dataset.title || "Propiedad", modal.dataset.poster || DEFAULT_IMAGE);
+    const mainVideo = $("video", mediaFrame);
+    if (mainVideo) {
+      mainVideo.currentTime = 0;
+      mainVideo.play().catch(() => {});
+    }
+    const mainImage = $("img", mediaFrame);
+    if (mainImage) {
+      mainImage.dataset.fallbackAttempts = "0";
+    }
+  }
+  $$("[data-thumbnail]", modal).forEach((button) => button.classList.remove("active"));
+  $(`[data-thumbnail="${safeIndex}"]`, modal)?.classList.add("active");
+  bindModalImageFallback();
+}
+
+function bindModalImageFallback() {
+  const modal = $("#propertyModal");
+  const mediaItems = getModalMediaItems(modal);
+  if (!mediaItems.length) return;
+  const mainImage = $("#modalMainMedia img");
+  if (!mainImage) return;
+
+  mainImage.dataset.fallbackAttempts = "0";
+  mainImage.onerror = () => {
+    const attempts = Number(mainImage.dataset.fallbackAttempts || 0);
+    if (attempts >= mediaItems.length) {
+      mainImage.onerror = null;
+      mainImage.src = DEFAULT_IMAGE;
+      return;
+    }
+    mainImage.dataset.fallbackAttempts = String(attempts + 1);
+    const currentIndex = Number(modal.dataset.modalIndex || 0);
+    setModalImageByIndex(currentIndex + 1);
+  };
+
+  $$("[data-thumbnail] img", modal).forEach((thumbnail, index) => {
+    thumbnail.onerror = () => {
+      thumbnail.closest("button")?.remove();
+      if (Number(modal.dataset.modalIndex || 0) === index) {
+        setModalImageByIndex(index + 1);
+      }
+    };
+  });
+}
+
+function startModalGalleryRotation(mediaItems) {
+  stopModalGalleryRotation();
+  if (!mediaItems || mediaItems.length < 2) return;
+  const imageIndexes = mediaItems.map((item, index) => (item.type === "image" ? index : -1)).filter((index) => index >= 0);
+  if (imageIndexes.length < 2) return;
+  modalGalleryTimer = setInterval(() => {
+    const modal = $("#propertyModal");
+    if (modal.hidden) return;
+    const currentIndex = Number(modal.dataset.modalIndex || 0);
+    const currentPosition = imageIndexes.indexOf(currentIndex);
+    const safePosition = currentPosition >= 0 ? currentPosition : 0;
+    const nextIndex = imageIndexes[(safePosition + 1) % imageIndexes.length];
+    setModalImageByIndex(nextIndex);
+  }, 2400);
+}
+
 function openPropertyModal(propertyId, focusBooking = false) {
   const property = state.properties.find((item) => item.id === propertyId);
   if (!property) return;
 
-  const images = property.images?.length ? property.images : [DEFAULT_IMAGE];
+  const mediaItems = getPropertyMediaItems(property);
+  const poster = getPropertyCoverImage(property);
   const price = property.operations.includes("sale") && property.price
     ? formatCurrency(property.price)
-    : `${formatCurrency(property.rentNight)} ${text("perNight")}`;
+    : formatCurrency(property.rentNight);
 
   $("#modalBody").innerHTML = `
     <div class="modal-grid">
       <div class="modal-gallery">
-        <img class="modal-gallery-main" id="modalMainImage" src="${escapeHtml(images[0])}" alt="${escapeHtml(
-          getTitle(property)
-        )}" />
+        <div id="modalMainMedia" class="modal-main-frame">${renderModalMainMedia(
+          mediaItems[0],
+          getTitle(property),
+          poster
+        )}</div>
         <div class="thumbnail-row">
-          ${images
+          ${mediaItems
             .map(
-              (image, index) => `
-              <button class="${index === 0 ? "active" : ""}" type="button" data-thumbnail="${index}">
-                <img src="${escapeHtml(image)}" alt="${escapeHtml(getTitle(property))} ${index + 1}" />
-              </button>
-            `
+              (item, index) => `
+                ${renderModalThumbnail(item, index, getTitle(property), poster, index === 0)}
+              `
             )
             .join("")}
         </div>
@@ -1380,16 +1666,16 @@ function openPropertyModal(propertyId, focusBooking = false) {
         <p class="property-zone">${escapeHtml(property.zone)} · ${escapeHtml(typeLabel(property.type))}</p>
         <p class="property-price"><strong>${price}</strong></p>
         <div class="property-specs">
-          <span>${property.beds} ${text("beds")}</span>
-          <span>${property.baths} ${text("baths")}</span>
-          <span>${property.area} ${text("area")}</span>
+          <span>${formatSpecValue(property.beds)} ${text("beds")}</span>
+          <span>${formatSpecValue(property.baths)} ${text("baths")}</span>
+          <span>${formatSpecValue(property.area)} ${text("area")}</span>
         </div>
         <p>${escapeHtml(getDescription(property))}</p>
         <div class="modal-tools">
-          ${property.operations.includes("rent") ? renderBookingTool(property) : ""}
+          ${shouldShowReservation(property) ? renderBookingTool(property) : ""}
           ${property.operations.includes("sale") && property.price ? renderPaymentTool(property) : ""}
           <a class="button button-primary" href="https://wa.me/${BUSINESS_WHATSAPP}?text=${encodeURIComponent(
-            `Hola MeiraGroup, quiero información sobre ${getTitle(property)}.`
+            `Hola ${BUSINESS_NAME}, quiero información sobre ${getTitle(property)}.`
           )}" target="_blank" rel="noreferrer">
             <i data-lucide="message-circle"></i><span>${text("contactAdvisor")}</span>
           </a>
@@ -1401,11 +1687,73 @@ function openPropertyModal(propertyId, focusBooking = false) {
   $("#propertyModal").hidden = false;
   document.body.classList.add("modal-open");
   $("#propertyModal").dataset.propertyId = property.id;
-  $("#propertyModal").dataset.images = JSON.stringify(images);
+  $("#propertyModal").dataset.media = JSON.stringify(mediaItems);
+  $("#propertyModal").dataset.poster = poster;
+  $("#propertyModal").dataset.title = getTitle(property);
+  $("#propertyModal").dataset.modalIndex = "0";
+  bindModalImageFallback();
+  startModalGalleryRotation(mediaItems);
+  $$("[data-booking-form]", $("#propertyModal")).forEach((form) => renderBookingAvailability(form));
   if (focusBooking) {
     setTimeout(() => $("[data-booking-tool]", $("#propertyModal"))?.scrollIntoView({ block: "center" }), 60);
   }
   if (window.lucide) window.lucide.createIcons();
+}
+
+function parseDateOnly(value) {
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return null;
+  date.setHours(0, 0, 0, 0);
+  return date;
+}
+
+function getReservationRanges(propertyId) {
+  const saved = JSON.parse(localStorage.getItem(STORAGE.reservations) || "[]");
+  return saved
+    .filter((reservation) => reservation.propertyId === propertyId)
+    .map((reservation) => ({
+      start: parseDateOnly(reservation.checkIn),
+      end: parseDateOnly(reservation.checkOut),
+    }))
+    .filter((range) => range.start && range.end && range.end > range.start);
+}
+
+function isRangeBlocked(propertyId, checkIn, checkOut) {
+  const ranges = getReservationRanges(propertyId);
+  return ranges.some((range) => checkIn < range.end && checkOut > range.start);
+}
+
+function renderBookingAvailability(form) {
+  const availability = $("[data-booking-availability]", form);
+  if (!availability) return;
+
+  const checkIn = parseDateOnly($("input[name='checkIn']", form)?.value);
+  const checkOut = parseDateOnly($("input[name='checkOut']", form)?.value);
+  const ranges = getReservationRanges(form.dataset.bookingForm);
+  const start = new Date();
+  start.setHours(0, 0, 0, 0);
+
+  const days = [];
+  for (let offset = 0; offset < 45; offset += 1) {
+    const date = new Date(start);
+    date.setDate(start.getDate() + offset);
+    const isReserved = ranges.some((range) => date >= range.start && date < range.end);
+    const isSelected = checkIn && checkOut && date >= checkIn && date < checkOut;
+    days.push(`
+      <span class="availability-day ${isReserved ? "reserved" : "free"} ${isSelected ? "selected" : ""}">
+        <strong>${date.getDate()}</strong>
+        <small>${new Intl.DateTimeFormat(state.lang === "en" ? "en-US" : state.lang === "pt" ? "pt-BR" : "es-DO", { month: "short" }).format(date)}</small>
+      </span>
+    `);
+  }
+
+  availability.innerHTML = `
+    <div class="availability-head">
+      <strong>${text("reservedDates")}</strong>
+      <small>${text("availabilityHint")}</small>
+    </div>
+    <div class="availability-grid">${days.join("")}</div>
+  `;
 }
 
 function renderBookingTool(property) {
@@ -1414,20 +1762,21 @@ function renderBookingTool(property) {
   tomorrow.setDate(today.getDate() + 1);
   const next = new Date();
   next.setDate(today.getDate() + 3);
+  const minDate = formatDateInput(today);
+  const checkInDate = formatDateInput(tomorrow);
+  const checkOutDate = formatDateInput(next);
 
   return `
     <form class="booking-tool" data-booking-tool data-booking-form="${property.id}">
       <h3>${text("modalBooking")}</h3>
       <div class="mini-form-grid">
-        <label><span>${text("checkIn")}</span><input name="checkIn" type="date" value="${tomorrow
-          .toISOString()
-          .slice(0, 10)}" /></label>
-        <label><span>${text("checkOut")}</span><input name="checkOut" type="date" value="${next
-          .toISOString()
-          .slice(0, 10)}" /></label>
+        <label><span>${text("checkIn")}</span><input name="checkIn" type="date" min="${minDate}" value="${checkInDate}" /></label>
+        <label><span>${text("checkOut")}</span><input name="checkOut" type="date" min="${minDate}" value="${checkOutDate}" /></label>
         <label><span>${text("guests")}</span><input name="guests" type="number" min="1" value="4" /></label>
         <label><span>${text("leadPhone")}</span><input name="phone" type="tel" placeholder="+1 829 000 0000" /></label>
       </div>
+      <label><span>${text("additionalComments")}</span><textarea name="comments" rows="3" placeholder="..."></textarea></label>
+      <div class="availability-panel" data-booking-availability></div>
       <button class="button button-primary" type="submit">
         <i data-lucide="calendar-check"></i><span>${text("calculateStay")}</span>
       </button>
@@ -1448,6 +1797,7 @@ function renderPaymentTool(property) {
         <label><span>${text("annualRate")}</span><input name="rate" type="number" min="0" step="0.1" value="8.5" /></label>
         <label><span>${text("paymentDay")}</span><input name="day" type="number" min="1" max="28" value="15" /></label>
       </div>
+      <label><span>${text("additionalComments")}</span><textarea name="comments" rows="3" placeholder="..."></textarea></label>
       <button class="button button-primary" type="submit">
         <i data-lucide="credit-card"></i><span>${text("generate")}</span>
       </button>
@@ -1457,6 +1807,8 @@ function renderPaymentTool(property) {
 }
 
 function closeModal() {
+  stopModalGalleryRotation();
+  $$("video", $("#propertyModal")).forEach((video) => video.pause());
   $("#propertyModal").hidden = true;
   document.body.classList.remove("modal-open");
 }
@@ -1468,6 +1820,28 @@ function handleBookingSubmit(form) {
   const data = new FormData(form);
   const checkIn = new Date(data.get("checkIn"));
   const checkOut = new Date(data.get("checkOut"));
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  checkIn.setHours(0, 0, 0, 0);
+  checkOut.setHours(0, 0, 0, 0);
+
+  if (checkIn < today || checkOut <= checkIn) {
+    showToast(
+      localized({
+        es: "Selecciona fechas válidas desde hoy en adelante.",
+        en: "Select valid dates from today onward.",
+        pt: "Selecione datas válidas a partir de hoje.",
+      })
+    );
+    return;
+  }
+
+  if (isRangeBlocked(property.id, checkIn, checkOut)) {
+    showToast(text("availabilityConflict"));
+    renderBookingAvailability(form);
+    return;
+  }
+
   const guests = Number(data.get("guests")) || 1;
   const nights = Math.max(Math.round((checkOut - checkIn) / 86400000), 1);
   const subtotal = nights * property.rentNight;
@@ -1483,6 +1857,7 @@ function handleBookingSubmit(form) {
     checkOut: data.get("checkOut"),
     guests,
     phone: data.get("phone"),
+    comments: String(data.get("comments") || "").trim(),
     total,
     createdAt: new Date().toISOString(),
   };
@@ -1491,7 +1866,7 @@ function handleBookingSubmit(form) {
   localStorage.setItem(STORAGE.reservations, JSON.stringify(saved));
 
   $("[data-booking-output]", form).innerHTML = `
-    <div class="schedule-row"><span>${nights} ${
+    <div class="schedule-row"><span>${formatNumber(nights)} ${
     state.lang === "en" ? "nights" : state.lang === "pt" ? "noites" : "noches"
   } x ${formatCurrency(
     property.rentNight
@@ -1513,7 +1888,7 @@ function handleBookingSubmit(form) {
   )}</strong></div>
     <div class="schedule-row"><span>Total</span><strong>${formatCurrency(total)}</strong></div>
     <a class="button button-primary" href="https://wa.me/${BUSINESS_WHATSAPP}?text=${encodeURIComponent(
-      `Hola MeiraGroup, quiero reservar ${getTitle(property)} del ${data.get("checkIn")} al ${data.get("checkOut")}.`
+      `Hola ${BUSINESS_NAME}, quiero reservar ${getTitle(property)} del ${data.get("checkIn")} al ${data.get("checkOut")}.`
     )}" target="_blank" rel="noreferrer">${text("sendReservation")}</a>
   `;
   showToast(
@@ -1523,6 +1898,7 @@ function handleBookingSubmit(form) {
         ? "Estimativa de reserva salva."
         : "Reserva calculada y guardada."
   );
+  renderBookingAvailability(form);
 }
 
 function handlePaymentSubmit(form) {
@@ -1563,7 +1939,7 @@ function fillAdminForm(property) {
   $("#adminPropertySelect").value = property.id;
   $("#adminTitleInput").value = property.title;
   $("#adminTypeInput").value = property.type;
-  $("#adminOperationInput").value = property.operations.join(",");
+  $("#adminOperationInput").value = property.nightOnly ? "rent-night" : property.operations.join(",");
   $("#adminStatusInput").value = property.status;
   $("#adminPriceInput").value = property.price || "";
   $("#adminNightInput").value = property.rentNight || "";
@@ -1578,14 +1954,17 @@ function fillAdminForm(property) {
 
 function collectAdminProperty(existing) {
   const title = $("#adminTitleInput").value.trim() || "Nueva propiedad";
-  const operations = $("#adminOperationInput").value.split(",").map((item) => item.trim());
+  const rawOperation = $("#adminOperationInput").value.trim();
+  const operations = rawOperation === "rent-night"
+    ? ["rent"]
+    : rawOperation.split(",").map((item) => item.trim()).filter(Boolean);
   return {
     id: existing?.id || `${title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}-${Date.now()}`,
     title,
     titleEn: existing?.titleEn || title,
     type: $("#adminTypeInput").value,
     operations,
-    status: $("#adminStatusInput").value,
+    status: rawOperation === "rent-night" ? "rent" : $("#adminStatusInput").value,
     zone: $("#adminZoneInput").value.trim() || "Jarabacoa",
     price: Number($("#adminPriceInput").value) || 0,
     rentNight: Number($("#adminNightInput").value) || 0,
@@ -1601,9 +1980,10 @@ function collectAdminProperty(existing) {
       Clinica: "12 min",
       Parque: "9 min",
     },
-    description: $("#adminDescInput").value.trim() || "Propiedad agregada al inventario de MeiraGroup.",
+    description: $("#adminDescInput").value.trim() || "Propiedad agregada al inventario de MeriahGroup.",
     descriptionEn: existing?.descriptionEn || $("#adminDescInput").value.trim(),
     images: getAdminImages(),
+    nightOnly: rawOperation === "rent-night",
   };
 }
 
@@ -1626,9 +2006,9 @@ function getBotAnswer(question) {
 
   if (q.includes("hello") || q.includes("hola") || q.includes("buenas")) {
     return localized({
-      es: "Hola. Soy MeiraBot. Puedo ayudarte con propiedades, reservas, calculadoras, ubicación y contacto.",
-      en: "Hello. I am MeiraBot. I can help with properties, bookings, calculators, location, and contact.",
-      pt: "Olá. Sou o MeiraBot. Posso ajudar com imóveis, reservas, calculadoras, localização e contato.",
+      es: "Hola. Soy MeriahBot. Puedo ayudarte con propiedades, reservas, calculadoras, ubicación y contacto.",
+      en: "Hello. I am MeriahBot. I can help with properties, bookings, calculators, location, and contact.",
+      pt: "Olá. Sou o MeriahBot. Posso ajudar com imóveis, reservas, calculadoras, localização e contato.",
     });
   }
   if (
@@ -1744,12 +2124,19 @@ function renderAdminImageList() {
 
   list.innerHTML = images
     .map(
-      (image, index) => `
+      (image, index) => {
+        const isVideo = isVideoSource(image);
+        return `
         <button class="admin-image-chip" type="button" data-remove-admin-image="${index}">
-          <img src="${escapeHtml(image)}" alt="" />
-          <span>${index + 1}</span>
+          ${
+            isVideo
+              ? `<video src="${escapeHtml(image)}" muted playsinline preload="metadata"></video>`
+              : `<img src="${escapeHtml(image)}" alt="" />`
+          }
+          <span>${isVideo ? `V${index + 1}` : index + 1}</span>
         </button>
-      `
+      `;
+      }
     )
     .join("");
 }
@@ -1978,7 +2365,7 @@ function bindEvents() {
   });
 
   $("#adminImageFileInput").addEventListener("change", async (event) => {
-    const files = [...event.target.files].filter((file) => file.type.startsWith("image/"));
+    const files = [...event.target.files].filter((file) => file.type.startsWith("image/") || file.type.startsWith("video/"));
     if (!files.length) return;
     const images = await Promise.all(
       files.map(
@@ -1998,9 +2385,9 @@ function bindEvents() {
   $("#adminUploadDrive").addEventListener("click", () => {
     const url = window.prompt(
       localized({
-        es: "Pega el enlace compartido de Drive.",
-        en: "Paste the shared Drive link.",
-        pt: "Cole o link compartilhado do Drive.",
+        es: "Pega el enlace compartido de Drive (imagen o video).",
+        en: "Paste the shared Drive link (image or video).",
+        pt: "Cole o link compartilhado do Drive (imagem ou vídeo).",
       })
     );
     if (url) addAdminImages([url.trim()]);
@@ -2009,9 +2396,9 @@ function bindEvents() {
   $("#adminUploadLink").addEventListener("click", () => {
     const url = window.prompt(
       localized({
-        es: "Pega el enlace directo de la imagen.",
-        en: "Paste the direct image link.",
-        pt: "Cole o link direto da imagem.",
+        es: "Pega el enlace directo de la imagen o video.",
+        en: "Paste the direct image or video link.",
+        pt: "Cole o link direto da imagem ou vídeo.",
       })
     );
     if (url) addAdminImages([url.trim()]);
@@ -2066,12 +2453,25 @@ function bindEvents() {
 
     const thumbnail = event.target.closest("[data-thumbnail]");
     if (thumbnail) {
-      const images = JSON.parse($("#propertyModal").dataset.images || "[]");
       const index = Number(thumbnail.dataset.thumbnail);
-      $("#modalMainImage").src = images[index] || DEFAULT_IMAGE;
-      $$("[data-thumbnail]", $("#propertyModal")).forEach((button) => button.classList.remove("active"));
-      thumbnail.classList.add("active");
+      setModalImageByIndex(index);
     }
+  });
+
+  $("#propertyModal").addEventListener("change", (event) => {
+    const form = event.target.closest("form");
+    if (!form) return;
+    const checkInInput = $("input[name='checkIn']", form);
+    const checkOutInput = $("input[name='checkOut']", form);
+    const changedDateInput = event.target.closest("input[name='checkIn'], input[name='checkOut']");
+    if (!changedDateInput || !checkInInput || !checkOutInput) return;
+    checkOutInput.min = checkInInput.value;
+    if (checkOutInput.value && checkOutInput.value <= checkInInput.value) {
+      const nextDay = new Date(checkInInput.value);
+      nextDay.setDate(nextDay.getDate() + 1);
+      checkOutInput.value = formatDateInput(nextDay);
+    }
+    renderBookingAvailability(form);
   });
 
   $("#propertyModal").addEventListener("submit", (event) => {
