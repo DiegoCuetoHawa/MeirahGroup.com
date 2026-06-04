@@ -40,5 +40,13 @@ const server = http.createServer((request, response) => {
 });
 
 server.listen(port, "127.0.0.1", () => {
+  console.log(`MeirahGroup running at http://127.0.0.1:${port}/`);
+});
+    response.writeHead(200, { "Content-Type": types[path.extname(file)] || "application/octet-stream" });
+    response.end(data);
+  });
+});
+
+server.listen(port, "127.0.0.1", () => {
   console.log(`MeiraGroup running at http://127.0.0.1:${port}/`);
 });
