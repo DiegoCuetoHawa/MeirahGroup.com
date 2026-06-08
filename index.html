@@ -5,32 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="MeirahGroup, bienes raíces en Jarabacoa y República Dominicana. Compra, venta, alquiler, reservas y asesoría inmobiliaria."
+      content="Meirah Group, bienes raíces en Jarabacoa y República Dominicana. Compra, venta, alquiler, reservas y asesoría inmobiliaria."
     />
-    <title>MeirahGroup | Bienes Raíces en República Dominicana</title>
+    <title>Meirah Group | Bienes Raíces en República Dominicana</title>
     <link rel="preconnect" href="https://images.unsplash.com" />
-    <link rel="icon" href="assets/brand/meirahgroup-favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="assets/brand/meirahgroup-favicon.png" type="image/png" />
     <link rel="stylesheet" href="styles.css" />
     <script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
     <script defer src="script.js"></script>
   </head>
   <body>
     <header class="site-header" id="top">
-      <a class="brand" href="#top" aria-label="MeirahGroup inicio">
+      <a class="brand" href="#top" aria-label="Meirah Group inicio">
         <span class="brand-mark" aria-hidden="true">
-          <img src="assets/brand/meirahgroup-isotype.svg" alt="" />
+          <img src="assets/brand/meirahgroup-isotype-white.png" alt="" />
         </span>
         <span>
-          <strong>MeirahGroup</strong>
+          <strong>Meirah Group</strong>
           <small data-i18n="brandTag">Bienes Raíces</small>
         </span>
       </a>
 
       <nav class="main-nav" aria-label="Principal">
         <a href="#properties" data-i18n="navProperties">Propiedades</a>
-        <a href="#map" data-i18n="navMap">Mapa</a>
         <a href="#financing" data-i18n="navFinancing">Calculadoras</a>
         <a href="#owners" data-i18n="navOwners">Vende/Alquila</a>
+        <a href="#appointments" data-i18n="navAppointment">Agenda tu cita</a>
         <a href="#about" data-i18n="navAbout">Sobre nosotros</a>
         <a href="#contact" data-i18n="navContact">Contacto</a>
       </nav>
@@ -52,7 +58,7 @@
         </button>
         <a
           class="header-phone"
-          href="https://wa.me/18299905951?text=Hola%20MeirahGroup%2C%20quiero%20informaci%C3%B3n."
+          href="https://wa.me/18293935951?text=Hola%20Meirah%20Group%2C%20quiero%20informaci%C3%B3n."
           target="_blank"
           rel="noreferrer"
         >
@@ -72,22 +78,8 @@
         </div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
-          <p class="eyebrow" data-i18n="heroEyebrow">Jarabacoa como base, República Dominicana como alcance</p>
-          <h1 id="hero-title">MeirahGroup</h1>
-          <p class="hero-copy" data-i18n="heroCopy">
-            Casas, villas, solares y propiedades de inversión con asesoría cercana, procesos claros y seguimiento
-            real desde el primer mensaje hasta la entrega de llaves.
-          </p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="#properties">
-              <i data-lucide="search"></i>
-              <span data-i18n="heroPrimary">Explorar propiedades</span>
-            </a>
-            <a class="button button-ghost" href="#contact">
-              <i data-lucide="message-circle"></i>
-              <span data-i18n="heroSecondary">Quiero asesoría</span>
-            </a>
-          </div>
+          <h1 id="hero-title">Meirah Group</h1>
+          <p class="hero-slogan" data-i18n="heroSlogan">Tu Esencia • Tu Espacio • Tu Patrimonio</p>
         </div>
       </section>
 
@@ -202,25 +194,6 @@
         </div>
         <div class="results-summary" id="resultsSummary"></div>
         <div class="property-grid" id="propertyGrid"></div>
-      </section>
-
-      <section class="section map-section" id="map" aria-labelledby="map-title">
-        <div class="section-heading">
-          <p class="eyebrow" data-i18n="mapEyebrow">Ubicación y entorno</p>
-          <h2 id="map-title" data-i18n="mapTitle">Mapa interactivo con distancias a puntos vitales</h2>
-        </div>
-        <div class="map-layout">
-          <div class="map-canvas" id="mapCanvas" aria-label="Mapa de propiedades">
-            <div class="map-road road-one"></div>
-            <div class="map-road road-two"></div>
-            <div class="map-road road-three"></div>
-            <span class="amenity amenity-market">Supermercado</span>
-            <span class="amenity amenity-bank">Banco</span>
-            <span class="amenity amenity-hospital">Clinica</span>
-            <span class="amenity amenity-park">Parque</span>
-          </div>
-          <aside class="map-panel" id="mapPanel"></aside>
-        </div>
       </section>
 
       <section class="section split-section" id="financing" aria-labelledby="financing-title">
@@ -431,6 +404,75 @@
         <div class="reservation-preview" id="reservationPreview"></div>
       </section>
 
+      <section class="section owners-section" id="owners" aria-labelledby="owners-title">
+        <div class="owners-copy">
+          <p class="eyebrow" data-i18n="ownersEyebrow">Para propietarios</p>
+          <h2 id="owners-title" data-i18n="ownersTitle">Vendemos o alquilamos tu propiedad como tu agente inmobiliario</h2>
+          <p data-i18n="ownersCopy">
+            Si tienes una casa, villa, apartamento, solar, finca o local, Meirah Group puede representarte con estrategia
+            de precio, fotos, promoción, filtros de clientes, visitas, negociación y seguimiento hasta el cierre.
+          </p>
+          <div class="owners-actions">
+            <a class="button button-primary" href="#contact">
+              <i data-lucide="home"></i>
+              <span data-i18n="ownersPrimary">Quiero vender o alquilar</span>
+            </a>
+            <a
+              class="button button-light"
+              href="https://wa.me/18293935951?text=Hola%20Meirah%20Group%2C%20quiero%20que%20eval%C3%BAen%20mi%20propiedad%20para%20venta%20o%20alquiler."
+              target="_blank"
+              rel="noreferrer"
+            >
+              <i data-lucide="message-circle"></i>
+              <span data-i18n="ownersWhatsApp">Evaluar por WhatsApp</span>
+            </a>
+          </div>
+        </div>
+        <div class="owners-services">
+          <article>
+            <i data-lucide="badge-check"></i>
+            <h3 data-i18n="ownersSaleTitle">Representación para venta</h3>
+            <p data-i18n="ownersSaleCopy">Análisis de precio, publicación, prospectos calificados, visitas y negociación.</p>
+          </article>
+          <article>
+            <i data-lucide="calendar-check"></i>
+            <h3 data-i18n="ownersRentTitle">Gestión para alquiler</h3>
+            <p data-i18n="ownersRentCopy">Promoción para alquiler fijo o turístico, reservas, disponibilidad y perfilado de clientes.</p>
+          </article>
+          <article>
+            <i data-lucide="map"></i>
+            <h3 data-i18n="ownersLandTitle">Solares y terrenos</h3>
+            <p data-i18n="ownersLandCopy">Presentamos potencial de uso, accesos, servicios cercanos y datos clave de inversión.</p>
+          </article>
+          <article>
+            <i data-lucide="file-check-2"></i>
+            <h3 data-i18n="ownersDocsTitle">Preparación comercial</h3>
+            <p data-i18n="ownersDocsCopy">Ordenamos fotos, descripción, documentos base y argumentos para vender con confianza.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section appointment-section" id="appointments" aria-labelledby="appointments-title">
+        <div class="appointment-copy">
+          <p class="eyebrow" data-i18n="appointmentEyebrow">Próximo apartado</p>
+          <h2 id="appointments-title" data-i18n="appointmentTitle">Agenda tu cita</h2>
+          <p data-i18n="appointmentCopy">
+            Este espacio quedará dedicado a que los clientes puedan agendar encuentros con los administradores para
+            visitas, asesorías y seguimiento personalizado.
+          </p>
+        </div>
+        <div class="appointment-card">
+          <div class="appointment-note" data-i18n="appointmentNote">
+            Próximamente habilitaremos calendario, selección de asesor, modalidad presencial o virtual y confirmación
+            automática.
+          </div>
+          <a class="button button-light" href="#contact">
+            <i data-lucide="calendar-check"></i>
+            <span data-i18n="appointmentContact">Coordinar manualmente por ahora</span>
+          </a>
+        </div>
+      </section>
+
       <section class="section about-section" id="about" aria-labelledby="about-title">
         <div class="about-image">
           <img
@@ -442,7 +484,7 @@
           <p class="eyebrow" data-i18n="aboutEyebrow">Nuestra historia</p>
           <h2 id="about-title" data-i18n="aboutTitle">Una firma cercana para decisiones grandes</h2>
           <p data-i18n="aboutTextOne">
-            MeirahGroup nace en Jarabacoa con una idea simple: que comprar, vender o reservar una propiedad no se
+            Meirah Group nace en Jarabacoa con una idea simple: que comprar, vender o reservar una propiedad no se
             sienta como entrar a ciegas. Combinamos conocimiento local, criterio comercial y una comunicación clara.
           </p>
           <p data-i18n="aboutTextTwo">
@@ -480,57 +522,9 @@
           <article class="review-card">
             <span>4.8</span>
             <p data-i18n="reviewThree">
-              Vivo fuera del país y necesitaba alguien que respondiera con precisión. MeirahGroup lo hizo fácil.
+              Vivo fuera del país y necesitaba alguien que respondiera con precisión. Meirah Group lo hizo fácil.
             </p>
             <strong>Anthony M.</strong>
-          </article>
-        </div>
-      </section>
-
-      <section class="section owners-section" id="owners" aria-labelledby="owners-title">
-        <div class="owners-copy">
-          <p class="eyebrow" data-i18n="ownersEyebrow">Para propietarios</p>
-          <h2 id="owners-title" data-i18n="ownersTitle">Vendemos o alquilamos tu propiedad como tu agente inmobiliario</h2>
-          <p data-i18n="ownersCopy">
-            Si tienes una casa, villa, apartamento, solar, finca o local, MeirahGroup puede representarte con estrategia
-            de precio, fotos, promoción, filtros de clientes, visitas, negociación y seguimiento hasta el cierre.
-          </p>
-          <div class="owners-actions">
-            <a class="button button-primary" href="#contact">
-              <i data-lucide="home"></i>
-              <span data-i18n="ownersPrimary">Quiero vender o alquilar</span>
-            </a>
-            <a
-              class="button button-light"
-              href="https://wa.me/18299905951?text=Hola%20MeirahGroup%2C%20quiero%20que%20eval%C3%BAen%20mi%20propiedad%20para%20venta%20o%20alquiler."
-              target="_blank"
-              rel="noreferrer"
-            >
-              <i data-lucide="message-circle"></i>
-              <span data-i18n="ownersWhatsApp">Evaluar por WhatsApp</span>
-            </a>
-          </div>
-        </div>
-        <div class="owners-services">
-          <article>
-            <i data-lucide="badge-check"></i>
-            <h3 data-i18n="ownersSaleTitle">Representación para venta</h3>
-            <p data-i18n="ownersSaleCopy">Análisis de precio, publicación, prospectos calificados, visitas y negociación.</p>
-          </article>
-          <article>
-            <i data-lucide="calendar-check"></i>
-            <h3 data-i18n="ownersRentTitle">Gestión para alquiler</h3>
-            <p data-i18n="ownersRentCopy">Promoción para alquiler fijo o turístico, reservas, disponibilidad y perfilado de clientes.</p>
-          </article>
-          <article>
-            <i data-lucide="map"></i>
-            <h3 data-i18n="ownersLandTitle">Solares y terrenos</h3>
-            <p data-i18n="ownersLandCopy">Presentamos potencial de uso, accesos, servicios cercanos y datos clave de inversión.</p>
-          </article>
-          <article>
-            <i data-lucide="file-check-2"></i>
-            <h3 data-i18n="ownersDocsTitle">Preparación comercial</h3>
-            <p data-i18n="ownersDocsCopy">Ordenamos fotos, descripción, documentos base y argumentos para vender con confianza.</p>
           </article>
         </div>
       </section>
@@ -621,8 +615,8 @@
           <h2 id="contact-title" data-i18n="contactTitle">Cuéntanos qué buscas y te contactamos</h2>
           <ul class="contact-list">
             <li><i data-lucide="map-pin"></i> Av. Federico Basilis, Jarabacoa, La Vega, RD</li>
-            <li><i data-lucide="phone"></i> +1 (829) 990-5951</li>
-            <li><i data-lucide="mail"></i> diegocuetohawa05@hotmail.com</li>
+            <li><i data-lucide="phone"></i> +1 (829) 393-5951</li>
+            <li><i data-lucide="mail"></i> contacto@meirahgroup.com</li>
             <li><i data-lucide="clock"></i> Lun - Sab, 9:00 AM - 5:00 PM</li>
             <li><i data-lucide="bot"></i> <span data-i18n="aiAdvisory">Asesoría IA 24/7.</span></li>
           </ul>
@@ -651,7 +645,7 @@
           </label>
           <label class="checkbox-line">
             <input id="leadConsent" type="checkbox" required />
-            <span data-i18n="leadConsent">Acepto que MeirahGroup me contacte sobre mi solicitud.</span>
+            <span data-i18n="leadConsent">Acepto que Meirah Group me contacte sobre mi solicitud.</span>
           </label>
           <button class="button button-primary" type="submit">
             <i data-lucide="send"></i>
@@ -818,10 +812,10 @@
       <div>
         <a class="brand footer-brand" href="#top">
           <span class="brand-mark" aria-hidden="true">
-            <img src="assets/brand/meirahgroup-isotype.svg" alt="" />
+            <img src="assets/brand/meirahgroup-isotype-white.png" alt="" />
           </span>
           <span>
-            <strong>MeirahGroup</strong>
+            <strong>Meirah Group</strong>
             <small data-i18n="footerTag">Compra, venta y alquiler de propiedades</small>
           </span>
         </a>
@@ -833,9 +827,9 @@
       <div>
         <h3 data-i18n="footerCompany">Compañía</h3>
         <a href="#owners" data-i18n="navOwners">Vende/Alquila</a>
+        <a href="#appointments" data-i18n="navAppointment">Agenda tu cita</a>
         <a href="#about" data-i18n="navAbout">Sobre nosotros</a>
         <a href="#properties" data-i18n="navProperties">Propiedades</a>
-        <a href="#blog-title" data-i18n="blogTitle">Guías para comprar mejor</a>
       </div>
       <div>
         <h3 data-i18n="footerServices">Servicios</h3>
@@ -847,17 +841,17 @@
       <div>
         <h3 data-i18n="footerContact">Contacto</h3>
         <p>Av. Federico Basilis, Jarabacoa, RD</p>
-        <p>+1 (829) 990-5951</p>
-        <p>diegocuetohawa05@hotmail.com</p>
+        <p>+1 (829) 393-5951</p>
+        <p>contacto@meirahgroup.com</p>
       </div>
     </footer>
 
     <a
       class="whatsapp-float"
-href="https://wa.me/18299905951?text=Hola%20MeirahGroup%2C%20quiero%20informaci%C3%B3n%20sobre%20una%20propiedad."
+href="https://wa.me/18293935951?text=Hola%20Meirah%20Group%2C%20quiero%20informaci%C3%B3n%20sobre%20una%20propiedad."
       target="_blank"
       rel="noreferrer"
-      aria-label="WhatsApp MeirahGroup"
+      aria-label="WhatsApp Meirah Group"
     >
       <i data-lucide="message-circle"></i>
     </a>
@@ -866,7 +860,7 @@ href="https://wa.me/18299905951?text=Hola%20MeirahGroup%2C%20quiero%20informaci%
       <i data-lucide="bot"></i>
     </button>
 
-    <aside class="chat-panel" id="chatPanel" hidden aria-label="Chatbot MeirahGroup">
+    <aside class="chat-panel" id="chatPanel" hidden aria-label="Chatbot Meirah Group">
       <div class="chat-header">
         <div>
           <strong>MeirahBot</strong>
