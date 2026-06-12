@@ -608,7 +608,7 @@ const I18N = {
     paymentMonths: "Cantidad de pagos",
     scheduleAutopay: "Generar plan",
     reservationEyebrow: "Alquileres y estadías",
-    reservationTitle: "Reserva igual de fácil que en Airbnb con confirmación rápida",
+    reservationTitle: "reserva fácil con confirmación rápida",
     reservationCopy:
       "Disponibilidad de renta corta y larga, cálculo de cargos, seguimiento de procesos y solicitud para una experiencia fluida.",
     aboutEyebrow: "Nuestra historia",
@@ -959,7 +959,7 @@ const I18N = {
     paymentMonths: "Number of payments",
     scheduleAutopay: "Generate plan",
     reservationEyebrow: "Rentals and stays",
-    reservationTitle: "Book as easily as on Airbnb with quick confirmation",
+    reservationTitle: "easy booking with quick confirmation",
     reservationCopy:
       "Short and long stay availability, charge calculation, process follow-up, and request flow for a smoother experience.",
     aboutEyebrow: "Our story",
@@ -1274,7 +1274,7 @@ I18N.pt = {
   rentBuyTitle: "Alugar vs. comprar",
   rentBuyCardCopy: "Estime quando faz sentido comprar ou alugar.",
   calculate: "Calcular",
-  reservationTitle: "Reserve com a mesma facilidade do Airbnb e confirmação rápida",
+  reservationTitle: "reserva fácil com confirmação rápida",
   reservationCopy:
     "Disponibilidade para aluguel curto e longo, cálculo de encargos, acompanhamento do processo e solicitação para uma experiência fluida.",
   aboutEyebrow: "Nossa história",
