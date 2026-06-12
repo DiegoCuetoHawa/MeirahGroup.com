@@ -732,7 +732,7 @@ const I18N = {
     viewDetails: "Ver detalles",
     shareProperty: "Compartir",
     propertyCode: "Código",
-    constructionArea: "estructura",
+    constructionArea: "construcción",
     landArea: "terreno",
     totalArea: "propiedad total",
     shareTitle: "Compartir propiedad",
@@ -2095,7 +2095,7 @@ function renderModalPropertySpecs(property) {
   if (totalArea > 0) {
     specs.push({
       value: `${formatSpecValue(totalArea)} m²`,
-      label: text("totalArea"),
+      label: text("landArea"),
     });
   }
 
