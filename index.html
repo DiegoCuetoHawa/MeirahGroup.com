@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
@@ -15,16 +15,21 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="icon" href="assets/brand/meirahgroup-favicon.png" type="image/png" />
+    <link rel="icon" href="assets/brand/logo-meirahgroup-black.png" type="image/png" />
     <link rel="stylesheet" href="styles.css" />
-    <script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script async src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" onload="window.lucide?.createIcons()"></script>
     <script defer src="script.js"></script>
   </head>
   <body>
     <header class="site-header" id="top">
       <a class="brand" href="#top" aria-label="Meirah Group inicio">
         <span class="brand-mark" aria-hidden="true">
-          <img src="assets/brand/meirahgroup-isotype-white.png" alt="" />
+          <img
+            src="assets/brand/logo-meirahgroup-black.png"
+            alt=""
+            data-logo-light="assets/brand/logo-meirahgroup-black.png"
+            data-logo-dark="assets/brand/logo-meirahgroup-white.png"
+          />
         </span>
         <span>
           <strong>Meirah Group</strong>
@@ -42,14 +47,46 @@
       </nav>
 
       <div class="header-actions">
-        <button class="icon-button" id="languageToggle" type="button" aria-label="Cambiar idioma">
-          ES
-        </button>
-        <select class="top-select" id="currencySelect" aria-label="Cambiar moneda">
-          <option value="USD">USD</option>
-          <option value="EUR">EUR</option>
-          <option value="DOP">DOP</option>
-        </select>
+        <div class="header-dropdown" data-header-dropdown="language">
+          <button class="header-select-toggle" id="languageToggle" type="button" aria-label="Cambiar idioma" aria-haspopup="true" aria-expanded="false">
+            <span id="languageToggleValue">ES</span>
+            <i data-lucide="chevron-down"></i>
+          </button>
+          <div class="header-dropdown-menu" id="languageMenu" hidden>
+            <button class="header-dropdown-option" type="button" data-lang-option="es">
+              <strong>ES</strong>
+              <small>Español</small>
+            </button>
+            <button class="header-dropdown-option" type="button" data-lang-option="en">
+              <strong>EN</strong>
+              <small>English</small>
+            </button>
+            <button class="header-dropdown-option" type="button" data-lang-option="pt">
+              <strong>PT</strong>
+              <small>Português</small>
+            </button>
+          </div>
+        </div>
+        <div class="header-dropdown" data-header-dropdown="currency">
+          <button class="header-select-toggle" id="currencyToggle" type="button" aria-label="Cambiar moneda" aria-haspopup="true" aria-expanded="false">
+            <span id="currencyToggleValue">USD</span>
+            <i data-lucide="chevron-down"></i>
+          </button>
+          <div class="header-dropdown-menu" id="currencyMenu" hidden>
+            <button class="header-dropdown-option" type="button" data-currency-option="USD">
+              <strong>USD</strong>
+              <small>Dólar</small>
+            </button>
+            <button class="header-dropdown-option" type="button" data-currency-option="EUR">
+              <strong>EUR</strong>
+              <small>Euro</small>
+            </button>
+            <button class="header-dropdown-option" type="button" data-currency-option="DOP">
+              <strong>DOP</strong>
+              <small>Peso RD</small>
+            </button>
+          </div>
+        </div>
         <button class="icon-button theme-toggle" id="themeToggle" type="button" aria-label="Modo claro u oscuro">
           <i data-lucide="moon"></i>
         </button>
@@ -94,7 +131,7 @@
         </div>
         <div>
           <strong>ES/EN/PT</strong>
-          <span data-i18n="statLang">atención bilingüe</span>
+          <span data-i18n="statLang">idiomas disponibles</span>
         </div>
         <div>
           <strong>4.9/5</strong>
@@ -453,23 +490,156 @@
       </section>
 
       <section class="section appointment-section" id="appointments" aria-labelledby="appointments-title">
-        <div class="appointment-copy">
-          <p class="eyebrow" data-i18n="appointmentEyebrow">Próximo apartado</p>
+        <div class="section-heading appointment-copy">
+          <p class="eyebrow" data-i18n="appointmentEyebrow">Atención personalizada</p>
           <h2 id="appointments-title" data-i18n="appointmentTitle">Agenda tu cita</h2>
           <p data-i18n="appointmentCopy">
-            Este espacio quedará dedicado a que los clientes puedan agendar encuentros con los administradores para
-            visitas, asesorías y seguimiento personalizado.
+            Elige el motivo, la modalidad y el horario que mejor te convenga. El equipo recibirá todos los detalles
+            para preparar la conversación antes de contactarte.
           </p>
         </div>
-        <div class="appointment-card">
-          <div class="appointment-note" data-i18n="appointmentNote">
-            Próximamente habilitaremos calendario, selección de asesor, modalidad presencial o virtual y confirmación
-            automática.
-          </div>
-          <a class="button button-light" href="#contact">
-            <i data-lucide="calendar-check"></i>
-            <span data-i18n="appointmentContact">Coordinar manualmente por ahora</span>
-          </a>
+
+        <div class="appointment-system">
+          <form class="appointment-form" id="appointmentForm">
+            <fieldset class="appointment-step">
+              <legend data-i18n="appointmentTypeTitle">¿Qué necesitas?</legend>
+              <div class="appointment-choice-grid appointment-type-grid">
+                <label class="appointment-choice">
+                  <input type="radio" name="appointmentType" value="buy" checked />
+                  <i data-lucide="key-round"></i>
+                  <span data-i18n="appointmentTypeBuy">Comprar</span>
+                </label>
+                <label class="appointment-choice">
+                  <input type="radio" name="appointmentType" value="sell" />
+                  <i data-lucide="badge-dollar-sign"></i>
+                  <span data-i18n="appointmentTypeSell">Vender</span>
+                </label>
+                <label class="appointment-choice">
+                  <input type="radio" name="appointmentType" value="rent" />
+                  <i data-lucide="house"></i>
+                  <span data-i18n="appointmentTypeRent">Alquilar</span>
+                </label>
+                <label class="appointment-choice">
+                  <input type="radio" name="appointmentType" value="invest" />
+                  <i data-lucide="chart-no-axes-combined"></i>
+                  <span data-i18n="appointmentTypeInvest">Invertir</span>
+                </label>
+                <label class="appointment-choice">
+                  <input type="radio" name="appointmentType" value="visit" />
+                  <i data-lucide="map-pinned"></i>
+                  <span data-i18n="appointmentTypeVisit">Visitar propiedad</span>
+                </label>
+              </div>
+            </fieldset>
+
+            <fieldset class="appointment-step">
+              <legend data-i18n="appointmentModeTitle">Modalidad</legend>
+              <div class="appointment-choice-grid appointment-mode-grid">
+                <label class="appointment-choice">
+                  <input type="radio" name="appointmentMode" value="whatsapp" checked />
+                  <i data-lucide="message-circle"></i>
+                  <span>WhatsApp</span>
+                </label>
+                <label class="appointment-choice">
+                  <input type="radio" name="appointmentMode" value="call" />
+                  <i data-lucide="phone"></i>
+                  <span data-i18n="appointmentModeCall">Llamada</span>
+                </label>
+                <label class="appointment-choice">
+                  <input type="radio" name="appointmentMode" value="video" />
+                  <i data-lucide="video"></i>
+                  <span data-i18n="appointmentModeVideo">Videollamada</span>
+                </label>
+                <label class="appointment-choice">
+                  <input type="radio" name="appointmentMode" value="in-person" />
+                  <i data-lucide="users"></i>
+                  <span data-i18n="appointmentModeInPerson">Presencial</span>
+                </label>
+              </div>
+            </fieldset>
+
+            <fieldset class="appointment-step appointment-staff-step">
+              <legend data-i18n="appointmentAdvisorTitle">Selecciona tu agente</legend>
+              <div class="appointment-staff-selector" id="appointmentStaffSelector"></div>
+              <input id="appointmentAdvisor" name="appointmentAdvisor" type="hidden" required />
+              <p class="appointment-staff-hint" id="appointmentStaffHint" data-i18n="appointmentAdvisorHint">
+                El calendario mostrará únicamente la disponibilidad del agente elegido.
+              </p>
+            </fieldset>
+
+            <div class="appointment-date-layout">
+              <section class="appointment-calendar" aria-labelledby="appointment-calendar-title">
+                <div class="appointment-calendar-header">
+                  <button class="icon-button" id="appointmentPrevMonth" type="button" aria-label="Mes anterior">
+                    <i data-lucide="chevron-left"></i>
+                  </button>
+                  <h3 id="appointment-calendar-title">Mes</h3>
+                  <button class="icon-button" id="appointmentNextMonth" type="button" aria-label="Mes siguiente">
+                    <i data-lucide="chevron-right"></i>
+                  </button>
+                </div>
+                <div class="appointment-weekdays" id="appointmentWeekdays" aria-hidden="true"></div>
+                <div class="appointment-calendar-grid" id="appointmentCalendarGrid"></div>
+                <p class="appointment-calendar-hint" data-i18n="appointmentCalendarHint">
+                  Los días deshabilitados no están disponibles para citas.
+                </p>
+              </section>
+
+              <section class="appointment-times" aria-labelledby="appointment-times-title">
+                <div>
+                  <p class="eyebrow" data-i18n="appointmentTimeEyebrow">Disponibilidad</p>
+                  <h3 id="appointment-times-title" data-i18n="appointmentTimeTitle">Selecciona un horario</h3>
+                  <p id="appointmentSelectedDate" data-i18n="appointmentSelectDate">Primero selecciona una fecha.</p>
+                </div>
+                <div class="appointment-time-grid" id="appointmentTimeSlots"></div>
+              </section>
+            </div>
+
+            <div class="appointment-details-grid">
+              <label>
+                <span data-i18n="appointmentName">Nombre completo</span>
+                <input id="appointmentName" type="text" required autocomplete="name" placeholder="Tu nombre completo" data-i18n-placeholder="appointmentNamePlaceholder" />
+              </label>
+              <label>
+                <span data-i18n="appointmentPhone">Teléfono o WhatsApp</span>
+                <input id="appointmentPhone" type="tel" required autocomplete="tel" placeholder="+1 829 000 0000" />
+              </label>
+              <label>
+                <span data-i18n="appointmentEmail">Correo electrónico (opcional)</span>
+                <input id="appointmentEmail" type="email" autocomplete="email" placeholder="tu@email.com" />
+              </label>
+              <label class="appointment-message-field">
+                <span data-i18n="appointmentMessage">Mensaje adicional</span>
+                <textarea
+                  id="appointmentMessage"
+                  rows="4"
+                  placeholder="Cuéntanos qué propiedad o tema deseas tratar"
+                  data-i18n-placeholder="appointmentMessagePlaceholder"
+                ></textarea>
+              </label>
+            </div>
+
+            <div class="appointment-submit-row">
+              <p id="appointmentValidation" role="alert" aria-live="polite"></p>
+              <button class="button button-primary" type="submit">
+                <i data-lucide="calendar-check-2"></i>
+                <span data-i18n="appointmentConfirm">Confirmar cita</span>
+              </button>
+            </div>
+          </form>
+
+          <aside class="appointment-confirmation" id="appointmentConfirmation" hidden aria-live="polite">
+            <div class="appointment-confirmation-icon"><i data-lucide="circle-check-big"></i></div>
+            <div>
+              <p class="eyebrow" data-i18n="appointmentConfirmedEyebrow">Cita registrada</p>
+              <h3 data-i18n="appointmentConfirmedTitle">Tu solicitud está lista</h3>
+              <div class="appointment-confirmation-summary" id="appointmentConfirmationSummary"></div>
+            </div>
+            <a class="button button-primary" id="appointmentWhatsApp" href="#" target="_blank" rel="noreferrer">
+              <i data-lucide="message-circle"></i>
+              <span data-i18n="appointmentSendWhatsApp">Enviar resumen por WhatsApp</span>
+            </a>
+          </aside>
         </div>
       </section>
 
@@ -658,14 +828,21 @@
         <div class="section-heading row-heading">
           <div>
             <p class="eyebrow" data-i18n="adminEyebrow">Modo interno</p>
-            <h2 id="admin-title" data-i18n="adminTitle">Administrar propiedades</h2>
+            <h2 id="admin-title" data-i18n="adminTitle">Panel interno Meirah Group</h2>
+            <p class="admin-session-summary" id="adminSessionSummary"></p>
           </div>
-          <button class="button button-light" id="resetDemo" type="button">
-            <i data-lucide="refresh-cw"></i>
-            <span data-i18n="resetDemo">Restaurar demo</span>
-          </button>
+          <div class="admin-header-actions">
+            <button class="button button-light" id="resetDemo" type="button">
+              <i data-lucide="refresh-cw"></i>
+              <span data-i18n="resetDemo">Restaurar demo</span>
+            </button>
+            <button class="button button-light" id="staffLogout" type="button">
+              <i data-lucide="log-out"></i>
+              <span data-i18n="staffLogout">Cerrar sesión</span>
+            </button>
+          </div>
         </div>
-        <div class="admin-layout">
+        <div class="admin-layout" id="propertyAdminArea">
           <form class="admin-form" id="adminForm">
             <label>
               <span data-i18n="adminSelect">Editar propiedad</span>
@@ -805,6 +982,179 @@
             </div>
           </div>
         </div>
+
+        <section class="admin-workspace staff-admin-section" id="staffAdminSection" aria-labelledby="staff-admin-title">
+          <div class="admin-workspace-heading">
+            <div>
+              <p class="eyebrow" data-i18n="staffAdminEyebrow">Gestión interna</p>
+              <h3 id="staff-admin-title" data-i18n="staffAdminTitle">Equipo y disponibilidad</h3>
+            </div>
+            <button class="button button-light" id="newStaffMember" type="button">
+              <i data-lucide="user-plus"></i>
+              <span data-i18n="staffNew">Crear usuario</span>
+            </button>
+          </div>
+
+          <div class="staff-admin-layout">
+            <aside class="staff-admin-list" id="staffAdminList"></aside>
+            <form class="staff-admin-form" id="staffAdminForm">
+              <input id="staffIdInput" type="hidden" />
+              <div class="staff-form-grid">
+                <label>
+                  <span data-i18n="staffName">Nombre completo</span>
+                  <input id="staffNameInput" type="text" required />
+                </label>
+                <label>
+                  <span data-i18n="staffUsername">Usuario</span>
+                  <input id="staffUsernameInput" type="text" required autocomplete="off" />
+                </label>
+                <label>
+                  <span data-i18n="staffPassword">Contraseña demo</span>
+                  <span class="inline-input-control">
+                    <input id="staffPasswordInput" type="password" required autocomplete="new-password" />
+                    <button class="button button-light button-inline" id="toggleStaffPassword" type="button" data-i18n="staffPasswordShow">
+                      Ver
+                    </button>
+                  </span>
+                </label>
+                <label>
+                  <span data-i18n="staffRole">Rol</span>
+                  <select id="staffRoleInput">
+                    <option value="super_admin" data-i18n="staffRoleSuperAdmin">Super admin</option>
+                    <option value="admin">Admin</option>
+                    <option value="agent" data-i18n="staffRoleAdvisor">Agente</option>
+                    <option value="assistant" data-i18n="staffRoleAssistant">Asistente</option>
+                    <option value="editor" data-i18n="staffRoleEditor">Editor</option>
+                  </select>
+                </label>
+                <label>
+                  <span data-i18n="staffPhone">Teléfono/WhatsApp</span>
+                  <input id="staffPhoneInput" type="tel" inputmode="tel" placeholder="+1 (829) 000-0000" />
+                </label>
+                <label>
+                  <span data-i18n="staffEmail">Correo</span>
+                  <input id="staffEmailInput" type="email" />
+                </label>
+                <label class="staff-avatar-field">
+                  <span data-i18n="staffAvatar">Avatar opcional</span>
+                  <input id="staffAvatarInput" type="hidden" />
+                  <div class="staff-avatar-source-actions">
+                    <button class="button button-light" id="staffAvatarUseLink" type="button">
+                      <i data-lucide="link"></i>
+                      <span data-i18n="staffAvatarLinkMode">Poner enlace</span>
+                    </button>
+                    <button class="button button-light" id="staffAvatarUseFile" type="button">
+                      <i data-lucide="upload"></i>
+                      <span data-i18n="staffAvatarFileMode">Cargar archivo</span>
+                    </button>
+                    <button class="icon-button" id="staffAvatarClear" type="button" aria-label="Quitar avatar">
+                      <i data-lucide="trash-2"></i>
+                    </button>
+                  </div>
+                  <input id="staffAvatarLinkInput" type="url" placeholder="https://..." />
+                  <input id="staffAvatarFileInput" type="file" accept="image/*" hidden />
+                  <small data-i18n="staffAvatarHint">Archivo máximo 10 MB.</small>
+                  <div class="staff-avatar-preview" id="staffAvatarPreview">
+                    <span data-i18n="staffAvatarEmpty">Sin avatar</span>
+                  </div>
+                </label>
+                <label>
+                  <span data-i18n="staffDuration">Duración de cada cita</span>
+                  <select id="staffDurationInput">
+                    <option value="30">30 min</option>
+                    <option value="45">45 min</option>
+                    <option value="60">60 min</option>
+                    <option value="90">90 min</option>
+                  </select>
+                </label>
+              </div>
+
+              <label class="checkbox-line staff-active-toggle">
+                <input id="staffActiveInput" type="checkbox" checked />
+                <span data-i18n="staffActive">Usuario activo</span>
+              </label>
+              <label class="checkbox-line staff-active-toggle">
+                <input id="staffAcceptsAppointmentsInput" type="checkbox" />
+                <span data-i18n="staffAcceptsAppointments">Acepta citas públicas</span>
+              </label>
+              <label class="checkbox-line staff-active-toggle">
+                <input id="staffAvailabilityConfiguredInput" type="checkbox" />
+                <span data-i18n="staffAvailabilityConfigured">Disponibilidad configurada</span>
+              </label>
+
+              <div class="staff-schedule-editor">
+                <h4 data-i18n="staffWeeklyTitle">Disponibilidad semanal</h4>
+                <p data-i18n="staffWeeklyHint">Selecciona un día, define la jornada y marca hasta dos bloqueos internos.</p>
+                <div id="staffWeeklySchedule"></div>
+              </div>
+
+              <div class="staff-exceptions-grid">
+                <label>
+                  <span data-i18n="staffBlockedDates">Días bloqueados</span>
+                  <textarea id="staffBlockedDatesInput" rows="4" placeholder="2026-06-18, 2026-06-25"></textarea>
+                  <small data-i18n="staffBlockedDatesHint">Usa fechas AAAA-MM-DD separadas por coma o línea.</small>
+                </label>
+              </div>
+
+              <div class="admin-actions">
+                <button class="button button-primary" type="submit">
+                  <i data-lucide="save"></i>
+                  <span data-i18n="staffSave">Guardar usuario y horario</span>
+                </button>
+                <button class="button button-danger" id="deleteStaffMember" type="button">
+                  <i data-lucide="trash-2"></i>
+                  <span data-i18n="staffDelete">Eliminar usuario</span>
+                </button>
+              </div>
+            </form>
+          </div>
+        </section>
+
+        <section class="admin-workspace appointment-admin-section" id="appointmentAdminSection" aria-labelledby="appointment-admin-title">
+          <div class="admin-workspace-heading">
+            <div>
+              <p class="eyebrow" data-i18n="appointmentAdminEyebrow">Seguimiento</p>
+              <h3 id="appointment-admin-title" data-i18n="appointmentAdminTitle">Citas con agentes</h3>
+            </div>
+          </div>
+          <div class="appointment-admin-filters">
+            <label>
+              <span data-i18n="appointmentFilterStaff">Agente</span>
+              <select id="appointmentAdminStaffFilter"></select>
+            </label>
+            <label>
+              <span data-i18n="appointmentFilterDate">Fecha</span>
+              <input id="appointmentAdminDateFilter" type="date" />
+            </label>
+            <label>
+              <span data-i18n="appointmentFilterStatus">Estado</span>
+              <select id="appointmentAdminStatusFilter">
+                <option value="all" data-i18n="optionAll">Todos</option>
+                <option value="pending" data-i18n="appointmentStatusPending">Pendiente</option>
+                <option value="confirmed" data-i18n="appointmentStatusConfirmed">Confirmada</option>
+                <option value="cancelled" data-i18n="appointmentStatusCancelled">Cancelada</option>
+                <option value="completed" data-i18n="appointmentStatusCompleted">Completada</option>
+              </select>
+            </label>
+            <label>
+              <span data-i18n="appointmentFilterMode">Modalidad</span>
+              <select id="appointmentAdminModeFilter">
+                <option value="all" data-i18n="optionAll">Todas</option>
+                <option value="whatsapp">WhatsApp</option>
+                <option value="call" data-i18n="appointmentModeCall">Llamada</option>
+                <option value="video" data-i18n="appointmentModeVideo">Videollamada</option>
+                <option value="in-person" data-i18n="appointmentModeInPerson">Presencial</option>
+              </select>
+            </label>
+          </div>
+          <div class="appointment-admin-layout">
+            <div class="appointment-admin-list" id="appointmentAdminList"></div>
+            <aside class="admin-leads-panel" id="adminLeadsPanel">
+              <h4 data-i18n="adminLeadsTitle">Leads recientes</h4>
+              <div id="adminLeadsList"></div>
+            </aside>
+          </div>
+        </section>
       </section>
     </main>
 
@@ -812,7 +1162,7 @@
       <div>
         <a class="brand footer-brand" href="#top">
           <span class="brand-mark" aria-hidden="true">
-            <img src="assets/brand/meirahgroup-isotype-white.png" alt="" />
+            <img src="assets/brand/logo-meirahgroup-white.png" alt="" />
           </span>
           <span>
             <strong>Meirah Group</strong>
@@ -886,6 +1236,70 @@ href="https://wa.me/18293935951?text=Hola%20Meirah%20Group%2C%20quiero%20informa
           <i data-lucide="x"></i>
         </button>
         <div id="modalBody"></div>
+      </article>
+    </div>
+
+    <div class="modal staff-login-modal" id="staffLoginModal" hidden role="dialog" aria-modal="true" aria-labelledby="staffLoginTitle">
+      <div class="modal-backdrop" data-close-staff-login></div>
+      <article class="staff-login-card">
+        <button class="icon-button staff-login-close" type="button" data-close-staff-login aria-label="Cerrar">
+          <i data-lucide="x"></i>
+        </button>
+        <p class="eyebrow" data-i18n="staffLoginEyebrow">Acceso interno</p>
+        <h2 id="staffLoginTitle" data-i18n="staffLoginTitle">Iniciar sesión</h2>
+        <p data-i18n="staffLoginCopy">Acceso para administradores, asesores y asistentes de Meirah Group.</p>
+        <form class="staff-login-form" id="staffLoginForm">
+          <label>
+            <span data-i18n="staffUsername">Usuario</span>
+            <input id="staffLoginUsername" type="text" required autocomplete="username" />
+          </label>
+          <label>
+            <span data-i18n="staffPassword">Contraseña</span>
+            <input id="staffLoginPassword" type="password" required autocomplete="current-password" />
+          </label>
+          <button class="button button-primary" type="submit">
+            <i data-lucide="log-in"></i>
+            <span data-i18n="staffLoginSubmit">Entrar</span>
+          </button>
+          <button class="button button-light" id="staffPinLogin" type="button">
+            <i data-lucide="key-round"></i>
+            <span data-i18n="staffPinLogin">Usar PIN demo 1025</span>
+          </button>
+          <p class="staff-login-error" id="staffLoginError" role="alert"></p>
+        </form>
+      </article>
+    </div>
+
+    <div class="modal share-modal" id="shareModal" hidden role="dialog" aria-modal="true" aria-labelledby="shareModalTitle">
+      <div class="modal-backdrop" data-close-share></div>
+      <article class="share-modal-card">
+        <button class="icon-button share-modal-close" type="button" data-close-share aria-label="Cerrar">
+          <i data-lucide="x"></i>
+        </button>
+        <p class="eyebrow" data-i18n="propertyCode">Código</p>
+        <h2 id="shareModalTitle" data-i18n="shareTitle">Compartir propiedad</h2>
+        <p data-i18n="shareCopy">Elige dónde deseas compartir este enlace.</p>
+        <div class="share-modal-property" id="shareModalProperty"></div>
+        <div class="share-channel-grid">
+          <button class="share-channel" type="button" data-share-channel="whatsapp">
+            <i data-lucide="message-circle"></i><span>WhatsApp</span>
+          </button>
+          <button class="share-channel" type="button" data-share-channel="facebook">
+            <i data-lucide="facebook"></i><span>Facebook</span>
+          </button>
+          <button class="share-channel" type="button" data-share-channel="x">
+            <i data-lucide="twitter"></i><span>X</span>
+          </button>
+          <button class="share-channel" type="button" data-share-channel="copy">
+            <i data-lucide="copy"></i><span data-i18n="shareCopyLink">Copiar enlace</span>
+          </button>
+          <button class="share-channel" type="button" data-share-channel="instagram">
+            <i data-lucide="instagram"></i><span>Instagram</span>
+          </button>
+          <button class="share-channel" type="button" data-share-channel="tiktok">
+            <i data-lucide="music-2"></i><span>TikTok</span>
+          </button>
+        </div>
       </article>
     </div>
 
