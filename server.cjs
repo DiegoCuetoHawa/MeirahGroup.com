@@ -18,7 +18,15 @@ const types = {
 
 const server = http.createServer((request, response) => {
   const urlPath = decodeURIComponent(request.url.split("?")[0]);
-  const requested = urlPath === "/" ? "index.html" : urlPath.replace(/^\/+/, "");
+  const propertyRoute = urlPath.match(/^\/propiedades\/(.+)$/);
+  const propertyResource = propertyRoute?.[1] || "";
+  const requested = urlPath === "/"
+    ? "index.html"
+    : propertyRoute && !path.extname(propertyResource)
+      ? "index.html"
+      : propertyRoute
+        ? propertyResource
+        : urlPath.replace(/^\/+/, "");
   const file = path.resolve(root, requested);
 
   if (!file.startsWith(root)) {
