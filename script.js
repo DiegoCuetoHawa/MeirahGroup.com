@@ -1,12 +1,12 @@
 ﻿const STORAGE = {
-  properties: "meirahgroup.properties",
-  favorites: "meirahgroup.favorites",
-  leads: "meirahgroup.leads",
-  reservations: "meirahgroup.reservations",
-  lang: "meirahgroup.lang",
-  currency: "meirahgroup.currency",
-  theme: "meirahgroup.theme",
-  members: "meirahgroup.members",
+  properties: "meiragroup.properties",
+  favorites: "meiragroup.favorites",
+  leads: "meiragroup.leads",
+  reservations: "meiragroup.reservations",
+  lang: "meiragroup.lang",
+  currency: "meiragroup.currency",
+  theme: "meiragroup.theme",
+  members: "meiragroup.members",
 };
 
 const DEFAULT_IMAGE =
@@ -31,19 +31,10 @@ const CURRENCY_SYMBOLS = {
   EUR: "\u20AC",
   DOP: "$",
 };
-const BUSINESS_NAME = "Meirah Group";
-const BUSINESS_PHONE_DISPLAY = "+1 (829) 393-5951";
-const BUSINESS_WHATSAPP = "18293935951";
+const BUSINESS_NAME = "MeriahGroup";
+const BUSINESS_PHONE_DISPLAY = "+1 (829) 990-5951";
+const BUSINESS_WHATSAPP = "18299905951";
 const VIDEO_SOURCE_PATTERN = /\.(mp4|webm|ogg|mov|m4v)(?:$|[?#])/i;
-const JARABACOA_CENTER = { lat: 19.1218, lng: -70.6422 };
-const DEFAULT_PROPERTY_COORDS = {
-  "villa-altos-del-yaque": { lat: 19.1245, lng: -70.6408 },
-  "casa-pinar-dorado": { lat: 19.1272, lng: -70.6344 },
-  "apartamento-vista-real": { lat: 19.1291, lng: -70.6228 },
-  "solar-manabao": { lat: 19.0698, lng: -70.7848 },
-  "casa-la-confluencia": { lat: 19.0988, lng: -70.6503 },
-  "villa-riverstone": { lat: 19.1456, lng: -70.6254 },
-};
 const RIVERSTONE_IMAGES = [
   "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=82",
   "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1400&q=82",
@@ -66,8 +57,6 @@ const BASE_PROPERTIES = [
     area: 360,
     lot: 1250,
     featured: true,
-    lat: DEFAULT_PROPERTY_COORDS["villa-altos-del-yaque"].lat,
-    lng: DEFAULT_PROPERTY_COORDS["villa-altos-del-yaque"].lng,
     coords: { x: 34, y: 42 },
     distances: {
       Supermercado: "6 min",
@@ -100,8 +89,6 @@ const BASE_PROPERTIES = [
     area: 210,
     lot: 720,
     featured: true,
-    lat: DEFAULT_PROPERTY_COORDS["casa-pinar-dorado"].lat,
-    lng: DEFAULT_PROPERTY_COORDS["casa-pinar-dorado"].lng,
     coords: { x: 58, y: 34 },
     distances: {
       Supermercado: "4 min",
@@ -134,8 +121,6 @@ const BASE_PROPERTIES = [
     area: 118,
     lot: 0,
     featured: false,
-    lat: DEFAULT_PROPERTY_COORDS["apartamento-vista-real"].lat,
-    lng: DEFAULT_PROPERTY_COORDS["apartamento-vista-real"].lng,
     coords: { x: 71, y: 58 },
     distances: {
       Supermercado: "3 min",
@@ -168,8 +153,6 @@ const BASE_PROPERTIES = [
     area: 2200,
     lot: 2200,
     featured: true,
-    lat: DEFAULT_PROPERTY_COORDS["solar-manabao"].lat,
-    lng: DEFAULT_PROPERTY_COORDS["solar-manabao"].lng,
     coords: { x: 24, y: 68 },
     distances: {
       Supermercado: "14 min",
@@ -202,8 +185,6 @@ const BASE_PROPERTIES = [
     area: 245,
     lot: 900,
     featured: false,
-    lat: DEFAULT_PROPERTY_COORDS["casa-la-confluencia"].lat,
-    lng: DEFAULT_PROPERTY_COORDS["casa-la-confluencia"].lng,
     coords: { x: 46, y: 74 },
     distances: {
       Supermercado: "9 min",
@@ -236,8 +217,6 @@ const BASE_PROPERTIES = [
     area: 430,
     lot: 1800,
     featured: true,
-    lat: DEFAULT_PROPERTY_COORDS["villa-riverstone"].lat,
-    lng: DEFAULT_PROPERTY_COORDS["villa-riverstone"].lng,
     coords: { x: 78, y: 31 },
     distances: {
       Supermercado: "11 min",
@@ -257,12 +236,11 @@ const I18N = {
   es: {
     brandTag: "Bienes Raíces",
     navProperties: "Propiedades",
-    navAppointment: "Agenda tu cita",
+    navMap: "Mapa",
     navFinancing: "Calculadoras",
     navAbout: "Sobre nosotros",
     navOwners: "Vende/Alquila",
     navContact: "Contacto",
-    heroSlogan: "Tu Esencia • Tu Espacio • Tu Patrimonio",
     heroEyebrow: "Jarabacoa como base, República Dominicana como alcance",
     heroCopy:
       "Casas, villas, solares y propiedades de inversión con asesoría cercana, procesos claros y seguimiento real desde el primer mensaje hasta la entrega de llaves.",
@@ -270,7 +248,7 @@ const I18N = {
     heroSecondary: "Quiero asesoría",
     statProperties: "propiedades curadas",
     statFollow: "asesoría activa",
-    statLang: "atención ES/EN/PT",
+    statLang: "idiomas disponibles",
     statReviews: "referencias verificadas",
     filtersEyebrow: "Búsqueda inteligente",
     filtersTitle: "Encuentra una propiedad que encaje con tu próximo paso",
@@ -301,13 +279,8 @@ const I18N = {
     sortPriceDesc: "Precio mayor",
     sortArea: "Más m²",
     favoritesButton: "Favoritos",
-    appointmentEyebrow: "Próximo apartado",
-    appointmentTitle: "Agenda tu cita",
-    appointmentCopy:
-      "Este espacio quedará dedicado a que los clientes puedan agendar encuentros con los administradores para visitas, asesorías y seguimiento personalizado.",
-    appointmentNote:
-      "Próximamente habilitaremos calendario, selección de asesor, modalidad presencial o virtual y confirmación automática.",
-    appointmentContact: "Coordinar manualmente por ahora",
+    mapEyebrow: "Ubicación y entorno",
+    mapTitle: "Mapa interactivo con distancias a puntos vitales",
     financeEyebrow: "Compra con claridad",
     financeTitle: "Calculadoras financieras para decidir mejor",
     calculatorsTitle: "Calculadoras",
@@ -348,7 +321,7 @@ const I18N = {
     aboutEyebrow: "Nuestra historia",
     aboutTitle: "Una firma cercana para decisiones grandes",
     aboutTextOne:
-      "Meirah Group nace en Jarabacoa con una idea simple: que comprar, vender o reservar una propiedad no se sienta como entrar a ciegas. Combinamos conocimiento local, criterio comercial y una comunicación clara.",
+      "MeriahGroup nace en Jarabacoa con una idea simple: que comprar, vender o reservar una propiedad no se sienta como entrar a ciegas. Combinamos conocimiento local, criterio comercial y una comunicación clara.",
     aboutTextTwo:
       "Detrás de la compañía hay un equipo que conoce el ritmo de la zona, el valor de una buena ubicación y la importancia de cuidar cada documento antes de firmar.",
     valueOne: "Transparencia",
@@ -358,11 +331,11 @@ const I18N = {
     reviewsTitle: "Clientes que ya dieron el paso",
     reviewOne: "El equipo nos ayudó a comparar zonas, negociar y entender los costos reales antes de firmar.",
     reviewTwo: "Reservamos una villa para un fin de semana familiar. Todo fue rápido, claro y sin sorpresas.",
-    reviewThree: "Vivo fuera del país y necesitaba alguien que respondiera con precisión. Meirah Group lo hizo fácil.",
+    reviewThree: "Vivo fuera del país y necesitaba alguien que respondiera con precisión. MeriahGroup lo hizo fácil.",
     ownersEyebrow: "Para propietarios",
     ownersTitle: "Vendemos o alquilamos tu propiedad como tu agente inmobiliario",
     ownersCopy:
-      "Si tienes una casa, villa, apartamento, solar, finca o local, Meirah Group puede representarte con estrategia de precio, fotos, promoción, filtros de clientes, visitas, negociación y seguimiento hasta el cierre.",
+      "Si tienes una casa, villa, apartamento, solar, finca o local, MeriahGroup puede representarte con estrategia de precio, fotos, promoción, filtros de clientes, visitas, negociación y seguimiento hasta el cierre.",
     ownersPrimary: "Quiero vender o alquilar",
     ownersWhatsApp: "Evaluar por WhatsApp",
     ownersSaleTitle: "Representación para venta",
@@ -392,7 +365,7 @@ const I18N = {
     leadSell: "Vender mi propiedad",
     leadInvest: "Invertir",
     leadMessage: "Mensaje",
-    leadConsent: "Acepto que Meirah Group me contacte sobre mi solicitud.",
+    leadConsent: "Acepto que MeriahGroup me contacte sobre mi solicitud.",
     leadSend: "Enviar solicitud",
     adminEyebrow: "Modo interno",
     adminTitle: "Administrar propiedades",
@@ -417,15 +390,6 @@ const I18N = {
     adminDesc: "Descripción",
     saveProperty: "Guardar propiedad",
     adminInsights: "Pendientes recomendados",
-    adminReserveTitle: "Calendario de reservas (admin)",
-    adminReserveProperty: "Propiedad reservada",
-    adminReserveStart: "Entrada",
-    adminReserveEnd: "Salida",
-    adminReserveSave: "Guardar reserva",
-    adminReserveClear: "Limpiar reservas",
-    adminReserveEmpty: "Sin reservas registradas para esta propiedad.",
-    adminReserveSaved: "Reserva guardada en calendario admin.",
-    adminReserveCleared: "Reservas limpiadas para esta propiedad.",
     missingOne: "Conectar pasarela local o Stripe para cargos reales y webhooks.",
     missingTwo: "Agregar CRM con seguimiento por etapa: nuevo, calificado, visita, oferta, cierre.",
     missingThree: "Subir documentos legales por propiedad: título, deslinde, impuestos y autorizaciones.",
@@ -504,12 +468,11 @@ const I18N = {
   en: {
     brandTag: "Real Estate",
     navProperties: "Properties",
-    navAppointment: "Schedule your meeting",
+    navMap: "Map",
     navFinancing: "Calculators",
     navAbout: "About",
     navOwners: "Sell/Rent",
     navContact: "Contact",
-    heroSlogan: "Tu Esencia • Tu Espacio • Tu Patrimonio",
     heroEyebrow: "Based in Jarabacoa, serving the Dominican Republic",
     heroCopy:
       "Homes, villas, land, and investment properties with clear guidance, clean processes, and real follow-up from the first message to key handoff.",
@@ -548,13 +511,8 @@ const I18N = {
     sortPriceDesc: "Highest price",
     sortArea: "Most sqm",
     favoritesButton: "Favorites",
-    appointmentEyebrow: "Next section",
-    appointmentTitle: "Schedule your meeting",
-    appointmentCopy:
-      "This space will be used so clients can schedule meetings with the administrators for visits, guidance, and personal follow-up.",
-    appointmentNote:
-      "We will enable calendar selection, advisor selection, on-site or virtual meeting mode, and automatic confirmation soon.",
-    appointmentContact: "Arrange it manually for now",
+    mapEyebrow: "Location and surroundings",
+    mapTitle: "Interactive map with distances to essential places",
     financeEyebrow: "Buy with clarity",
     financeTitle: "Financial calculators for better decisions",
     calculatorsTitle: "Calculators",
@@ -595,7 +553,7 @@ const I18N = {
     aboutEyebrow: "Our story",
     aboutTitle: "A close firm for big decisions",
     aboutTextOne:
-      "Meirah Group was born in Jarabacoa with a simple idea: buying, selling, or booking a property should not feel blind. We combine local knowledge, commercial judgment, and clear communication.",
+      "MeriahGroup was born in Jarabacoa with a simple idea: buying, selling, or booking a property should not feel blind. We combine local knowledge, commercial judgment, and clear communication.",
     aboutTextTwo:
       "Behind the company is a team that understands the area's pace, the value of a good location, and the importance of checking every document before signing.",
     valueOne: "Transparency",
@@ -605,11 +563,11 @@ const I18N = {
     reviewsTitle: "Clients who already moved forward",
     reviewOne: "The team helped us compare areas, negotiate, and understand real costs before signing.",
     reviewTwo: "We booked a villa for a family weekend. Everything was fast, clear, and without surprises.",
-    reviewThree: "I live abroad and needed precise answers. Meirah Group made it easy.",
+    reviewThree: "I live abroad and needed precise answers. MeriahGroup made it easy.",
     ownersEyebrow: "For owners",
     ownersTitle: "We sell or rent your property as your real estate agent",
     ownersCopy:
-      "If you own a house, villa, apartment, lot, farm, or commercial space, Meirah Group can represent you with pricing strategy, photos, promotion, client filtering, showings, negotiation, and closing follow-up.",
+      "If you own a house, villa, apartment, lot, farm, or commercial space, MeriahGroup can represent you with pricing strategy, photos, promotion, client filtering, showings, negotiation, and closing follow-up.",
     ownersPrimary: "I want to sell or rent",
     ownersWhatsApp: "Evaluate by WhatsApp",
     ownersSaleTitle: "Sales representation",
@@ -639,7 +597,7 @@ const I18N = {
     leadSell: "Sell my property",
     leadInvest: "Invest",
     leadMessage: "Message",
-    leadConsent: "I agree that Meirah Group may contact me about my request.",
+    leadConsent: "I agree that MeriahGroup may contact me about my request.",
     leadSend: "Send request",
     adminEyebrow: "Internal mode",
     adminTitle: "Manage properties",
@@ -664,15 +622,6 @@ const I18N = {
     adminDesc: "Description",
     saveProperty: "Save property",
     adminInsights: "Recommended next steps",
-    adminReserveTitle: "Reservation calendar (admin)",
-    adminReserveProperty: "Reserved property",
-    adminReserveStart: "Check-in",
-    adminReserveEnd: "Check-out",
-    adminReserveSave: "Save booking",
-    adminReserveClear: "Clear bookings",
-    adminReserveEmpty: "No bookings saved for this property.",
-    adminReserveSaved: "Booking saved in admin calendar.",
-    adminReserveCleared: "Bookings cleared for this property.",
     missingOne: "Connect a local gateway or Stripe for real charges and webhooks.",
     missingTwo: "Add CRM follow-up stages: new, qualified, showing, offer, closing.",
     missingThree: "Upload legal documents per property: title, survey, taxes, and authorizations.",
@@ -754,12 +703,11 @@ I18N.pt = {
   ...I18N.es,
   brandTag: "Imóveis",
   navProperties: "Imóveis",
-  navAppointment: "Agende sua reunião",
+  navMap: "Mapa",
   navFinancing: "Calculadoras",
   navAbout: "Sobre nós",
   navOwners: "Venda/Alugue",
   navContact: "Contato",
-  heroSlogan: "Tu Esencia • Tu Espacio • Tu Patrimonio",
   heroEyebrow: "Jarabacoa como base, República Dominicana como alcance",
   heroCopy:
     "Casas, villas, terrenos e propriedades de investimento com assessoria próxima, processos claros e acompanhamento real desde a primeira mensagem até a entrega das chaves.",
@@ -784,13 +732,7 @@ I18N.pt = {
   typeLand: "Terreno",
   propertiesEyebrow: "Inventário em destaque",
   propertiesTitle: "Imóveis disponíveis",
-  appointmentEyebrow: "Próxima seção",
-  appointmentTitle: "Agende sua reunião",
-  appointmentCopy:
-    "Este espaço ficará dedicado para que os clientes possam agendar encontros com os administradores para visitas, assessoria e acompanhamento personalizado.",
-  appointmentNote:
-    "Em breve habilitaremos calendário, seleção de assessor, modalidade presencial ou virtual e confirmação automática.",
-  appointmentContact: "Coordenar manualmente por enquanto",
+  mapTitle: "Mapa interativo com distâncias a pontos essenciais",
   financeEyebrow: "Compre com clareza",
   financeTitle: "Calculadoras financeiras para decidir melhor",
   mortgageTitle: "Calculadora hipotecária",
@@ -826,15 +768,6 @@ I18N.pt = {
   adminUploadLocal: "Carregar",
   adminUploadDrive: "Subir",
   adminUploadLink: "Link",
-  adminReserveTitle: "Calendário de reservas (admin)",
-  adminReserveProperty: "Imóvel reservado",
-  adminReserveStart: "Entrada",
-  adminReserveEnd: "Saída",
-  adminReserveSave: "Salvar reserva",
-  adminReserveClear: "Limpar reservas",
-  adminReserveEmpty: "Sem reservas registradas para este imóvel.",
-  adminReserveSaved: "Reserva salva no calendário admin.",
-  adminReserveCleared: "Reservas limpas para este imóvel.",
   footerTag: "Compra, venda e aluguel de imóveis",
   footerFinancing: "Calculadoras",
   footerReservations: "Reservas",
@@ -884,6 +817,7 @@ let state = {
   properties: loadProperties(),
   favorites: new Set(JSON.parse(localStorage.getItem(STORAGE.favorites) || "[]")),
   showFavorites: false,
+  activeMapId: null,
 };
 
 const propertyGalleryTimers = new Map();
@@ -916,38 +850,12 @@ function repairMojibakeText(value) {
   }
 }
 
-function isValidCoordinate(value) {
-  return Number.isFinite(Number(value));
-}
-
-function legacyCoordsToLatLng(coords = {}) {
-  const x = Number(coords.x);
-  const y = Number(coords.y);
-  if (!Number.isFinite(x) || !Number.isFinite(y)) return null;
-  return {
-    lat: JARABACOA_CENTER.lat + (50 - y) * 0.001,
-    lng: JARABACOA_CENTER.lng + (x - 50) * 0.0012,
-  };
-}
-
-function fallbackPropertyCoordinates(property, index = 0) {
-  if (DEFAULT_PROPERTY_COORDS[property.id]) return DEFAULT_PROPERTY_COORDS[property.id];
-  const fromLegacyCoords = legacyCoordsToLatLng(property.coords);
-  if (fromLegacyCoords) return fromLegacyCoords;
-  const angle = index * 1.7;
-  return {
-    lat: JARABACOA_CENTER.lat + Math.sin(angle) * 0.018,
-    lng: JARABACOA_CENTER.lng + Math.cos(angle) * 0.018,
-  };
-}
-
 function normalizeProperties(list) {
-  return list.map((property, index) => {
+  return list.map((property) => {
     const normalizedMedia = (Array.isArray(property.images) ? property.images : [])
       .map(normalizeMediaItem)
       .filter(Boolean)
       .map((item) => item.src);
-    const fallbackCoords = fallbackPropertyCoordinates(property, index);
     const normalized = {
       ...property,
       title: repairMojibakeText(property.title),
@@ -956,8 +864,6 @@ function normalizeProperties(list) {
       zone: repairMojibakeText(property.zone),
       description: repairMojibakeText(property.description),
       descriptionEn: repairMojibakeText(property.descriptionEn),
-      lat: isValidCoordinate(property.lat) ? Number(property.lat) : fallbackCoords.lat,
-      lng: isValidCoordinate(property.lng) ? Number(property.lng) : fallbackCoords.lng,
       images: normalizedMedia.length ? normalizedMedia : [DEFAULT_IMAGE],
     };
     if (normalized.id === "villa-riverstone") {
@@ -1048,32 +954,6 @@ function formatNumber(value, decimals = 0) {
   }).format(number);
 }
 
-function parseNumericInput(value) {
-  const sanitized = String(value ?? "").replace(/,/g, "").trim();
-  const number = Number(sanitized);
-  return Number.isFinite(number) ? number : 0;
-}
-
-function setupFormattedNumericInputs() {
-  $$("input[data-format-number]").forEach((input) => {
-    input.addEventListener("focus", () => {
-      const current = parseNumericInput(input.value);
-      if (input.value.trim() === "") return;
-      input.value = String(current);
-    });
-
-    input.addEventListener("blur", () => {
-      if (input.value.trim() === "") return;
-      const current = parseNumericInput(input.value);
-      input.value = formatNumber(current, 0);
-    });
-
-    if (input.value.trim() !== "") {
-      input.value = formatNumber(parseNumericInput(input.value), 0);
-    }
-  });
-}
-
 function formatSpecValue(value) {
   const number = Number(value) || 0;
   return Number.isInteger(number) ? formatNumber(number, 0) : formatNumber(number, 1);
@@ -1103,30 +983,6 @@ function formatDateInput(date) {
   const month = String(date.getMonth() + 1).padStart(2, "0");
   const day = String(date.getDate()).padStart(2, "0");
   return `${year}-${month}-${day}`;
-}
-
-function setBookingDateConstraints(form) {
-  if (!form) return;
-  const checkInInput = $("input[name='checkIn']", form);
-  const checkOutInput = $("input[name='checkOut']", form);
-  if (!checkInInput || !checkOutInput) return;
-
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-  const todayIso = formatDateInput(today);
-  checkInInput.min = todayIso;
-  if (!checkInInput.value || checkInInput.value < todayIso) {
-    checkInInput.value = todayIso;
-  }
-
-  const checkInDate = parseDateOnly(checkInInput.value) || today;
-  const nextDay = new Date(checkInDate);
-  nextDay.setDate(nextDay.getDate() + 1);
-  const minCheckOut = formatDateInput(nextDay);
-  checkOutInput.min = minCheckOut;
-  if (!checkOutInput.value || checkOutInput.value <= checkInInput.value) {
-    checkOutInput.value = minCheckOut;
-  }
 }
 
 function getTitle(property) {
@@ -1214,6 +1070,7 @@ function applyTheme() {
 function initHeroSlideshow() {
   const heroMedia = $(".hero-media");
   if (!heroMedia || HERO_IMAGES.length < 2) return;
+  if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) return;
   HERO_IMAGES.forEach((src) => {
     const preload = new Image();
     preload.src = src;
@@ -1246,7 +1103,7 @@ function initHeroSlideshow() {
     });
 
     activeSlot = nextSlot;
-  }, 5000);
+  }, 7600);
 }
 
 function populateZoneOptions() {
@@ -1452,6 +1309,48 @@ function updateFavoriteCount() {
   $("#showFavorites").classList.toggle("button-light", !state.showFavorites);
 }
 
+function renderMap() {
+  const canvas = $("#mapCanvas");
+  $$(".map-pin", canvas).forEach((pin) => pin.remove());
+  const active = state.activeMapId || state.properties[0]?.id;
+  state.activeMapId = active;
+
+  state.properties.forEach((property, index) => {
+    const pin = document.createElement("button");
+    pin.className = `map-pin ${property.id === active ? "active" : ""}`;
+    pin.type = "button";
+    pin.dataset.mapId = property.id;
+    pin.style.left = `${property.coords?.x || 45}%`;
+    pin.style.top = `${property.coords?.y || 45}%`;
+    pin.innerHTML = `<span>${index + 1}</span>`;
+    pin.setAttribute("aria-label", getTitle(property));
+    canvas.appendChild(pin);
+  });
+
+  renderMapPanel(state.properties.find((property) => property.id === active) || state.properties[0]);
+}
+
+function renderMapPanel(property) {
+  if (!property) return;
+  const price = property.operations.includes("sale") && property.price
+    ? formatCurrency(property.price)
+    : formatCurrency(property.rentNight);
+  $("#mapPanel").innerHTML = `
+    <h3>${escapeHtml(getTitle(property))}</h3>
+    <p>${escapeHtml(property.zone)} · ${escapeHtml(typeLabel(property.type))}</p>
+    <p><strong>${price}</strong></p>
+    <ul class="distance-list">
+      ${Object.entries(property.distances || {})
+        .map(([name, distance]) => `<li><span>${escapeHtml(name)}</span><strong>${escapeHtml(distance)}</strong></li>`)
+        .join("")}
+    </ul>
+    <button class="button button-primary" type="button" data-open-property="${property.id}">
+      <i data-lucide="home"></i><span>${text("viewDetails")}</span>
+    </button>
+  `;
+  if (window.lucide) window.lucide.createIcons();
+}
+
 function renderReservationPreview() {
   const rentals = state.properties.filter((property) => shouldShowReservation(property)).slice(0, 2);
   $("#reservationPreview").innerHTML = rentals
@@ -1484,8 +1383,8 @@ function calculateMortgage(price, down, annualRate, years) {
 }
 
 function renderMortgage() {
-  const price = parseNumericInput($("#homePrice").value);
-  const down = parseNumericInput($("#downPayment").value);
+  const price = Number($("#homePrice").value) || 0;
+  const down = Number($("#downPayment").value) || 0;
   const rate = Number($("#interestRate").value) || 0;
   const years = Number($("#loanYears").value) || 1;
   const result = calculateMortgage(price, down, rate, years);
@@ -1504,11 +1403,11 @@ function getLoanFromPayment(payment, annualRate, years) {
 }
 
 function renderRefinance() {
-  const balance = parseNumericInput($("#currentBalance").value);
+  const balance = Number($("#currentBalance").value) || 0;
   const currentRate = Number($("#currentRate").value) || 0;
   const newRate = Number($("#newRate").value) || 0;
   const years = Number($("#remainingYears").value) || 1;
-  const closingCosts = parseNumericInput($("#closingCosts").value);
+  const closingCosts = Number($("#closingCosts").value) || 0;
   const current = calculateMortgage(balance, 0, currentRate, years);
   const refinanced = calculateMortgage(balance + closingCosts, 0, newRate, years);
   const savings = current.payment - refinanced.payment;
@@ -1528,9 +1427,9 @@ function renderRefinance() {
 }
 
 function renderAffordability() {
-  const income = parseNumericInput($("#monthlyIncome").value);
-  const debt = parseNumericInput($("#monthlyDebt").value);
-  const down = parseNumericInput($("#affordDown").value);
+  const income = Number($("#monthlyIncome").value) || 0;
+  const debt = Number($("#monthlyDebt").value) || 0;
+  const down = Number($("#affordDown").value) || 0;
   const rate = Number($("#affordRate").value) || 0;
   const years = Number($("#affordYears").value) || 1;
   const targetPayment = Math.max(income * 0.32 - debt, 0);
@@ -1545,9 +1444,9 @@ function renderAffordability() {
 }
 
 function renderRentBuy() {
-  const rent = parseNumericInput($("#monthlyRent").value);
-  const price = parseNumericInput($("#compareHomePrice").value);
-  const down = parseNumericInput($("#compareDownPayment").value);
+  const rent = Number($("#monthlyRent").value) || 0;
+  const price = Number($("#compareHomePrice").value) || 0;
+  const down = Number($("#compareDownPayment").value) || 0;
   const rate = Number($("#compareRate").value) || 0;
   const years = Number($("#yearsInHome").value) || 1;
   const months = years * 12;
@@ -1794,7 +1693,7 @@ function openPropertyModal(propertyId, focusBooking = false) {
   $("#propertyModal").dataset.modalIndex = "0";
   bindModalImageFallback();
   startModalGalleryRotation(mediaItems);
-  $$("[data-booking-form]", $("#propertyModal")).forEach((form) => setBookingDateConstraints(form));
+  $$("[data-booking-form]", $("#propertyModal")).forEach((form) => renderBookingAvailability(form));
   if (focusBooking) {
     setTimeout(() => $("[data-booking-tool]", $("#propertyModal"))?.scrollIntoView({ block: "center" }), 60);
   }
@@ -1819,23 +1718,65 @@ function getReservationRanges(propertyId) {
     .filter((range) => range.start && range.end && range.end > range.start);
 }
 
+function isRangeBlocked(propertyId, checkIn, checkOut) {
+  const ranges = getReservationRanges(propertyId);
+  return ranges.some((range) => checkIn < range.end && checkOut > range.start);
+}
+
+function renderBookingAvailability(form) {
+  const availability = $("[data-booking-availability]", form);
+  if (!availability) return;
+
+  const checkIn = parseDateOnly($("input[name='checkIn']", form)?.value);
+  const checkOut = parseDateOnly($("input[name='checkOut']", form)?.value);
+  const ranges = getReservationRanges(form.dataset.bookingForm);
+  const start = new Date();
+  start.setHours(0, 0, 0, 0);
+
+  const days = [];
+  for (let offset = 0; offset < 45; offset += 1) {
+    const date = new Date(start);
+    date.setDate(start.getDate() + offset);
+    const isReserved = ranges.some((range) => date >= range.start && date < range.end);
+    const isSelected = checkIn && checkOut && date >= checkIn && date < checkOut;
+    days.push(`
+      <span class="availability-day ${isReserved ? "reserved" : "free"} ${isSelected ? "selected" : ""}">
+        <strong>${date.getDate()}</strong>
+        <small>${new Intl.DateTimeFormat(state.lang === "en" ? "en-US" : state.lang === "pt" ? "pt-BR" : "es-DO", { month: "short" }).format(date)}</small>
+      </span>
+    `);
+  }
+
+  availability.innerHTML = `
+    <div class="availability-head">
+      <strong>${text("reservedDates")}</strong>
+      <small>${text("availabilityHint")}</small>
+    </div>
+    <div class="availability-grid">${days.join("")}</div>
+  `;
+}
+
 function renderBookingTool(property) {
   const today = new Date();
+  const tomorrow = new Date();
+  tomorrow.setDate(today.getDate() + 1);
   const next = new Date();
-  next.setDate(today.getDate() + 2);
-  const checkInDate = formatDateInput(today);
+  next.setDate(today.getDate() + 3);
+  const minDate = formatDateInput(today);
+  const checkInDate = formatDateInput(tomorrow);
   const checkOutDate = formatDateInput(next);
 
   return `
     <form class="booking-tool" data-booking-tool data-booking-form="${property.id}">
       <h3>${text("modalBooking")}</h3>
       <div class="mini-form-grid">
-        <label><span>${text("checkIn")}</span><input name="checkIn" type="date" min="${checkInDate}" value="${checkInDate}" /></label>
-        <label><span>${text("checkOut")}</span><input name="checkOut" type="date" min="${checkOutDate}" value="${checkOutDate}" /></label>
+        <label><span>${text("checkIn")}</span><input name="checkIn" type="date" min="${minDate}" value="${checkInDate}" /></label>
+        <label><span>${text("checkOut")}</span><input name="checkOut" type="date" min="${minDate}" value="${checkOutDate}" /></label>
         <label><span>${text("guests")}</span><input name="guests" type="number" min="1" value="4" /></label>
         <label><span>${text("leadPhone")}</span><input name="phone" type="tel" placeholder="+1 829 000 0000" /></label>
       </div>
       <label><span>${text("additionalComments")}</span><textarea name="comments" rows="3" placeholder="..."></textarea></label>
+      <div class="availability-panel" data-booking-availability></div>
       <button class="button button-primary" type="submit">
         <i data-lucide="calendar-check"></i><span>${text("calculateStay")}</span>
       </button>
@@ -1895,6 +1836,12 @@ function handleBookingSubmit(form) {
     return;
   }
 
+  if (isRangeBlocked(property.id, checkIn, checkOut)) {
+    showToast(text("availabilityConflict"));
+    renderBookingAvailability(form);
+    return;
+  }
+
   const guests = Number(data.get("guests")) || 1;
   const nights = Math.max(Math.round((checkOut - checkIn) / 86400000), 1);
   const subtotal = nights * property.rentNight;
@@ -1951,185 +1898,7 @@ function handleBookingSubmit(form) {
         ? "Estimativa de reserva salva."
         : "Reserva calculada y guardada."
   );
-  setBookingDateConstraints(form);
-}
-
-function getAllReservations() {
-  try {
-    const saved = JSON.parse(localStorage.getItem(STORAGE.reservations) || "[]");
-    return Array.isArray(saved) ? saved : [];
-  } catch {
-    return [];
-  }
-}
-
-function saveAllReservations(reservations) {
-  localStorage.setItem(STORAGE.reservations, JSON.stringify(reservations));
-}
-
-function getReservedDateSet(propertyId) {
-  const set = new Set();
-  getReservationRanges(propertyId).forEach((range) => {
-    const cursor = new Date(range.start);
-    while (cursor < range.end) {
-      set.add(formatDateInput(cursor));
-      cursor.setDate(cursor.getDate() + 1);
-    }
-  });
-  return set;
-}
-
-function ensureAdminReservationDates() {
-  const checkInInput = $("#adminReservationCheckIn");
-  const checkOutInput = $("#adminReservationCheckOut");
-  if (!checkInInput || !checkOutInput) return;
-
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-  const todayIso = formatDateInput(today);
-
-  checkInInput.min = todayIso;
-  if (!checkInInput.value || checkInInput.value < todayIso) {
-    checkInInput.value = todayIso;
-  }
-
-  const checkInDate = parseDateOnly(checkInInput.value) || today;
-  const nextDay = new Date(checkInDate);
-  nextDay.setDate(nextDay.getDate() + 1);
-  const minCheckOut = formatDateInput(nextDay);
-  checkOutInput.min = minCheckOut;
-  if (!checkOutInput.value || checkOutInput.value <= checkInInput.value) {
-    checkOutInput.value = minCheckOut;
-  }
-}
-
-function getAdminReservationPropertyId() {
-  return $("#adminReservationProperty")?.value || "";
-}
-
-function renderAdminReservationCalendar(propertyId) {
-  const container = $("#adminReservationCalendar");
-  if (!container) return;
-  if (!propertyId) {
-    container.innerHTML = "";
-    return;
-  }
-
-  const localeDays =
-    state.lang === "en"
-      ? ["MO", "TU", "WE", "TH", "FR", "SA", "SU"]
-      : state.lang === "pt"
-        ? ["SE", "TE", "QU", "QI", "SE", "SA", "DO"]
-        : ["LU", "MA", "MI", "JU", "VI", "SA", "DO"];
-
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-  const monthStart = new Date(today.getFullYear(), today.getMonth(), 1);
-  const mondayOffset = (monthStart.getDay() + 6) % 7;
-  const gridStart = new Date(monthStart);
-  gridStart.setDate(monthStart.getDate() - mondayOffset);
-  const reservedDates = getReservedDateSet(propertyId);
-  const todayIso = formatDateInput(today);
-
-  const dayHeaders = localeDays.map((label) => `<div class="admin-reservation-day-head">${label}</div>`).join("");
-  const days = Array.from({ length: 42 }, (_, index) => {
-    const date = new Date(gridStart);
-    date.setDate(gridStart.getDate() + index);
-    const iso = formatDateInput(date);
-    const classes = ["admin-reservation-day"];
-    if (date.getMonth() !== monthStart.getMonth()) classes.push("muted");
-    if (iso === todayIso) classes.push("today");
-    if (reservedDates.has(iso)) classes.push("reserved");
-    return `<div class="${classes.join(" ")}"><span>${date.getDate()}</span></div>`;
-  }).join("");
-
-  container.innerHTML = `
-    <div class="admin-reservation-legend">${text("availabilityHint")}</div>
-    <div class="admin-reservation-grid">${dayHeaders}${days}</div>
-  `;
-}
-
-function renderAdminReservationList(propertyId) {
-  const list = $("#adminReservationList");
-  if (!list) return;
-  if (!propertyId) {
-    list.innerHTML = "";
-    return;
-  }
-
-  const reservations = getAllReservations()
-    .filter((reservation) => reservation.propertyId === propertyId)
-    .sort((a, b) => new Date(a.checkIn) - new Date(b.checkIn));
-
-  if (!reservations.length) {
-    list.innerHTML = `<p>${text("adminReserveEmpty")}</p>`;
-    return;
-  }
-
-  list.innerHTML = reservations
-    .map((reservation) => {
-      const checkIn = parseDateOnly(reservation.checkIn);
-      const checkOut = parseDateOnly(reservation.checkOut);
-      if (!checkIn || !checkOut) return "";
-      return `
-        <article class="admin-reservation-item">
-          <strong>${formatDate(checkIn)} → ${formatDate(checkOut)}</strong>
-          <span>${escapeHtml(reservation.property || "")}</span>
-        </article>
-      `;
-    })
-    .filter(Boolean)
-    .join("");
-}
-
-function syncAdminReservationViews(propertyId = getAdminReservationPropertyId()) {
-  renderAdminReservationCalendar(propertyId);
-  renderAdminReservationList(propertyId);
-}
-
-function saveAdminReservation() {
-  const propertyId = getAdminReservationPropertyId();
-  const checkIn = $("#adminReservationCheckIn")?.value;
-  const checkOut = $("#adminReservationCheckOut")?.value;
-  if (!propertyId || !checkIn || !checkOut) return;
-
-  const start = parseDateOnly(checkIn);
-  const end = parseDateOnly(checkOut);
-  if (!start || !end || end <= start) {
-    showToast(
-      localized({
-        es: "Selecciona un rango válido de reserva.",
-        en: "Select a valid reservation range.",
-        pt: "Selecione um período de reserva válido.",
-      })
-    );
-    return;
-  }
-
-  const property = state.properties.find((item) => item.id === propertyId);
-  const reservations = getAllReservations();
-  reservations.push({
-    propertyId,
-    property: property ? getTitle(property) : propertyId,
-    checkIn,
-    checkOut,
-    source: "admin",
-    createdAt: new Date().toISOString(),
-  });
-  saveAllReservations(reservations);
-  syncAdminReservationViews(propertyId);
-  showToast(text("adminReserveSaved"));
-}
-
-function clearAdminReservations() {
-  const propertyId = getAdminReservationPropertyId();
-  if (!propertyId) return;
-
-  const reservations = getAllReservations();
-  const filtered = reservations.filter((reservation) => reservation.propertyId !== propertyId);
-  saveAllReservations(filtered);
-  syncAdminReservationViews(propertyId);
-  showToast(text("adminReserveCleared"));
+  renderBookingAvailability(form);
 }
 
 function handlePaymentSubmit(form) {
@@ -2154,9 +1923,6 @@ function handlePaymentSubmit(form) {
 
 function setupAdmin() {
   populateAdminSelect();
-  populateAdminReservationSelect();
-  ensureAdminReservationDates();
-  syncAdminReservationViews();
   const first = state.properties[0];
   if (first) fillAdminForm(first);
 }
@@ -2169,29 +1935,8 @@ function populateAdminSelect(selectedId) {
   if (selectedId) select.value = selectedId;
 }
 
-function populateAdminReservationSelect(selectedId) {
-  const select = $("#adminReservationProperty");
-  if (!select) return;
-
-  const preferredId = selectedId || select.value || $("#adminPropertySelect")?.value || state.properties[0]?.id || "";
-  select.innerHTML = state.properties
-    .map((property) => `<option value="${property.id}">${escapeHtml(getTitle(property))}</option>`)
-    .join("");
-
-  if (preferredId && state.properties.some((property) => property.id === preferredId)) {
-    select.value = preferredId;
-  } else if (state.properties[0]) {
-    select.value = state.properties[0].id;
-  }
-}
-
 function fillAdminForm(property) {
   $("#adminPropertySelect").value = property.id;
-  const adminReservationProperty = $("#adminReservationProperty");
-  if (adminReservationProperty) {
-    adminReservationProperty.value = property.id;
-    syncAdminReservationViews(property.id);
-  }
   $("#adminTitleInput").value = property.title;
   $("#adminTypeInput").value = property.type;
   $("#adminOperationInput").value = property.nightOnly ? "rent-night" : property.operations.join(",");
@@ -2213,7 +1958,6 @@ function collectAdminProperty(existing) {
   const operations = rawOperation === "rent-night"
     ? ["rent"]
     : rawOperation.split(",").map((item) => item.trim()).filter(Boolean);
-  const fallbackCoords = fallbackPropertyCoordinates(existing || { id: "" }, state.properties.length);
   return {
     id: existing?.id || `${title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}-${Date.now()}`,
     title,
@@ -2229,8 +1973,6 @@ function collectAdminProperty(existing) {
     area: Number($("#adminAreaInput").value) || 0,
     lot: existing?.lot || Number($("#adminAreaInput").value) || 0,
     featured: existing?.featured ?? false,
-    lat: isValidCoordinate(existing?.lat) ? Number(existing.lat) : fallbackCoords.lat,
-    lng: isValidCoordinate(existing?.lng) ? Number(existing.lng) : fallbackCoords.lng,
     coords: existing?.coords || { x: 42 + Math.random() * 16, y: 38 + Math.random() * 24 },
     distances: existing?.distances || {
       Supermercado: "8 min",
@@ -2238,7 +1980,7 @@ function collectAdminProperty(existing) {
       Clinica: "12 min",
       Parque: "9 min",
     },
-    description: $("#adminDescInput").value.trim() || "Propiedad agregada al inventario de Meirah Group.",
+    description: $("#adminDescInput").value.trim() || "Propiedad agregada al inventario de MeriahGroup.",
     descriptionEn: existing?.descriptionEn || $("#adminDescInput").value.trim(),
     images: getAdminImages(),
     nightOnly: rawOperation === "rent-night",
@@ -2264,9 +2006,9 @@ function getBotAnswer(question) {
 
   if (q.includes("hello") || q.includes("hola") || q.includes("buenas")) {
     return localized({
-      es: "Hola. Soy MeirahBot. Puedo ayudarte con propiedades, reservas, calculadoras, ubicación y contacto.",
-      en: "Hello. I am MeirahBot. I can help with properties, bookings, calculators, location, and contact.",
-      pt: "Olá. Sou o MeirahBot. Posso ajudar com imóveis, reservas, calculadoras, localização e contato.",
+      es: "Hola. Soy MeriahBot. Puedo ayudarte con propiedades, reservas, calculadoras, ubicación y contacto.",
+      en: "Hello. I am MeriahBot. I can help with properties, bookings, calculators, location, and contact.",
+      pt: "Olá. Sou o MeriahBot. Posso ajudar com imóveis, reservas, calculadoras, localização e contato.",
     });
   }
   if (
@@ -2403,12 +2145,13 @@ function refreshLocalizedViews() {
   applyTranslations();
   populateZoneOptions();
   renderProperties();
+  renderMap();
   renderReservationPreview();
   setupAdmin();
   renderFinanceCalculators();
   renderAutopaySchedule(
     $("#autopaySchedule"),
-    parseNumericInput($("#autopayAmount").value),
+    Number($("#autopayAmount").value),
     Number($("#autopayMonths").value),
     Number($("#autopayDay").value)
   );
@@ -2422,11 +2165,12 @@ function refreshLocalizedViews() {
 function refreshPriceViews() {
   applyCurrencyLabels();
   renderProperties();
+  renderMap();
   renderReservationPreview();
   renderFinanceCalculators();
   renderAutopaySchedule(
     $("#autopaySchedule"),
-    parseNumericInput($("#autopayAmount").value),
+    Number($("#autopayAmount").value),
     Number($("#autopayMonths").value),
     Number($("#autopayDay").value)
   );
@@ -2507,6 +2251,11 @@ function bindEvents() {
       return;
     }
 
+    const mapPin = event.target.closest("[data-map-id]");
+    if (mapPin) {
+      state.activeMapId = mapPin.dataset.mapId;
+      renderMap();
+    }
   });
 
   $("#mortgageForm").addEventListener("submit", (event) => {
@@ -2531,7 +2280,7 @@ function bindEvents() {
 
   $("#autopayForm").addEventListener("submit", (event) => {
     event.preventDefault();
-    const amount = parseNumericInput($("#autopayAmount").value);
+    const amount = Number($("#autopayAmount").value) || 0;
     const months = Number($("#autopayMonths").value) || 1;
     const day = Number($("#autopayDay").value) || 15;
     renderAutopaySchedule($("#autopaySchedule"), amount, months, day);
@@ -2609,23 +2358,6 @@ function bindEvents() {
   $("#adminPropertySelect").addEventListener("change", (event) => {
     const property = state.properties.find((item) => item.id === event.target.value);
     if (property) fillAdminForm(property);
-  });
-
-  $("#adminReservationProperty").addEventListener("change", (event) => {
-    syncAdminReservationViews(event.target.value);
-  });
-
-  $("#adminReservationCheckIn").addEventListener("change", () => {
-    ensureAdminReservationDates();
-  });
-
-  $("#adminReservationSave").addEventListener("click", () => {
-    ensureAdminReservationDates();
-    saveAdminReservation();
-  });
-
-  $("#adminReservationClear").addEventListener("click", () => {
-    clearAdminReservations();
   });
 
   $("#adminUploadLocal").addEventListener("click", () => {
@@ -2726,6 +2458,22 @@ function bindEvents() {
     }
   });
 
+  $("#propertyModal").addEventListener("change", (event) => {
+    const form = event.target.closest("form");
+    if (!form) return;
+    const checkInInput = $("input[name='checkIn']", form);
+    const checkOutInput = $("input[name='checkOut']", form);
+    const changedDateInput = event.target.closest("input[name='checkIn'], input[name='checkOut']");
+    if (!changedDateInput || !checkInInput || !checkOutInput) return;
+    checkOutInput.min = checkInInput.value;
+    if (checkOutInput.value && checkOutInput.value <= checkInInput.value) {
+      const nextDay = new Date(checkInInput.value);
+      nextDay.setDate(nextDay.getDate() + 1);
+      checkOutInput.value = formatDateInput(nextDay);
+    }
+    renderBookingAvailability(form);
+  });
+
   $("#propertyModal").addEventListener("submit", (event) => {
     const bookingForm = event.target.closest("[data-booking-form]");
     const paymentForm = event.target.closest("[data-payment-form]");
@@ -2736,14 +2484,6 @@ function bindEvents() {
     if (paymentForm) {
       event.preventDefault();
       handlePaymentSubmit(paymentForm);
-    }
-  });
-
-  $("#propertyModal").addEventListener("change", (event) => {
-    const form = event.target.closest("[data-booking-form]");
-    if (!form) return;
-    if (event.target.name === "checkIn") {
-      setBookingDateConstraints(form);
     }
   });
 
@@ -2783,15 +2523,10 @@ function bindEvents() {
 function refreshAfterDataChange(selectedId) {
   populateZoneOptions();
   renderProperties();
+  renderMap();
   renderReservationPreview();
   setupAdmin();
-  if (selectedId) {
-    populateAdminSelect(selectedId);
-    populateAdminReservationSelect(selectedId);
-    const property = state.properties.find((item) => item.id === selectedId);
-    if (property) fillAdminForm(property);
-    else syncAdminReservationViews();
-  }
+  if (selectedId) populateAdminSelect(selectedId);
   updateFavoriteCount();
 }
 
@@ -2803,15 +2538,10 @@ function init() {
   bindEvents();
   updateFavoriteCount();
   renderProperties();
+  renderMap();
   renderReservationPreview();
   renderFinanceCalculators();
-  setupFormattedNumericInputs();
-  renderAutopaySchedule(
-    $("#autopaySchedule"),
-    parseNumericInput($("#autopayAmount").value),
-    Number($("#autopayMonths").value),
-    Number($("#autopayDay").value)
-  );
+  renderAutopaySchedule($("#autopaySchedule"), Number($("#autopayAmount").value), Number($("#autopayMonths").value), Number($("#autopayDay").value));
   setupAdmin();
 }
 
