@@ -15,7 +15,13 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="icon" href="assets/brand/logo-meirahgroup-black.png" type="image/png" />
+    <link
+      id="siteFavicon"
+      rel="icon"
+      href="assets/brand/logo-meirahgroup-black.png"
+      data-asset-path="assets/brand/logo-meirahgroup-black.png"
+      type="image/png"
+    />
     <link rel="stylesheet" href="styles.css" />
     <script async src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" onload="window.lucide?.createIcons()"></script>
     <script defer src="script.js"></script>
@@ -29,6 +35,7 @@
             alt=""
             data-logo-light="assets/brand/logo-meirahgroup-black.png"
             data-logo-dark="assets/brand/logo-meirahgroup-white.png"
+            data-logo-fallback="assets/brand/1.png"
           />
         </span>
         <span>
@@ -157,7 +164,7 @@
       <section class="section filters-section" aria-labelledby="filters-title">
         <div class="section-heading">
           <p class="eyebrow" data-i18n="filtersEyebrow">Búsqueda inteligente</p>
-          <h2 id="filters-title" data-i18n="filtersTitle">Encuentra tu espacio ideal</h2>
+          <h2 id="filters-title" data-i18n="filtersTitle">Encuentra tu propiedad</h2>
         </div>
 
         <form class="filters" id="propertyFilters">
@@ -166,8 +173,8 @@
             <select id="filterOperation">
               <option value="all" data-i18n="optionAll">Todas</option>
               <option value="sale" data-i18n="optionSale">Venta</option>
-              <option value="rent" data-i18n="optionRent">Alquiler</option>
-              <option value="night" data-i18n="optionNight">Alquiler x noche</option>
+              <option value="rent" data-i18n="optionRent">Renta larga</option>
+              <option value="night" data-i18n="optionNight">Renta corta</option>
             </select>
           </label>
           <label>
@@ -177,7 +184,8 @@
               <option value="Villa">Villa</option>
               <option value="Casa" data-i18n="typeHouse">Casa</option>
               <option value="Apartamento" data-i18n="typeApartment">Apartamento</option>
-              <option value="Solar" data-i18n="typeLand">Solar</option>
+              <option value="Terreno" data-i18n="typeLand">Terreno</option>
+              <option value="Finca" data-i18n="typeFarm">Finca</option>
             </select>
           </label>
           <label>
@@ -450,10 +458,9 @@
       <section class="section reservation-section" id="reservations" aria-labelledby="reservations-title">
         <div class="reservation-copy">
           <p class="eyebrow" data-i18n="reservationEyebrow">Alquileres y estadías</p>
-          <h2 id="reservations-title" data-i18n="reservationTitle">Reservas tipo villa o Airbnb con confirmación rápida</h2>
+          <h2 id="reservations-title" data-i18n="reservationTitle">Reserva igual de fácil que en Airbnb con confirmación rápida</h2>
           <p data-i18n="reservationCopy">
-            Las propiedades de alquiler muestran tarifa por noche, disponibilidad de referencia, cálculo de cargos y
-            envío directo al equipo para cerrar por WhatsApp o llamada.
+            Disponibilidad de renta corta y larga, cálculo de cargos, seguimiento de procesos y solicitud para una experiencia fluida.
           </p>
         </div>
         <div class="reservation-preview" id="reservationPreview"></div>
@@ -464,7 +471,7 @@
           <p class="eyebrow" data-i18n="ownersEyebrow">Para propietarios</p>
           <h2 id="owners-title" data-i18n="ownersTitle">Vendemos o alquilamos tu propiedad como tu agente inmobiliario</h2>
           <p data-i18n="ownersCopy">
-            Si tienes una casa, villa, apartamento, solar, finca o local, Meirah Group puede representarte con estrategia
+            Si tienes una casa, villa, apartamento, terreno, finca o local, Meirah Group puede representarte con estrategia
             de precio, fotos, promoción, filtros de clientes, visitas, negociación y seguimiento hasta el cierre.
           </p>
           <div class="owners-actions">
@@ -491,12 +498,12 @@
           </article>
           <article>
             <i data-lucide="calendar-check"></i>
-            <h3 data-i18n="ownersRentTitle">Gestión para alquiler</h3>
-            <p data-i18n="ownersRentCopy">Promoción para alquiler fijo o turístico, reservas, disponibilidad y perfilado de clientes.</p>
+            <h3 data-i18n="ownersRentTitle">Gestión para renta</h3>
+            <p data-i18n="ownersRentCopy">Promoción para renta corta y larga, reservas, disponibilidad y perfilado de clientes.</p>
           </article>
           <article>
             <i data-lucide="map"></i>
-            <h3 data-i18n="ownersLandTitle">Solares y terrenos</h3>
+            <h3 data-i18n="ownersLandTitle">Terrenos y fincas</h3>
             <p data-i18n="ownersLandCopy">Presentamos potencial de uso, accesos, servicios cercanos y datos clave de inversión.</p>
           </article>
           <article>
@@ -782,6 +789,7 @@
             Detrás de la compañía hay un equipo que conoce el ritmo de la zona, el valor de una buena ubicación y la
             importancia de cuidar cada documento antes de firmar.
           </p>
+          <p class="about-manifesto" data-i18n="aboutTextThree">Tu esencia. Tu espacio. Tu patrimonio.</p>
           <div class="about-values">
             <span data-i18n="valueOne">Transparencia</span>
             <span data-i18n="valueTwo">Acompañamiento</span>
@@ -908,8 +916,8 @@
             <li><i data-lucide="map-pin"></i> Av. Federico Basilis, Jarabacoa, La Vega, RD</li>
             <li><i data-lucide="phone"></i> +1 (829) 393-5951</li>
             <li><i data-lucide="mail"></i> contacto@meirahgroup.com</li>
-            <li><i data-lucide="clock"></i> Lun - Sab, 9:00 AM - 5:00 PM</li>
-            <li><i data-lucide="bot"></i> <span data-i18n="aiAdvisory">Asesoría IA 24/7.</span></li>
+            <li><i data-lucide="clock"></i> <span data-i18n="contactHours">Lunes a viernes 9 a.m. - 5 p.m. | Sábados citas previas.</span></li>
+            <li><i data-lucide="bot"></i> <span data-i18n="aiAdvisory">ChatBOT 24/7</span></li>
           </ul>
         </div>
         <form class="lead-form" id="leadForm">
@@ -985,16 +993,17 @@
                 <option>Villa</option>
                 <option>Casa</option>
                 <option>Apartamento</option>
-                <option>Solar</option>
+                <option>Terreno</option>
+                <option>Finca</option>
               </select>
             </label>
             <label>
               <span data-i18n="adminOperation">Operación</span>
               <select id="adminOperationInput">
                 <option value="sale">Venta</option>
-                <option value="rent">Alquiler</option>
-                <option value="rent-night">Alquiler x noche</option>
-                <option value="sale,rent">Venta y alquiler</option>
+                <option value="rent">Renta larga</option>
+                <option value="rent-night">Renta corta</option>
+                <option value="sale,rent">Venta y renta</option>
               </select>
             </label>
             <label>
@@ -1026,10 +1035,14 @@
                 <input id="adminBathsInput" type="number" min="0" step="0.5" />
               </label>
               <label>
-                <span data-i18n="adminArea">m²</span>
+                <span data-i18n="adminArea">m² construcción</span>
                 <input id="adminAreaInput" type="number" min="0" />
               </label>
             </div>
+            <label>
+              <span data-i18n="adminLotArea">m² terreno</span>
+              <input id="adminLotInput" type="number" min="0" />
+            </label>
             <label>
               <span data-i18n="adminZone">Zona</span>
               <input id="adminZoneInput" type="text" />
@@ -1283,7 +1296,7 @@
       <div>
         <a class="brand footer-brand" href="#top">
           <span class="brand-mark" aria-hidden="true">
-            <img src="assets/brand/logo-meirahgroup-white.png" alt="" />
+            <img src="assets/brand/logo-meirahgroup-white.png" data-asset-path="assets/brand/logo-meirahgroup-white.png" alt="" />
           </span>
           <span>
             <strong>Meirah Group</strong>

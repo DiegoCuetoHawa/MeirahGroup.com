@@ -333,7 +333,7 @@ const BASE_PROPERTIES = [
     id: "solar-manabao",
     title: "Solar Manabao Verde",
     titleEn: "Manabao Green Lot",
-    type: "Solar",
+    type: "Terreno",
     operations: ["sale"],
     status: "sale",
     zone: "Manabao",
@@ -449,7 +449,7 @@ const I18N = {
     statLang: "idiomas",
     statReviews: "referencias verificadas",
     filtersEyebrow: "Búsqueda inteligente",
-    filtersTitle: "Encuentra una propiedad que encaje con tu próximo paso",
+    filtersTitle: "Encuentra tu propiedad",
     filterOperation: "Operación",
     filterType: "Tipo",
     filterZone: "Zona",
@@ -463,12 +463,13 @@ const I18N = {
     optionAllTypes: "Todos",
     optionAllZones: "Todas",
     optionSale: "Venta",
-    optionRent: "Alquiler",
-    optionNight: "Alquiler x noche",
+    optionRent: "Renta larga",
+    optionNight: "Renta corta",
     optionAny: "Cualquiera",
     typeHouse: "Casa",
     typeApartment: "Apartamento",
-    typeLand: "Solar",
+    typeLand: "Terreno",
+    typeFarm: "Finca",
     propertiesEyebrow: "Inventario destacado",
     propertiesTitle: "Propiedades disponibles",
     sortLabel: "Ordenar",
@@ -607,15 +608,16 @@ const I18N = {
     paymentMonths: "Cantidad de pagos",
     scheduleAutopay: "Generar plan",
     reservationEyebrow: "Alquileres y estadías",
-    reservationTitle: "Reservas tipo villa o Airbnb con confirmación rápida",
+    reservationTitle: "Reserva igual de fácil que en Airbnb con confirmación rápida",
     reservationCopy:
-      "Las propiedades de alquiler muestran tarifa por noche, disponibilidad de referencia, cálculo de cargos y envío directo al equipo para cerrar por WhatsApp o llamada.",
+      "Disponibilidad de renta corta y larga, cálculo de cargos, seguimiento de procesos y solicitud para una experiencia fluida.",
     aboutEyebrow: "Nuestra historia",
     aboutTitle: "Una firma cercana para decisiones grandes",
     aboutTextOne:
-      "Meirah Group nace en Jarabacoa con una idea simple: que comprar, vender o reservar una propiedad no se sienta como entrar a ciegas. Combinamos conocimiento local, criterio comercial y una comunicación clara.",
+      "En Meirah Group creemos que cada espacio cuenta una historia. Por eso acompañamos a nuestros clientes en la búsqueda, adquisición y desarrollo de propiedades que reflejen su estilo de vida, sus metas y su visión de futuro.",
     aboutTextTwo:
-      "Detrás de la compañía hay un equipo que conoce el ritmo de la zona, el valor de una buena ubicación y la importancia de cuidar cada documento antes de firmar.",
+      "Combinamos asesoría inmobiliaria, conocimiento del mercado y una perspectiva orientada al patrimonio para ayudar a las personas a tomar decisiones con confianza. Más que encontrar una propiedad, buscamos conectar a cada cliente con un espacio que represente quién es hoy y lo que desea construir mañana.",
+    aboutTextThree: "Tu esencia. Tu espacio. Tu patrimonio.",
     valueOne: "Transparencia",
     valueTwo: "Acompañamiento",
     valueThree: "Visión de inversión",
@@ -627,14 +629,14 @@ const I18N = {
     ownersEyebrow: "Para propietarios",
     ownersTitle: "Vendemos o alquilamos tu propiedad como tu agente inmobiliario",
     ownersCopy:
-      "Si tienes una casa, villa, apartamento, solar, finca o local, Meirah Group puede representarte con estrategia de precio, fotos, promoción, filtros de clientes, visitas, negociación y seguimiento hasta el cierre.",
+      "Si tienes una casa, villa, apartamento, terreno, finca o local, Meirah Group puede representarte con estrategia de precio, fotos, promoción, filtros de clientes, visitas, negociación y seguimiento hasta el cierre.",
     ownersPrimary: "Quiero vender o alquilar",
     ownersWhatsApp: "Evaluar por WhatsApp",
     ownersSaleTitle: "Representación para venta",
     ownersSaleCopy: "Análisis de precio, publicación, prospectos calificados, visitas y negociación.",
-    ownersRentTitle: "Gestión para alquiler",
-    ownersRentCopy: "Promoción para alquiler fijo o turístico, reservas, disponibilidad y perfilado de clientes.",
-    ownersLandTitle: "Solares y terrenos",
+    ownersRentTitle: "Gestión para renta",
+    ownersRentCopy: "Promoción para renta corta y larga, reservas, disponibilidad y perfilado de clientes.",
+    ownersLandTitle: "Terrenos y fincas",
     ownersLandCopy: "Presentamos potencial de uso, accesos, servicios cercanos y datos clave de inversión.",
     ownersDocsTitle: "Preparación comercial",
     ownersDocsCopy: "Ordenamos fotos, descripción, documentos base y argumentos para vender con confianza.",
@@ -649,6 +651,7 @@ const I18N = {
     blogThreeTitle: "Documentos básicos que debes validar antes de separar",
     contactEyebrow: "Captura de leads",
     contactTitle: "Cuéntanos qué buscas y te contactamos",
+    contactHours: "Lunes a viernes 9 a.m. - 5 p.m. | Sábados citas previas.",
     leadName: "Nombre",
     leadPhone: "Teléfono o WhatsApp",
     leadInterest: "Interés",
@@ -673,7 +676,8 @@ const I18N = {
     adminNight: "Precio noche",
     adminBeds: "Hab.",
     adminBaths: "Baños",
-    adminArea: "m²",
+    adminArea: "m² construcción",
+    adminLotArea: "m² terreno",
     adminZone: "Zona",
     adminImages: "Imágenes y videos de la propiedad",
     adminUploadLocal: "Cargar",
@@ -703,7 +707,7 @@ const I18N = {
     footerServices: "Servicios",
     footerContact: "Contacto",
     footerFinancing: "Calculadoras",
-    aiAdvisory: "Asesoría 24/7 con IA para preguntas rápidas sobre propiedades.",
+    aiAdvisory: "ChatBOT 24/7",
     memberEyebrow: "Acceso privado",
     memberTitle: "Inicio de sesión para socios e interesados",
     memberCopy:
@@ -728,6 +732,9 @@ const I18N = {
     viewDetails: "Ver detalles",
     shareProperty: "Compartir",
     propertyCode: "Código",
+    constructionArea: "estructura",
+    landArea: "terreno",
+    totalArea: "propiedad total",
     shareTitle: "Compartir propiedad",
     shareCopy: "Elige dónde deseas compartir este enlace.",
     shareCopyLink: "Copiar enlace",
@@ -793,7 +800,7 @@ const I18N = {
     statLang: "languages",
     statReviews: "verified references",
     filtersEyebrow: "Smart search",
-    filtersTitle: "Find a property that fits your next move",
+    filtersTitle: "Find your property",
     filterOperation: "Operation",
     filterType: "Type",
     filterZone: "Area",
@@ -807,12 +814,13 @@ const I18N = {
     optionAllTypes: "All",
     optionAllZones: "All",
     optionSale: "Sale",
-    optionRent: "Rental",
-    optionNight: "Nightly rental",
+    optionRent: "Long-term rent",
+    optionNight: "Short-term rent",
     optionAny: "Any",
     typeHouse: "House",
     typeApartment: "Apartment",
     typeLand: "Land",
+    typeFarm: "Farm",
     propertiesEyebrow: "Featured inventory",
     propertiesTitle: "Available properties",
     sortLabel: "Sort",
@@ -951,15 +959,16 @@ const I18N = {
     paymentMonths: "Number of payments",
     scheduleAutopay: "Generate plan",
     reservationEyebrow: "Rentals and stays",
-    reservationTitle: "Villa and Airbnb-style bookings with quick confirmation",
+    reservationTitle: "Book as easily as on Airbnb with quick confirmation",
     reservationCopy:
-      "Rental properties show nightly rates, reference availability, charge estimates, and direct handoff to the team by WhatsApp or phone.",
+      "Short and long stay availability, charge calculation, process follow-up, and request flow for a smoother experience.",
     aboutEyebrow: "Our story",
     aboutTitle: "A close firm for big decisions",
     aboutTextOne:
-      "Meirah Group was born in Jarabacoa with a simple idea: buying, selling, or booking a property should not feel blind. We combine local knowledge, commercial judgment, and clear communication.",
+      "At Meirah Group, we believe every space tells a story. That is why we guide our clients through the search, acquisition, and development of properties that reflect their lifestyle, goals, and vision for the future.",
     aboutTextTwo:
-      "Behind the company is a team that understands the area's pace, the value of a good location, and the importance of checking every document before signing.",
+      "We combine real estate advisory, market knowledge, and a wealth-oriented perspective to help people make decisions with confidence. More than finding a property, we aim to connect each client with a space that represents who they are today and what they want to build tomorrow.",
+    aboutTextThree: "Your essence. Your space. Your legacy.",
     valueOne: "Transparency",
     valueTwo: "Guidance",
     valueThree: "Investment vision",
@@ -971,14 +980,14 @@ const I18N = {
     ownersEyebrow: "For owners",
     ownersTitle: "We sell or rent your property as your real estate agent",
     ownersCopy:
-      "If you own a house, villa, apartment, lot, farm, or commercial space, Meirah Group can represent you with pricing strategy, photos, promotion, client filtering, showings, negotiation, and closing follow-up.",
+      "If you own a house, villa, apartment, land parcel, farm, or commercial space, Meirah Group can represent you with pricing strategy, photos, promotion, client filtering, showings, negotiation, and closing follow-up.",
     ownersPrimary: "I want to sell or rent",
     ownersWhatsApp: "Evaluate by WhatsApp",
     ownersSaleTitle: "Sales representation",
     ownersSaleCopy: "Price analysis, listing, qualified prospects, showings, and negotiation.",
     ownersRentTitle: "Rental management",
-    ownersRentCopy: "Promotion for long-term or tourism rental, bookings, availability, and client filtering.",
-    ownersLandTitle: "Lots and land",
+    ownersRentCopy: "Promotion for short- and long-term rentals, bookings, availability, and client profiling.",
+    ownersLandTitle: "Land and farms",
     ownersLandCopy: "We present use potential, access, nearby services, and key investment details.",
     ownersDocsTitle: "Commercial preparation",
     ownersDocsCopy: "We organize photos, description, base documents, and selling arguments with confidence.",
@@ -993,6 +1002,7 @@ const I18N = {
     blogThreeTitle: "Basic documents to validate before reserving",
     contactEyebrow: "Lead capture",
     contactTitle: "Tell us what you need and we will contact you",
+    contactHours: "Monday to Friday 9 a.m. - 5 p.m. | Saturdays by appointment.",
     leadName: "Name",
     leadPhone: "Phone or WhatsApp",
     leadInterest: "Interest",
@@ -1017,7 +1027,8 @@ const I18N = {
     adminNight: "Nightly price",
     adminBeds: "Beds",
     adminBaths: "Baths",
-    adminArea: "sqm",
+    adminArea: "built sqm",
+    adminLotArea: "land sqm",
     adminZone: "Area",
     adminImages: "Property images and videos",
     adminUploadLocal: "Load",
@@ -1047,7 +1058,7 @@ const I18N = {
     footerServices: "Services",
     footerContact: "Contact",
     footerFinancing: "Calculators",
-    aiAdvisory: "24/7 AI guidance for quick questions about properties.",
+    aiAdvisory: "ChatBOT 24/7",
     memberEyebrow: "Private access",
     memberTitle: "Login for partners and interested clients",
     memberCopy:
@@ -1072,6 +1083,9 @@ const I18N = {
     viewDetails: "Details",
     shareProperty: "Share",
     propertyCode: "Code",
+    constructionArea: "structure",
+    landArea: "land",
+    totalArea: "total area",
     shareTitle: "Share property",
     shareCopy: "Choose where you want to share this link.",
     shareCopyLink: "Copy link",
@@ -1139,7 +1153,7 @@ I18N.pt = {
   statFollow: "assessoria ativa",
   statLang: "idiomas",
   filtersEyebrow: "Busca inteligente",
-  filtersTitle: "Encontre um imóvel que combine com seu próximo passo",
+  filtersTitle: "Encontre seu imóvel",
   filterOperation: "Operação",
   filterType: "Tipo",
   filterZone: "Zona",
@@ -1147,11 +1161,12 @@ I18N.pt = {
   filterApply: "Filtrar",
   filterClear: "Limpar",
   optionSale: "Venda",
-  optionRent: "Aluguel",
-  optionNight: "Aluguel por noite",
+  optionRent: "Aluguel longo",
+  optionNight: "Aluguel curto",
   typeHouse: "Casa",
   typeApartment: "Apartamento",
   typeLand: "Terreno",
+  typeFarm: "Fazenda",
   propertiesEyebrow: "Inventário em destaque",
   propertiesTitle: "Imóveis disponíveis",
   appointmentEyebrow: "Atendimento personalizado",
@@ -1259,11 +1274,16 @@ I18N.pt = {
   rentBuyTitle: "Alugar vs. comprar",
   rentBuyCardCopy: "Estime quando faz sentido comprar ou alugar.",
   calculate: "Calcular",
-  reservationTitle: "Reservas tipo villa ou Airbnb com confirmação rápida",
+  reservationTitle: "Reserve com a mesma facilidade do Airbnb e confirmação rápida",
   reservationCopy:
-    "As propriedades de aluguel mostram tarifa por noite, disponibilidade de referência, cálculo de encargos e envio direto à equipe para fechar por WhatsApp ou chamada.",
+    "Disponibilidade para aluguel curto e longo, cálculo de encargos, acompanhamento do processo e solicitação para uma experiência fluida.",
   aboutEyebrow: "Nossa história",
   aboutTitle: "Uma empresa próxima para grandes decisões",
+  aboutTextOne:
+    "Na Meirah Group, acreditamos que cada espaço conta uma história. Por isso acompanhamos nossos clientes na busca, aquisição e desenvolvimento de propriedades que reflitam seu estilo de vida, suas metas e sua visão de futuro.",
+  aboutTextTwo:
+    "Combinamos assessoria imobiliária, conhecimento de mercado e uma perspectiva orientada ao patrimônio para ajudar as pessoas a tomar decisões com confiança. Mais do que encontrar um imóvel, buscamos conectar cada cliente a um espaço que represente quem ele é hoje e o que deseja construir amanhã.",
+  aboutTextThree: "Sua essência. Seu espaço. Seu patrimônio.",
   ownersEyebrow: "Para proprietários",
   ownersTitle: "Vendemos ou alugamos seu imóvel como seu agente imobiliário",
   ownersPrimary: "Quero vender ou alugar",
@@ -1271,6 +1291,7 @@ I18N.pt = {
   blogEyebrow: "Blog e notícias",
   blogTitle: "Guias para comprar melhor",
   contactTitle: "Conte-nos o que você procura e entraremos em contato",
+  contactHours: "Segunda a sexta, 9h - 17h | Sábados com agendamento prévio.",
   leadName: "Nome",
   leadPhone: "Telefone ou WhatsApp",
   leadInterest: "Interesse",
@@ -1294,6 +1315,8 @@ I18N.pt = {
   adminReserveEmpty: "Sem reservas registradas para este imóvel.",
   adminReserveSaved: "Reserva salva no calendário admin.",
   adminReserveCleared: "Reservas limpas para este imóvel.",
+  adminArea: "m² construídos",
+  adminLotArea: "m² terreno",
   footerTag: "Compra, venda e aluguel de imóveis",
   footerFinancing: "Calculadoras",
   footerReservations: "Reservas",
@@ -1315,6 +1338,9 @@ I18N.pt = {
   ask: "Consultar",
   beds: "quartos",
   baths: "banheiros",
+  constructionArea: "construção",
+  landArea: "terreno",
+  totalArea: "área total",
   perNight: "por noite",
   saleStatus: "À venda",
   rentStatus: "Para aluguel",
@@ -1327,7 +1353,7 @@ I18N.pt = {
   sendReservation: "Solicitar reserva",
   additionalComments: "Comentários adicionais",
   contactAdvisor: "Falar com assessor",
-  aiAdvisory: "Assessoria 24/7 com IA para perguntas rápidas sobre imóveis.",
+  aiAdvisory: "ChatBOT 24/7",
   memberEyebrow: "Acesso privado",
   memberTitle: "Login para sócios e interessados",
   memberCopy:
@@ -1739,6 +1765,12 @@ function repairMojibakeText(value) {
   }
 }
 
+function normalizePropertyType(type) {
+  const normalized = repairMojibakeText(String(type || "")).trim();
+  if (normalized === "Solar") return "Terreno";
+  return normalized || "Casa";
+}
+
 function isValidCoordinate(value) {
   return Number.isFinite(Number(value));
 }
@@ -1793,10 +1825,12 @@ function normalizeProperties(list) {
       slug: createPropertySlug(property.title, code),
       title: repairMojibakeText(property.title),
       titleEn: repairMojibakeText(property.titleEn),
-      type: repairMojibakeText(property.type),
+      type: normalizePropertyType(property.type),
       zone: repairMojibakeText(property.zone),
       description: repairMojibakeText(property.description),
       descriptionEn: repairMojibakeText(property.descriptionEn),
+      area: Number(property.area) || 0,
+      lot: Number(property.lot) || 0,
       lat: isValidCoordinate(property.lat) ? Number(property.lat) : fallbackCoords.lat,
       lng: isValidCoordinate(property.lng) ? Number(property.lng) : fallbackCoords.lng,
       images: normalizedMedia.length ? normalizedMedia : [DEFAULT_IMAGE],
@@ -2034,6 +2068,56 @@ function formatSpecValue(value) {
   return Number.isInteger(number) ? formatNumber(number, 0) : formatNumber(number, 1);
 }
 
+function getPropertyTotalArea(property) {
+  return Number(property?.lot) || Number(property?.area) || 0;
+}
+
+function renderModalPropertySpecs(property) {
+  const specs = [];
+  const isTerrain = normalizePropertyType(property.type) === "Terreno";
+  const totalArea = getPropertyTotalArea(property);
+  const structureArea = Number(property.area) || 0;
+
+  if ((Number(property.beds) || 0) > 0) {
+    specs.push({
+      value: formatSpecValue(property.beds),
+      label: text("beds"),
+    });
+  }
+
+  if ((Number(property.baths) || 0) > 0) {
+    specs.push({
+      value: formatSpecValue(property.baths),
+      label: text("baths"),
+    });
+  }
+
+  if (totalArea > 0) {
+    specs.push({
+      value: `${formatSpecValue(totalArea)} m²`,
+      label: text("totalArea"),
+    });
+  }
+
+  if (!isTerrain && structureArea > 0) {
+    specs.push({
+      value: `${formatSpecValue(structureArea)} m²`,
+      label: text("constructionArea"),
+    });
+  }
+
+  return specs
+    .map(
+      (spec) => `
+        <span>
+          <strong>${escapeHtml(spec.value)}</strong>
+          <small>${escapeHtml(spec.label)}</small>
+        </span>
+      `
+    )
+    .join("");
+}
+
 function toUsd(value) {
   const currency = CURRENCIES.includes(state.currency) ? state.currency : "USD";
   const normalized = typeof value === "string" ? value.replace(/[^0-9.-]/g, "") : value;
@@ -2103,23 +2187,26 @@ function statusLabel(status) {
 }
 
 function typeLabel(type) {
+  const normalizedType = normalizePropertyType(type);
   if (state.lang === "en") {
     return {
-    Casa: "House",
-    Apartamento: "Apartment",
-    Solar: "Land",
-    Villa: "Villa",
-    }[type] || type;
+      Casa: "House",
+      Apartamento: "Apartment",
+      Terreno: "Land",
+      Finca: "Farm",
+      Villa: "Villa",
+    }[normalizedType] || normalizedType;
   }
   if (state.lang === "pt") {
     return {
       Casa: "Casa",
       Apartamento: "Apartamento",
-      Solar: "Terreno",
+      Terreno: "Terreno",
+      Finca: "Fazenda",
       Villa: "Villa",
-    }[type] || type;
+    }[normalizedType] || normalizedType;
   }
-  return type;
+  return normalizedType;
 }
 
 function shouldShowReservation(property) {
@@ -2197,14 +2284,62 @@ function toggleHeaderMenu(name) {
   if (menu) menu.hidden = !shouldOpen;
 }
 
+function getAppBasePath() {
+  if (window.location.protocol === "file:") return "";
+  const pathname = window.location.pathname || "/";
+  const propertyIndex = pathname.indexOf(PROPERTY_ROUTE_PREFIX);
+  if (propertyIndex >= 0) {
+    return pathname.slice(0, propertyIndex + 1) || "/";
+  }
+  if (pathname.endsWith(".html")) {
+    return pathname.slice(0, pathname.lastIndexOf("/") + 1) || "/";
+  }
+  return pathname.endsWith("/") ? pathname : `${pathname}/`;
+}
+
+function resolveStaticAssetPath(assetPath) {
+  const cleanPath = String(assetPath || "").replace(/^\/+/, "");
+  if (!cleanPath) return "";
+  if (window.location.protocol === "file:") return cleanPath;
+  return new URL(cleanPath, `${window.location.origin}${getAppBasePath()}`).href;
+}
+
+function syncStaticAssets() {
+  $$("[data-asset-path]").forEach((asset) => {
+    const targetPath = resolveStaticAssetPath(asset.dataset.assetPath);
+    if (!targetPath) return;
+    if (asset.tagName === "LINK") {
+      asset.href = targetPath;
+    } else if ("src" in asset) {
+      asset.src = targetPath;
+    }
+  });
+}
+
 function syncBrandLogos() {
   $$("[data-logo-light][data-logo-dark]").forEach((logo) => {
-    logo.src = state.theme === "dark" ? logo.dataset.logoDark : logo.dataset.logoLight;
+    const primaryPath = state.theme === "dark" ? logo.dataset.logoDark : logo.dataset.logoLight;
+    const secondaryPath = state.theme === "dark" ? logo.dataset.logoLight : logo.dataset.logoDark;
+    const fallbackPath = logo.dataset.logoFallback;
+    logo.onerror = () => {
+      if (secondaryPath && logo.src !== resolveStaticAssetPath(secondaryPath)) {
+        logo.src = resolveStaticAssetPath(secondaryPath);
+        return;
+      }
+      if (fallbackPath && logo.src !== resolveStaticAssetPath(fallbackPath)) {
+        logo.onerror = null;
+        logo.src = resolveStaticAssetPath(fallbackPath);
+        return;
+      }
+      logo.onerror = null;
+    };
+    logo.src = resolveStaticAssetPath(primaryPath);
   });
 }
 
 function applyTheme() {
   document.body.dataset.theme = state.theme;
+  syncStaticAssets();
   syncBrandLogos();
   const themeToggle = $("#themeToggle");
   if (!themeToggle) return;
@@ -2431,10 +2566,8 @@ function renderPropertyCard(property) {
         <h3>${escapeHtml(getTitle(property))}</h3>
         <p class="property-zone">${escapeHtml(property.zone)} · ${escapeHtml(typeLabel(property.type))} · ${text("propertyCode")} ${escapeHtml(property.code)}</p>
         <p class="property-price"><strong>${price}</strong></p>
-        <div class="property-specs">
-          <span>${formatSpecValue(property.beds)} ${text("beds")}</span>
-          <span>${formatSpecValue(property.baths)} ${text("baths")}</span>
-          <span>${formatSpecValue(property.area)} ${text("area")}</span>
+        <div class="property-specs property-specs-detailed">
+          ${renderModalPropertySpecs(property)}
         </div>
         <p>${escapeHtml(getDescription(property))}</p>
         <div class="property-actions">
@@ -3230,6 +3363,7 @@ function fillAdminForm(property) {
   $("#adminBedsInput").value = property.beds;
   $("#adminBathsInput").value = property.baths;
   $("#adminAreaInput").value = property.area;
+  $("#adminLotInput").value = property.lot || "";
   $("#adminZoneInput").value = property.zone;
   $("#adminImagesInput").value = (property.images || []).join(", ");
   renderAdminImageList();
@@ -3240,17 +3374,20 @@ function collectAdminProperty(existing) {
   const title = $("#adminTitleInput").value.trim() || "Nueva propiedad";
   const code = existing?.code || allocatePropertyCode();
   const rawOperation = $("#adminOperationInput").value.trim();
+  const normalizedType = normalizePropertyType($("#adminTypeInput").value);
   const operations = rawOperation === "rent-night"
     ? ["rent"]
     : rawOperation.split(",").map((item) => item.trim()).filter(Boolean);
   const fallbackCoords = fallbackPropertyCoordinates(existing || { id: "" }, state.properties.length);
+  const structureArea = Number($("#adminAreaInput").value) || 0;
+  const lotArea = Number($("#adminLotInput").value) || 0;
   return {
     id: existing?.id || `property-${code}-${Date.now()}`,
     code,
     slug: createPropertySlug(title, code),
     title,
     titleEn: existing?.titleEn || title,
-    type: $("#adminTypeInput").value,
+    type: normalizedType,
     operations,
     status: rawOperation === "rent-night" ? "rent" : $("#adminStatusInput").value,
     zone: $("#adminZoneInput").value.trim() || "Jarabacoa",
@@ -3258,8 +3395,8 @@ function collectAdminProperty(existing) {
     rentNight: Number($("#adminNightInput").value) || 0,
     beds: Number($("#adminBedsInput").value) || 0,
     baths: Number($("#adminBathsInput").value) || 0,
-    area: Number($("#adminAreaInput").value) || 0,
-    lot: existing?.lot || Number($("#adminAreaInput").value) || 0,
+    area: normalizedType === "Terreno" ? lotArea : structureArea,
+    lot: lotArea || existing?.lot || structureArea || 0,
     featured: existing?.featured ?? false,
     lat: isValidCoordinate(existing?.lat) ? Number(existing.lat) : fallbackCoords.lat,
     lng: isValidCoordinate(existing?.lng) ? Number(existing.lng) : fallbackCoords.lng,

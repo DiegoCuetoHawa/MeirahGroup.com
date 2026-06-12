@@ -956,6 +956,31 @@ textarea:focus {
   text-align: center;
 }
 
+.property-specs.property-specs-detailed {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.property-specs.property-specs-detailed span {
+  display: grid;
+  gap: 4px;
+  padding: 10px 12px;
+  text-align: left;
+}
+
+.property-specs.property-specs-detailed strong {
+  color: var(--forest);
+  font-size: 0.95rem;
+  line-height: 1.1;
+}
+
+.property-specs.property-specs-detailed small {
+  color: var(--forest-soft);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
 .property-actions {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1691,6 +1716,13 @@ textarea:focus {
   flex-wrap: wrap;
   gap: 10px;
   margin-top: 22px;
+}
+
+.about-manifesto {
+  color: var(--forest) !important;
+  font-family: var(--heading);
+  font-size: 1.1rem !important;
+  font-weight: 700;
 }
 
 .about-values span {
