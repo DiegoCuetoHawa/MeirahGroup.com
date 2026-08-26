@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
@@ -15,28 +15,20 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link
-      id="siteFavicon"
-      rel="icon"
-      href="assets/brand/meirahgroup-black-favicon.svg"
-      data-favicon-light="assets/brand/meirahgroup-black-favicon.svg"
-      data-favicon-dark="assets/brand/meirahgroup-white-favicon.svg"
-      type="image/svg+xml"
-    />
+    <link rel="icon" href="./assets/brand/logo-meirahgroup-black.png" type="image/png" />
     <link rel="stylesheet" href="styles.css" />
     <script async src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" onload="window.lucide?.createIcons()"></script>
     <script defer src="script.js"></script>
   </head>
-  <body data-page-mode="home">
+  <body>
     <header class="site-header" id="top">
       <a class="brand" href="#top" aria-label="Meirah Group inicio">
         <span class="brand-mark" aria-hidden="true">
           <img
-            src="assets/brand/logo-meirahgroup-black.svg"
+            src="assets/brand/logo-meirahgroup-black.png"
             alt=""
-            data-logo-light="assets/brand/logo-meirahgroup-black.svg"
-            data-logo-dark="assets/brand/logo-meirahgroup-white.svg"
-            data-logo-fallback="assets/brand/1.png"
+            data-logo-light="assets/brand/logo-meirahgroup-black.png"
+            data-logo-dark="assets/brand/logo-meirahgroup-white.png"
           />
         </span>
         <span>
@@ -46,32 +38,12 @@
       </a>
 
       <nav class="main-nav" aria-label="Principal">
-        <div class="nav-dropdown">
-          <a class="nav-dropdown-toggle" id="navAboutLink" href="#about" data-i18n="navAbout">Sobre nosotros</a>
-          <div class="nav-dropdown-menu" aria-label="Opciones de sobre nosotros">
-            <a id="navReviewsLink" href="#reviews">Referencias</a>
-            <a id="navBlogLink" href="#blog">Blog y noticias</a>
-          </div>
-        </div>
-        <a id="navPropertiesLink" href="#properties" data-i18n="navProperties">Propiedades</a>
-        <div class="nav-dropdown">
-          <a class="nav-dropdown-toggle" id="navFinancingLink" href="#financing" data-i18n="navFinancing">Calculadoras</a>
-          <div class="nav-dropdown-menu" aria-label="Opciones de calculadoras">
-            <a href="#financing" data-nav-calculator="mortgage">Calculadora hipotecaria</a>
-            <a href="#financing" data-nav-calculator="refinance">Calculadora de refinanciación</a>
-            <a href="#financing" data-nav-calculator="affordability">Calculadora de asequibilidad</a>
-            <a href="#financing" data-nav-calculator="rentbuy">Alquilar vs. comprar</a>
-            <!-- Auto-cobro oculto temporalmente hasta implementar la pasarela real. -->
-            <!-- <a href="#financing" data-nav-calculator="autopay">Auto-cobro</a> -->
-          </div>
-        </div>
-        <div class="nav-dropdown">
-          <a class="nav-dropdown-toggle" id="navContactLink" href="#contact" data-i18n="navContact">Contacto</a>
-          <div class="nav-dropdown-menu" aria-label="Opciones de contacto">
-            <a id="navContactMenuLink" href="#contact" data-i18n="navContact">Contacto</a>
-            <a id="navAppointmentLink" href="#appointments" data-i18n="navAppointment">Agenda tu cita</a>
-          </div>
-        </div>
+        <a href="#properties" data-i18n="navProperties">Propiedades</a>
+        <a href="#financing" data-i18n="navFinancing">Calculadoras</a>
+        <a href="#owners" data-i18n="navOwners">Vende/Alquila</a>
+        <a href="#appointments" data-i18n="navAppointment">Agenda tu cita</a>
+        <a href="#about" data-i18n="navAbout">Sobre nosotros</a>
+        <a href="#contact" data-i18n="navContact">Contacto</a>
       </nav>
 
       <div class="header-actions">
@@ -170,7 +142,7 @@
       <section class="section filters-section" aria-labelledby="filters-title">
         <div class="section-heading">
           <p class="eyebrow" data-i18n="filtersEyebrow">Búsqueda inteligente</p>
-          <h2 id="filters-title" data-i18n="filtersTitle">Encuentra tu propiedad</h2>
+          <h2 id="filters-title" data-i18n="filtersTitle">Encuentra una propiedad que encaje con tu próximo paso</h2>
         </div>
 
         <form class="filters" id="propertyFilters">
@@ -179,8 +151,8 @@
             <select id="filterOperation">
               <option value="all" data-i18n="optionAll">Todas</option>
               <option value="sale" data-i18n="optionSale">Venta</option>
-              <option value="rent" data-i18n="optionRent">Renta larga</option>
-              <option value="night" data-i18n="optionNight">Renta corta</option>
+              <option value="rent" data-i18n="optionRent">Alquiler</option>
+              <option value="night" data-i18n="optionNight">Alquiler x noche</option>
             </select>
           </label>
           <label>
@@ -190,8 +162,7 @@
               <option value="Villa">Villa</option>
               <option value="Casa" data-i18n="typeHouse">Casa</option>
               <option value="Apartamento" data-i18n="typeApartment">Apartamento</option>
-              <option value="Terreno" data-i18n="typeLand">Terreno</option>
-              <option value="Finca" data-i18n="typeFarm">Finca</option>
+              <option value="Solar" data-i18n="typeLand">Solar</option>
             </select>
           </label>
           <label>
@@ -265,7 +236,7 @@
       <section class="section split-section" id="financing" aria-labelledby="financing-title">
         <div class="section-heading">
           <p class="eyebrow" data-i18n="financeEyebrow">Compra con claridad</p>
-          <h2 id="financing-title" data-i18n="financeTitle">Calculadoras financieras</h2>
+          <h2 id="financing-title" data-i18n="financeTitle">Calculadoras financieras para decidir mejor</h2>
         </div>
         <div class="calculator-layout">
           <aside class="calculator-menu" aria-label="Calculadoras">
@@ -298,7 +269,6 @@
                 <small data-i18n="rentBuyCardCopy">Estima cuando tiene sentido comprar o alquilar.</small>
               </span>
             </button>
-            <!-- Auto-cobro oculto temporalmente hasta implementar la pasarela real.
             <button class="calculator-card" type="button" data-calculator="autopay">
               <i data-lucide="credit-card"></i>
               <span>
@@ -306,7 +276,6 @@
                 <small data-i18n="autopayCardCopy">Genera un calendario de pagos recurrentes.</small>
               </span>
             </button>
-            -->
           </aside>
 
           <div class="calculator-panels">
@@ -430,8 +399,7 @@
               <output class="finance-output" id="rentBuyOutput"></output>
             </form>
 
-            <!-- Auto-cobro oculto temporalmente hasta implementar la pasarela real. -->
-            <form class="tool-panel calculator-panel" id="autopayForm" data-calculator-panel="autopay" hidden>
+            <form class="tool-panel calculator-panel" id="autopayForm" data-calculator-panel="autopay">
               <h3 data-i18n="autopayTitle">Auto-cobro para pagos a plazos</h3>
               <div class="two-col">
                 <label>
@@ -464,9 +432,10 @@
       <section class="section reservation-section" id="reservations" aria-labelledby="reservations-title">
         <div class="reservation-copy">
           <p class="eyebrow" data-i18n="reservationEyebrow">Alquileres y estadías</p>
-          <h2 id="reservations-title" data-i18n="reservationTitle">reserva fácil con confirmación rápida</h2>
+          <h2 id="reservations-title" data-i18n="reservationTitle">Reservas tipo villa o Airbnb con confirmación rápida</h2>
           <p data-i18n="reservationCopy">
-            Disponibilidad de renta corta y larga, cálculo de cargos, seguimiento de procesos y solicitud para una experiencia fluida.
+            Las propiedades de alquiler muestran tarifa por noche, disponibilidad de referencia, cálculo de cargos y
+            envío directo al equipo para cerrar por WhatsApp o llamada.
           </p>
         </div>
         <div class="reservation-preview" id="reservationPreview"></div>
@@ -477,7 +446,7 @@
           <p class="eyebrow" data-i18n="ownersEyebrow">Para propietarios</p>
           <h2 id="owners-title" data-i18n="ownersTitle">Vendemos o alquilamos tu propiedad como tu agente inmobiliario</h2>
           <p data-i18n="ownersCopy">
-            Si tienes una casa, villa, apartamento, terreno, finca o local, Meirah Group puede representarte con estrategia
+            Si tienes una casa, villa, apartamento, solar, finca o local, Meirah Group puede representarte con estrategia
             de precio, fotos, promoción, filtros de clientes, visitas, negociación y seguimiento hasta el cierre.
           </p>
           <div class="owners-actions">
@@ -504,12 +473,12 @@
           </article>
           <article>
             <i data-lucide="calendar-check"></i>
-            <h3 data-i18n="ownersRentTitle">Gestión para renta</h3>
-            <p data-i18n="ownersRentCopy">Promoción para renta corta y larga, reservas, disponibilidad y perfilado de clientes.</p>
+            <h3 data-i18n="ownersRentTitle">Gestión para alquiler</h3>
+            <p data-i18n="ownersRentCopy">Promoción para alquiler fijo o turístico, reservas, disponibilidad y perfilado de clientes.</p>
           </article>
           <article>
             <i data-lucide="map"></i>
-            <h3 data-i18n="ownersLandTitle">Terrenos y fincas</h3>
+            <h3 data-i18n="ownersLandTitle">Solares y terrenos</h3>
             <p data-i18n="ownersLandCopy">Presentamos potencial de uso, accesos, servicios cercanos y datos clave de inversión.</p>
           </article>
           <article>
@@ -521,259 +490,156 @@
       </section>
 
       <section class="section appointment-section" id="appointments" aria-labelledby="appointments-title">
-        <div class="appointment-intro-row">
-          <div class="section-heading appointment-copy">
-            <p class="eyebrow" data-i18n="appointmentEyebrow">Atención personalizada</p>
-            <h2 id="appointments-title" data-i18n="appointmentTitle">Agenda tu cita</h2>
-            <p data-i18n="appointmentCopy">
-              Elige el motivo, la modalidad y el horario que mejor te convenga. El equipo recibirá todos los detalles
-              para preparar la conversación antes de contactarte.
-            </p>
-          </div>
-
-          <aside class="appointment-note-card" aria-label="Información de privacidad">
-            <span class="appointment-note-icon"><i data-lucide="shield-check"></i></span>
-            <span class="appointment-note-copy">
-              <strong data-i18n="appointmentPrivacyTitle">Seguro y confidencial</strong>
-              <small data-i18n="appointmentPrivacyCopy">Tu información está protegida.</small>
-            </span>
-          </aside>
+        <div class="section-heading appointment-copy">
+          <p class="eyebrow" data-i18n="appointmentEyebrow">Atención personalizada</p>
+          <h2 id="appointments-title" data-i18n="appointmentTitle">Agenda tu cita</h2>
+          <p data-i18n="appointmentCopy">
+            Elige el motivo, la modalidad y el horario que mejor te convenga. El equipo recibirá todos los detalles
+            para preparar la conversación antes de contactarte.
+          </p>
         </div>
 
         <div class="appointment-system">
-          <form class="appointment-form appointment-form-compact" id="appointmentForm">
-            <div class="appointment-top-grid">
-              <section class="appointment-selector-card" data-appointment-selector-card="type">
-                <button
-                  class="appointment-selector-toggle"
-                  type="button"
-                  data-appointment-toggle="type"
-                  aria-expanded="false"
-                  aria-controls="appointmentTypePanel"
-                >
-                  <span class="appointment-selector-icon"><i data-lucide="tags"></i></span>
-                  <span class="appointment-selector-copy">
-                    <small><span class="appointment-step-number">1.</span> <span data-i18n="appointmentTypeTitle">¿Qué necesitas?</span></small>
-                    <strong id="appointmentTypeValue">Comprar</strong>
-                  </span>
-                  <i data-lucide="chevron-down"></i>
-                </button>
-
-                <div class="appointment-selector-panel" id="appointmentTypePanel" hidden>
-                  <div class="appointment-choice-grid appointment-type-grid">
-                    <label class="appointment-choice">
-                      <input type="radio" name="appointmentType" value="buy" checked />
-                      <i data-lucide="key-round"></i>
-                      <span data-i18n="appointmentTypeBuy">Comprar</span>
-                    </label>
-                    <label class="appointment-choice">
-                      <input type="radio" name="appointmentType" value="sell" />
-                      <i data-lucide="badge-dollar-sign"></i>
-                      <span data-i18n="appointmentTypeSell">Vender</span>
-                    </label>
-                    <label class="appointment-choice">
-                      <input type="radio" name="appointmentType" value="rent" />
-                      <i data-lucide="house"></i>
-                      <span data-i18n="appointmentTypeRent">Alquilar</span>
-                    </label>
-                    <label class="appointment-choice">
-                      <input type="radio" name="appointmentType" value="invest" />
-                      <i data-lucide="chart-no-axes-combined"></i>
-                      <span data-i18n="appointmentTypeInvest">Invertir</span>
-                    </label>
-                    <label class="appointment-choice">
-                      <input type="radio" name="appointmentType" value="visit" />
-                      <i data-lucide="map-pinned"></i>
-                      <span data-i18n="appointmentTypeVisit">Visitar propiedad</span>
-                    </label>
-                  </div>
-                </div>
-              </section>
-
-              <section class="appointment-selector-card" data-appointment-selector-card="mode">
-                <button
-                  class="appointment-selector-toggle"
-                  type="button"
-                  data-appointment-toggle="mode"
-                  aria-expanded="false"
-                  aria-controls="appointmentModePanel"
-                >
-                  <span class="appointment-selector-icon"><i data-lucide="phone-call"></i></span>
-                  <span class="appointment-selector-copy">
-                    <small><span class="appointment-step-number">2.</span> <span data-i18n="appointmentModeTitle">Modalidad</span></small>
-                    <strong id="appointmentModeValue">WhatsApp</strong>
-                  </span>
-                  <i data-lucide="chevron-down"></i>
-                </button>
-
-                <div class="appointment-selector-panel" id="appointmentModePanel" hidden>
-                  <div class="appointment-choice-grid appointment-mode-grid">
-                    <label class="appointment-choice">
-                      <input type="radio" name="appointmentMode" value="whatsapp" checked />
-                      <i data-lucide="message-circle"></i>
-                      <span>WhatsApp</span>
-                    </label>
-                    <label class="appointment-choice">
-                      <input type="radio" name="appointmentMode" value="call" />
-                      <i data-lucide="phone"></i>
-                      <span data-i18n="appointmentModeCall">Llamada</span>
-                    </label>
-                    <label class="appointment-choice">
-                      <input type="radio" name="appointmentMode" value="video" />
-                      <i data-lucide="video"></i>
-                      <span data-i18n="appointmentModeVideo">Videollamada</span>
-                    </label>
-                    <label class="appointment-choice">
-                      <input type="radio" name="appointmentMode" value="in-person" />
-                      <i data-lucide="users"></i>
-                      <span data-i18n="appointmentModeInPerson">Presencial</span>
-                    </label>
-                  </div>
-                </div>
-              </section>
-
-              <section class="appointment-selector-card" data-appointment-selector-card="advisor">
-                <button
-                  class="appointment-selector-toggle"
-                  type="button"
-                  data-appointment-toggle="advisor"
-                  aria-expanded="false"
-                  aria-controls="appointmentAdvisorPanel"
-                >
-                  <span class="appointment-selector-icon"><i data-lucide="user-round"></i></span>
-                  <span class="appointment-selector-copy">
-                    <small><span class="appointment-step-number">3.</span> <span data-i18n="appointmentAdvisor">Agente</span></small>
-                    <strong id="appointmentAdvisorValue" class="is-placeholder" data-i18n="appointmentSelectAgentPlaceholder">Selecciona un agente</strong>
-                  </span>
-                  <i data-lucide="chevron-down"></i>
-                </button>
-
-                <div class="appointment-selector-panel" id="appointmentAdvisorPanel" hidden>
-                  <div class="appointment-staff-selector" id="appointmentStaffSelector"></div>
-                  <input id="appointmentAdvisor" name="appointmentAdvisor" type="hidden" required />
-                  <p class="appointment-staff-hint" id="appointmentStaffHint" data-i18n="appointmentAdvisorHint">
-                    El calendario mostrará únicamente la disponibilidad del agente elegido.
-                  </p>
-                </div>
-              </section>
-            </div>
-
-            <div class="appointment-main-grid">
-              <section class="appointment-card appointment-schedule-card" aria-labelledby="appointmentScheduleHeading">
-                <div class="appointment-card-header">
-                  <div>
-                    <h3 id="appointmentScheduleHeading">
-                      <span class="appointment-step-number">4.</span>
-                      <span data-i18n="appointmentScheduleTitle">Selecciona fecha y hora</span>
-                    </h3>
-                    <p class="appointment-card-copy" id="appointmentScheduleMeta">Selecciona un agente para ver disponibilidad</p>
-                  </div>
-                  <span class="appointment-duration-chip" id="appointmentDurationChip">--</span>
-                </div>
-
-                <div class="appointment-date-layout">
-                  <section class="appointment-calendar" aria-labelledby="appointment-calendar-title">
-                    <div class="appointment-calendar-header">
-                      <button class="icon-button" id="appointmentPrevMonth" type="button" aria-label="Mes anterior">
-                        <i data-lucide="chevron-left"></i>
-                      </button>
-                      <h3 id="appointment-calendar-title">Mes</h3>
-                      <button class="icon-button" id="appointmentNextMonth" type="button" aria-label="Mes siguiente">
-                        <i data-lucide="chevron-right"></i>
-                      </button>
-                    </div>
-                    <div class="appointment-weekdays" id="appointmentWeekdays" aria-hidden="true"></div>
-                    <div class="appointment-calendar-grid" id="appointmentCalendarGrid"></div>
-                    <p class="appointment-calendar-hint" data-i18n="appointmentCalendarHint">
-                      Los días deshabilitados no están disponibles para citas.
-                    </p>
-                  </section>
-
-                  <section class="appointment-times" aria-labelledby="appointment-times-title">
-                    <div class="appointment-times-header">
-                      <h3 id="appointment-times-title" data-i18n="appointmentTimeTitle">Selecciona un horario</h3>
-                      <p id="appointmentSelectedDate" data-i18n="appointmentSelectDate">Primero selecciona una fecha.</p>
-                    </div>
-                    <div class="appointment-time-grid" id="appointmentTimeSlots"></div>
-                  </section>
-                </div>
-              </section>
-
-              <div class="appointment-sidebar">
-                <section class="appointment-card appointment-details-card" aria-labelledby="appointment-details-title">
-                  <div class="appointment-card-header">
-                    <div>
-                      <h3 id="appointment-details-title">
-                        <span class="appointment-step-number">5.</span>
-                        <span data-i18n="appointmentDetailsTitle">Tus datos</span>
-                      </h3>
-                      <p class="appointment-card-copy" data-i18n="appointmentDetailsCopy">Completa tu información</p>
-                    </div>
-                  </div>
-
-                  <div class="appointment-details-grid">
-                    <label>
-                      <span data-i18n="appointmentName">Nombre completo</span>
-                      <input id="appointmentName" type="text" required autocomplete="name" placeholder="Tu nombre completo" data-i18n-placeholder="appointmentNamePlaceholder" />
-                    </label>
-                    <label>
-                      <span data-i18n="appointmentPhone">Teléfono o WhatsApp</span>
-                      <input id="appointmentPhone" type="tel" required autocomplete="tel" placeholder="+1 829 000 0000" />
-                    </label>
-                    <label>
-                      <span data-i18n="appointmentEmail">Correo electrónico (opcional)</span>
-                      <input id="appointmentEmail" type="email" autocomplete="email" placeholder="tu@email.com" />
-                    </label>
-                    <label class="appointment-message-field">
-                      <span data-i18n="appointmentMessage">Mensaje adicional</span>
-                      <textarea
-                        id="appointmentMessage"
-                        rows="4"
-                        placeholder="Cuéntanos qué propiedad o tema deseas tratar"
-                        data-i18n-placeholder="appointmentMessagePlaceholder"
-                      ></textarea>
-                    </label>
-                  </div>
-                </section>
-
-                <section class="appointment-card appointment-summary-card" aria-labelledby="appointment-summary-title">
-                  <div class="appointment-card-header">
-                    <div>
-                      <h3 id="appointment-summary-title" data-i18n="appointmentSummaryTitle">Resumen de tu cita</h3>
-                    </div>
-                  </div>
-                  <div class="appointment-summary-grid" id="appointmentSummaryGrid"></div>
-                </section>
-
-                <aside class="appointment-confirmation" id="appointmentConfirmation" hidden aria-live="polite">
-                  <div class="appointment-confirmation-icon"><i data-lucide="circle-check-big"></i></div>
-                  <div>
-                    <p class="eyebrow" data-i18n="appointmentConfirmedEyebrow">Cita registrada</p>
-                    <h3 data-i18n="appointmentConfirmedTitle">Tu solicitud está lista</h3>
-                    <div class="appointment-confirmation-summary" id="appointmentConfirmationSummary"></div>
-                  </div>
-                  <a class="button button-primary" id="appointmentWhatsApp" href="#" target="_blank" rel="noreferrer">
-                    <i data-lucide="message-circle"></i>
-                    <span data-i18n="appointmentSendWhatsApp">Enviar resumen por WhatsApp</span>
-                  </a>
-                </aside>
+          <form class="appointment-form" id="appointmentForm">
+            <fieldset class="appointment-step">
+              <legend data-i18n="appointmentTypeTitle">¿Qué necesitas?</legend>
+              <div class="appointment-choice-grid appointment-type-grid">
+                <label class="appointment-choice">
+                  <input type="radio" name="appointmentType" value="buy" checked />
+                  <i data-lucide="key-round"></i>
+                  <span data-i18n="appointmentTypeBuy">Comprar</span>
+                </label>
+                <label class="appointment-choice">
+                  <input type="radio" name="appointmentType" value="sell" />
+                  <i data-lucide="badge-dollar-sign"></i>
+                  <span data-i18n="appointmentTypeSell">Vender</span>
+                </label>
+                <label class="appointment-choice">
+                  <input type="radio" name="appointmentType" value="rent" />
+                  <i data-lucide="house"></i>
+                  <span data-i18n="appointmentTypeRent">Alquilar</span>
+                </label>
+                <label class="appointment-choice">
+                  <input type="radio" name="appointmentType" value="invest" />
+                  <i data-lucide="chart-no-axes-combined"></i>
+                  <span data-i18n="appointmentTypeInvest">Invertir</span>
+                </label>
+                <label class="appointment-choice">
+                  <input type="radio" name="appointmentType" value="visit" />
+                  <i data-lucide="map-pinned"></i>
+                  <span data-i18n="appointmentTypeVisit">Visitar propiedad</span>
+                </label>
               </div>
+            </fieldset>
+
+            <fieldset class="appointment-step">
+              <legend data-i18n="appointmentModeTitle">Modalidad</legend>
+              <div class="appointment-choice-grid appointment-mode-grid">
+                <label class="appointment-choice">
+                  <input type="radio" name="appointmentMode" value="whatsapp" checked />
+                  <i data-lucide="message-circle"></i>
+                  <span>WhatsApp</span>
+                </label>
+                <label class="appointment-choice">
+                  <input type="radio" name="appointmentMode" value="call" />
+                  <i data-lucide="phone"></i>
+                  <span data-i18n="appointmentModeCall">Llamada</span>
+                </label>
+                <label class="appointment-choice">
+                  <input type="radio" name="appointmentMode" value="video" />
+                  <i data-lucide="video"></i>
+                  <span data-i18n="appointmentModeVideo">Videollamada</span>
+                </label>
+                <label class="appointment-choice">
+                  <input type="radio" name="appointmentMode" value="in-person" />
+                  <i data-lucide="users"></i>
+                  <span data-i18n="appointmentModeInPerson">Presencial</span>
+                </label>
+              </div>
+            </fieldset>
+
+            <fieldset class="appointment-step appointment-staff-step">
+              <legend data-i18n="appointmentAdvisorTitle">Selecciona tu agente</legend>
+              <div class="appointment-staff-selector" id="appointmentStaffSelector"></div>
+              <input id="appointmentAdvisor" name="appointmentAdvisor" type="hidden" required />
+              <p class="appointment-staff-hint" id="appointmentStaffHint" data-i18n="appointmentAdvisorHint">
+                El calendario mostrará únicamente la disponibilidad del agente elegido.
+              </p>
+            </fieldset>
+
+            <div class="appointment-date-layout">
+              <section class="appointment-calendar" aria-labelledby="appointment-calendar-title">
+                <div class="appointment-calendar-header">
+                  <button class="icon-button" id="appointmentPrevMonth" type="button" aria-label="Mes anterior">
+                    <i data-lucide="chevron-left"></i>
+                  </button>
+                  <h3 id="appointment-calendar-title">Mes</h3>
+                  <button class="icon-button" id="appointmentNextMonth" type="button" aria-label="Mes siguiente">
+                    <i data-lucide="chevron-right"></i>
+                  </button>
+                </div>
+                <div class="appointment-weekdays" id="appointmentWeekdays" aria-hidden="true"></div>
+                <div class="appointment-calendar-grid" id="appointmentCalendarGrid"></div>
+                <p class="appointment-calendar-hint" data-i18n="appointmentCalendarHint">
+                  Los días deshabilitados no están disponibles para citas.
+                </p>
+              </section>
+
+              <section class="appointment-times" aria-labelledby="appointment-times-title">
+                <div>
+                  <p class="eyebrow" data-i18n="appointmentTimeEyebrow">Disponibilidad</p>
+                  <h3 id="appointment-times-title" data-i18n="appointmentTimeTitle">Selecciona un horario</h3>
+                  <p id="appointmentSelectedDate" data-i18n="appointmentSelectDate">Primero selecciona una fecha.</p>
+                </div>
+                <div class="appointment-time-grid" id="appointmentTimeSlots"></div>
+              </section>
             </div>
 
-            <div class="appointment-footer-bar">
+            <div class="appointment-details-grid">
+              <label>
+                <span data-i18n="appointmentName">Nombre completo</span>
+                <input id="appointmentName" type="text" required autocomplete="name" placeholder="Tu nombre completo" data-i18n-placeholder="appointmentNamePlaceholder" />
+              </label>
+              <label>
+                <span data-i18n="appointmentPhone">Teléfono o WhatsApp</span>
+                <input id="appointmentPhone" type="tel" required autocomplete="tel" placeholder="+1 829 000 0000" />
+              </label>
+              <label>
+                <span data-i18n="appointmentEmail">Correo electrónico (opcional)</span>
+                <input id="appointmentEmail" type="email" autocomplete="email" placeholder="tu@email.com" />
+              </label>
+              <label class="appointment-message-field">
+                <span data-i18n="appointmentMessage">Mensaje adicional</span>
+                <textarea
+                  id="appointmentMessage"
+                  rows="4"
+                  placeholder="Cuéntanos qué propiedad o tema deseas tratar"
+                  data-i18n-placeholder="appointmentMessagePlaceholder"
+                ></textarea>
+              </label>
+            </div>
+
+            <div class="appointment-submit-row">
               <p id="appointmentValidation" role="alert" aria-live="polite"></p>
-              <div class="appointment-submit-row">
-                <button class="button button-light appointment-back-button" id="appointmentBackButton" type="button">
-                  <i data-lucide="arrow-left"></i>
-                  <span data-i18n="appointmentBack">Volver</span>
-                </button>
-                <button class="button button-primary" type="submit">
-                  <i data-lucide="calendar-check-2"></i>
-                  <span data-i18n="appointmentConfirm">Confirmar cita</span>
-                </button>
-              </div>
+              <button class="button button-primary" type="submit">
+                <i data-lucide="calendar-check-2"></i>
+                <span data-i18n="appointmentConfirm">Confirmar cita</span>
+              </button>
             </div>
           </form>
+
+          <aside class="appointment-confirmation" id="appointmentConfirmation" hidden aria-live="polite">
+            <div class="appointment-confirmation-icon"><i data-lucide="circle-check-big"></i></div>
+            <div>
+              <p class="eyebrow" data-i18n="appointmentConfirmedEyebrow">Cita registrada</p>
+              <h3 data-i18n="appointmentConfirmedTitle">Tu solicitud está lista</h3>
+              <div class="appointment-confirmation-summary" id="appointmentConfirmationSummary"></div>
+            </div>
+            <a class="button button-primary" id="appointmentWhatsApp" href="#" target="_blank" rel="noreferrer">
+              <i data-lucide="message-circle"></i>
+              <span data-i18n="appointmentSendWhatsApp">Enviar resumen por WhatsApp</span>
+            </a>
+          </aside>
         </div>
       </section>
 
@@ -803,7 +669,7 @@
         </div>
       </section>
 
-      <section class="section reviews-section" id="reviews" aria-labelledby="reviews-title">
+      <section class="section reviews-section" aria-labelledby="reviews-title">
         <div class="section-heading">
           <p class="eyebrow" data-i18n="reviewsEyebrow">Referencias</p>
           <h2 id="reviews-title" data-i18n="reviewsTitle">Clientes que ya dieron el paso</h2>
@@ -833,7 +699,7 @@
         </div>
       </section>
 
-      <section class="section blog-section" id="blog" aria-labelledby="blog-title">
+      <section class="section blog-section" aria-labelledby="blog-title">
         <div class="section-heading row-heading">
           <div>
             <p class="eyebrow" data-i18n="blogEyebrow">Blog y noticias</p>
@@ -921,8 +787,8 @@
             <li><i data-lucide="map-pin"></i> Av. Federico Basilis, Jarabacoa, La Vega, RD</li>
             <li><i data-lucide="phone"></i> +1 (829) 393-5951</li>
             <li><i data-lucide="mail"></i> contacto@meirahgroup.com</li>
-            <li><i data-lucide="clock"></i> <span data-i18n="contactHours">Lunes a viernes 9 a.m. - 5 p.m. | Sábados citas previas.</span></li>
-            <li><i data-lucide="bot"></i> <span data-i18n="aiAdvisory">ChatBOT 24/7</span></li>
+            <li><i data-lucide="clock"></i> Lun - Sab, 9:00 AM - 5:00 PM</li>
+            <li><i data-lucide="bot"></i> <span data-i18n="aiAdvisory">Asesoría IA 24/7.</span></li>
           </ul>
         </div>
         <form class="lead-form" id="leadForm">
@@ -998,17 +864,16 @@
                 <option>Villa</option>
                 <option>Casa</option>
                 <option>Apartamento</option>
-                <option>Terreno</option>
-                <option>Finca</option>
+                <option>Solar</option>
               </select>
             </label>
             <label>
               <span data-i18n="adminOperation">Operación</span>
               <select id="adminOperationInput">
                 <option value="sale">Venta</option>
-                <option value="rent">Renta larga</option>
-                <option value="rent-night">Renta corta</option>
-                <option value="sale,rent">Venta y renta</option>
+                <option value="rent">Alquiler</option>
+                <option value="rent-night">Alquiler x noche</option>
+                <option value="sale,rent">Venta y alquiler</option>
               </select>
             </label>
             <label>
@@ -1040,14 +905,10 @@
                 <input id="adminBathsInput" type="number" min="0" step="0.5" />
               </label>
               <label>
-                <span data-i18n="adminArea">m² construcción</span>
+                <span data-i18n="adminArea">m²</span>
                 <input id="adminAreaInput" type="number" min="0" />
               </label>
             </div>
-            <label>
-              <span data-i18n="adminLotArea">m² terreno</span>
-              <input id="adminLotInput" type="number" min="0" />
-            </label>
             <label>
               <span data-i18n="adminZone">Zona</span>
               <input id="adminZoneInput" type="text" />
@@ -1301,7 +1162,7 @@
       <div>
         <a class="brand footer-brand" href="#top">
           <span class="brand-mark" aria-hidden="true">
-            <img src="assets/brand/logo-meirahgroup-white.svg" data-asset-path="assets/brand/logo-meirahgroup-white.svg" alt="" />
+            <img src="assets/brand/logo-meirahgroup-white.png" alt="" />
           </span>
           <span>
             <strong>Meirah Group</strong>
@@ -1309,7 +1170,8 @@
           </span>
         </a>
         <p data-i18n="footerCopy">
-          Una firma que ayuda a las personas a encontrar espacios alineados con su esencia y construir patrimonio con propósito.
+          Asesoría inmobiliaria desde Jarabacoa para clientes locales, inversionistas y visitantes que buscan comprar,
+          vender o alquilar con confianza.
         </p>
       </div>
       <div>
@@ -1329,12 +1191,8 @@
       <div>
         <h3 data-i18n="footerContact">Contacto</h3>
         <p>Av. Federico Basilis, Jarabacoa, RD</p>
-        <p><a href="tel:+18293935951">+1 (829) 393-5951</a></p>
-        <p><a href="mailto:contacto@meirahgroup.com?subject=Consulta%20Meirah%20Group">contacto@meirahgroup.com</a></p>
-      </div>
-      <div class="site-footer-meta">
-        <p>&copy; 2026 Meirah Group. Todos los derechos reservados.</p>
-        <p>Made by Akahawa Studio.</p>
+        <p>+1 (829) 393-5951</p>
+        <p>contacto@meirahgroup.com</p>
       </div>
     </footer>
 
