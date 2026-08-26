@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meirah Group Logos</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #080b0d;
+        --panel: #101820;
+        --line: #26323f;
+        --text: #f5ecd9;
+        --muted: #b7aa92;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        color: var(--text);
+        background: var(--bg);
+        font-family: Inter, Manrope, "Segoe UI", Arial, sans-serif;
+      }
+
+      main {
+        width: min(1180px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 48px 0;
+      }
+
+      h1 {
+        margin: 0 0 24px;
+        font-size: clamp(2rem, 4vw, 3.5rem);
+        line-height: 1;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 18px;
+      }
+
+      .logo-card {
+        overflow: hidden;
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 10px;
+      }
+
+      .logo-stage {
+        display: grid;
+        min-height: 340px;
+        place-items: center;
+        padding: 28px;
+      }
+
+      .logo-stage.light {
+        background: #fbf7ef;
+      }
+
+      .logo-stage.dark {
+        background:
+          radial-gradient(circle at 50% 55%, rgba(255, 255, 255, 0.24), transparent 48%),
+          #050708;
+      }
+
+      .logo-stage img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      .logo-card footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 14px 16px;
+      }
+
+      .logo-card span {
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      .logo-card a {
+        color: var(--text);
+        text-decoration: none;
+        font-weight: 700;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Meirah Group Logos</h1>
+      <section class="grid" aria-label="Versiones del logo">
+        <article class="logo-card">
+          <div class="logo-stage light">
+            <img src="logo-meirahgroup-black.svg" alt="Logo negro de Meirah Group" />
+          </div>
+          <footer>
+            <span>Black SVG</span>
+            <a href="logo-meirahgroup-black.svg">Abrir</a>
+          </footer>
+        </article>
+        <article class="logo-card">
+          <div class="logo-stage dark">
+            <img src="logo-meirahgroup-white.svg" alt="Logo blanco de Meirah Group" />
+          </div>
+          <footer>
+            <span>White SVG</span>
+            <a href="logo-meirahgroup-white.svg">Abrir</a>
+          </footer>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>
