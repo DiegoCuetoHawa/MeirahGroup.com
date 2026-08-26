@@ -1,16 +1,12 @@
-﻿const STORAGE = {
-  properties: "meirahgroup.properties",
-  propertyCodeCounter: "meirahgroup.propertyCodeCounter",
-  favorites: "meirahgroup.favorites",
-  leads: "meirahgroup.leads",
-  reservations: "meirahgroup.reservations",
-  appointments: "meirahgroup.appointments",
-  staff: "meirahgroup.staff",
-  session: "meirahgroup.session",
-  lang: "meirahgroup.lang",
-  currency: "meirahgroup.currency",
-  theme: "meirahgroup.theme",
-  members: "meirahgroup.members",
+const STORAGE = {
+  properties: "meiragroup.properties",
+  favorites: "meiragroup.favorites",
+  leads: "meiragroup.leads",
+  reservations: "meiragroup.reservations",
+  lang: "meiragroup.lang",
+  currency: "meiragroup.currency",
+  theme: "meiragroup.theme",
+  members: "meiragroup.members",
 };
 
 const DEFAULT_IMAGE =
@@ -35,191 +31,10 @@ const CURRENCY_SYMBOLS = {
   EUR: "\u20AC",
   DOP: "$",
 };
-const BUSINESS_NAME = "Meirah Group";
-const BUSINESS_PHONE_DISPLAY = "+1 (829) 393-5951";
-const BUSINESS_WHATSAPP = "18293935951";
-const PROPERTY_CODE_WIDTH = 3;
-const PROPERTY_ROUTE_PREFIX = "/propiedades/";
-const STAFF_ROLES = ["super_admin", "admin", "agent", "assistant", "editor"];
-const STAFF_PERMISSION_DEFAULTS = {
-  super_admin: {
-    manageProperties: true,
-    manageAppointments: true,
-    manageStaff: true,
-    manageSchedules: true,
-    viewAppointments: true,
-    viewLeads: true,
-    ownAppointments: true,
-    ownAvailability: true,
-  },
-  admin: {
-    manageProperties: true,
-    manageAppointments: true,
-    manageStaff: true,
-    manageSchedules: true,
-    viewAppointments: true,
-    viewLeads: true,
-    ownAppointments: true,
-    ownAvailability: true,
-  },
-  agent: {
-    manageProperties: false,
-    manageAppointments: false,
-    manageStaff: false,
-    manageSchedules: false,
-    viewAppointments: true,
-    viewLeads: false,
-    ownAppointments: true,
-    ownAvailability: true,
-  },
-  assistant: {
-    manageProperties: false,
-    manageAppointments: false,
-    manageStaff: false,
-    manageSchedules: false,
-    viewAppointments: true,
-    viewLeads: true,
-    ownAppointments: false,
-    ownAvailability: false,
-  },
-  editor: {
-    manageProperties: false,
-    manageAppointments: false,
-    manageStaff: false,
-    manageSchedules: false,
-    viewAppointments: false,
-    viewLeads: false,
-    ownAppointments: false,
-    ownAvailability: false,
-  },
-};
-const APPOINTMENT_STATUSES = ["pending", "confirmed", "cancelled", "completed"];
-const ACTIVE_APPOINTMENT_STATUSES = ["pending", "confirmed"];
-const WEEKDAY_KEYS = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"];
-const DEFAULT_STAFF = [
-  {
-    id: "staff-diego-cueto",
-    name: "Diego Cueto Hawa",
-    username: "Diego C. Hawa",
-    password: "1234",
-    role: "agent",
-    permissions: STAFF_PERMISSION_DEFAULTS.agent,
-    active: true,
-    acceptsAppointments: true,
-    availabilityConfigured: true,
-    phone: BUSINESS_WHATSAPP,
-    email: "diegocuetohawa05@hotmail.com",
-    avatar: "",
-    availability: {
-      slotDuration: 60,
-      weekly: {
-        monday: [{ start: "09:00", end: "12:00" }, { start: "14:00", end: "17:00" }],
-        tuesday: [{ start: "09:00", end: "15:00" }],
-        wednesday: [],
-        thursday: [{ start: "10:00", end: "16:00" }],
-        friday: [{ start: "09:00", end: "13:00" }],
-        saturday: [{ start: "09:00", end: "12:00" }],
-        sunday: [],
-      },
-      blockedDates: ["2026-06-18", "2026-06-25"],
-      blockedSlots: [{ date: "2026-06-20", start: "10:00", end: "11:00", reason: "Reunión interna" }],
-    },
-  },
-  {
-    id: "staff-agent-demo",
-    name: "Agente Demo",
-    username: "agente",
-    password: "demo123",
-    role: "agent",
-    permissions: STAFF_PERMISSION_DEFAULTS.agent,
-    active: true,
-    acceptsAppointments: true,
-    availabilityConfigured: true,
-    phone: BUSINESS_WHATSAPP,
-    email: "agente@meirahgroup.com",
-    avatar: "",
-    availability: {
-      slotDuration: 45,
-      weekly: {
-        monday: [{ start: "10:00", end: "16:00" }],
-        tuesday: [{ start: "10:00", end: "13:00" }, { start: "14:00", end: "18:00" }],
-        wednesday: [{ start: "10:00", end: "16:00" }],
-        thursday: [{ start: "10:00", end: "13:00" }, { start: "14:00", end: "18:00" }],
-        friday: [{ start: "10:00", end: "16:00" }],
-        saturday: [],
-        sunday: [],
-      },
-      blockedDates: [],
-      blockedSlots: [],
-    },
-  },
-  {
-    id: "staff-admin-meirah",
-    name: "Admin Meirah",
-    username: "admin",
-    password: "admin1025",
-    role: "admin",
-    permissions: STAFF_PERMISSION_DEFAULTS.admin,
-    active: true,
-    acceptsAppointments: false,
-    availabilityConfigured: false,
-    phone: BUSINESS_WHATSAPP,
-    email: "contacto@meirahgroup.com",
-    avatar: "",
-    availability: {
-      slotDuration: 60,
-      weekly: {
-        monday: [],
-        tuesday: [],
-        wednesday: [],
-        thursday: [],
-        friday: [],
-        saturday: [],
-        sunday: [],
-      },
-      blockedDates: [],
-      blockedSlots: [],
-    },
-  },
-  {
-    id: "staff-assistant-meirah",
-    name: "Asistente Meirah",
-    username: "asistente",
-    password: "demo123",
-    role: "assistant",
-    permissions: STAFF_PERMISSION_DEFAULTS.assistant,
-    active: true,
-    acceptsAppointments: false,
-    availabilityConfigured: false,
-    phone: BUSINESS_WHATSAPP,
-    email: "asistente@meirahgroup.com",
-    avatar: "",
-    availability: {
-      slotDuration: 60,
-      weekly: {
-        monday: [],
-        tuesday: [],
-        wednesday: [],
-        thursday: [],
-        friday: [],
-        saturday: [],
-        sunday: [],
-      },
-      blockedDates: [],
-      blockedSlots: [],
-    },
-  },
-];
+const BUSINESS_NAME = "MeriahGroup";
+const BUSINESS_PHONE_DISPLAY = "+1 (829) 990-5951";
+const BUSINESS_WHATSAPP = "18299905951";
 const VIDEO_SOURCE_PATTERN = /\.(mp4|webm|ogg|mov|m4v)(?:$|[?#])/i;
-const JARABACOA_CENTER = { lat: 19.1218, lng: -70.6422 };
-const DEFAULT_PROPERTY_COORDS = {
-  "villa-altos-del-yaque": { lat: 19.1245, lng: -70.6408 },
-  "casa-pinar-dorado": { lat: 19.1272, lng: -70.6344 },
-  "apartamento-vista-real": { lat: 19.1291, lng: -70.6228 },
-  "solar-manabao": { lat: 19.0698, lng: -70.7848 },
-  "casa-la-confluencia": { lat: 19.0988, lng: -70.6503 },
-  "villa-riverstone": { lat: 19.1456, lng: -70.6254 },
-};
 const RIVERSTONE_IMAGES = [
   "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=82",
   "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1400&q=82",
@@ -242,8 +57,6 @@ const BASE_PROPERTIES = [
     area: 360,
     lot: 1250,
     featured: true,
-    lat: DEFAULT_PROPERTY_COORDS["villa-altos-del-yaque"].lat,
-    lng: DEFAULT_PROPERTY_COORDS["villa-altos-del-yaque"].lng,
     coords: { x: 34, y: 42 },
     distances: {
       Supermercado: "6 min",
@@ -276,8 +89,6 @@ const BASE_PROPERTIES = [
     area: 210,
     lot: 720,
     featured: true,
-    lat: DEFAULT_PROPERTY_COORDS["casa-pinar-dorado"].lat,
-    lng: DEFAULT_PROPERTY_COORDS["casa-pinar-dorado"].lng,
     coords: { x: 58, y: 34 },
     distances: {
       Supermercado: "4 min",
@@ -310,8 +121,6 @@ const BASE_PROPERTIES = [
     area: 118,
     lot: 0,
     featured: false,
-    lat: DEFAULT_PROPERTY_COORDS["apartamento-vista-real"].lat,
-    lng: DEFAULT_PROPERTY_COORDS["apartamento-vista-real"].lng,
     coords: { x: 71, y: 58 },
     distances: {
       Supermercado: "3 min",
@@ -333,7 +142,7 @@ const BASE_PROPERTIES = [
     id: "solar-manabao",
     title: "Solar Manabao Verde",
     titleEn: "Manabao Green Lot",
-    type: "Terreno",
+    type: "Solar",
     operations: ["sale"],
     status: "sale",
     zone: "Manabao",
@@ -344,8 +153,6 @@ const BASE_PROPERTIES = [
     area: 2200,
     lot: 2200,
     featured: true,
-    lat: DEFAULT_PROPERTY_COORDS["solar-manabao"].lat,
-    lng: DEFAULT_PROPERTY_COORDS["solar-manabao"].lng,
     coords: { x: 24, y: 68 },
     distances: {
       Supermercado: "14 min",
@@ -378,8 +185,6 @@ const BASE_PROPERTIES = [
     area: 245,
     lot: 900,
     featured: false,
-    lat: DEFAULT_PROPERTY_COORDS["casa-la-confluencia"].lat,
-    lng: DEFAULT_PROPERTY_COORDS["casa-la-confluencia"].lng,
     coords: { x: 46, y: 74 },
     distances: {
       Supermercado: "9 min",
@@ -412,8 +217,6 @@ const BASE_PROPERTIES = [
     area: 430,
     lot: 1800,
     featured: true,
-    lat: DEFAULT_PROPERTY_COORDS["villa-riverstone"].lat,
-    lng: DEFAULT_PROPERTY_COORDS["villa-riverstone"].lng,
     coords: { x: 78, y: 31 },
     distances: {
       Supermercado: "11 min",
@@ -433,12 +236,11 @@ const I18N = {
   es: {
     brandTag: "Bienes Raíces",
     navProperties: "Propiedades",
-    navAppointment: "Agenda tu cita",
+    navMap: "Mapa",
     navFinancing: "Calculadoras",
     navAbout: "Sobre nosotros",
     navOwners: "Vende/Alquila",
     navContact: "Contacto",
-    heroSlogan: "Tu Esencia • Tu Espacio • Tu Patrimonio",
     heroEyebrow: "Jarabacoa como base, República Dominicana como alcance",
     heroCopy:
       "Casas, villas, solares y propiedades de inversión con asesoría cercana, procesos claros y seguimiento real desde el primer mensaje hasta la entrega de llaves.",
@@ -446,10 +248,10 @@ const I18N = {
     heroSecondary: "Quiero asesoría",
     statProperties: "propiedades curadas",
     statFollow: "asesoría activa",
-    statLang: "idiomas",
+    statLang: "idiomas disponibles",
     statReviews: "referencias verificadas",
     filtersEyebrow: "Búsqueda inteligente",
-    filtersTitle: "Encuentra tu propiedad",
+    filtersTitle: "Encuentra una propiedad que encaje con tu próximo paso",
     filterOperation: "Operación",
     filterType: "Tipo",
     filterZone: "Zona",
@@ -463,13 +265,12 @@ const I18N = {
     optionAllTypes: "Todos",
     optionAllZones: "Todas",
     optionSale: "Venta",
-    optionRent: "Renta larga",
-    optionNight: "Renta corta",
+    optionRent: "Alquiler",
+    optionNight: "Alquiler x noche",
     optionAny: "Cualquiera",
     typeHouse: "Casa",
     typeApartment: "Apartamento",
-    typeLand: "Terreno",
-    typeFarm: "Finca",
+    typeLand: "Solar",
     propertiesEyebrow: "Inventario destacado",
     propertiesTitle: "Propiedades disponibles",
     sortLabel: "Ordenar",
@@ -478,104 +279,10 @@ const I18N = {
     sortPriceDesc: "Precio mayor",
     sortArea: "Más m²",
     favoritesButton: "Favoritos",
-    appointmentEyebrow: "Atención personalizada",
-    appointmentTitle: "Agenda tu cita",
-    appointmentCopy:
-      "Elige el motivo, la modalidad y el horario que mejor te convenga. El equipo recibirá todos los detalles para preparar la conversación antes de contactarte.",
-    appointmentTypeTitle: "¿Qué necesitas?",
-    appointmentTypeBuy: "Comprar",
-    appointmentTypeSell: "Vender",
-    appointmentTypeRent: "Alquilar",
-    appointmentTypeInvest: "Invertir",
-    appointmentTypeVisit: "Visitar propiedad",
-    appointmentModeTitle: "Modalidad",
-    appointmentModeCall: "Llamada",
-    appointmentModeVideo: "Videollamada",
-    appointmentModeInPerson: "Presencial",
-    appointmentCalendarHint: "Los días deshabilitados no están disponibles para citas.",
-    appointmentTimeEyebrow: "Disponibilidad",
-    appointmentTimeTitle: "Selecciona un horario",
-    appointmentSelectDate: "Primero selecciona una fecha.",
-    appointmentAdvisor: "Agente",
-    appointmentAdvisorGeneral: "Equipo Meirah Group",
-    appointmentAdvisorInvestment: "Asesor de inversiones",
-    appointmentName: "Nombre completo",
-    appointmentNamePlaceholder: "Tu nombre completo",
-    appointmentPhone: "Teléfono o WhatsApp",
-    appointmentEmail: "Correo electrónico (opcional)",
-    appointmentMessage: "Mensaje adicional",
-    appointmentMessagePlaceholder: "Cuéntanos qué propiedad o tema deseas tratar",
-    appointmentConfirm: "Confirmar cita",
-    appointmentConfirmedEyebrow: "Cita registrada",
-    appointmentConfirmedTitle: "Tu solicitud está lista",
-    appointmentSendWhatsApp: "Enviar resumen por WhatsApp",
-    appointmentBooked: "Ocupado",
-    appointmentNoTimes: "No quedan horarios disponibles para este día y agente.",
-    appointmentChooseDateError: "Selecciona una fecha disponible.",
-    appointmentChooseTimeError: "Selecciona uno de los horarios disponibles.",
-    appointmentConflictError: "Ese horario acaba de ocuparse. Selecciona otro.",
-    appointmentSaved: "Cita guardada. Puedes enviar el resumen por WhatsApp.",
-    appointmentAdvisorTitle: "Selecciona tu agente",
-    appointmentAdvisorHint: "El calendario mostrará únicamente la disponibilidad del agente elegido.",
-    appointmentNoStaff: "No hay agentes activos con disponibilidad configurada.",
-    appointmentChooseStaffError: "Selecciona un agente para ver disponibilidad",
-    appointmentPrivacyTitle: "Seguro y confidencial",
-    appointmentPrivacyCopy: "Tu información está protegida.",
-    appointmentScheduleTitle: "Selecciona fecha y hora",
-    appointmentDetailsTitle: "Tus datos",
-    appointmentDetailsCopy: "Completa tu información",
-    appointmentSummaryTitle: "Resumen de tu cita",
-    appointmentSelectAgentPlaceholder: "Selecciona un agente",
-    appointmentBack: "Volver",
-    staffLogout: "Cerrar sesión",
-    staffAdminEyebrow: "Gestión interna",
-    staffAdminTitle: "Equipo y disponibilidad",
-    staffNew: "Crear usuario",
-    staffName: "Nombre completo",
-    staffUsername: "Usuario",
-    staffPassword: "Contraseña demo",
-    staffRole: "Rol",
-    staffRoleSuperAdmin: "Super admin",
-    staffRoleAdvisor: "Agente",
-    staffRoleAssistant: "Asistente",
-    staffRoleEditor: "Editor",
-    staffPhone: "Teléfono/WhatsApp",
-    staffEmail: "Correo",
-    staffAvatar: "Avatar opcional",
-    staffAvatarLinkMode: "Poner enlace",
-    staffAvatarFileMode: "Cargar archivo",
-    staffAvatarHint: "Archivo máximo 10 MB.",
-    staffAvatarEmpty: "Sin avatar",
-    staffDuration: "Duración de cada cita",
-    staffActive: "Usuario activo",
-    staffAcceptsAppointments: "Acepta citas públicas",
-    staffAvailabilityConfigured: "Disponibilidad configurada",
-    staffWeeklyTitle: "Disponibilidad semanal",
-    staffWeeklyHint: "Selecciona un día, define la jornada y marca hasta dos bloqueos internos.",
-    staffBlockedDates: "Días bloqueados",
-    staffBlockedDatesHint: "Usa fechas AAAA-MM-DD separadas por coma o línea.",
-    staffPasswordShow: "Ver",
-    staffPasswordHide: "Ocultar",
-    staffSave: "Guardar usuario y horario",
-    staffDelete: "Eliminar usuario",
-    staffLoginEyebrow: "Acceso interno",
-    staffLoginTitle: "Iniciar sesión",
-    staffLoginCopy: "Acceso para colaboradores internos de Meirah Group.",
-    staffLoginSubmit: "Entrar",
-    staffPinLogin: "Usar PIN demo 1025",
-    appointmentAdminEyebrow: "Seguimiento",
-    appointmentAdminTitle: "Citas con agentes",
-    appointmentFilterStaff: "Agente",
-    appointmentFilterDate: "Fecha",
-    appointmentFilterStatus: "Estado",
-    appointmentFilterMode: "Modalidad",
-    appointmentStatusPending: "Pendiente",
-    appointmentStatusConfirmed: "Confirmada",
-    appointmentStatusCancelled: "Cancelada",
-    appointmentStatusCompleted: "Completada",
-    adminLeadsTitle: "Leads recientes",
+    mapEyebrow: "Ubicación y entorno",
+    mapTitle: "Mapa interactivo con distancias a puntos vitales",
     financeEyebrow: "Compra con claridad",
-    financeTitle: "Calculadoras financieras",
+    financeTitle: "Calculadoras financieras para decidir mejor",
     calculatorsTitle: "Calculadoras",
     mortgageTitle: "Calculadora hipotecaria",
     mortgageCardCopy: "Calcula tu pago mensual de la hipoteca.",
@@ -608,16 +315,15 @@ const I18N = {
     paymentMonths: "Cantidad de pagos",
     scheduleAutopay: "Generar plan",
     reservationEyebrow: "Alquileres y estadías",
-    reservationTitle: "reserva fácil con confirmación rápida",
+    reservationTitle: "Reservas tipo villa o Airbnb con confirmación rápida",
     reservationCopy:
-      "Disponibilidad de renta corta y larga, cálculo de cargos, seguimiento de procesos y solicitud para una experiencia fluida.",
+      "Las propiedades de alquiler muestran tarifa por noche, disponibilidad de referencia, cálculo de cargos y envío directo al equipo para cerrar por WhatsApp o llamada.",
     aboutEyebrow: "Nuestra historia",
     aboutTitle: "Una firma cercana para decisiones grandes",
     aboutTextOne:
-      "En Meirah Group creemos que cada espacio cuenta una historia. Por eso acompañamos a nuestros clientes en la búsqueda, adquisición y desarrollo de propiedades que reflejen su estilo de vida, sus metas y su visión de futuro.",
+      "MeriahGroup nace en Jarabacoa con una idea simple: que comprar, vender o reservar una propiedad no se sienta como entrar a ciegas. Combinamos conocimiento local, criterio comercial y una comunicación clara.",
     aboutTextTwo:
-      "Combinamos asesoría inmobiliaria, conocimiento del mercado y una perspectiva orientada al patrimonio para ayudar a las personas a tomar decisiones con confianza. Más que encontrar una propiedad, buscamos conectar a cada cliente con un espacio que represente quién es hoy y lo que desea construir mañana.",
-    aboutTextThree: "Tu esencia. Tu espacio. Tu patrimonio.",
+      "Detrás de la compañía hay un equipo que conoce el ritmo de la zona, el valor de una buena ubicación y la importancia de cuidar cada documento antes de firmar.",
     valueOne: "Transparencia",
     valueTwo: "Acompañamiento",
     valueThree: "Visión de inversión",
@@ -625,18 +331,18 @@ const I18N = {
     reviewsTitle: "Clientes que ya dieron el paso",
     reviewOne: "El equipo nos ayudó a comparar zonas, negociar y entender los costos reales antes de firmar.",
     reviewTwo: "Reservamos una villa para un fin de semana familiar. Todo fue rápido, claro y sin sorpresas.",
-    reviewThree: "Vivo fuera del país y necesitaba alguien que respondiera con precisión. Meirah Group lo hizo fácil.",
+    reviewThree: "Vivo fuera del país y necesitaba alguien que respondiera con precisión. MeriahGroup lo hizo fácil.",
     ownersEyebrow: "Para propietarios",
     ownersTitle: "Vendemos o alquilamos tu propiedad como tu agente inmobiliario",
     ownersCopy:
-      "Si tienes una casa, villa, apartamento, terreno, finca o local, Meirah Group puede representarte con estrategia de precio, fotos, promoción, filtros de clientes, visitas, negociación y seguimiento hasta el cierre.",
+      "Si tienes una casa, villa, apartamento, solar, finca o local, MeriahGroup puede representarte con estrategia de precio, fotos, promoción, filtros de clientes, visitas, negociación y seguimiento hasta el cierre.",
     ownersPrimary: "Quiero vender o alquilar",
     ownersWhatsApp: "Evaluar por WhatsApp",
     ownersSaleTitle: "Representación para venta",
     ownersSaleCopy: "Análisis de precio, publicación, prospectos calificados, visitas y negociación.",
-    ownersRentTitle: "Gestión para renta",
-    ownersRentCopy: "Promoción para renta corta y larga, reservas, disponibilidad y perfilado de clientes.",
-    ownersLandTitle: "Terrenos y fincas",
+    ownersRentTitle: "Gestión para alquiler",
+    ownersRentCopy: "Promoción para alquiler fijo o turístico, reservas, disponibilidad y perfilado de clientes.",
+    ownersLandTitle: "Solares y terrenos",
     ownersLandCopy: "Presentamos potencial de uso, accesos, servicios cercanos y datos clave de inversión.",
     ownersDocsTitle: "Preparación comercial",
     ownersDocsCopy: "Ordenamos fotos, descripción, documentos base y argumentos para vender con confianza.",
@@ -651,7 +357,6 @@ const I18N = {
     blogThreeTitle: "Documentos básicos que debes validar antes de separar",
     contactEyebrow: "Captura de leads",
     contactTitle: "Cuéntanos qué buscas y te contactamos",
-    contactHours: "Lunes a viernes 9 a.m. - 5 p.m. | Sábados citas previas.",
     leadName: "Nombre",
     leadPhone: "Teléfono o WhatsApp",
     leadInterest: "Interés",
@@ -660,10 +365,10 @@ const I18N = {
     leadSell: "Vender mi propiedad",
     leadInvest: "Invertir",
     leadMessage: "Mensaje",
-    leadConsent: "Acepto que Meirah Group me contacte sobre mi solicitud.",
+    leadConsent: "Acepto que MeriahGroup me contacte sobre mi solicitud.",
     leadSend: "Enviar solicitud",
     adminEyebrow: "Modo interno",
-    adminTitle: "Panel interno Meirah Group",
+    adminTitle: "Administrar propiedades",
     resetDemo: "Restaurar demo",
     adminSelect: "Editar propiedad",
     newProperty: "Nueva",
@@ -676,8 +381,7 @@ const I18N = {
     adminNight: "Precio noche",
     adminBeds: "Hab.",
     adminBaths: "Baños",
-    adminArea: "m² construcción",
-    adminLotArea: "m² terreno",
+    adminArea: "m²",
     adminZone: "Zona",
     adminImages: "Imágenes y videos de la propiedad",
     adminUploadLocal: "Cargar",
@@ -686,15 +390,6 @@ const I18N = {
     adminDesc: "Descripción",
     saveProperty: "Guardar propiedad",
     adminInsights: "Pendientes recomendados",
-    adminReserveTitle: "Calendario de reservas (admin)",
-    adminReserveProperty: "Propiedad reservada",
-    adminReserveStart: "Entrada",
-    adminReserveEnd: "Salida",
-    adminReserveSave: "Guardar reserva",
-    adminReserveClear: "Limpiar reservas",
-    adminReserveEmpty: "Sin reservas registradas para esta propiedad.",
-    adminReserveSaved: "Reserva guardada en calendario admin.",
-    adminReserveCleared: "Reservas limpiadas para esta propiedad.",
     missingOne: "Conectar pasarela local o Stripe para cargos reales y webhooks.",
     missingTwo: "Agregar CRM con seguimiento por etapa: nuevo, calificado, visita, oferta, cierre.",
     missingThree: "Subir documentos legales por propiedad: título, deslinde, impuestos y autorizaciones.",
@@ -702,12 +397,12 @@ const I18N = {
     missingFive: "Activar SEO técnico con URLs por propiedad y schema inmobiliario.",
     footerTag: "Compra, venta y alquiler de propiedades",
     footerCopy:
-      "Una firma que ayuda a las personas a encontrar espacios alineados con su esencia y construir patrimonio con propósito.",
+      "Asesoría inmobiliaria desde Jarabacoa para clientes locales, inversionistas y visitantes que buscan comprar, vender o alquilar con confianza.",
     footerCompany: "Compañía",
     footerServices: "Servicios",
     footerContact: "Contacto",
     footerFinancing: "Calculadoras",
-    aiAdvisory: "ChatBOT 24/7",
+    aiAdvisory: "Asesoría 24/7 con IA para preguntas rápidas sobre propiedades.",
     memberEyebrow: "Acceso privado",
     memberTitle: "Inicio de sesión para socios e interesados",
     memberCopy:
@@ -730,17 +425,6 @@ const I18N = {
     results: "propiedades encontradas",
     noResults: "No encontramos propiedades con esos filtros.",
     viewDetails: "Ver detalles",
-    shareProperty: "Compartir",
-    propertyCode: "Código",
-    constructionArea: "construcción",
-    landArea: "terreno",
-    totalArea: "propiedad total",
-    shareTitle: "Compartir propiedad",
-    shareCopy: "Elige dónde deseas compartir este enlace.",
-    shareCopyLink: "Copiar enlace",
-    shareCopied: "Enlace copiado.",
-    shareInstagramCopied: "Enlace copiado para compartir en Instagram",
-    shareTikTokCopied: "Enlace copiado para compartir en TikTok",
     gallery: "Galería",
     reserve: "Reservar",
     ask: "Consultar",
@@ -784,12 +468,11 @@ const I18N = {
   en: {
     brandTag: "Real Estate",
     navProperties: "Properties",
-    navAppointment: "Schedule your meeting",
+    navMap: "Map",
     navFinancing: "Calculators",
     navAbout: "About",
     navOwners: "Sell/Rent",
     navContact: "Contact",
-    heroSlogan: "Tu Esencia • Tu Espacio • Tu Patrimonio",
     heroEyebrow: "Based in Jarabacoa, serving the Dominican Republic",
     heroCopy:
       "Homes, villas, land, and investment properties with clear guidance, clean processes, and real follow-up from the first message to key handoff.",
@@ -797,10 +480,10 @@ const I18N = {
     heroSecondary: "Get guidance",
     statProperties: "curated properties",
     statFollow: "active advisory",
-    statLang: "languages",
+    statLang: "ES/EN/PT service",
     statReviews: "verified references",
     filtersEyebrow: "Smart search",
-    filtersTitle: "Find your property",
+    filtersTitle: "Find a property that fits your next move",
     filterOperation: "Operation",
     filterType: "Type",
     filterZone: "Area",
@@ -814,13 +497,12 @@ const I18N = {
     optionAllTypes: "All",
     optionAllZones: "All",
     optionSale: "Sale",
-    optionRent: "Long-term rent",
-    optionNight: "Short-term rent",
+    optionRent: "Rental",
+    optionNight: "Nightly rental",
     optionAny: "Any",
     typeHouse: "House",
     typeApartment: "Apartment",
     typeLand: "Land",
-    typeFarm: "Farm",
     propertiesEyebrow: "Featured inventory",
     propertiesTitle: "Available properties",
     sortLabel: "Sort",
@@ -829,102 +511,8 @@ const I18N = {
     sortPriceDesc: "Highest price",
     sortArea: "Most sqm",
     favoritesButton: "Favorites",
-    appointmentEyebrow: "Personalized service",
-    appointmentTitle: "Schedule your meeting",
-    appointmentCopy:
-      "Choose the purpose, format, and time that work best for you. The team will receive the details before contacting you.",
-    appointmentTypeTitle: "What do you need?",
-    appointmentTypeBuy: "Buy",
-    appointmentTypeSell: "Sell",
-    appointmentTypeRent: "Rent",
-    appointmentTypeInvest: "Investment",
-    appointmentTypeVisit: "Property visit",
-    appointmentModeTitle: "Meeting format",
-    appointmentModeCall: "Phone call",
-    appointmentModeVideo: "Video call",
-    appointmentModeInPerson: "In person",
-    appointmentCalendarHint: "Disabled days are not available for appointments.",
-    appointmentTimeEyebrow: "Availability",
-    appointmentTimeTitle: "Choose a time",
-    appointmentSelectDate: "Select a date first.",
-    appointmentAdvisor: "Agent",
-    appointmentAdvisorGeneral: "Meirah Group team",
-    appointmentAdvisorInvestment: "Investment advisor",
-    appointmentName: "Full name",
-    appointmentNamePlaceholder: "Your full name",
-    appointmentPhone: "Phone or WhatsApp",
-    appointmentEmail: "Email (optional)",
-    appointmentMessage: "Additional message",
-    appointmentMessagePlaceholder: "Tell us which property or topic you want to discuss",
-    appointmentConfirm: "Confirm appointment",
-    appointmentConfirmedEyebrow: "Appointment registered",
-    appointmentConfirmedTitle: "Your request is ready",
-    appointmentSendWhatsApp: "Send summary by WhatsApp",
-    appointmentBooked: "Booked",
-    appointmentNoTimes: "No times remain for this day and agent.",
-    appointmentChooseDateError: "Select an available date.",
-    appointmentChooseTimeError: "Select one of the available times.",
-    appointmentConflictError: "That time was just booked. Choose another one.",
-    appointmentSaved: "Appointment saved. You can send the summary by WhatsApp.",
-    appointmentAdvisorTitle: "Choose your agent",
-    appointmentAdvisorHint: "The calendar will only show the selected agent's real availability.",
-    appointmentNoStaff: "No active agents have availability configured.",
-    appointmentChooseStaffError: "Select an agent to view availability",
-    appointmentPrivacyTitle: "Secure and confidential",
-    appointmentPrivacyCopy: "Your information is protected.",
-    appointmentScheduleTitle: "Choose date and time",
-    appointmentDetailsTitle: "Your details",
-    appointmentDetailsCopy: "Complete your information",
-    appointmentSummaryTitle: "Appointment summary",
-    appointmentSelectAgentPlaceholder: "Select an agent",
-    appointmentBack: "Back",
-    staffLogout: "Sign out",
-    staffAdminEyebrow: "Internal management",
-    staffAdminTitle: "Team and availability",
-    staffNew: "Create user",
-    staffName: "Full name",
-    staffUsername: "Username",
-    staffPassword: "Demo password",
-    staffRole: "Role",
-    staffRoleSuperAdmin: "Super admin",
-    staffRoleAdvisor: "Agent",
-    staffRoleAssistant: "Assistant",
-    staffRoleEditor: "Editor",
-    staffPhone: "Phone/WhatsApp",
-    staffEmail: "Email",
-    staffAvatar: "Optional avatar",
-    staffAvatarLinkMode: "Use link",
-    staffAvatarFileMode: "Upload file",
-    staffAvatarHint: "Maximum file size 10 MB.",
-    staffAvatarEmpty: "No avatar",
-    staffDuration: "Appointment duration",
-    staffActive: "Active user",
-    staffAcceptsAppointments: "Accepts public appointments",
-    staffAvailabilityConfigured: "Availability configured",
-    staffWeeklyTitle: "Weekly availability",
-    staffWeeklyHint: "Select a day, define work hours, and set up to two internal blocked windows.",
-    staffBlockedDates: "Blocked dates",
-    staffBlockedDatesHint: "Use YYYY-MM-DD dates separated by commas or lines.",
-    staffPasswordShow: "Show",
-    staffPasswordHide: "Hide",
-    staffSave: "Save user and schedule",
-    staffDelete: "Delete user",
-    staffLoginEyebrow: "Internal access",
-    staffLoginTitle: "Sign in",
-    staffLoginCopy: "Access for Meirah Group internal collaborators.",
-    staffLoginSubmit: "Sign in",
-    staffPinLogin: "Use demo PIN 1025",
-    appointmentAdminEyebrow: "Follow-up",
-    appointmentAdminTitle: "Agent appointments",
-    appointmentFilterStaff: "Agent",
-    appointmentFilterDate: "Date",
-    appointmentFilterStatus: "Status",
-    appointmentFilterMode: "Format",
-    appointmentStatusPending: "Pending",
-    appointmentStatusConfirmed: "Confirmed",
-    appointmentStatusCancelled: "Cancelled",
-    appointmentStatusCompleted: "Completed",
-    adminLeadsTitle: "Recent leads",
+    mapEyebrow: "Location and surroundings",
+    mapTitle: "Interactive map with distances to essential places",
     financeEyebrow: "Buy with clarity",
     financeTitle: "Financial calculators for better decisions",
     calculatorsTitle: "Calculators",
@@ -959,16 +547,15 @@ const I18N = {
     paymentMonths: "Number of payments",
     scheduleAutopay: "Generate plan",
     reservationEyebrow: "Rentals and stays",
-    reservationTitle: "easy booking with quick confirmation",
+    reservationTitle: "Villa and Airbnb-style bookings with quick confirmation",
     reservationCopy:
-      "Short and long stay availability, charge calculation, process follow-up, and request flow for a smoother experience.",
+      "Rental properties show nightly rates, reference availability, charge estimates, and direct handoff to the team by WhatsApp or phone.",
     aboutEyebrow: "Our story",
     aboutTitle: "A close firm for big decisions",
     aboutTextOne:
-      "At Meirah Group, we believe every space tells a story. That is why we guide our clients through the search, acquisition, and development of properties that reflect their lifestyle, goals, and vision for the future.",
+      "MeriahGroup was born in Jarabacoa with a simple idea: buying, selling, or booking a property should not feel blind. We combine local knowledge, commercial judgment, and clear communication.",
     aboutTextTwo:
-      "We combine real estate advisory, market knowledge, and a wealth-oriented perspective to help people make decisions with confidence. More than finding a property, we aim to connect each client with a space that represents who they are today and what they want to build tomorrow.",
-    aboutTextThree: "Your essence. Your space. Your legacy.",
+      "Behind the company is a team that understands the area's pace, the value of a good location, and the importance of checking every document before signing.",
     valueOne: "Transparency",
     valueTwo: "Guidance",
     valueThree: "Investment vision",
@@ -976,18 +563,18 @@ const I18N = {
     reviewsTitle: "Clients who already moved forward",
     reviewOne: "The team helped us compare areas, negotiate, and understand real costs before signing.",
     reviewTwo: "We booked a villa for a family weekend. Everything was fast, clear, and without surprises.",
-    reviewThree: "I live abroad and needed precise answers. Meirah Group made it easy.",
+    reviewThree: "I live abroad and needed precise answers. MeriahGroup made it easy.",
     ownersEyebrow: "For owners",
     ownersTitle: "We sell or rent your property as your real estate agent",
     ownersCopy:
-      "If you own a house, villa, apartment, land parcel, farm, or commercial space, Meirah Group can represent you with pricing strategy, photos, promotion, client filtering, showings, negotiation, and closing follow-up.",
+      "If you own a house, villa, apartment, lot, farm, or commercial space, MeriahGroup can represent you with pricing strategy, photos, promotion, client filtering, showings, negotiation, and closing follow-up.",
     ownersPrimary: "I want to sell or rent",
     ownersWhatsApp: "Evaluate by WhatsApp",
     ownersSaleTitle: "Sales representation",
     ownersSaleCopy: "Price analysis, listing, qualified prospects, showings, and negotiation.",
     ownersRentTitle: "Rental management",
-    ownersRentCopy: "Promotion for short- and long-term rentals, bookings, availability, and client profiling.",
-    ownersLandTitle: "Land and farms",
+    ownersRentCopy: "Promotion for long-term or tourism rental, bookings, availability, and client filtering.",
+    ownersLandTitle: "Lots and land",
     ownersLandCopy: "We present use potential, access, nearby services, and key investment details.",
     ownersDocsTitle: "Commercial preparation",
     ownersDocsCopy: "We organize photos, description, base documents, and selling arguments with confidence.",
@@ -1002,7 +589,6 @@ const I18N = {
     blogThreeTitle: "Basic documents to validate before reserving",
     contactEyebrow: "Lead capture",
     contactTitle: "Tell us what you need and we will contact you",
-    contactHours: "Monday to Friday 9 a.m. - 5 p.m. | Saturdays by appointment.",
     leadName: "Name",
     leadPhone: "Phone or WhatsApp",
     leadInterest: "Interest",
@@ -1011,10 +597,10 @@ const I18N = {
     leadSell: "Sell my property",
     leadInvest: "Invest",
     leadMessage: "Message",
-    leadConsent: "I agree that Meirah Group may contact me about my request.",
+    leadConsent: "I agree that MeriahGroup may contact me about my request.",
     leadSend: "Send request",
     adminEyebrow: "Internal mode",
-    adminTitle: "Meirah Group internal panel",
+    adminTitle: "Manage properties",
     resetDemo: "Reset demo",
     adminSelect: "Edit property",
     newProperty: "New",
@@ -1027,8 +613,7 @@ const I18N = {
     adminNight: "Nightly price",
     adminBeds: "Beds",
     adminBaths: "Baths",
-    adminArea: "built sqm",
-    adminLotArea: "land sqm",
+    adminArea: "sqm",
     adminZone: "Area",
     adminImages: "Property images and videos",
     adminUploadLocal: "Load",
@@ -1037,15 +622,6 @@ const I18N = {
     adminDesc: "Description",
     saveProperty: "Save property",
     adminInsights: "Recommended next steps",
-    adminReserveTitle: "Reservation calendar (admin)",
-    adminReserveProperty: "Reserved property",
-    adminReserveStart: "Check-in",
-    adminReserveEnd: "Check-out",
-    adminReserveSave: "Save booking",
-    adminReserveClear: "Clear bookings",
-    adminReserveEmpty: "No bookings saved for this property.",
-    adminReserveSaved: "Booking saved in admin calendar.",
-    adminReserveCleared: "Bookings cleared for this property.",
     missingOne: "Connect a local gateway or Stripe for real charges and webhooks.",
     missingTwo: "Add CRM follow-up stages: new, qualified, showing, offer, closing.",
     missingThree: "Upload legal documents per property: title, survey, taxes, and authorizations.",
@@ -1053,12 +629,12 @@ const I18N = {
     missingFive: "Enable technical SEO with property URLs and real estate schema.",
     footerTag: "Buying, selling, and renting properties",
     footerCopy:
-      "A firm that helps people find spaces aligned with their essence and build wealth with purpose.",
+      "Real estate guidance from Jarabacoa for local clients, investors, and visitors who want to buy, sell, or rent with confidence.",
     footerCompany: "Company",
     footerServices: "Services",
     footerContact: "Contact",
     footerFinancing: "Calculators",
-    aiAdvisory: "ChatBOT 24/7",
+    aiAdvisory: "24/7 AI guidance for quick questions about properties.",
     memberEyebrow: "Private access",
     memberTitle: "Login for partners and interested clients",
     memberCopy:
@@ -1081,17 +657,6 @@ const I18N = {
     results: "properties found",
     noResults: "No properties match those filters.",
     viewDetails: "Details",
-    shareProperty: "Share",
-    propertyCode: "Code",
-    constructionArea: "structure",
-    landArea: "land",
-    totalArea: "total area",
-    shareTitle: "Share property",
-    shareCopy: "Choose where you want to share this link.",
-    shareCopyLink: "Copy link",
-    shareCopied: "Link copied.",
-    shareInstagramCopied: "Link copied to share on Instagram",
-    shareTikTokCopied: "Link copied to share on TikTok",
     gallery: "Gallery",
     reserve: "Book",
     ask: "Ask",
@@ -1138,12 +703,11 @@ I18N.pt = {
   ...I18N.es,
   brandTag: "Imóveis",
   navProperties: "Imóveis",
-  navAppointment: "Agende sua reunião",
+  navMap: "Mapa",
   navFinancing: "Calculadoras",
   navAbout: "Sobre nós",
   navOwners: "Venda/Alugue",
   navContact: "Contato",
-  heroSlogan: "Tu Esencia • Tu Espacio • Tu Patrimonio",
   heroEyebrow: "Jarabacoa como base, República Dominicana como alcance",
   heroCopy:
     "Casas, villas, terrenos e propriedades de investimento com assessoria próxima, processos claros e acompanhamento real desde a primeira mensagem até a entrega das chaves.",
@@ -1151,9 +715,9 @@ I18N.pt = {
   heroSecondary: "Quero assessoria",
   statProperties: "imóveis selecionados",
   statFollow: "assessoria ativa",
-  statLang: "idiomas",
+  statLang: "atendimento ES/EN/PT",
   filtersEyebrow: "Busca inteligente",
-  filtersTitle: "Encontre seu imóvel",
+  filtersTitle: "Encontre um imóvel que combine com seu próximo passo",
   filterOperation: "Operação",
   filterType: "Tipo",
   filterZone: "Zona",
@@ -1161,110 +725,14 @@ I18N.pt = {
   filterApply: "Filtrar",
   filterClear: "Limpar",
   optionSale: "Venda",
-  optionRent: "Aluguel longo",
-  optionNight: "Aluguel curto",
+  optionRent: "Aluguel",
+  optionNight: "Aluguel por noite",
   typeHouse: "Casa",
   typeApartment: "Apartamento",
   typeLand: "Terreno",
-  typeFarm: "Fazenda",
   propertiesEyebrow: "Inventário em destaque",
   propertiesTitle: "Imóveis disponíveis",
-  appointmentEyebrow: "Atendimento personalizado",
-  appointmentTitle: "Agende sua reunião",
-  appointmentCopy:
-    "Escolha o motivo, a modalidade e o horário mais conveniente. A equipe receberá todos os detalhes antes de entrar em contato.",
-  appointmentTypeTitle: "O que você precisa?",
-  appointmentTypeBuy: "Comprar",
-  appointmentTypeSell: "Vender",
-  appointmentTypeRent: "Alugar",
-  appointmentTypeInvest: "Investir",
-  appointmentTypeVisit: "Visitar imóvel",
-  appointmentModeTitle: "Modalidade",
-  appointmentModeCall: "Ligação",
-  appointmentModeVideo: "Videochamada",
-  appointmentModeInPerson: "Presencial",
-  appointmentCalendarHint: "Os dias desativados não estão disponíveis para reuniões.",
-  appointmentTimeEyebrow: "Disponibilidade",
-  appointmentTimeTitle: "Selecione um horário",
-  appointmentSelectDate: "Primeiro selecione uma data.",
-  appointmentAdvisor: "Agente",
-  appointmentAdvisorGeneral: "Equipe Meirah Group",
-  appointmentAdvisorInvestment: "Assessor de investimentos",
-  appointmentName: "Nome completo",
-  appointmentNamePlaceholder: "Seu nome completo",
-  appointmentPhone: "Telefone ou WhatsApp",
-  appointmentEmail: "E-mail (opcional)",
-  appointmentMessage: "Mensagem adicional",
-  appointmentMessagePlaceholder: "Conte qual imóvel ou assunto deseja tratar",
-  appointmentConfirm: "Confirmar reunião",
-  appointmentConfirmedEyebrow: "Reunião registrada",
-  appointmentConfirmedTitle: "Sua solicitação está pronta",
-  appointmentSendWhatsApp: "Enviar resumo por WhatsApp",
-  appointmentBooked: "Ocupado",
-  appointmentNoTimes: "Não há horários disponíveis para este dia e agente.",
-  appointmentChooseDateError: "Selecione uma data disponível.",
-  appointmentChooseTimeError: "Selecione um dos horários disponíveis.",
-  appointmentConflictError: "Esse horário acabou de ser ocupado. Escolha outro.",
-  appointmentSaved: "Reunião salva. Você pode enviar o resumo pelo WhatsApp.",
-  appointmentAdvisorTitle: "Selecione seu agente",
-  appointmentAdvisorHint: "O calendário mostrará somente a disponibilidade real do agente escolhido.",
-  appointmentNoStaff: "Não há agentes ativos com disponibilidade configurada.",
-  appointmentChooseStaffError: "Selecione um agente para ver a disponibilidade",
-  appointmentPrivacyTitle: "Seguro e confidencial",
-  appointmentPrivacyCopy: "Suas informações estão protegidas.",
-  appointmentScheduleTitle: "Selecione data e horário",
-  appointmentDetailsTitle: "Seus dados",
-  appointmentDetailsCopy: "Complete suas informações",
-  appointmentSummaryTitle: "Resumo da sua reunião",
-  appointmentSelectAgentPlaceholder: "Selecione um agente",
-  appointmentBack: "Voltar",
-  staffLogout: "Sair",
-  staffAdminEyebrow: "Gestão interna",
-  staffAdminTitle: "Equipe e disponibilidade",
-  staffNew: "Criar usuário",
-  staffName: "Nome completo",
-  staffUsername: "Usuário",
-  staffPassword: "Senha demo",
-  staffRole: "Função",
-  staffRoleSuperAdmin: "Super admin",
-  staffRoleAdvisor: "Agente",
-  staffRoleAssistant: "Assistente",
-  staffRoleEditor: "Editor",
-  staffPhone: "Telefone/WhatsApp",
-  staffEmail: "E-mail",
-  staffAvatar: "Avatar opcional",
-  staffAvatarLinkMode: "Usar link",
-  staffAvatarFileMode: "Carregar arquivo",
-  staffAvatarHint: "Arquivo máximo de 10 MB.",
-  staffAvatarEmpty: "Sem avatar",
-  staffDuration: "Duração de cada reunião",
-  staffActive: "Usuário ativo",
-  staffAcceptsAppointments: "Aceita reuniões públicas",
-  staffAvailabilityConfigured: "Disponibilidade configurada",
-  staffWeeklyTitle: "Disponibilidade semanal",
-  staffWeeklyHint: "Selecione um dia, defina a jornada e marque até dois bloqueios internos.",
-  staffBlockedDates: "Datas bloqueadas",
-  staffBlockedDatesHint: "Use datas AAAA-MM-DD separadas por vírgulas ou linhas.",
-  staffPasswordShow: "Ver",
-  staffPasswordHide: "Ocultar",
-  staffSave: "Salvar usuário e horário",
-  staffDelete: "Excluir usuário",
-  staffLoginEyebrow: "Acesso interno",
-  staffLoginTitle: "Entrar",
-  staffLoginCopy: "Acesso para colaboradores internos da Meirah Group.",
-  staffLoginSubmit: "Entrar",
-  staffPinLogin: "Usar PIN demo 1025",
-  appointmentAdminEyebrow: "Acompanhamento",
-  appointmentAdminTitle: "Reuniões com agentes",
-  appointmentFilterStaff: "Agente",
-  appointmentFilterDate: "Data",
-  appointmentFilterStatus: "Status",
-  appointmentFilterMode: "Modalidade",
-  appointmentStatusPending: "Pendente",
-  appointmentStatusConfirmed: "Confirmada",
-  appointmentStatusCancelled: "Cancelada",
-  appointmentStatusCompleted: "Concluída",
-  adminLeadsTitle: "Leads recentes",
+  mapTitle: "Mapa interativo com distâncias a pontos essenciais",
   financeEyebrow: "Compre com clareza",
   financeTitle: "Calculadoras financeiras para decidir melhor",
   mortgageTitle: "Calculadora hipotecária",
@@ -1274,16 +742,11 @@ I18N.pt = {
   rentBuyTitle: "Alugar vs. comprar",
   rentBuyCardCopy: "Estime quando faz sentido comprar ou alugar.",
   calculate: "Calcular",
-  reservationTitle: "reserva fácil com confirmação rápida",
+  reservationTitle: "Reservas tipo villa ou Airbnb com confirmação rápida",
   reservationCopy:
-    "Disponibilidade para aluguel curto e longo, cálculo de encargos, acompanhamento do processo e solicitação para uma experiência fluida.",
+    "As propriedades de aluguel mostram tarifa por noite, disponibilidade de referência, cálculo de encargos e envio direto à equipe para fechar por WhatsApp ou chamada.",
   aboutEyebrow: "Nossa história",
   aboutTitle: "Uma empresa próxima para grandes decisões",
-  aboutTextOne:
-    "Na Meirah Group, acreditamos que cada espaço conta uma história. Por isso acompanhamos nossos clientes na busca, aquisição e desenvolvimento de propriedades que reflitam seu estilo de vida, suas metas e sua visão de futuro.",
-  aboutTextTwo:
-    "Combinamos assessoria imobiliária, conhecimento de mercado e uma perspectiva orientada ao patrimônio para ajudar as pessoas a tomar decisões com confiança. Mais do que encontrar um imóvel, buscamos conectar cada cliente a um espaço que represente quem ele é hoje e o que deseja construir amanhã.",
-  aboutTextThree: "Sua essência. Seu espaço. Seu patrimônio.",
   ownersEyebrow: "Para proprietários",
   ownersTitle: "Vendemos ou alugamos seu imóvel como seu agente imobiliário",
   ownersPrimary: "Quero vender ou alugar",
@@ -1291,7 +754,6 @@ I18N.pt = {
   blogEyebrow: "Blog e notícias",
   blogTitle: "Guias para comprar melhor",
   contactTitle: "Conte-nos o que você procura e entraremos em contato",
-  contactHours: "Segunda a sexta, 9h - 17h | Sábados com agendamento prévio.",
   leadName: "Nome",
   leadPhone: "Telefone ou WhatsApp",
   leadInterest: "Interesse",
@@ -1301,24 +763,12 @@ I18N.pt = {
   leadInvest: "Investir",
   leadMessage: "Mensagem",
   leadSend: "Enviar solicitação",
-  adminTitle: "Painel interno Meirah Group",
+  adminTitle: "Administrar imóveis",
   adminImages: "Imagens e vídeos do imóvel",
   adminUploadLocal: "Carregar",
   adminUploadDrive: "Subir",
   adminUploadLink: "Link",
-  adminReserveTitle: "Calendário de reservas (admin)",
-  adminReserveProperty: "Imóvel reservado",
-  adminReserveStart: "Entrada",
-  adminReserveEnd: "Saída",
-  adminReserveSave: "Salvar reserva",
-  adminReserveClear: "Limpar reservas",
-  adminReserveEmpty: "Sem reservas registradas para este imóvel.",
-  adminReserveSaved: "Reserva salva no calendário admin.",
-  adminReserveCleared: "Reservas limpas para este imóvel.",
-  adminArea: "m² construídos",
-  adminLotArea: "m² terreno",
   footerTag: "Compra, venda e aluguel de imóveis",
-  footerCopy: "Uma empresa que ajuda as pessoas a encontrar espaços alinhados com sua essência e construir patrimônio com propósito.",
   footerFinancing: "Calculadoras",
   footerReservations: "Reservas",
   footerOwners: "Venda ou alugue conosco",
@@ -1327,21 +777,10 @@ I18N.pt = {
   results: "imóveis encontrados",
   noResults: "Não encontramos imóveis com esses filtros.",
   viewDetails: "Ver detalhes",
-  shareProperty: "Compartilhar",
-  propertyCode: "Código",
-  shareTitle: "Compartilhar imóvel",
-  shareCopy: "Escolha onde deseja compartilhar este link.",
-  shareCopyLink: "Copiar link",
-  shareCopied: "Link copiado.",
-  shareInstagramCopied: "Link copiado para compartilhar no Instagram",
-  shareTikTokCopied: "Link copiado para compartilhar no TikTok",
   reserve: "Reservar",
   ask: "Consultar",
   beds: "quartos",
   baths: "banheiros",
-  constructionArea: "construção",
-  landArea: "terreno",
-  totalArea: "área total",
   perNight: "por noite",
   saleStatus: "À venda",
   rentStatus: "Para aluguel",
@@ -1354,7 +793,7 @@ I18N.pt = {
   sendReservation: "Solicitar reserva",
   additionalComments: "Comentários adicionais",
   contactAdvisor: "Falar com assessor",
-  aiAdvisory: "ChatBOT 24/7",
+  aiAdvisory: "Assessoria 24/7 com IA para perguntas rápidas sobre imóveis.",
   memberEyebrow: "Acesso privado",
   memberTitle: "Login para sócios e interessados",
   memberCopy:
@@ -1376,384 +815,28 @@ let state = {
   currency: CURRENCIES.includes(localStorage.getItem(STORAGE.currency)) ? localStorage.getItem(STORAGE.currency) : "USD",
   theme: localStorage.getItem(STORAGE.theme) === "dark" ? "dark" : "light",
   properties: loadProperties(),
-  staff: loadStaff(),
-  session: null,
   favorites: new Set(JSON.parse(localStorage.getItem(STORAGE.favorites) || "[]")),
   showFavorites: false,
+  activeMapId: null,
 };
-state.session = loadStaffSession(state.staff);
 
 const propertyGalleryTimers = new Map();
 let modalGalleryTimer = null;
-let appointmentCalendarMonth = new Date(new Date().getFullYear(), new Date().getMonth(), 1);
-let selectedAppointmentDate = "";
-let selectedAppointmentTime = "";
-let lastConfirmedAppointment = null;
-let openAppointmentSelector = "";
-let openSurfaceSelect = "";
-let staffBlockedSlotsDraft = [];
-let selectedStaffScheduleDay = WEEKDAY_KEYS[0];
-let staffWeeklyDraft = {};
 
 const $ = (selector, scope = document) => scope.querySelector(selector);
 const $$ = (selector, scope = document) => [...scope.querySelectorAll(selector)];
-const DISABLED_FINANCE_CALCULATORS = new Set(["autopay"]);
-
-function emptyWeeklyAvailability() {
-  return Object.fromEntries(WEEKDAY_KEYS.map((day) => [day, []]));
-}
-
-function emptyStaffDayDraft() {
-  return {
-    active: false,
-    start: "09:00",
-    end: "17:00",
-    blocks: [
-      { start: "", end: "" },
-      { start: "", end: "" },
-    ],
-  };
-}
-
-function emptyStaffWeeklyDraft() {
-  return Object.fromEntries(WEEKDAY_KEYS.map((day) => [day, emptyStaffDayDraft()]));
-}
-
-function normalizeTimeRange(range) {
-  if (!range || typeof range !== "object") return null;
-  const start = /^\d{2}:\d{2}$/.test(range.start || "") ? range.start : "";
-  const end = /^\d{2}:\d{2}$/.test(range.end || "") ? range.end : "";
-  if (!start || !end || start >= end) return null;
-  return { start, end };
-}
-
-function weekdayShortLabel(day) {
-  return localized({
-    es: {
-      monday: "Lun",
-      tuesday: "Mar",
-      wednesday: "Mié",
-      thursday: "Jue",
-      friday: "Vie",
-      saturday: "Sáb",
-      sunday: "Dom",
-    },
-    en: {
-      monday: "Mon",
-      tuesday: "Tue",
-      wednesday: "Wed",
-      thursday: "Thu",
-      friday: "Fri",
-      saturday: "Sat",
-      sunday: "Sun",
-    },
-    pt: {
-      monday: "Seg",
-      tuesday: "Ter",
-      wednesday: "Qua",
-      thursday: "Qui",
-      friday: "Sex",
-      saturday: "Sáb",
-      sunday: "Dom",
-    },
-  })[day];
-}
-
-function formatStaffPhone(value) {
-  const digits = String(value || "").replace(/\D/g, "").slice(0, 15);
-  if (!digits) return "";
-  if (digits.length <= 3) return `+${digits}`;
-  const countryLength = digits.length > 10 ? digits.length - 10 : 1;
-  const country = digits.slice(0, countryLength);
-  const remaining = digits.slice(countryLength);
-  const area = remaining.slice(0, 3);
-  const prefix = remaining.slice(3, 6);
-  const line = remaining.slice(6, 10);
-  let output = `+${country}`;
-  if (area) output += ` (${area}`;
-  if (area.length === 3) output += ")";
-  if (prefix) output += ` ${prefix}`;
-  if (line) output += `-${line}`;
-  return output.trim();
-}
-
-function avatarPreviewMarkup(value, name = "") {
-  if (!value) {
-    const initials = name
-      .split(/\s+/)
-      .slice(0, 2)
-      .map((part) => part[0] || "")
-      .join("")
-      .toUpperCase();
-    return `
-      <span class="avatar-fallback">${escapeHtml(initials || "MG")}</span>
-      <div>
-        <strong>${escapeHtml(text("staffAvatarEmpty"))}</strong>
-        <p>${escapeHtml(localized({
-          es: "Puedes usar un enlace o subir un archivo.",
-          en: "Use a link or upload a file.",
-          pt: "Use um link ou carregue um arquivo.",
-        }))}</p>
-      </div>
-    `;
-  }
-  return `
-    <img src="${escapeHtml(value)}" alt="${escapeHtml(name || "Avatar")}" />
-    <div>
-      <strong>${escapeHtml(name || "Avatar")}</strong>
-      <p>${escapeHtml(localized({
-        es: "Vista previa del colaborador.",
-        en: "Staff preview.",
-        pt: "Pré-visualização do colaborador.",
-      }))}</p>
-    </div>
-  `;
-}
-
-function refreshStaffAvatarPreview() {
-  const preview = $("#staffAvatarPreview");
-  if (!preview) return;
-  preview.innerHTML = avatarPreviewMarkup($("#staffAvatarInput")?.value || "", $("#staffNameInput")?.value || "");
-}
-
-function setStaffAvatarValue(value = "") {
-  const normalized = String(value || "").trim();
-  const hiddenInput = $("#staffAvatarInput");
-  const linkInput = $("#staffAvatarLinkInput");
-  if (hiddenInput) hiddenInput.value = normalized;
-  if (linkInput) linkInput.value = /^https?:\/\//i.test(normalized) ? normalized : "";
-  refreshStaffAvatarPreview();
-}
-
-function setStaffPasswordVisibility(visible) {
-  const input = $("#staffPasswordInput");
-  const button = $("#toggleStaffPassword");
-  if (!input || !button) return;
-  input.type = visible ? "text" : "password";
-  button.textContent = text(visible ? "staffPasswordHide" : "staffPasswordShow");
-}
-
-async function resizeStaffAvatarFile(file) {
-  const dataUrl = await new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onload = () => resolve(reader.result);
-    reader.onerror = reject;
-    reader.readAsDataURL(file);
-  });
-  const image = await new Promise((resolve, reject) => {
-    const preview = new Image();
-    preview.onload = () => resolve(preview);
-    preview.onerror = reject;
-    preview.src = dataUrl;
-  });
-  const canvas = document.createElement("canvas");
-  const maxSide = 640;
-  const scale = Math.min(1, maxSide / Math.max(image.width, image.height));
-  canvas.width = Math.max(1, Math.round(image.width * scale));
-  canvas.height = Math.max(1, Math.round(image.height * scale));
-  const context = canvas.getContext("2d");
-  context.drawImage(image, 0, 0, canvas.width, canvas.height);
-  return canvas.toDataURL("image/jpeg", 0.82);
-}
-
-function upgradeDefaultStaffProfiles(staff) {
-  return staff.map((member) => {
-    if (member.id !== "staff-diego-cueto") return member;
-    const updated = { ...member };
-    if (!updated.name || /^diego cueto$/i.test(updated.name)) updated.name = "Diego Cueto Hawa";
-    if (!updated.username || /^(diego|diego cueto|diego c\. hawa)$/i.test(updated.username)) updated.username = "Diego C. Hawa";
-    if (!updated.password || updated.password === "demo123") updated.password = "1234";
-    if (!updated.email || /^diego@meirahgroup\.com$/i.test(updated.email)) {
-      updated.email = "diegocuetohawa05@hotmail.com";
-    }
-    return normalizeStaffMember(updated);
-  });
-}
-
-function defaultStaffPermissions(role) {
-  return structuredClone(STAFF_PERMISSION_DEFAULTS[role] || STAFF_PERMISSION_DEFAULTS.editor);
-}
-
-function normalizeStaffRole(role) {
-  const legacyRoles = {
-    asesor: "agent",
-    advisor: "agent",
-    asistente: "assistant",
-  };
-  const normalized = legacyRoles[role] || role;
-  return STAFF_ROLES.includes(normalized) ? normalized : "agent";
-}
-
-function normalizeStaffMember(member, index = 0) {
-  const weekly = emptyWeeklyAvailability();
-  WEEKDAY_KEYS.forEach((day) => {
-    weekly[day] = (Array.isArray(member?.availability?.weekly?.[day]) ? member.availability.weekly[day] : [])
-      .map(normalizeTimeRange)
-      .filter(Boolean)
-      .sort((a, b) => a.start.localeCompare(b.start));
-  });
-
-  const role = normalizeStaffRole(member?.role);
-  const hasWeeklyAvailability = WEEKDAY_KEYS.some((day) => weekly[day].length > 0);
-  const permissions = {
-    ...defaultStaffPermissions(role),
-    ...(member?.permissions && typeof member.permissions === "object" ? member.permissions : {}),
-  };
-
-  return {
-    id: String(member?.id || `staff-${Date.now()}-${index}`),
-    name: repairMojibakeText(String(member?.name || `Usuario ${index + 1}`)),
-    username: String(member?.username || `usuario${index + 1}`).trim(),
-    password: String(member?.password || "demo123"),
-    role,
-    permissions,
-    active: member?.active !== false,
-    acceptsAppointments:
-      typeof member?.acceptsAppointments === "boolean"
-        ? member.acceptsAppointments
-        : role === "agent" && hasWeeklyAvailability,
-    availabilityConfigured:
-      typeof member?.availabilityConfigured === "boolean"
-        ? member.availabilityConfigured
-        : role === "agent" && hasWeeklyAvailability,
-    phone: String(member?.phone || BUSINESS_WHATSAPP).replace(/\D/g, "") || BUSINESS_WHATSAPP,
-    email: String(member?.email || "").trim(),
-    avatar: String(member?.avatar || "").trim(),
-    availability: {
-      slotDuration: [30, 45, 60, 90].includes(Number(member?.availability?.slotDuration))
-        ? Number(member.availability.slotDuration)
-        : 60,
-      weekly,
-      blockedDates: [...new Set(Array.isArray(member?.availability?.blockedDates) ? member.availability.blockedDates : [])]
-        .filter((date) => /^\d{4}-\d{2}-\d{2}$/.test(date))
-        .sort(),
-      blockedSlots: (Array.isArray(member?.availability?.blockedSlots) ? member.availability.blockedSlots : [])
-        .map((slot) => {
-          const range = normalizeTimeRange(slot);
-          if (!range || !/^\d{4}-\d{2}-\d{2}$/.test(slot.date || "")) return null;
-          return { date: slot.date, ...range, reason: repairMojibakeText(String(slot.reason || "")) };
-        })
-        .filter(Boolean),
-    },
-  };
-}
-
-function loadStaff() {
-  try {
-    const saved = JSON.parse(localStorage.getItem(STORAGE.staff) || "null");
-    const legacyDefaultIds = ["staff-meirah-team", "staff-diego-cueto", "staff-laura-mendez"];
-    const isLegacyDefault =
-      Array.isArray(saved) &&
-      saved.length === legacyDefaultIds.length &&
-      legacyDefaultIds.every((id) => saved.some((member) => member?.id === id));
-    const source = Array.isArray(saved) && saved.length && !isLegacyDefault ? saved : structuredClone(DEFAULT_STAFF);
-    const staff = upgradeDefaultStaffProfiles(source.map(normalizeStaffMember));
-    localStorage.setItem(STORAGE.staff, JSON.stringify(staff));
-    return staff;
-  } catch {
-    const staff = upgradeDefaultStaffProfiles(structuredClone(DEFAULT_STAFF).map(normalizeStaffMember));
-    localStorage.setItem(STORAGE.staff, JSON.stringify(staff));
-    return staff;
-  }
-}
-
-function saveStaff(staff = state.staff) {
-  state.staff = upgradeDefaultStaffProfiles(staff.map(normalizeStaffMember));
-  localStorage.setItem(STORAGE.staff, JSON.stringify(state.staff));
-}
-
-function loadStaffSession(staff = []) {
-  try {
-    const session = JSON.parse(localStorage.getItem(STORAGE.session) || "null");
-    if (!session?.staffId) return null;
-    const member = staff.find((item) => item.id === session.staffId && item.active);
-    return member ? { staffId: member.id, createdAt: session.createdAt || new Date().toISOString() } : null;
-  } catch {
-    return null;
-  }
-}
-
-function saveStaffSession(member) {
-  state.session = member ? { staffId: member.id, createdAt: new Date().toISOString() } : null;
-  if (state.session) localStorage.setItem(STORAGE.session, JSON.stringify(state.session));
-  else localStorage.removeItem(STORAGE.session);
-}
-
-function currentStaffMember() {
-  return state.staff.find((member) => member.id === state.session?.staffId && member.active) || null;
-}
-
-function hasStaffRole(...roles) {
-  return roles.includes(currentStaffMember()?.role);
-}
-
-function hasStaffPermission(permission) {
-  return currentStaffMember()?.permissions?.[permission] === true;
-}
-
-function isManagementRole(member = currentStaffMember()) {
-  return member?.role === "super_admin" || member?.role === "admin";
-}
-
-function propertyCodeNumber(value) {
-  const numeric = Number.parseInt(String(value || "").replace(/\D/g, ""), 10);
-  return Number.isInteger(numeric) && numeric > 0 ? numeric : 0;
-}
-
-function formatPropertyCode(value) {
-  return String(Math.max(0, propertyCodeNumber(value))).padStart(PROPERTY_CODE_WIDTH, "0");
-}
-
-function slugifyPropertyTitle(value) {
-  return String(value || "propiedad")
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .replace(/ñ/gi, (letter) => (letter === "Ñ" ? "N" : "n"))
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "") || "propiedad";
-}
-
-function createPropertySlug(title, code) {
-  return `${slugifyPropertyTitle(title)}-${formatPropertyCode(code)}`;
-}
-
-function storedPropertyCodeCounter() {
-  return propertyCodeNumber(localStorage.getItem(STORAGE.propertyCodeCounter));
-}
-
-function syncPropertyCodeCounter(value) {
-  const nextValue = Math.max(storedPropertyCodeCounter(), propertyCodeNumber(value));
-  localStorage.setItem(STORAGE.propertyCodeCounter, String(nextValue));
-  return nextValue;
-}
-
-function allocatePropertyCode() {
-  const existingMaximum = Math.max(0, ...(state?.properties || []).map((property) => propertyCodeNumber(property.code)));
-  const nextValue = Math.max(storedPropertyCodeCounter(), existingMaximum) + 1;
-  syncPropertyCodeCounter(nextValue);
-  return formatPropertyCode(nextValue);
-}
 
 function loadProperties() {
   const saved = localStorage.getItem(STORAGE.properties);
-  if (!saved) {
-    const properties = normalizeProperties(structuredClone(BASE_PROPERTIES));
-    localStorage.setItem(STORAGE.properties, JSON.stringify(properties));
-    return properties;
-  }
+  if (!saved) return normalizeProperties(structuredClone(BASE_PROPERTIES));
 
   try {
     const parsed = JSON.parse(saved);
-    const properties = Array.isArray(parsed) && parsed.length
+    return Array.isArray(parsed) && parsed.length
       ? normalizeProperties(parsed)
       : normalizeProperties(structuredClone(BASE_PROPERTIES));
-    localStorage.setItem(STORAGE.properties, JSON.stringify(properties));
-    return properties;
   } catch {
-    const properties = normalizeProperties(structuredClone(BASE_PROPERTIES));
-    localStorage.setItem(STORAGE.properties, JSON.stringify(properties));
-    return properties;
+    return normalizeProperties(structuredClone(BASE_PROPERTIES));
   }
 }
 
@@ -1767,86 +850,30 @@ function repairMojibakeText(value) {
   }
 }
 
-function normalizePropertyType(type) {
-  const normalized = repairMojibakeText(String(type || "")).trim();
-  if (normalized === "Solar") return "Terreno";
-  return normalized || "Casa";
-}
-
-function isValidCoordinate(value) {
-  return Number.isFinite(Number(value));
-}
-
-function legacyCoordsToLatLng(coords = {}) {
-  const x = Number(coords.x);
-  const y = Number(coords.y);
-  if (!Number.isFinite(x) || !Number.isFinite(y)) return null;
-  return {
-    lat: JARABACOA_CENTER.lat + (50 - y) * 0.001,
-    lng: JARABACOA_CENTER.lng + (x - 50) * 0.0012,
-  };
-}
-
-function fallbackPropertyCoordinates(property, index = 0) {
-  if (DEFAULT_PROPERTY_COORDS[property.id]) return DEFAULT_PROPERTY_COORDS[property.id];
-  const fromLegacyCoords = legacyCoordsToLatLng(property.coords);
-  if (fromLegacyCoords) return fromLegacyCoords;
-  const angle = index * 1.7;
-  return {
-    lat: JARABACOA_CENTER.lat + Math.sin(angle) * 0.018,
-    lng: JARABACOA_CENTER.lng + Math.cos(angle) * 0.018,
-  };
-}
-
 function normalizeProperties(list) {
-  const usedCodes = new Set();
-  let nextCode = Math.max(
-    storedPropertyCodeCounter(),
-    ...list.map((property) => propertyCodeNumber(property.code))
-  );
-
-  return list.map((property, index) => {
-    let codeNumber = propertyCodeNumber(property.code);
-    if (!codeNumber || usedCodes.has(codeNumber)) {
-      do {
-        nextCode += 1;
-      } while (usedCodes.has(nextCode));
-      codeNumber = nextCode;
-    }
-    usedCodes.add(codeNumber);
-    nextCode = Math.max(nextCode, codeNumber);
-    const code = formatPropertyCode(codeNumber);
+  return list.map((property) => {
     const normalizedMedia = (Array.isArray(property.images) ? property.images : [])
       .map(normalizeMediaItem)
       .filter(Boolean)
       .map((item) => item.src);
-    const fallbackCoords = fallbackPropertyCoordinates(property, index);
     const normalized = {
       ...property,
-      code,
-      slug: createPropertySlug(property.title, code),
       title: repairMojibakeText(property.title),
       titleEn: repairMojibakeText(property.titleEn),
-      type: normalizePropertyType(property.type),
+      type: repairMojibakeText(property.type),
       zone: repairMojibakeText(property.zone),
       description: repairMojibakeText(property.description),
       descriptionEn: repairMojibakeText(property.descriptionEn),
-      area: Number(property.area) || 0,
-      lot: Number(property.lot) || 0,
-      lat: isValidCoordinate(property.lat) ? Number(property.lat) : fallbackCoords.lat,
-      lng: isValidCoordinate(property.lng) ? Number(property.lng) : fallbackCoords.lng,
       images: normalizedMedia.length ? normalizedMedia : [DEFAULT_IMAGE],
     };
     if (normalized.id === "villa-riverstone") {
       normalized.images = RIVERSTONE_IMAGES;
     }
-    syncPropertyCodeCounter(codeNumber);
     return normalized;
   });
 }
 
 function saveProperties() {
-  state.properties = normalizeProperties(state.properties);
   localStorage.setItem(STORAGE.properties, JSON.stringify(state.properties));
 }
 
@@ -1865,167 +892,6 @@ function escapeHtml(value = "") {
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#039;");
-}
-
-function propertyRouteBase() {
-  const pathname = window.location.pathname || "/";
-  const routeIndex = pathname.indexOf(PROPERTY_ROUTE_PREFIX);
-  if (routeIndex >= 0) return pathname.slice(0, routeIndex).replace(/\/$/, "");
-  if (/\/[^/]+\.[a-z0-9]+$/i.test(pathname)) return pathname.replace(/\/[^/]+$/, "").replace(/\/$/, "");
-  return pathname.replace(/\/$/, "");
-}
-
-function detectPageMode() {
-  const pathname = (window.location.pathname || "").toLowerCase();
-  if (pathname.includes(PROPERTY_ROUTE_PREFIX) || pathname.endsWith("/propiedades.html")) return "properties";
-  if (pathname.endsWith("/calculadoras.html")) return "calculators";
-  if (pathname.endsWith("/contacto.html")) return "contact";
-  return document.body.dataset.pageMode || "home";
-}
-
-function homePagePath() {
-  if (window.location.protocol === "file:") return "index.html";
-  const pathname = window.location.pathname || "/";
-  if (pathname.includes(PROPERTY_ROUTE_PREFIX)) {
-    const base = propertyRouteBase();
-    return base ? `${base}/` : "/";
-  }
-  if (pathname.toLowerCase().match(/\/(propiedades|calculadoras|contacto)\.html$/i)) {
-    return pathname.replace(/(propiedades|calculadoras|contacto)\.html$/i, "");
-  }
-  return pathname.toLowerCase().endsWith("/index.html") ? pathname.replace(/index\.html$/i, "") : pathname || "/";
-}
-
-function propertiesPagePath() {
-  if (window.location.protocol === "file:") return "propiedades.html";
-  const base = propertyRouteBase();
-  return `${base || ""}/propiedades.html`.replace(/\/{2,}/g, "/");
-}
-
-function calculatorsPagePath() {
-  if (window.location.protocol === "file:") return "calculadoras.html";
-  const base = propertyRouteBase();
-  return `${base || ""}/calculadoras.html`.replace(/\/{2,}/g, "/");
-}
-
-function contactPagePath() {
-  if (window.location.protocol === "file:") return "contacto.html";
-  const base = propertyRouteBase();
-  return `${base || ""}/contacto.html`.replace(/\/{2,}/g, "/");
-}
-
-function pageLink(targetPage, hash = "") {
-  const base = {
-    home: homePagePath(),
-    properties: propertiesPagePath(),
-    calculators: calculatorsPagePath(),
-    contact: contactPagePath(),
-  }[targetPage] || homePagePath();
-  return hash ? `${base}${hash}` : base;
-}
-
-function propertyRoutePath(property) {
-  return `${propertyRouteBase()}${PROPERTY_ROUTE_PREFIX}${property.slug}`.replace(/\/{2,}/g, "/");
-}
-
-function propertyShareUrl(property) {
-  if (/^https?:$/.test(window.location.protocol)) {
-    return new URL(propertyRoutePath(property), window.location.origin).href;
-  }
-  const base = window.location.href.split(/[?#]/)[0];
-  return `${base}#propiedad=${encodeURIComponent(property.slug)}`;
-}
-
-function propertyFromCurrentRoute() {
-  const routeMatch = window.location.pathname.match(/\/propiedades\/([^/?#]+)/i);
-  const hashMatch = window.location.hash.match(/^#propiedad=([^&]+)/i);
-  const slug = routeMatch?.[1] || (hashMatch?.[1] ? decodeURIComponent(hashMatch[1]) : "");
-  return slug ? state.properties.find((property) => property.slug === slug) : null;
-}
-
-function propertyShareText(property) {
-  const price = property.operations.includes("sale") && property.price
-    ? formatCurrency(property.price)
-    : formatCurrency(property.rentNight);
-  return [
-    getTitle(property),
-    `${text("propertyCode")}: ${property.code}`,
-    `${localized({ es: "Ubicación", en: "Location", pt: "Localização" })}: ${property.zone}`,
-    `${localized({ es: "Precio", en: "Price", pt: "Preço" })}: ${price}`,
-    propertyShareUrl(property),
-  ].join("\n");
-}
-
-async function copyTextToClipboard(value) {
-  if (navigator.clipboard?.writeText && window.isSecureContext) {
-    await navigator.clipboard.writeText(value);
-    return;
-  }
-  const textarea = document.createElement("textarea");
-  textarea.value = value;
-  textarea.setAttribute("readonly", "");
-  textarea.style.position = "fixed";
-  textarea.style.opacity = "0";
-  document.body.appendChild(textarea);
-  textarea.select();
-  document.execCommand("copy");
-  textarea.remove();
-}
-
-function openShareFallback(property) {
-  const modal = $("#shareModal");
-  modal.dataset.propertyId = property.id;
-  $("#shareModalProperty").innerHTML = `
-    <strong>${escapeHtml(getTitle(property))}</strong>
-    <span>${text("propertyCode")} ${escapeHtml(property.code)} · ${escapeHtml(property.zone)}</span>
-  `;
-  modal.hidden = false;
-  document.body.classList.add("modal-open");
-  if (window.lucide) window.lucide.createIcons();
-}
-
-function closeShareFallback() {
-  $("#shareModal").hidden = true;
-  $("#shareModal").dataset.propertyId = "";
-  if ($("#propertyModal").hidden && $("#staffLoginModal").hidden) document.body.classList.remove("modal-open");
-}
-
-async function shareProperty(property) {
-  const url = propertyShareUrl(property);
-  const shareData = { title: `${getTitle(property)} · ${property.code}`, text: propertyShareText(property), url };
-  if (typeof navigator.share === "function") {
-    try {
-      await navigator.share(shareData);
-      return;
-    } catch (error) {
-      if (error?.name === "AbortError") return;
-    }
-  }
-  openShareFallback(property);
-}
-
-async function handleShareChannel(channel, property) {
-  const url = propertyShareUrl(property);
-  const shareText = propertyShareText(property);
-  if (channel === "whatsapp") {
-    window.open(`https://wa.me/?text=${encodeURIComponent(shareText)}`, "_blank", "noopener,noreferrer");
-    return;
-  }
-  if (channel === "facebook") {
-    window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, "_blank", "noopener,noreferrer");
-    return;
-  }
-  if (channel === "x") {
-    window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}`, "_blank", "noopener,noreferrer");
-    return;
-  }
-  await copyTextToClipboard(url);
-  const message = channel === "instagram"
-    ? text("shareInstagramCopied")
-    : channel === "tiktok"
-      ? text("shareTikTokCopied")
-      : text("shareCopied");
-  showToast(message);
 }
 
 function isVideoSource(source = "") {
@@ -2088,85 +954,9 @@ function formatNumber(value, decimals = 0) {
   }).format(number);
 }
 
-function parseNumericInput(value) {
-  const sanitized = String(value ?? "").replace(/,/g, "").trim();
-  const number = Number(sanitized);
-  return Number.isFinite(number) ? number : 0;
-}
-
-function setupFormattedNumericInputs() {
-  $$("input[data-format-number]").forEach((input) => {
-    input.addEventListener("focus", () => {
-      const current = parseNumericInput(input.value);
-      if (input.value.trim() === "") return;
-      input.value = String(current);
-    });
-
-    input.addEventListener("blur", () => {
-      if (input.value.trim() === "") return;
-      const current = parseNumericInput(input.value);
-      input.value = formatNumber(current, 0);
-    });
-
-    if (input.value.trim() !== "") {
-      input.value = formatNumber(parseNumericInput(input.value), 0);
-    }
-  });
-}
-
 function formatSpecValue(value) {
   const number = Number(value) || 0;
   return Number.isInteger(number) ? formatNumber(number, 0) : formatNumber(number, 1);
-}
-
-function getPropertyTotalArea(property) {
-  return Number(property?.lot) || Number(property?.area) || 0;
-}
-
-function renderModalPropertySpecs(property) {
-  const specs = [];
-  const isTerrain = normalizePropertyType(property.type) === "Terreno";
-  const totalArea = getPropertyTotalArea(property);
-  const structureArea = Number(property.area) || 0;
-
-  if ((Number(property.beds) || 0) > 0) {
-    specs.push({
-      value: formatSpecValue(property.beds),
-      label: text("beds"),
-    });
-  }
-
-  if ((Number(property.baths) || 0) > 0) {
-    specs.push({
-      value: formatSpecValue(property.baths),
-      label: text("baths"),
-    });
-  }
-
-  if (totalArea > 0) {
-    specs.push({
-      value: `${formatSpecValue(totalArea)} m²`,
-      label: text("landArea"),
-    });
-  }
-
-  if (!isTerrain && structureArea > 0) {
-    specs.push({
-      value: `${formatSpecValue(structureArea)} m²`,
-      label: text("constructionArea"),
-    });
-  }
-
-  return specs
-    .map(
-      (spec) => `
-        <span>
-          <strong>${escapeHtml(spec.value)}</strong>
-          <small>${escapeHtml(spec.label)}</small>
-        </span>
-      `
-    )
-    .join("");
 }
 
 function toUsd(value) {
@@ -2195,30 +985,6 @@ function formatDateInput(date) {
   return `${year}-${month}-${day}`;
 }
 
-function setBookingDateConstraints(form) {
-  if (!form) return;
-  const checkInInput = $("input[name='checkIn']", form);
-  const checkOutInput = $("input[name='checkOut']", form);
-  if (!checkInInput || !checkOutInput) return;
-
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-  const todayIso = formatDateInput(today);
-  checkInInput.min = todayIso;
-  if (!checkInInput.value || checkInInput.value < todayIso) {
-    checkInInput.value = todayIso;
-  }
-
-  const checkInDate = parseDateOnly(checkInInput.value) || today;
-  const nextDay = new Date(checkInDate);
-  nextDay.setDate(nextDay.getDate() + 1);
-  const minCheckOut = formatDateInput(nextDay);
-  checkOutInput.min = minCheckOut;
-  if (!checkOutInput.value || checkOutInput.value <= checkInInput.value) {
-    checkOutInput.value = minCheckOut;
-  }
-}
-
 function getTitle(property) {
   return state.lang === "en" ? property.titleEn || property.title : property.title;
 }
@@ -2238,26 +1004,23 @@ function statusLabel(status) {
 }
 
 function typeLabel(type) {
-  const normalizedType = normalizePropertyType(type);
   if (state.lang === "en") {
     return {
-      Casa: "House",
-      Apartamento: "Apartment",
-      Terreno: "Land",
-      Finca: "Farm",
-      Villa: "Villa",
-    }[normalizedType] || normalizedType;
+    Casa: "House",
+    Apartamento: "Apartment",
+    Solar: "Land",
+    Villa: "Villa",
+    }[type] || type;
   }
   if (state.lang === "pt") {
     return {
       Casa: "Casa",
       Apartamento: "Apartamento",
-      Terreno: "Terreno",
-      Finca: "Fazenda",
+      Solar: "Terreno",
       Villa: "Villa",
-    }[normalizedType] || normalizedType;
+    }[type] || type;
   }
-  return normalizedType;
+  return type;
 }
 
 function shouldShowReservation(property) {
@@ -2275,21 +1038,15 @@ function applyTranslations() {
     const key = node.dataset.i18n;
     if (I18N[state.lang]?.[key] || I18N.es[key]) node.textContent = text(key);
   });
-  $$("[data-i18n-placeholder]").forEach((node) => {
-    const key = node.dataset.i18nPlaceholder;
-    if (I18N[state.lang]?.[key] || I18N.es[key]) node.placeholder = text(key);
-  });
-  $("#languageToggleValue").textContent = state.lang.toUpperCase();
+  $("#languageToggle").textContent = state.lang.toUpperCase();
   $("#languageToggle").setAttribute("aria-label", `${text("brandTag")} - ES, EN, PT`);
   $("#chatInput").placeholder = text("chatPlaceholder");
-  syncHeaderSelectStates();
   applyCurrencyLabels();
-  setupSurfaceSelects();
   if (window.lucide) window.lucide.createIcons();
 }
 
 function applyCurrencyLabels() {
-  $("#currencyToggleValue").textContent = state.currency;
+  $("#currencySelect").value = state.currency;
   const minLabel = $("[data-i18n='filterMin']");
   const maxLabel = $("[data-i18n='filterMax']");
   if (minLabel) minLabel.textContent = `Min. ${state.currency}`;
@@ -2301,268 +1058,8 @@ function applyCurrencyLabels() {
   if (maxInput) maxInput.placeholder = `${state.currency} ${symbol}450,000.00`;
 }
 
-function syncHeaderSelectStates() {
-  $$("[data-lang-option]").forEach((option) => {
-    const selected = option.dataset.langOption === state.lang;
-    option.classList.toggle("is-active", selected);
-    option.setAttribute("aria-pressed", selected ? "true" : "false");
-  });
-  $$("[data-currency-option]").forEach((option) => {
-    const selected = option.dataset.currencyOption === state.currency;
-    option.classList.toggle("is-active", selected);
-    option.setAttribute("aria-pressed", selected ? "true" : "false");
-  });
-}
-
-function customSelectTargets() {
-  return ["#filterOperation", "#filterType", "#filterZone", "#filterBeds", "#sortProperties"].map((selector) => $(selector)).filter(Boolean);
-}
-
-function closeSurfaceSelects(exceptId = "") {
-  $$("[data-surface-select]").forEach((shell) => {
-    const isOpen = shell.dataset.surfaceSelect === exceptId;
-    shell.classList.toggle("is-open", isOpen);
-    const toggle = $("[data-surface-select-toggle]", shell);
-    const menu = $("[data-surface-select-menu]", shell);
-    if (toggle) toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
-    if (menu) menu.hidden = !isOpen;
-  });
-  openSurfaceSelect = exceptId;
-}
-
-function syncSurfaceSelect(selectOrId) {
-  const select = typeof selectOrId === "string" ? $(selectOrId.startsWith("#") ? selectOrId : `#${selectOrId}`) : selectOrId;
-  if (!select) return;
-
-  let shell = select.closest("[data-surface-select]");
-  if (!shell) {
-    shell = document.createElement("div");
-    shell.className = "surface-select-shell";
-    shell.dataset.surfaceSelect = select.id;
-    select.parentNode.insertBefore(shell, select);
-    shell.appendChild(select);
-
-    const toggle = document.createElement("button");
-    toggle.type = "button";
-    toggle.className = "surface-select-toggle";
-    toggle.dataset.surfaceSelectToggle = "";
-    toggle.setAttribute("aria-haspopup", "listbox");
-    toggle.setAttribute("aria-expanded", "false");
-    toggle.innerHTML = '<span data-surface-select-value></span><i data-lucide="chevron-down"></i>';
-
-    const menu = document.createElement("div");
-    menu.className = "surface-select-menu";
-    menu.dataset.surfaceSelectMenu = "";
-    menu.hidden = true;
-
-    shell.append(toggle, menu);
-
-    toggle.addEventListener("click", () => {
-      const shouldOpen = openSurfaceSelect !== select.id;
-      closeSurfaceSelects(shouldOpen ? select.id : "");
-    });
-
-    select.addEventListener("change", () => syncSurfaceSelect(select));
-    select.classList.add("surface-select-native");
-  }
-
-  const toggle = $("[data-surface-select-toggle]", shell);
-  const valueNode = $("[data-surface-select-value]", shell);
-  const menu = $("[data-surface-select-menu]", shell);
-  const selectedOption = select.options[select.selectedIndex] || select.options[0];
-  if (valueNode) valueNode.textContent = selectedOption?.textContent?.trim() || "";
-
-  menu.innerHTML = [...select.options]
-    .map((option) => `
-      <button
-        class="surface-select-option${option.selected ? " is-active" : ""}"
-        type="button"
-        data-surface-option="${escapeHtml(option.value)}"
-        ${option.disabled ? "disabled" : ""}
-      >
-        <strong>${escapeHtml(option.textContent.trim())}</strong>
-      </button>
-    `)
-    .join("");
-
-  $$("[data-surface-option]", menu).forEach((button) => {
-    button.addEventListener("click", () => {
-      select.value = button.dataset.surfaceOption;
-      select.dispatchEvent(new Event("change", { bubbles: true }));
-      closeSurfaceSelects();
-    });
-  });
-
-  toggle?.setAttribute("aria-label", `${select.id}-${selectedOption?.textContent?.trim() || ""}`);
-  shell.classList.toggle("is-open", openSurfaceSelect === select.id);
-  if (menu) menu.hidden = openSurfaceSelect !== select.id;
-}
-
-function setupSurfaceSelects() {
-  customSelectTargets().forEach((select) => syncSurfaceSelect(select));
-  if (window.lucide) window.lucide.createIcons();
-}
-
-function closeHeaderMenus() {
-  $$("[data-header-dropdown]").forEach((dropdown) => {
-    dropdown.classList.remove("is-open");
-    const toggle = $(".header-select-toggle", dropdown);
-    const menu = $(".header-dropdown-menu", dropdown);
-    if (toggle) toggle.setAttribute("aria-expanded", "false");
-    if (menu) menu.hidden = true;
-  });
-}
-
-function toggleHeaderMenu(name) {
-  const dropdown = $(`[data-header-dropdown="${name}"]`);
-  if (!dropdown) return;
-  const menu = $(".header-dropdown-menu", dropdown);
-  const toggle = $(".header-select-toggle", dropdown);
-  const shouldOpen = !dropdown.classList.contains("is-open");
-  closeHeaderMenus();
-  dropdown.classList.toggle("is-open", shouldOpen);
-  if (toggle) toggle.setAttribute("aria-expanded", shouldOpen ? "true" : "false");
-  if (menu) menu.hidden = !shouldOpen;
-}
-
-function applyPageMode() {
-  const pageMode = detectPageMode();
-  document.body.dataset.pageMode = pageMode;
-
-  const onHome = pageMode === "home";
-  const onProperties = pageMode === "properties";
-  const onCalculators = pageMode === "calculators";
-  const onContact = pageMode === "contact";
-
-  const linkMap = {
-    navAboutLink: onHome ? "#about" : pageLink("home", "#about"),
-    navReviewsLink: onHome ? "#reviews" : pageLink("home", "#reviews"),
-    navBlogLink: onHome ? "#blog" : pageLink("home", "#blog"),
-    navPropertiesLink: onProperties ? "#properties" : pageLink("properties", "#properties"),
-    navFinancingLink: onCalculators ? "#financing" : pageLink("calculators", "#financing"),
-    navContactLink: onContact ? "#contact" : pageLink("contact", "#contact"),
-    navAppointmentLink: onContact ? "#appointments" : pageLink("contact", "#appointments"),
-    navContactMenuLink: onContact ? "#contact" : pageLink("contact", "#contact"),
-  };
-
-  Object.entries(linkMap).forEach(([id, href]) => {
-    const node = $(`#${id}`);
-    if (node) node.setAttribute("href", href);
-  });
-
-  if (onHome) {
-    [
-      [".site-footer a[href=\"#financing\"]", pageLink("calculators", "#financing")],
-      [".site-footer a[href=\"#reservations\"]", pageLink("properties", "#reservations")],
-      [".site-footer a[href=\"#owners\"]", pageLink("properties", "#owners")],
-      [".site-footer a[href=\"#appointments\"]", pageLink("contact", "#appointments")],
-      [".site-footer a[href=\"#contact\"]", pageLink("contact", "#contact")],
-      [".site-footer a[href=\"#adminPanel\"]", pageLink("properties", "#adminPanel")],
-    ].forEach(([selector, href]) => {
-      $$(selector).forEach((node) => {
-        node.setAttribute("href", href);
-      });
-    });
-  }
-
-  $$("[data-nav-calculator]").forEach((node) => {
-    node.setAttribute("href", onCalculators ? "#financing" : pageLink("calculators", "#financing"));
-  });
-}
-
-function reorderPrimarySections() {
-  const main = $("main");
-  const trustBand = $(".trust-band", main);
-  const about = $("#about");
-  const appointments = $("#appointments");
-  const contact = $("#contact");
-  const pageMode = document.body.dataset.pageMode;
-
-  if (trustBand && about && trustBand.nextElementSibling !== about) {
-    trustBand.insertAdjacentElement("afterend", about);
-  }
-
-  if (!contact || !appointments) return;
-
-  if (pageMode === "contact") {
-    if (contact.nextElementSibling !== appointments) {
-      contact.insertAdjacentElement("afterend", appointments);
-    }
-    return;
-  }
-
-  if (contact.previousElementSibling !== appointments) {
-    contact.insertAdjacentElement("beforebegin", appointments);
-  }
-}
-
-function getAppBasePath() {
-  if (window.location.protocol === "file:") return "";
-  const pathname = window.location.pathname || "/";
-  const propertyIndex = pathname.indexOf(PROPERTY_ROUTE_PREFIX);
-  if (propertyIndex >= 0) {
-    return pathname.slice(0, propertyIndex + 1) || "/";
-  }
-  if (pathname.endsWith(".html")) {
-    return pathname.slice(0, pathname.lastIndexOf("/") + 1) || "/";
-  }
-  return pathname.endsWith("/") ? pathname : `${pathname}/`;
-}
-
-function resolveStaticAssetPath(assetPath) {
-  const cleanPath = String(assetPath || "").replace(/^\/+/, "");
-  if (!cleanPath) return "";
-  if (window.location.protocol === "file:") return cleanPath;
-  return new URL(cleanPath, `${window.location.origin}${getAppBasePath()}`).href;
-}
-
-function syncStaticAssets() {
-  $$("[data-asset-path]").forEach((asset) => {
-    const targetPath = resolveStaticAssetPath(asset.dataset.assetPath);
-    if (!targetPath) return;
-    if (asset.tagName === "LINK") {
-      asset.href = targetPath;
-    } else if ("src" in asset) {
-      asset.src = targetPath;
-    }
-  });
-}
-
-function syncSiteFavicon() {
-  const favicon = $("#siteFavicon");
-  if (!favicon) return;
-  const targetPath =
-    state.theme === "dark" ? favicon.dataset.faviconDark || favicon.dataset.faviconLight : favicon.dataset.faviconLight;
-  if (!targetPath) return;
-  favicon.href = resolveStaticAssetPath(targetPath);
-}
-
-function syncBrandLogos() {
-  $$("[data-logo-light][data-logo-dark]").forEach((logo) => {
-    const primaryPath = state.theme === "dark" ? logo.dataset.logoDark : logo.dataset.logoLight;
-    const secondaryPath = state.theme === "dark" ? logo.dataset.logoLight : logo.dataset.logoDark;
-    const fallbackPath = logo.dataset.logoFallback;
-    logo.onerror = () => {
-      if (secondaryPath && logo.src !== resolveStaticAssetPath(secondaryPath)) {
-        logo.src = resolveStaticAssetPath(secondaryPath);
-        return;
-      }
-      if (fallbackPath && logo.src !== resolveStaticAssetPath(fallbackPath)) {
-        logo.onerror = null;
-        logo.src = resolveStaticAssetPath(fallbackPath);
-        return;
-      }
-      logo.onerror = null;
-    };
-    logo.src = resolveStaticAssetPath(primaryPath);
-  });
-}
-
 function applyTheme() {
   document.body.dataset.theme = state.theme;
-  syncSiteFavicon();
-  syncStaticAssets();
-  syncBrandLogos();
   const themeToggle = $("#themeToggle");
   if (!themeToggle) return;
   themeToggle.innerHTML = state.theme === "dark" ? '<i data-lucide="sun"></i>' : '<i data-lucide="moon"></i>';
@@ -2573,6 +1070,7 @@ function applyTheme() {
 function initHeroSlideshow() {
   const heroMedia = $(".hero-media");
   if (!heroMedia || HERO_IMAGES.length < 2) return;
+  if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) return;
   HERO_IMAGES.forEach((src) => {
     const preload = new Image();
     preload.src = src;
@@ -2605,7 +1103,7 @@ function initHeroSlideshow() {
     });
 
     activeSlot = nextSlot;
-  }, 5000);
+  }, 7600);
 }
 
 function populateZoneOptions() {
@@ -2616,7 +1114,6 @@ function populateZoneOptions() {
     .map((zone) => `<option value="${escapeHtml(zone)}">${escapeHtml(zone)}</option>`)
     .join("")}`;
   zoneSelect.value = zones.includes(selected) ? selected : "all";
-  syncSurfaceSelect(zoneSelect);
 }
 
 function getFilteredProperties() {
@@ -2787,10 +1284,12 @@ function renderPropertyCard(property) {
       </div>
       <div class="property-body">
         <h3>${escapeHtml(getTitle(property))}</h3>
-        <p class="property-zone">${escapeHtml(property.zone)} · ${escapeHtml(typeLabel(property.type))} · ${text("propertyCode")} ${escapeHtml(property.code)}</p>
+        <p class="property-zone">${escapeHtml(property.zone)} · ${escapeHtml(typeLabel(property.type))}</p>
         <p class="property-price"><strong>${price}</strong></p>
-        <div class="property-specs property-specs-detailed">
-          ${renderModalPropertySpecs(property)}
+        <div class="property-specs">
+          <span>${formatSpecValue(property.beds)} ${text("beds")}</span>
+          <span>${formatSpecValue(property.baths)} ${text("baths")}</span>
+          <span>${formatSpecValue(property.area)} ${text("area")}</span>
         </div>
         <p>${escapeHtml(getDescription(property))}</p>
         <div class="property-actions">
@@ -2798,9 +1297,6 @@ function renderPropertyCard(property) {
             <i data-lucide="home"></i><span>${text("viewDetails")}</span>
           </button>
           ${rentButton}
-          <button class="button button-light property-share-button" type="button" data-share-property="${property.id}">
-            <i data-lucide="share-2"></i><span>${text("shareProperty")}</span>
-          </button>
         </div>
       </div>
     </article>
@@ -2811,6 +1307,48 @@ function updateFavoriteCount() {
   $("#favoriteCount").textContent = state.favorites.size;
   $("#showFavorites").classList.toggle("button-primary", state.showFavorites);
   $("#showFavorites").classList.toggle("button-light", !state.showFavorites);
+}
+
+function renderMap() {
+  const canvas = $("#mapCanvas");
+  $$(".map-pin", canvas).forEach((pin) => pin.remove());
+  const active = state.activeMapId || state.properties[0]?.id;
+  state.activeMapId = active;
+
+  state.properties.forEach((property, index) => {
+    const pin = document.createElement("button");
+    pin.className = `map-pin ${property.id === active ? "active" : ""}`;
+    pin.type = "button";
+    pin.dataset.mapId = property.id;
+    pin.style.left = `${property.coords?.x || 45}%`;
+    pin.style.top = `${property.coords?.y || 45}%`;
+    pin.innerHTML = `<span>${index + 1}</span>`;
+    pin.setAttribute("aria-label", getTitle(property));
+    canvas.appendChild(pin);
+  });
+
+  renderMapPanel(state.properties.find((property) => property.id === active) || state.properties[0]);
+}
+
+function renderMapPanel(property) {
+  if (!property) return;
+  const price = property.operations.includes("sale") && property.price
+    ? formatCurrency(property.price)
+    : formatCurrency(property.rentNight);
+  $("#mapPanel").innerHTML = `
+    <h3>${escapeHtml(getTitle(property))}</h3>
+    <p>${escapeHtml(property.zone)} · ${escapeHtml(typeLabel(property.type))}</p>
+    <p><strong>${price}</strong></p>
+    <ul class="distance-list">
+      ${Object.entries(property.distances || {})
+        .map(([name, distance]) => `<li><span>${escapeHtml(name)}</span><strong>${escapeHtml(distance)}</strong></li>`)
+        .join("")}
+    </ul>
+    <button class="button button-primary" type="button" data-open-property="${property.id}">
+      <i data-lucide="home"></i><span>${text("viewDetails")}</span>
+    </button>
+  `;
+  if (window.lucide) window.lucide.createIcons();
 }
 
 function renderReservationPreview() {
@@ -2845,8 +1383,8 @@ function calculateMortgage(price, down, annualRate, years) {
 }
 
 function renderMortgage() {
-  const price = parseNumericInput($("#homePrice").value);
-  const down = parseNumericInput($("#downPayment").value);
+  const price = Number($("#homePrice").value) || 0;
+  const down = Number($("#downPayment").value) || 0;
   const rate = Number($("#interestRate").value) || 0;
   const years = Number($("#loanYears").value) || 1;
   const result = calculateMortgage(price, down, rate, years);
@@ -2865,11 +1403,11 @@ function getLoanFromPayment(payment, annualRate, years) {
 }
 
 function renderRefinance() {
-  const balance = parseNumericInput($("#currentBalance").value);
+  const balance = Number($("#currentBalance").value) || 0;
   const currentRate = Number($("#currentRate").value) || 0;
   const newRate = Number($("#newRate").value) || 0;
   const years = Number($("#remainingYears").value) || 1;
-  const closingCosts = parseNumericInput($("#closingCosts").value);
+  const closingCosts = Number($("#closingCosts").value) || 0;
   const current = calculateMortgage(balance, 0, currentRate, years);
   const refinanced = calculateMortgage(balance + closingCosts, 0, newRate, years);
   const savings = current.payment - refinanced.payment;
@@ -2889,9 +1427,9 @@ function renderRefinance() {
 }
 
 function renderAffordability() {
-  const income = parseNumericInput($("#monthlyIncome").value);
-  const debt = parseNumericInput($("#monthlyDebt").value);
-  const down = parseNumericInput($("#affordDown").value);
+  const income = Number($("#monthlyIncome").value) || 0;
+  const debt = Number($("#monthlyDebt").value) || 0;
+  const down = Number($("#affordDown").value) || 0;
   const rate = Number($("#affordRate").value) || 0;
   const years = Number($("#affordYears").value) || 1;
   const targetPayment = Math.max(income * 0.32 - debt, 0);
@@ -2906,9 +1444,9 @@ function renderAffordability() {
 }
 
 function renderRentBuy() {
-  const rent = parseNumericInput($("#monthlyRent").value);
-  const price = parseNumericInput($("#compareHomePrice").value);
-  const down = parseNumericInput($("#compareDownPayment").value);
+  const rent = Number($("#monthlyRent").value) || 0;
+  const price = Number($("#compareHomePrice").value) || 0;
+  const down = Number($("#compareDownPayment").value) || 0;
   const rate = Number($("#compareRate").value) || 0;
   const years = Number($("#yearsInHome").value) || 1;
   const months = years * 12;
@@ -3094,7 +1632,7 @@ function startModalGalleryRotation(mediaItems) {
   }, 2400);
 }
 
-function openPropertyModal(propertyId, focusBooking = false, updateHistory = false) {
+function openPropertyModal(propertyId, focusBooking = false) {
   const property = state.properties.find((item) => item.id === propertyId);
   if (!property) return;
 
@@ -3125,7 +1663,7 @@ function openPropertyModal(propertyId, focusBooking = false, updateHistory = fal
       <div class="modal-details">
         <span class="badge ${escapeHtml(property.status)}">${statusLabel(property.status)}</span>
         <h2 id="modalTitle">${escapeHtml(getTitle(property))}</h2>
-        <p class="property-zone">${escapeHtml(property.zone)} · ${escapeHtml(typeLabel(property.type))} · ${text("propertyCode")} ${escapeHtml(property.code)}</p>
+        <p class="property-zone">${escapeHtml(property.zone)} · ${escapeHtml(typeLabel(property.type))}</p>
         <p class="property-price"><strong>${price}</strong></p>
         <div class="property-specs">
           <span>${formatSpecValue(property.beds)} ${text("beds")}</span>
@@ -3134,9 +1672,6 @@ function openPropertyModal(propertyId, focusBooking = false, updateHistory = fal
         </div>
         <p>${escapeHtml(getDescription(property))}</p>
         <div class="modal-tools">
-          <button class="button button-light" type="button" data-share-property="${property.id}">
-            <i data-lucide="share-2"></i><span>${text("shareProperty")}</span>
-          </button>
           ${shouldShowReservation(property) ? renderBookingTool(property) : ""}
           ${property.operations.includes("sale") && property.price ? renderPaymentTool(property) : ""}
           <a class="button button-primary" href="https://wa.me/${BUSINESS_WHATSAPP}?text=${encodeURIComponent(
@@ -3156,17 +1691,9 @@ function openPropertyModal(propertyId, focusBooking = false, updateHistory = fal
   $("#propertyModal").dataset.poster = poster;
   $("#propertyModal").dataset.title = getTitle(property);
   $("#propertyModal").dataset.modalIndex = "0";
-  if (updateHistory) {
-    try {
-      const route = /^https?:$/.test(window.location.protocol)
-        ? propertyRoutePath(property)
-        : `#propiedad=${encodeURIComponent(property.slug)}`;
-      window.history.pushState({ propertySlug: property.slug }, "", route);
-    } catch {}
-  }
   bindModalImageFallback();
   startModalGalleryRotation(mediaItems);
-  $$("[data-booking-form]", $("#propertyModal")).forEach((form) => setBookingDateConstraints(form));
+  $$("[data-booking-form]", $("#propertyModal")).forEach((form) => renderBookingAvailability(form));
   if (focusBooking) {
     setTimeout(() => $("[data-booking-tool]", $("#propertyModal"))?.scrollIntoView({ block: "center" }), 60);
   }
@@ -3191,22 +1718,65 @@ function getReservationRanges(propertyId) {
     .filter((range) => range.start && range.end && range.end > range.start);
 }
 
+function isRangeBlocked(propertyId, checkIn, checkOut) {
+  const ranges = getReservationRanges(propertyId);
+  return ranges.some((range) => checkIn < range.end && checkOut > range.start);
+}
+
+function renderBookingAvailability(form) {
+  const availability = $("[data-booking-availability]", form);
+  if (!availability) return;
+
+  const checkIn = parseDateOnly($("input[name='checkIn']", form)?.value);
+  const checkOut = parseDateOnly($("input[name='checkOut']", form)?.value);
+  const ranges = getReservationRanges(form.dataset.bookingForm);
+  const start = new Date();
+  start.setHours(0, 0, 0, 0);
+
+  const days = [];
+  for (let offset = 0; offset < 45; offset += 1) {
+    const date = new Date(start);
+    date.setDate(start.getDate() + offset);
+    const isReserved = ranges.some((range) => date >= range.start && date < range.end);
+    const isSelected = checkIn && checkOut && date >= checkIn && date < checkOut;
+    days.push(`
+      <span class="availability-day ${isReserved ? "reserved" : "free"} ${isSelected ? "selected" : ""}">
+        <strong>${date.getDate()}</strong>
+        <small>${new Intl.DateTimeFormat(state.lang === "en" ? "en-US" : state.lang === "pt" ? "pt-BR" : "es-DO", { month: "short" }).format(date)}</small>
+      </span>
+    `);
+  }
+
+  availability.innerHTML = `
+    <div class="availability-head">
+      <strong>${text("reservedDates")}</strong>
+      <small>${text("availabilityHint")}</small>
+    </div>
+    <div class="availability-grid">${days.join("")}</div>
+  `;
+}
+
 function renderBookingTool(property) {
   const today = new Date();
+  const tomorrow = new Date();
+  tomorrow.setDate(today.getDate() + 1);
   const next = new Date();
-  next.setDate(today.getDate() + 2);
-  const checkInDate = formatDateInput(today);
+  next.setDate(today.getDate() + 3);
+  const minDate = formatDateInput(today);
+  const checkInDate = formatDateInput(tomorrow);
   const checkOutDate = formatDateInput(next);
 
   return `
     <form class="booking-tool" data-booking-tool data-booking-form="${property.id}">
       <h3>${text("modalBooking")}</h3>
       <div class="mini-form-grid">
-        <label><span>${text("checkIn")}</span><input name="checkIn" type="date" min="${checkInDate}" value="${checkInDate}" /></label>
-        <label><span>${text("checkOut")}</span><input name="checkOut" type="date" min="${checkOutDate}" value="${checkOutDate}" /></label>
+        <label><span>${text("checkIn")}</span><input name="checkIn" type="date" min="${minDate}" value="${checkInDate}" /></label>
+        <label><span>${text("checkOut")}</span><input name="checkOut" type="date" min="${minDate}" value="${checkOutDate}" /></label>
         <label><span>${text("guests")}</span><input name="guests" type="number" min="1" value="4" /></label>
         <label><span>${text("leadPhone")}</span><input name="phone" type="tel" placeholder="+1 829 000 0000" /></label>
       </div>
+      <label><span>${text("additionalComments")}</span><textarea name="comments" rows="3" placeholder="..."></textarea></label>
+      <div class="availability-panel" data-booking-availability></div>
       <button class="button button-primary" type="submit">
         <i data-lucide="calendar-check"></i><span>${text("calculateStay")}</span>
       </button>
@@ -3227,6 +1797,7 @@ function renderPaymentTool(property) {
         <label><span>${text("annualRate")}</span><input name="rate" type="number" min="0" step="0.1" value="8.5" /></label>
         <label><span>${text("paymentDay")}</span><input name="day" type="number" min="1" max="28" value="15" /></label>
       </div>
+      <label><span>${text("additionalComments")}</span><textarea name="comments" rows="3" placeholder="..."></textarea></label>
       <button class="button button-primary" type="submit">
         <i data-lucide="credit-card"></i><span>${text("generate")}</span>
       </button>
@@ -3235,29 +1806,11 @@ function renderPaymentTool(property) {
   `;
 }
 
-function closeModal(updateHistory = true) {
+function closeModal() {
   stopModalGalleryRotation();
   $$("video", $("#propertyModal")).forEach((video) => video.pause());
   $("#propertyModal").hidden = true;
-  if ($("#shareModal").hidden && $("#staffLoginModal").hidden) document.body.classList.remove("modal-open");
-  if (updateHistory && propertyFromCurrentRoute()) {
-    try {
-      const basePath = propertyRouteBase() || "/";
-      const target = /^https?:$/.test(window.location.protocol) ? basePath : window.location.href.split("#")[0];
-      window.history.replaceState({}, "", target);
-    } catch {}
-  }
-}
-
-function handlePropertyRoute() {
-  const property = propertyFromCurrentRoute();
-  if (property) {
-    if ($("#propertyModal").hidden || $("#propertyModal").dataset.propertyId !== property.id) {
-      openPropertyModal(property.id, false, false);
-    }
-    return;
-  }
-  if (!$("#propertyModal").hidden) closeModal(false);
+  document.body.classList.remove("modal-open");
 }
 
 function handleBookingSubmit(form) {
@@ -3283,11 +1836,19 @@ function handleBookingSubmit(form) {
     return;
   }
 
+  if (isRangeBlocked(property.id, checkIn, checkOut)) {
+    showToast(text("availabilityConflict"));
+    renderBookingAvailability(form);
+    return;
+  }
+
   const guests = Number(data.get("guests")) || 1;
   const nights = Math.max(Math.round((checkOut - checkIn) / 86400000), 1);
   const subtotal = nights * property.rentNight;
   const cleaning = 55;
-  const total = subtotal + cleaning;
+  const service = subtotal * 0.08;
+  const deposit = subtotal * 0.2;
+  const total = subtotal + cleaning + service + deposit;
 
   const reservation = {
     propertyId: property.id,
@@ -3315,6 +1876,16 @@ function handleBookingSubmit(form) {
     }</span><strong>${formatCurrency(
     cleaning
   )}</strong></div>
+    <div class="schedule-row"><span>${
+      state.lang === "en" ? "Service" : state.lang === "pt" ? "Serviço" : "Servicio"
+    }</span><strong>${formatCurrency(
+    service
+  )}</strong></div>
+    <div class="schedule-row"><span>${
+      state.lang === "en" ? "Deposit" : state.lang === "pt" ? "Depósito" : "Depósito"
+    }</span><strong>${formatCurrency(
+    deposit
+  )}</strong></div>
     <div class="schedule-row"><span>Total</span><strong>${formatCurrency(total)}</strong></div>
     <a class="button button-primary" href="https://wa.me/${BUSINESS_WHATSAPP}?text=${encodeURIComponent(
       `Hola ${BUSINESS_NAME}, quiero reservar ${getTitle(property)} del ${data.get("checkIn")} al ${data.get("checkOut")}.`
@@ -3327,185 +1898,7 @@ function handleBookingSubmit(form) {
         ? "Estimativa de reserva salva."
         : "Reserva calculada y guardada."
   );
-  setBookingDateConstraints(form);
-}
-
-function getAllReservations() {
-  try {
-    const saved = JSON.parse(localStorage.getItem(STORAGE.reservations) || "[]");
-    return Array.isArray(saved) ? saved : [];
-  } catch {
-    return [];
-  }
-}
-
-function saveAllReservations(reservations) {
-  localStorage.setItem(STORAGE.reservations, JSON.stringify(reservations));
-}
-
-function getReservedDateSet(propertyId) {
-  const set = new Set();
-  getReservationRanges(propertyId).forEach((range) => {
-    const cursor = new Date(range.start);
-    while (cursor < range.end) {
-      set.add(formatDateInput(cursor));
-      cursor.setDate(cursor.getDate() + 1);
-    }
-  });
-  return set;
-}
-
-function ensureAdminReservationDates() {
-  const checkInInput = $("#adminReservationCheckIn");
-  const checkOutInput = $("#adminReservationCheckOut");
-  if (!checkInInput || !checkOutInput) return;
-
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-  const todayIso = formatDateInput(today);
-
-  checkInInput.min = todayIso;
-  if (!checkInInput.value || checkInInput.value < todayIso) {
-    checkInInput.value = todayIso;
-  }
-
-  const checkInDate = parseDateOnly(checkInInput.value) || today;
-  const nextDay = new Date(checkInDate);
-  nextDay.setDate(nextDay.getDate() + 1);
-  const minCheckOut = formatDateInput(nextDay);
-  checkOutInput.min = minCheckOut;
-  if (!checkOutInput.value || checkOutInput.value <= checkInInput.value) {
-    checkOutInput.value = minCheckOut;
-  }
-}
-
-function getAdminReservationPropertyId() {
-  return $("#adminReservationProperty")?.value || "";
-}
-
-function renderAdminReservationCalendar(propertyId) {
-  const container = $("#adminReservationCalendar");
-  if (!container) return;
-  if (!propertyId) {
-    container.innerHTML = "";
-    return;
-  }
-
-  const localeDays =
-    state.lang === "en"
-      ? ["MO", "TU", "WE", "TH", "FR", "SA", "SU"]
-      : state.lang === "pt"
-        ? ["SE", "TE", "QU", "QI", "SE", "SA", "DO"]
-        : ["LU", "MA", "MI", "JU", "VI", "SA", "DO"];
-
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-  const monthStart = new Date(today.getFullYear(), today.getMonth(), 1);
-  const mondayOffset = (monthStart.getDay() + 6) % 7;
-  const gridStart = new Date(monthStart);
-  gridStart.setDate(monthStart.getDate() - mondayOffset);
-  const reservedDates = getReservedDateSet(propertyId);
-  const todayIso = formatDateInput(today);
-
-  const dayHeaders = localeDays.map((label) => `<div class="admin-reservation-day-head">${label}</div>`).join("");
-  const days = Array.from({ length: 42 }, (_, index) => {
-    const date = new Date(gridStart);
-    date.setDate(gridStart.getDate() + index);
-    const iso = formatDateInput(date);
-    const classes = ["admin-reservation-day"];
-    if (date.getMonth() !== monthStart.getMonth()) classes.push("muted");
-    if (iso === todayIso) classes.push("today");
-    if (reservedDates.has(iso)) classes.push("reserved");
-    return `<div class="${classes.join(" ")}"><span>${date.getDate()}</span></div>`;
-  }).join("");
-
-  container.innerHTML = `
-    <div class="admin-reservation-legend">${text("availabilityHint")}</div>
-    <div class="admin-reservation-grid">${dayHeaders}${days}</div>
-  `;
-}
-
-function renderAdminReservationList(propertyId) {
-  const list = $("#adminReservationList");
-  if (!list) return;
-  if (!propertyId) {
-    list.innerHTML = "";
-    return;
-  }
-
-  const reservations = getAllReservations()
-    .filter((reservation) => reservation.propertyId === propertyId)
-    .sort((a, b) => new Date(a.checkIn) - new Date(b.checkIn));
-
-  if (!reservations.length) {
-    list.innerHTML = `<p>${text("adminReserveEmpty")}</p>`;
-    return;
-  }
-
-  list.innerHTML = reservations
-    .map((reservation) => {
-      const checkIn = parseDateOnly(reservation.checkIn);
-      const checkOut = parseDateOnly(reservation.checkOut);
-      if (!checkIn || !checkOut) return "";
-      return `
-        <article class="admin-reservation-item">
-          <strong>${formatDate(checkIn)} → ${formatDate(checkOut)}</strong>
-          <span>${escapeHtml(reservation.property || "")}</span>
-        </article>
-      `;
-    })
-    .filter(Boolean)
-    .join("");
-}
-
-function syncAdminReservationViews(propertyId = getAdminReservationPropertyId()) {
-  renderAdminReservationCalendar(propertyId);
-  renderAdminReservationList(propertyId);
-}
-
-function saveAdminReservation() {
-  const propertyId = getAdminReservationPropertyId();
-  const checkIn = $("#adminReservationCheckIn")?.value;
-  const checkOut = $("#adminReservationCheckOut")?.value;
-  if (!propertyId || !checkIn || !checkOut) return;
-
-  const start = parseDateOnly(checkIn);
-  const end = parseDateOnly(checkOut);
-  if (!start || !end || end <= start) {
-    showToast(
-      localized({
-        es: "Selecciona un rango válido de reserva.",
-        en: "Select a valid reservation range.",
-        pt: "Selecione um período de reserva válido.",
-      })
-    );
-    return;
-  }
-
-  const property = state.properties.find((item) => item.id === propertyId);
-  const reservations = getAllReservations();
-  reservations.push({
-    propertyId,
-    property: property ? getTitle(property) : propertyId,
-    checkIn,
-    checkOut,
-    source: "admin",
-    createdAt: new Date().toISOString(),
-  });
-  saveAllReservations(reservations);
-  syncAdminReservationViews(propertyId);
-  showToast(text("adminReserveSaved"));
-}
-
-function clearAdminReservations() {
-  const propertyId = getAdminReservationPropertyId();
-  if (!propertyId) return;
-
-  const reservations = getAllReservations();
-  const filtered = reservations.filter((reservation) => reservation.propertyId !== propertyId);
-  saveAllReservations(filtered);
-  syncAdminReservationViews(propertyId);
-  showToast(text("adminReserveCleared"));
+  renderBookingAvailability(form);
 }
 
 function handlePaymentSubmit(form) {
@@ -3529,21 +1922,9 @@ function handlePaymentSubmit(form) {
 }
 
 function setupAdmin() {
-  const current = currentStaffMember();
-  setupStaffLogin();
-  if (!current) return;
-  applyAdminPermissions();
-  if (hasStaffPermission("manageProperties")) {
-    populateAdminSelect();
-    populateAdminReservationSelect();
-    ensureAdminReservationDates();
-    syncAdminReservationViews();
-    const first = state.properties[0];
-    if (first) fillAdminForm(first);
-  }
-  setupStaffAdmin(current.id);
-  setupAppointmentAdmin();
-  if (window.lucide) window.lucide.createIcons();
+  populateAdminSelect();
+  const first = state.properties[0];
+  if (first) fillAdminForm(first);
 }
 
 function populateAdminSelect(selectedId) {
@@ -3554,29 +1935,8 @@ function populateAdminSelect(selectedId) {
   if (selectedId) select.value = selectedId;
 }
 
-function populateAdminReservationSelect(selectedId) {
-  const select = $("#adminReservationProperty");
-  if (!select) return;
-
-  const preferredId = selectedId || select.value || $("#adminPropertySelect")?.value || state.properties[0]?.id || "";
-  select.innerHTML = state.properties
-    .map((property) => `<option value="${property.id}">${escapeHtml(getTitle(property))}</option>`)
-    .join("");
-
-  if (preferredId && state.properties.some((property) => property.id === preferredId)) {
-    select.value = preferredId;
-  } else if (state.properties[0]) {
-    select.value = state.properties[0].id;
-  }
-}
-
 function fillAdminForm(property) {
   $("#adminPropertySelect").value = property.id;
-  const adminReservationProperty = $("#adminReservationProperty");
-  if (adminReservationProperty) {
-    adminReservationProperty.value = property.id;
-    syncAdminReservationViews(property.id);
-  }
   $("#adminTitleInput").value = property.title;
   $("#adminTypeInput").value = property.type;
   $("#adminOperationInput").value = property.nightOnly ? "rent-night" : property.operations.join(",");
@@ -3586,7 +1946,6 @@ function fillAdminForm(property) {
   $("#adminBedsInput").value = property.beds;
   $("#adminBathsInput").value = property.baths;
   $("#adminAreaInput").value = property.area;
-  $("#adminLotInput").value = property.lot || "";
   $("#adminZoneInput").value = property.zone;
   $("#adminImagesInput").value = (property.images || []).join(", ");
   renderAdminImageList();
@@ -3595,22 +1954,15 @@ function fillAdminForm(property) {
 
 function collectAdminProperty(existing) {
   const title = $("#adminTitleInput").value.trim() || "Nueva propiedad";
-  const code = existing?.code || allocatePropertyCode();
   const rawOperation = $("#adminOperationInput").value.trim();
-  const normalizedType = normalizePropertyType($("#adminTypeInput").value);
   const operations = rawOperation === "rent-night"
     ? ["rent"]
     : rawOperation.split(",").map((item) => item.trim()).filter(Boolean);
-  const fallbackCoords = fallbackPropertyCoordinates(existing || { id: "" }, state.properties.length);
-  const structureArea = Number($("#adminAreaInput").value) || 0;
-  const lotArea = Number($("#adminLotInput").value) || 0;
   return {
-    id: existing?.id || `property-${code}-${Date.now()}`,
-    code,
-    slug: createPropertySlug(title, code),
+    id: existing?.id || `${title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}-${Date.now()}`,
     title,
     titleEn: existing?.titleEn || title,
-    type: normalizedType,
+    type: $("#adminTypeInput").value,
     operations,
     status: rawOperation === "rent-night" ? "rent" : $("#adminStatusInput").value,
     zone: $("#adminZoneInput").value.trim() || "Jarabacoa",
@@ -3618,11 +1970,9 @@ function collectAdminProperty(existing) {
     rentNight: Number($("#adminNightInput").value) || 0,
     beds: Number($("#adminBedsInput").value) || 0,
     baths: Number($("#adminBathsInput").value) || 0,
-    area: normalizedType === "Terreno" ? lotArea : structureArea,
-    lot: lotArea || existing?.lot || structureArea || 0,
+    area: Number($("#adminAreaInput").value) || 0,
+    lot: existing?.lot || Number($("#adminAreaInput").value) || 0,
     featured: existing?.featured ?? false,
-    lat: isValidCoordinate(existing?.lat) ? Number(existing.lat) : fallbackCoords.lat,
-    lng: isValidCoordinate(existing?.lng) ? Number(existing.lng) : fallbackCoords.lng,
     coords: existing?.coords || { x: 42 + Math.random() * 16, y: 38 + Math.random() * 24 },
     distances: existing?.distances || {
       Supermercado: "8 min",
@@ -3630,7 +1980,7 @@ function collectAdminProperty(existing) {
       Clinica: "12 min",
       Parque: "9 min",
     },
-    description: $("#adminDescInput").value.trim() || "Propiedad agregada al inventario de Meirah Group.",
+    description: $("#adminDescInput").value.trim() || "Propiedad agregada al inventario de MeriahGroup.",
     descriptionEn: existing?.descriptionEn || $("#adminDescInput").value.trim(),
     images: getAdminImages(),
     nightOnly: rawOperation === "rent-night",
@@ -3656,9 +2006,9 @@ function getBotAnswer(question) {
 
   if (q.includes("hello") || q.includes("hola") || q.includes("buenas")) {
     return localized({
-      es: "Hola. Soy MeirahBot. Puedo ayudarte con propiedades, reservas, calculadoras, ubicación y contacto.",
-      en: "Hello. I am MeirahBot. I can help with properties, bookings, calculators, location, and contact.",
-      pt: "Olá. Sou o MeirahBot. Posso ajudar com imóveis, reservas, calculadoras, localização e contato.",
+      es: "Hola. Soy MeriahBot. Puedo ayudarte con propiedades, reservas, calculadoras, ubicación y contacto.",
+      en: "Hello. I am MeriahBot. I can help with properties, bookings, calculators, location, and contact.",
+      pt: "Olá. Sou o MeriahBot. Posso ajudar com imóveis, reservas, calculadoras, localização e contato.",
     });
   }
   if (
@@ -3687,13 +2037,6 @@ function getBotAnswer(question) {
       es: `Tenemos ${rentals} propiedades de alquiler. Abre una propiedad marcada En Alquiler y calcula fechas, huéspedes y cargos.`,
       en: `We have ${rentals} rental properties. Open a For Rent listing to estimate dates, guests, and charges.`,
       pt: `Temos ${rentals} imóveis para aluguel. Abra um imóvel marcado Para aluguel e estime datas, hóspedes e encargos.`,
-    });
-  }
-  if (q.includes("cita") || q.includes("appointment") || q.includes("reuniao") || q.includes("reunião")) {
-    return localized({
-      es: "Puedes agendar una cita desde la sección Agenda tu cita. Elige motivo, modalidad, fecha, horario y asesor; luego puedes enviar el resumen por WhatsApp.",
-      en: "You can schedule a meeting in the Schedule your meeting section. Choose the purpose, format, date, time, and advisor, then send the summary by WhatsApp.",
-      pt: "Você pode agendar uma reunião na seção Agende sua reunião. Escolha motivo, modalidade, data, horário e assessor e envie o resumo pelo WhatsApp.",
     });
   }
   if (q.includes("precio") || q.includes("price") || q.includes("compr") || q.includes("venta")) {
@@ -3750,1165 +2093,6 @@ function saveMember(member) {
   localStorage.setItem(STORAGE.members, JSON.stringify(members));
 }
 
-function legacyAppointmentStaffId(appointment) {
-  const legacy = appointment.staffId || appointment.advisor;
-  const mapping = {
-    general: "staff-diego-cueto",
-    diego: "staff-diego-cueto",
-    investment: "staff-agent-demo",
-    "staff-meirah-team": "staff-admin-meirah",
-    "staff-laura-mendez": "staff-agent-demo",
-  };
-  if (mapping[legacy]) return mapping[legacy];
-  if (state.staff.some((member) => member.id === legacy)) return legacy;
-  return state.staff.find((member) => member.active && member.acceptsAppointments)?.id || "staff-diego-cueto";
-}
-
-function loadAppointments() {
-  try {
-    const saved = JSON.parse(localStorage.getItem(STORAGE.appointments) || "[]");
-    if (!Array.isArray(saved)) return [];
-    const appointments = saved.map((appointment, index) => {
-      const staffId = legacyAppointmentStaffId(appointment);
-      const staff = state.staff.find((member) => member.id === staffId);
-      return {
-        id: appointment.id || `appointment-${Date.now()}-${index}`,
-        staffId,
-        staffName: appointment.staffName || staff?.name || "Meirah Group",
-        needType: appointment.needType || appointment.type || "buy",
-        modality: appointment.modality || appointment.mode || "whatsapp",
-        date: appointment.date || "",
-        time: appointment.time || "",
-        duration: Number(appointment.duration) || staff?.availability?.slotDuration || 60,
-        clientName: appointment.clientName || appointment.name || "",
-        clientPhone: appointment.clientPhone || appointment.phone || "",
-        clientEmail: appointment.clientEmail || appointment.email || "",
-        clientMessage: appointment.clientMessage || appointment.message || "",
-        status: APPOINTMENT_STATUSES.includes(appointment.status) ? appointment.status : "pending",
-        createdAt: appointment.createdAt || new Date().toISOString(),
-      };
-    });
-    if (JSON.stringify(appointments) !== JSON.stringify(saved)) {
-      localStorage.setItem(STORAGE.appointments, JSON.stringify(appointments));
-    }
-    return appointments;
-  } catch {
-    return [];
-  }
-}
-
-function saveAppointments(appointments) {
-  localStorage.setItem(STORAGE.appointments, JSON.stringify(appointments));
-}
-
-function getAppointments() {
-  return loadAppointments();
-}
-
-function saveAppointment(appointment) {
-  const appointments = loadAppointments();
-  appointments.push(appointment);
-  saveAppointments(appointments);
-}
-
-function appointmentLocale() {
-  return { es: "es-DO", en: "en-US", pt: "pt-BR" }[state.lang] || "es-DO";
-}
-
-function dateKey(date) {
-  const year = date.getFullYear();
-  const month = String(date.getMonth() + 1).padStart(2, "0");
-  const day = String(date.getDate()).padStart(2, "0");
-  return `${year}-${month}-${day}`;
-}
-
-function dateFromKey(value) {
-  const [year, month, day] = String(value).split("-").map(Number);
-  return new Date(year, month - 1, day, 12);
-}
-
-function formatAppointmentDate(value) {
-  return new Intl.DateTimeFormat(appointmentLocale(), {
-    weekday: "long",
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  }).format(dateFromKey(value));
-}
-
-function formatAppointmentTime(value) {
-  const [hours, minutes] = String(value).split(":").map(Number);
-  return new Intl.DateTimeFormat(appointmentLocale(), {
-    hour: "numeric",
-    minute: "2-digit",
-  }).format(new Date(2000, 0, 1, hours, minutes));
-}
-
-function appointmentTypeLabel(value) {
-  const labels = {
-    buy: "appointmentTypeBuy",
-    sell: "appointmentTypeSell",
-    rent: "appointmentTypeRent",
-    invest: "appointmentTypeInvest",
-    visit: "appointmentTypeVisit",
-  };
-  return text(labels[value] || "appointmentTypeBuy");
-}
-
-function appointmentModeLabel(value) {
-  if (value === "whatsapp") return "WhatsApp";
-  const labels = {
-    call: "appointmentModeCall",
-    video: "appointmentModeVideo",
-    "in-person": "appointmentModeInPerson",
-  };
-  return text(labels[value] || "appointmentModeCall");
-}
-
-function currentAppointmentStaff() {
-  const advisor = $("#appointmentAdvisor")?.value || "";
-  return (
-    state.staff.find(
-      (member) =>
-        member.id === advisor &&
-        member.active === true &&
-        member.acceptsAppointments === true &&
-        member.availabilityConfigured === true
-    ) || null
-  );
-}
-
-function closeAppointmentSelectors() {
-  openAppointmentSelector = "";
-  $$("[data-appointment-selector-card]").forEach((card) => {
-    const panel = $(".appointment-selector-panel", card);
-    const toggle = $("[data-appointment-toggle]", card);
-    card.classList.remove("is-open");
-    if (panel) panel.hidden = true;
-    if (toggle) toggle.setAttribute("aria-expanded", "false");
-  });
-}
-
-function toggleAppointmentSelector(key) {
-  if (!key) return;
-  if (openAppointmentSelector === key) {
-    closeAppointmentSelectors();
-    return;
-  }
-
-  openAppointmentSelector = key;
-  $$("[data-appointment-selector-card]").forEach((card) => {
-    const currentKey = card.dataset.appointmentSelectorCard;
-    const panel = $(".appointment-selector-panel", card);
-    const toggle = $("[data-appointment-toggle]", card);
-    const active = currentKey === key;
-    card.classList.toggle("is-open", active);
-    if (panel) panel.hidden = !active;
-    if (toggle) toggle.setAttribute("aria-expanded", String(active));
-  });
-}
-
-function hideAppointmentConfirmation() {
-  const confirmation = $("#appointmentConfirmation");
-  if (confirmation) confirmation.hidden = true;
-}
-
-function syncAppointmentSelectorValues() {
-  const typeValue = $("input[name='appointmentType']:checked")?.value || "buy";
-  const modeValue = $("input[name='appointmentMode']:checked")?.value || "whatsapp";
-  const staff = currentAppointmentStaff();
-  const typeTarget = $("#appointmentTypeValue");
-  const modeTarget = $("#appointmentModeValue");
-  const advisorTarget = $("#appointmentAdvisorValue");
-
-  if (typeTarget) typeTarget.textContent = appointmentTypeLabel(typeValue);
-  if (modeTarget) modeTarget.textContent = appointmentModeLabel(modeValue);
-  if (advisorTarget) {
-    advisorTarget.textContent = staff?.name || text("appointmentSelectAgentPlaceholder");
-    advisorTarget.classList.toggle("is-placeholder", !staff);
-  }
-  renderAppointmentScheduleMeta();
-  renderAppointmentSummary();
-}
-
-function renderAppointmentScheduleMeta() {
-  const meta = $("#appointmentScheduleMeta");
-  const duration = $("#appointmentDurationChip");
-  const staff = currentAppointmentStaff();
-  if (meta) {
-    meta.textContent = staff
-      ? localized({
-          es: `Disponibilidad de ${staff.name}`,
-          en: `${staff.name}'s availability`,
-          pt: `Disponibilidade de ${staff.name}`,
-        })
-      : text("appointmentChooseStaffError");
-  }
-  if (duration) duration.textContent = staff ? `${staff.availability.slotDuration} min` : "--";
-}
-
-function renderAppointmentSummary() {
-  const summary = $("#appointmentSummaryGrid");
-  if (!summary) return;
-
-  const staff = currentAppointmentStaff();
-  const labels = localized({
-    es: {
-      need: "Motivo",
-      mode: "Modalidad",
-      agent: "Agente",
-      date: "Fecha",
-      time: "Hora",
-      duration: "Duración",
-    },
-    en: {
-      need: "Need",
-      mode: "Format",
-      agent: "Agent",
-      date: "Date",
-      time: "Time",
-      duration: "Duration",
-    },
-    pt: {
-      need: "Motivo",
-      mode: "Modalidade",
-      agent: "Agente",
-      date: "Data",
-      time: "Hora",
-      duration: "Duração",
-    },
-  });
-
-  const items = [
-    {
-      icon: "tags",
-      label: labels.need,
-      value: appointmentTypeLabel($("input[name='appointmentType']:checked")?.value || "buy"),
-    },
-    {
-      icon: "phone-call",
-      label: labels.mode,
-      value: appointmentModeLabel($("input[name='appointmentMode']:checked")?.value || "whatsapp"),
-    },
-    {
-      icon: "user-round",
-      label: labels.agent,
-      value: staff?.name || "--",
-      placeholder: !staff,
-    },
-    {
-      icon: "calendar-days",
-      label: labels.date,
-      value: selectedAppointmentDate ? formatAppointmentDate(selectedAppointmentDate) : "--",
-      placeholder: !selectedAppointmentDate,
-    },
-    {
-      icon: "clock-3",
-      label: labels.time,
-      value: selectedAppointmentTime ? formatAppointmentTime(selectedAppointmentTime) : "--",
-      placeholder: !selectedAppointmentTime,
-    },
-    {
-      icon: "timer",
-      label: labels.duration,
-      value: staff ? `${staff.availability.slotDuration} min` : "--",
-      placeholder: !staff,
-    },
-  ];
-
-  summary.innerHTML = items
-    .map(
-      (item) => `
-        <article class="appointment-summary-item">
-          <i data-lucide="${item.icon}"></i>
-          <div class="appointment-summary-item-copy">
-            <span>${escapeHtml(item.label)}</span>
-            <strong class="${item.placeholder ? "is-placeholder" : ""}">${escapeHtml(item.value)}</strong>
-          </div>
-        </article>
-      `
-    )
-    .join("");
-  if (window.lucide) window.lucide.createIcons();
-}
-
-function appointmentAdvisorLabel(staffId) {
-  return state.staff.find((member) => member.id === staffId)?.name || "Meirah Group";
-}
-
-function minutesFromTime(value) {
-  const [hours, minutes] = String(value).split(":").map(Number);
-  return hours * 60 + minutes;
-}
-
-function timeFromMinutes(value) {
-  const hours = Math.floor(value / 60);
-  const minutes = value % 60;
-  return `${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}`;
-}
-
-function appointmentDayKey(value) {
-  const day = dateFromKey(value).getDay();
-  return WEEKDAY_KEYS[(day + 6) % 7];
-}
-
-function getStaffAvailability(staffId, date) {
-  const staff = state.staff.find((member) => member.id === staffId && member.active);
-  if (!staff || !date || staff.availability.blockedDates.includes(date)) return [];
-  return staff.availability.weekly[appointmentDayKey(date)] || [];
-}
-
-function appointmentRangesOverlap(startA, durationA, startB, endB) {
-  const aStart = minutesFromTime(startA);
-  const aEnd = aStart + Number(durationA);
-  return aStart < minutesFromTime(endB) && aEnd > minutesFromTime(startB);
-}
-
-function isSlotBooked(staffId, date, time, duration) {
-  return loadAppointments().some(
-    (appointment) =>
-      appointment.staffId === staffId &&
-      appointment.date === date &&
-      ACTIVE_APPOINTMENT_STATUSES.includes(appointment.status) &&
-      appointmentRangesOverlap(time, duration, appointment.time, timeFromMinutes(minutesFromTime(appointment.time) + appointment.duration))
-  );
-}
-
-function isStaffSlotBlocked(staff, date, time, duration) {
-  return staff.availability.blockedSlots.some(
-    (slot) => slot.date === date && appointmentRangesOverlap(time, duration, slot.start, slot.end)
-  );
-}
-
-function generateAvailableSlots(staffId, date, includeBooked = false) {
-  const staff = state.staff.find((member) => member.id === staffId && member.active);
-  if (!staff) return [];
-  const duration = staff.availability.slotDuration;
-  const slots = [];
-  getStaffAvailability(staffId, date).forEach((range) => {
-    const start = minutesFromTime(range.start);
-    const end = minutesFromTime(range.end);
-    for (let cursor = start; cursor + duration <= end; cursor += duration) {
-      const time = timeFromMinutes(cursor);
-      const booked = isSlotBooked(staffId, date, time, duration);
-      const blocked = isStaffSlotBlocked(staff, date, time, duration);
-      const past = isPastAppointmentSlot(date, time);
-      if (includeBooked || (!booked && !blocked && !past)) {
-        slots.push({ time, duration, booked, blocked, past });
-      }
-    }
-  });
-  return slots;
-}
-
-function isPastAppointmentSlot(date, time) {
-  if (date !== dateKey(new Date())) return false;
-  const [hours, minutes] = time.split(":").map(Number);
-  const slotDate = dateFromKey(date);
-  slotDate.setHours(hours, minutes, 0, 0);
-  return slotDate <= new Date();
-}
-
-function hasAvailableAppointmentSlot(date, staffId) {
-  return generateAvailableSlots(staffId, date).length > 0;
-}
-
-function staffRoleLabel(role) {
-  return {
-    super_admin: text("staffRoleSuperAdmin"),
-    admin: "Admin",
-    agent: text("staffRoleAdvisor"),
-    assistant: text("staffRoleAssistant"),
-    editor: text("staffRoleEditor"),
-  }[role] || role;
-}
-
-function renderStaffSelector() {
-  const container = $("#appointmentStaffSelector");
-  const input = $("#appointmentAdvisor");
-  if (!container || !input) return;
-  const activeStaff = state.staff.filter(
-    (member) =>
-      member.active &&
-      member.acceptsAppointments === true &&
-      member.availabilityConfigured === true
-  );
-
-  if (!activeStaff.length) {
-    input.value = "";
-    container.innerHTML = `<p class="appointment-empty-times">${text("appointmentNoStaff")}</p>`;
-    syncAppointmentSelectorValues();
-    return;
-  }
-
-  if (!activeStaff.some((member) => member.id === input.value)) input.value = "";
-  container.innerHTML = activeStaff
-    .map((member) => {
-      const selected = member.id === input.value;
-      const initials = member.name
-        .split(/\s+/)
-        .slice(0, 2)
-        .map((part) => part[0])
-        .join("")
-        .toUpperCase();
-      const avatar = member.avatar
-        ? `<img src="${escapeHtml(member.avatar)}" alt="" />`
-        : `<span>${escapeHtml(initials)}</span>`;
-      const publicRole = localized({ es: "Agente inmobiliario", en: "Real estate agent", pt: "Agente imobiliário" });
-      return `
-        <button class="appointment-staff-card${selected ? " is-selected" : ""}" type="button" data-select-staff="${member.id}" aria-pressed="${selected}">
-          <span class="appointment-staff-avatar">${avatar}</span>
-          <span class="appointment-staff-copy">
-            <strong>${escapeHtml(member.name)}</strong>
-            <small>${escapeHtml(publicRole)} · ${member.availability.slotDuration} min</small>
-          </span>
-          <i data-lucide="check"></i>
-        </button>
-      `;
-    })
-    .join("");
-  if (window.lucide) window.lucide.createIcons();
-  syncAppointmentSelectorValues();
-}
-
-function renderAppointmentCalendar() {
-  const grid = $("#appointmentCalendarGrid");
-  const weekdays = $("#appointmentWeekdays");
-  const title = $("#appointment-calendar-title");
-  const previous = $("#appointmentPrevMonth");
-  const next = $("#appointmentNextMonth");
-  if (!grid || !weekdays || !title || !previous || !next) return;
-
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-  const currentMonth = new Date(today.getFullYear(), today.getMonth(), 1);
-  const lastMonth = new Date(today.getFullYear(), today.getMonth() + 12, 1);
-  const advisor = $("#appointmentAdvisor")?.value || "";
-  const appointments = loadAppointments();
-  const monthStart = new Date(appointmentCalendarMonth.getFullYear(), appointmentCalendarMonth.getMonth(), 1);
-  const monthEnd = new Date(appointmentCalendarMonth.getFullYear(), appointmentCalendarMonth.getMonth() + 1, 0);
-  const leadingDays = (monthStart.getDay() + 6) % 7;
-
-  const monthLabel = new Intl.DateTimeFormat(appointmentLocale(), {
-    month: "long",
-    year: "numeric",
-  }).format(monthStart);
-  title.textContent = monthLabel.charAt(0).toUpperCase() + monthLabel.slice(1);
-  previous.disabled = monthStart <= currentMonth;
-  next.disabled = monthStart >= lastMonth;
-  previous.setAttribute(
-    "aria-label",
-    localized({ es: "Mes anterior", en: "Previous month", pt: "Mês anterior" })
-  );
-  next.setAttribute("aria-label", localized({ es: "Mes siguiente", en: "Next month", pt: "Próximo mês" }));
-
-  const monday = new Date(2026, 0, 5);
-  weekdays.innerHTML = Array.from({ length: 7 }, (_, index) => {
-    const day = new Date(monday);
-    day.setDate(monday.getDate() + index);
-    return `<span>${new Intl.DateTimeFormat(appointmentLocale(), { weekday: "short" }).format(day)}</span>`;
-  }).join("");
-
-  const cells = Array.from({ length: leadingDays }, () => '<span class="appointment-calendar-spacer"></span>');
-  for (let day = 1; day <= monthEnd.getDate(); day += 1) {
-    const date = new Date(monthStart.getFullYear(), monthStart.getMonth(), day);
-    const value = dateKey(date);
-    const outsideRange = date < today || date > new Date(today.getFullYear() + 1, today.getMonth(), today.getDate());
-    const unavailable = !advisor || outsideRange || !hasAvailableAppointmentSlot(value, advisor);
-    const selected = value === selectedAppointmentDate;
-    const hasAppointments = appointments.some(
-      (appointment) => appointment.staffId === advisor && appointment.date === value && ACTIVE_APPOINTMENT_STATUSES.includes(appointment.status)
-    );
-    const classes = ["appointment-day"];
-    if (selected) classes.push("is-selected");
-    if (hasAppointments) classes.push("has-appointments");
-    cells.push(`
-      <button
-        class="${classes.join(" ")}"
-        type="button"
-        data-appointment-date="${value}"
-        aria-label="${escapeHtml(formatAppointmentDate(value))}"
-        aria-pressed="${selected}"
-        ${unavailable ? "disabled" : ""}
-      >${day}</button>
-    `);
-  }
-  grid.innerHTML = cells.join("");
-}
-
-function renderAppointmentSlots() {
-  const container = $("#appointmentTimeSlots");
-  const selectedDateLabel = $("#appointmentSelectedDate");
-  if (!container || !selectedDateLabel) return;
-
-  const advisor = $("#appointmentAdvisor")?.value || "";
-  if (!advisor) {
-    selectedDateLabel.textContent = text("appointmentChooseStaffError");
-    container.innerHTML = `<p class="appointment-empty-times">${text("appointmentChooseStaffError")}</p>`;
-    syncAppointmentSelectorValues();
-    return;
-  }
-
-  if (!selectedAppointmentDate) {
-    selectedDateLabel.textContent = text("appointmentSelectDate");
-    container.innerHTML = `<p class="appointment-empty-times">${text("appointmentSelectDate")}</p>`;
-    syncAppointmentSelectorValues();
-    return;
-  }
-
-  const slots = generateAvailableSlots(advisor, selectedAppointmentDate, true);
-  selectedDateLabel.textContent = formatAppointmentDate(selectedAppointmentDate);
-  if (!hasAvailableAppointmentSlot(selectedAppointmentDate, advisor)) {
-    selectedAppointmentTime = "";
-    container.innerHTML = `<p class="appointment-empty-times">${text("appointmentNoTimes")}</p>`;
-    syncAppointmentSelectorValues();
-    return;
-  }
-
-  container.innerHTML = slots
-    .map((slot) => {
-      const unavailable = slot.booked || slot.blocked || slot.past;
-      const selected = slot.time === selectedAppointmentTime && !unavailable;
-      return `
-        <button
-          class="appointment-time-slot${selected ? " is-selected" : ""}"
-          type="button"
-          data-appointment-time="${slot.time}"
-          aria-pressed="${selected}"
-          ${unavailable ? "disabled" : ""}
-        >
-          <span>${escapeHtml(formatAppointmentTime(slot.time))}</span>
-          ${slot.booked ? `<small>${text("appointmentBooked")}</small>` : ""}
-        </button>
-      `;
-    })
-    .join("");
-  syncAppointmentSelectorValues();
-}
-
-function renderAppointmentTimes() {
-  renderAppointmentSlots();
-}
-
-function appointmentWhatsAppMessage(appointment) {
-  const labels = localized({
-    es: { intro: "Hola Meirah Group, deseo confirmar esta cita:", type: "Necesidad", mode: "Modalidad", date: "Fecha", time: "Hora", advisor: "Agente", name: "Cliente", phone: "Teléfono", email: "Correo", message: "Mensaje" },
-    en: { intro: "Hello Meirah Group, I would like to confirm this appointment:", type: "Need", mode: "Format", date: "Date", time: "Time", advisor: "Agent", name: "Client", phone: "Phone", email: "Email", message: "Message" },
-    pt: { intro: "Olá Meirah Group, desejo confirmar esta reunião:", type: "Necessidade", mode: "Modalidade", date: "Data", time: "Hora", advisor: "Agente", name: "Cliente", phone: "Telefone", email: "E-mail", message: "Mensagem" },
-  });
-  const lines = [
-    labels.intro,
-    "",
-    `${labels.type}: ${appointmentTypeLabel(appointment.needType)}`,
-    `${labels.mode}: ${appointmentModeLabel(appointment.modality)}`,
-    `${labels.date}: ${formatAppointmentDate(appointment.date)}`,
-    `${labels.time}: ${formatAppointmentTime(appointment.time)}`,
-    `${labels.advisor}: ${appointment.staffName}`,
-    `${labels.name}: ${appointment.clientName}`,
-    `${labels.phone}: ${appointment.clientPhone}`,
-  ];
-  if (appointment.clientEmail) lines.push(`${labels.email}: ${appointment.clientEmail}`);
-  if (appointment.clientMessage) lines.push(`${labels.message}: ${appointment.clientMessage}`);
-  return lines.join("\n");
-}
-
-function renderAppointmentConfirmation(appointment = lastConfirmedAppointment) {
-  const confirmation = $("#appointmentConfirmation");
-  const summary = $("#appointmentConfirmationSummary");
-  const whatsapp = $("#appointmentWhatsApp");
-  if (!confirmation || !summary || !whatsapp) return;
-  if (!appointment) {
-    confirmation.hidden = true;
-    return;
-  }
-
-  summary.innerHTML = `
-    <span><strong>${escapeHtml(appointmentTypeLabel(appointment.needType))}</strong></span>
-    <span>${escapeHtml(formatAppointmentDate(appointment.date))}</span>
-    <span>${escapeHtml(formatAppointmentTime(appointment.time))}</span>
-    <span>${escapeHtml(appointment.staffName)}</span>
-  `;
-  const staff = state.staff.find((member) => member.id === appointment.staffId);
-  whatsapp.href = `https://wa.me/${staff?.phone || BUSINESS_WHATSAPP}?text=${encodeURIComponent(appointmentWhatsAppMessage(appointment))}`;
-  confirmation.hidden = false;
-  if (window.lucide) window.lucide.createIcons();
-}
-
-function handleAppointmentSubmit(form) {
-  const validation = $("#appointmentValidation");
-  const advisor = $("#appointmentAdvisor").value;
-  const staff = state.staff.find(
-    (member) =>
-      member.id === advisor &&
-      member.active === true &&
-      member.acceptsAppointments === true &&
-      member.availabilityConfigured === true
-  );
-  validation.textContent = "";
-
-  if (!staff) {
-    validation.textContent = text("appointmentChooseStaffError");
-    return;
-  }
-  if (!selectedAppointmentDate) {
-    validation.textContent = text("appointmentChooseDateError");
-    return;
-  }
-  if (!selectedAppointmentTime) {
-    validation.textContent = text("appointmentChooseTimeError");
-    return;
-  }
-  if (isSlotBooked(advisor, selectedAppointmentDate, selectedAppointmentTime, staff.availability.slotDuration)) {
-    validation.textContent = text("appointmentConflictError");
-    selectedAppointmentTime = "";
-    renderAppointmentTimes();
-    return;
-  }
-
-  const formData = new FormData(form);
-  const appointment = {
-    id: window.crypto?.randomUUID?.() || `appointment-${Date.now()}`,
-    staffId: staff.id,
-    staffName: staff.name,
-    needType: formData.get("appointmentType"),
-    modality: formData.get("appointmentMode"),
-    date: selectedAppointmentDate,
-    time: selectedAppointmentTime,
-    duration: staff.availability.slotDuration,
-    clientName: $("#appointmentName").value.trim(),
-    clientPhone: $("#appointmentPhone").value.trim(),
-    clientEmail: $("#appointmentEmail").value.trim(),
-    clientMessage: $("#appointmentMessage").value.trim(),
-    status: "pending",
-    createdAt: new Date().toISOString(),
-  };
-
-  saveAppointment(appointment);
-  lastConfirmedAppointment = appointment;
-  renderAppointmentConfirmation(appointment);
-  form.reset();
-  $("#appointmentAdvisor").value = "";
-  selectedAppointmentDate = "";
-  selectedAppointmentTime = "";
-  appointmentCalendarMonth = new Date(new Date().getFullYear(), new Date().getMonth(), 1);
-  closeAppointmentSelectors();
-  renderStaffSelector();
-  renderAppointmentCalendar();
-  renderAppointmentTimes();
-  showToast(text("appointmentSaved"));
-  $("#appointmentConfirmation").scrollIntoView({ behavior: "smooth", block: "nearest" });
-}
-
-function weekdayLabel(day) {
-  const date = new Date(2026, 0, 5 + WEEKDAY_KEYS.indexOf(day));
-  const label = new Intl.DateTimeFormat(appointmentLocale(), { weekday: "long" }).format(date);
-  return label.charAt(0).toUpperCase() + label.slice(1);
-}
-
-function weeklyDayEditorValue(ranges = []) {
-  const normalizedRanges = (Array.isArray(ranges) ? ranges : [])
-    .map(normalizeTimeRange)
-    .filter(Boolean)
-    .sort((a, b) => a.start.localeCompare(b.start));
-  if (!normalizedRanges.length) return emptyStaffDayDraft();
-  const blocks = [];
-  for (let index = 0; index < normalizedRanges.length - 1 && blocks.length < 2; index += 1) {
-    const current = normalizedRanges[index];
-    const next = normalizedRanges[index + 1];
-    if (current.end < next.start) blocks.push({ start: current.end, end: next.start });
-  }
-  while (blocks.length < 2) blocks.push({ start: "", end: "" });
-  return {
-    active: true,
-    start: normalizedRanges[0].start,
-    end: normalizedRanges[normalizedRanges.length - 1].end,
-    blocks,
-  };
-}
-
-function buildStaffWeeklyDraft(member) {
-  const draft = emptyStaffWeeklyDraft();
-  WEEKDAY_KEYS.forEach((day) => {
-    draft[day] = weeklyDayEditorValue(member?.availability?.weekly?.[day]);
-  });
-  return draft;
-}
-
-function staffDayDraftToRanges(dayDraft) {
-  if (!dayDraft?.active) return [];
-  const start = dayDraft.start;
-  const end = dayDraft.end;
-  if (!/^\d{2}:\d{2}$/.test(start || "") || !/^\d{2}:\d{2}$/.test(end || "") || start >= end) return [];
-  const workStart = minutesFromTime(start);
-  const workEnd = minutesFromTime(end);
-  const blocks = (Array.isArray(dayDraft.blocks) ? dayDraft.blocks : [])
-    .map((block) => normalizeTimeRange(block))
-    .filter(Boolean)
-    .map((block) => ({ start: minutesFromTime(block.start), end: minutesFromTime(block.end) }))
-    .filter((block) => block.start >= workStart && block.end <= workEnd && block.start < block.end)
-    .sort((a, b) => a.start - b.start);
-
-  const merged = [];
-  blocks.forEach((block) => {
-    const previous = merged[merged.length - 1];
-    if (!previous || block.start > previous.end) {
-      merged.push({ ...block });
-      return;
-    }
-    previous.end = Math.max(previous.end, block.end);
-  });
-
-  const ranges = [];
-  let cursor = workStart;
-  merged.slice(0, 2).forEach((block) => {
-    if (cursor < block.start) ranges.push({ start: timeFromMinutes(cursor), end: timeFromMinutes(block.start) });
-    cursor = Math.max(cursor, block.end);
-  });
-  if (cursor < workEnd) ranges.push({ start: timeFromMinutes(cursor), end: timeFromMinutes(workEnd) });
-  return ranges.filter((range) => range.start < range.end);
-}
-
-function currentStaffDayDraft() {
-  if (!staffWeeklyDraft[selectedStaffScheduleDay]) staffWeeklyDraft[selectedStaffScheduleDay] = emptyStaffDayDraft();
-  return staffWeeklyDraft[selectedStaffScheduleDay];
-}
-
-function syncStaffWeeklyDraftFromPanel() {
-  const dayDraft = currentStaffDayDraft();
-  const activeInput = $("#staffDayActiveInput");
-  if (!activeInput) return;
-  dayDraft.active = activeInput.checked;
-  dayDraft.start = $("#staffDayStartInput")?.value || "09:00";
-  dayDraft.end = $("#staffDayEndInput")?.value || "17:00";
-  dayDraft.blocks = [0, 1].map((index) => ({
-    start: $(`[data-staff-block-start="${index}"]`)?.value || "",
-    end: $(`[data-staff-block-end="${index}"]`)?.value || "",
-  }));
-}
-
-function staffWeekdayStatus(dayDraft) {
-  if (!dayDraft?.active) {
-    return localized({
-      es: "Sin disponibilidad",
-      en: "Unavailable",
-      pt: "Indisponível",
-    });
-  }
-  const ranges = staffDayDraftToRanges(dayDraft);
-  if (!ranges.length) {
-    return localized({
-      es: "Sin horarios válidos",
-      en: "No valid hours",
-      pt: "Sem horários válidos",
-    });
-  }
-  return `${formatAppointmentTime(ranges[0].start)} - ${formatAppointmentTime(ranges[ranges.length - 1].end)}`;
-}
-
-function renderStaffWeeklySchedule(member) {
-  if (member) {
-    staffWeeklyDraft = buildStaffWeeklyDraft(member);
-    const firstAvailableDay = WEEKDAY_KEYS.find((day) => staffWeeklyDraft[day]?.active) || WEEKDAY_KEYS[0];
-    selectedStaffScheduleDay = staffWeeklyDraft[selectedStaffScheduleDay]?.active ? selectedStaffScheduleDay : firstAvailableDay;
-  }
-
-  const container = $("#staffWeeklySchedule");
-  if (!container) return;
-  const dayDraft = currentStaffDayDraft();
-  container.innerHTML = `
-    <div class="staff-weekday-grid">
-      ${WEEKDAY_KEYS.map((day) => {
-        const draft = staffWeeklyDraft[day] || emptyStaffDayDraft();
-        return `
-          <button
-            class="staff-weekday-button${day === selectedStaffScheduleDay ? " is-selected" : ""}${draft.active ? "" : " is-inactive"}"
-            type="button"
-            data-select-staff-day="${day}"
-          >
-            <strong>${escapeHtml(weekdayShortLabel(day))}</strong>
-            <small>${escapeHtml(staffWeekdayStatus(draft))}</small>
-          </button>
-        `;
-      }).join("")}
-    </div>
-    <div class="staff-day-detail-panel">
-      <div class="staff-day-detail-header">
-        <div>
-          <h5>${escapeHtml(weekdayLabel(selectedStaffScheduleDay))}</h5>
-          <p>${escapeHtml(localized({
-            es: "Lo no bloqueado dentro de la jornada quedará disponible automáticamente.",
-            en: "Any unblocked time within the workday stays available automatically.",
-            pt: "Tudo o que não for bloqueado dentro da jornada ficará disponível automaticamente.",
-          }))}</p>
-        </div>
-        <label class="staff-day-toggle">
-          <input id="staffDayActiveInput" type="checkbox" ${dayDraft.active ? "checked" : ""} />
-          <span>${escapeHtml(localized({
-            es: "Disponible este día",
-            en: "Available this day",
-            pt: "Disponível neste dia",
-          }))}</span>
-        </label>
-      </div>
-      <div class="staff-day-detail-grid">
-        <label>
-          <span>${escapeHtml(localized({ es: "Inicio", en: "Start", pt: "Início" }))}</span>
-          <input id="staffDayStartInput" type="time" value="${dayDraft.start}" ${dayDraft.active ? "" : "disabled"} />
-        </label>
-        <label>
-          <span>${escapeHtml(localized({ es: "Fin", en: "End", pt: "Fim" }))}</span>
-          <input id="staffDayEndInput" type="time" value="${dayDraft.end}" ${dayDraft.active ? "" : "disabled"} />
-        </label>
-      </div>
-      <div class="staff-day-block-list">
-        ${dayDraft.blocks.map((block, index) => `
-          <article class="staff-day-block-item">
-            <h5>${escapeHtml(localized({
-              es: `Bloqueo ${index + 1}`,
-              en: `Block ${index + 1}`,
-              pt: `Bloqueio ${index + 1}`,
-            }))}</h5>
-            <p>${escapeHtml(localized({
-              es: "Usa estos rangos para marcar ausencias, reuniones o pausas.",
-              en: "Use these windows for meetings, breaks, or offline time.",
-              pt: "Use essas janelas para reuniões, pausas ou indisponibilidade.",
-            }))}</p>
-            <div class="staff-day-block-grid">
-              <label>
-                <span>${escapeHtml(localized({ es: "Desde", en: "From", pt: "De" }))}</span>
-                <input type="time" data-staff-block-start="${index}" value="${block.start}" ${dayDraft.active ? "" : "disabled"} />
-              </label>
-              <label>
-                <span>${escapeHtml(localized({ es: "Hasta", en: "To", pt: "Até" }))}</span>
-                <input type="time" data-staff-block-end="${index}" value="${block.end}" ${dayDraft.active ? "" : "disabled"} />
-              </label>
-            </div>
-          </article>
-        `).join("")}
-      </div>
-    </div>
-  `;
-}
-
-function staffListForSession() {
-  const current = currentStaffMember();
-  if (!current) return [];
-  if (hasStaffPermission("manageStaff")) return state.staff;
-  return current.role === "agent" && hasStaffPermission("ownAvailability")
-    ? state.staff.filter((member) => member.id === current.id)
-    : [];
-}
-
-function renderStaffAdminList(selectedId = $("#staffIdInput")?.value) {
-  const container = $("#staffAdminList");
-  if (!container) return;
-  container.innerHTML = staffListForSession()
-    .map((member) => {
-      const initials = member.name.split(/\s+/).slice(0, 2).map((part) => part[0]).join("").toUpperCase();
-      return `
-        <button class="staff-admin-list-item${member.id === selectedId ? " is-selected" : ""}" type="button" data-edit-staff="${member.id}">
-          <span class="appointment-staff-avatar">${member.avatar ? `<img src="${escapeHtml(member.avatar)}" alt="" />` : `<span>${escapeHtml(initials)}</span>`}</span>
-          <span><strong>${escapeHtml(member.name)}</strong><small>${escapeHtml(staffRoleLabel(member.role))} · ${member.active ? localized({ es: "Activo", en: "Active", pt: "Ativo" }) : localized({ es: "Inactivo", en: "Inactive", pt: "Inativo" })}</small></span>
-        </button>
-      `;
-    })
-    .join("");
-}
-
-function setStaffProfileFieldsDisabled(disabled) {
-  [
-    "#staffNameInput",
-    "#staffUsernameInput",
-    "#staffPasswordInput",
-    "#staffRoleInput",
-    "#staffPhoneInput",
-    "#staffEmailInput",
-    "#staffAvatarInput",
-    "#staffAvatarLinkInput",
-    "#staffAvatarFileInput",
-    "#staffActiveInput",
-    "#toggleStaffPassword",
-    "#staffAvatarUseLink",
-    "#staffAvatarUseFile",
-    "#staffAvatarClear",
-  ].forEach((selector) => {
-    const field = $(selector);
-    if (field) field.disabled = disabled;
-  });
-}
-
-function fillStaffAdminForm(member) {
-  if (!member) return;
-  $("#staffIdInput").value = member.id;
-  $("#staffNameInput").value = member.name;
-  $("#staffUsernameInput").value = member.username;
-  $("#staffPasswordInput").value = member.password;
-  $("#staffRoleInput").value = member.role;
-  $("#staffPhoneInput").value = formatStaffPhone(member.phone);
-  $("#staffEmailInput").value = member.email;
-  setStaffAvatarValue(member.avatar);
-  $("#staffDurationInput").value = String(member.availability.slotDuration);
-  $("#staffActiveInput").checked = member.active;
-  $("#staffAcceptsAppointmentsInput").checked = member.acceptsAppointments;
-  $("#staffAvailabilityConfiguredInput").checked = member.availabilityConfigured;
-  $("#staffBlockedDatesInput").value = member.availability.blockedDates.join("\n");
-  staffBlockedSlotsDraft = structuredClone(member.availability.blockedSlots);
-  renderStaffWeeklySchedule(member);
-  setStaffPasswordVisibility(false);
-  renderStaffAdminList(member.id);
-
-  const agentOnly = currentStaffMember()?.role === "agent" && !hasStaffPermission("manageStaff");
-  setStaffProfileFieldsDisabled(agentOnly);
-  $("#newStaffMember").hidden = !hasStaffPermission("manageStaff");
-  $("#deleteStaffMember").hidden = !hasStaffPermission("manageStaff");
-}
-
-function newStaffDraft() {
-  return normalizeStaffMember({
-    id: `staff-${Date.now()}`,
-    name: "",
-    username: "",
-    password: "demo123",
-    role: "agent",
-    permissions: defaultStaffPermissions("agent"),
-    active: true,
-    acceptsAppointments: false,
-    availabilityConfigured: false,
-    phone: BUSINESS_WHATSAPP,
-    email: "",
-    avatar: "",
-    availability: { slotDuration: 60, weekly: emptyWeeklyAvailability(), blockedDates: [], blockedSlots: [] },
-  });
-}
-
-function collectStaffWeeklyAvailability() {
-  syncStaffWeeklyDraftFromPanel();
-  return Object.fromEntries(WEEKDAY_KEYS.map((day) => [day, staffDayDraftToRanges(staffWeeklyDraft[day])]));
-}
-
-function collectStaffFromForm(existing) {
-  const blockedDates = $("#staffBlockedDatesInput")
-    .value.split(/[\s,;]+/)
-    .map((date) => date.trim())
-    .filter((date) => /^\d{4}-\d{2}-\d{2}$/.test(date));
-  const role = $("#staffRoleInput").value;
-  return normalizeStaffMember({
-    id: existing?.id || $("#staffIdInput").value || `staff-${Date.now()}`,
-    name: $("#staffNameInput").value.trim(),
-    username: $("#staffUsernameInput").value.trim(),
-    password: $("#staffPasswordInput").value,
-    role,
-    permissions: defaultStaffPermissions(role),
-    active: $("#staffActiveInput").checked,
-    acceptsAppointments: $("#staffAcceptsAppointmentsInput").checked,
-    availabilityConfigured: $("#staffAvailabilityConfiguredInput").checked,
-    phone: $("#staffPhoneInput").value,
-    email: $("#staffEmailInput").value,
-    avatar: $("#staffAvatarInput").value.trim(),
-    availability: {
-      slotDuration: Number($("#staffDurationInput").value),
-      weekly: collectStaffWeeklyAvailability(),
-      blockedDates,
-      blockedSlots: existing?.availability?.blockedSlots || staffBlockedSlotsDraft,
-    },
-  });
-}
-
-function setupStaffAdmin(selectedId) {
-  const section = $("#staffAdminSection");
-  const current = currentStaffMember();
-  if (!section || !current) return;
-  section.hidden = !(hasStaffPermission("manageStaff") || hasStaffPermission("ownAvailability"));
-  if (section.hidden) return;
-  const available = staffListForSession();
-  const member = available.find((item) => item.id === selectedId) || available[0];
-  renderStaffAdminList(member?.id);
-  if (member) fillStaffAdminForm(member);
-}
-
-function appointmentStatusLabel(status) {
-  return text(
-    {
-      pending: "appointmentStatusPending",
-      confirmed: "appointmentStatusConfirmed",
-      cancelled: "appointmentStatusCancelled",
-      completed: "appointmentStatusCompleted",
-    }[status] || "appointmentStatusPending"
-  );
-}
-
-function appointmentVisibleToSession(appointment) {
-  const current = currentStaffMember();
-  if (!current) return false;
-  if (!hasStaffPermission("viewAppointments")) return false;
-  return current.role !== "agent" || appointment.staffId === current.id;
-}
-
-function populateAppointmentAdminStaffFilter() {
-  const select = $("#appointmentAdminStaffFilter");
-  const current = currentStaffMember();
-  if (!select || !current) return;
-  const ownOnly = current.role === "agent";
-  const members = ownOnly ? state.staff.filter((member) => member.id === current.id) : state.staff;
-  select.innerHTML = `${ownOnly ? "" : `<option value="all">${text("optionAll")}</option>`}${members
-    .map((member) => `<option value="${member.id}">${escapeHtml(member.name)}</option>`)
-    .join("")}`;
-  if (ownOnly) select.value = current.id;
-}
-
-function loadLeads() {
-  try {
-    const leads = JSON.parse(localStorage.getItem(STORAGE.leads) || "[]");
-    return Array.isArray(leads) ? leads : [];
-  } catch {
-    return [];
-  }
-}
-
-function renderAdminLeads() {
-  const panel = $("#adminLeadsPanel");
-  const list = $("#adminLeadsList");
-  if (!panel || !list) return;
-  panel.hidden = !hasStaffPermission("viewLeads");
-  if (panel.hidden) return;
-  const leads = loadLeads().slice().reverse().slice(0, 8);
-  list.innerHTML = leads.length
-    ? leads
-        .map(
-          (lead) => `
-            <article class="admin-lead-item">
-              <strong>${escapeHtml(lead.name || "")}</strong>
-              <span>${escapeHtml(lead.phone || "")}</span>
-              <small>${escapeHtml(lead.interest || "")}</small>
-            </article>
-          `
-        )
-        .join("")
-    : `<p>${localized({ es: "No hay leads guardados.", en: "No saved leads.", pt: "Não há leads salvos." })}</p>`;
-}
-
-function renderAppointmentAdmin() {
-  const container = $("#appointmentAdminList");
-  if (!container || !currentStaffMember()) return;
-  const staffFilter = $("#appointmentAdminStaffFilter")?.value || "all";
-  const dateFilter = $("#appointmentAdminDateFilter")?.value || "";
-  const statusFilter = $("#appointmentAdminStatusFilter")?.value || "all";
-  const modeFilter = $("#appointmentAdminModeFilter")?.value || "all";
-  const appointments = loadAppointments()
-    .filter(appointmentVisibleToSession)
-    .filter((appointment) => staffFilter === "all" || appointment.staffId === staffFilter)
-    .filter((appointment) => !dateFilter || appointment.date === dateFilter)
-    .filter((appointment) => statusFilter === "all" || appointment.status === statusFilter)
-    .filter((appointment) => modeFilter === "all" || appointment.modality === modeFilter)
-    .sort((a, b) => `${a.date}T${a.time}`.localeCompare(`${b.date}T${b.time}`));
-
-  if (!appointments.length) {
-    container.innerHTML = `<p class="admin-empty-state">${localized({ es: "No hay citas con estos filtros.", en: "No appointments match these filters.", pt: "Não há reuniões com estes filtros." })}</p>`;
-    return;
-  }
-
-  container.innerHTML = appointments
-    .map(
-      (appointment) => `
-        <article class="appointment-admin-item" data-admin-appointment="${appointment.id}">
-          <div class="appointment-admin-item-main">
-            <span class="appointment-status-badge status-${appointment.status}">${escapeHtml(appointmentStatusLabel(appointment.status))}</span>
-            <h4>${escapeHtml(appointment.clientName || localized({ es: "Cliente", en: "Client", pt: "Cliente" }))}</h4>
-            <p>${escapeHtml(appointment.staffName)} · ${escapeHtml(appointmentTypeLabel(appointment.needType))} · ${escapeHtml(appointmentModeLabel(appointment.modality))}</p>
-            <strong>${escapeHtml(formatAppointmentDate(appointment.date))} · ${escapeHtml(formatAppointmentTime(appointment.time))} · ${appointment.duration} min</strong>
-            <small>${escapeHtml(appointment.clientPhone)}${appointment.clientEmail ? ` · ${escapeHtml(appointment.clientEmail)}` : ""}</small>
-            ${appointment.clientMessage ? `<blockquote>${escapeHtml(appointment.clientMessage)}</blockquote>` : ""}
-          </div>
-          <label class="appointment-status-control">
-            <span>${text("appointmentFilterStatus")}</span>
-            <select data-appointment-status="${appointment.id}" ${hasStaffPermission("manageAppointments") ? "" : "disabled"}>
-              ${APPOINTMENT_STATUSES.map((status) => `<option value="${status}" ${status === appointment.status ? "selected" : ""}>${escapeHtml(appointmentStatusLabel(status))}</option>`).join("")}
-            </select>
-          </label>
-        </article>
-      `
-    )
-    .join("");
-}
-
-function setupAppointmentAdmin() {
-  const section = $("#appointmentAdminSection");
-  if (!currentStaffMember() || !section) return;
-  section.hidden = !hasStaffPermission("viewAppointments");
-  if (section.hidden) return;
-  populateAppointmentAdminStaffFilter();
-  renderAppointmentAdmin();
-  renderAdminLeads();
-}
-
-function updateAppointmentStatus(id, status) {
-  if (!hasStaffPermission("manageAppointments") || !APPOINTMENT_STATUSES.includes(status)) return;
-  const appointments = loadAppointments();
-  const appointment = appointments.find((item) => item.id === id && appointmentVisibleToSession(item));
-  if (!appointment) return;
-  appointment.status = status;
-  saveAppointments(appointments);
-  renderAppointmentAdmin();
-  renderAppointmentCalendar();
-  renderAppointmentSlots();
-  showToast(
-    localized({
-      es: `Cita marcada como ${appointmentStatusLabel(status).toLowerCase()}.`,
-      en: `Appointment marked ${appointmentStatusLabel(status).toLowerCase()}.`,
-      pt: `Reunião marcada como ${appointmentStatusLabel(status).toLowerCase()}.`,
-    })
-  );
-}
-
-function openStaffLogin() {
-  $("#staffLoginError").textContent = "";
-  $("#staffLoginModal").hidden = false;
-  document.body.classList.add("modal-open");
-  setTimeout(() => $("#staffLoginUsername").focus(), 0);
-}
-
-function closeStaffLogin() {
-  $("#staffLoginModal").hidden = true;
-  document.body.classList.remove("modal-open");
-  $("#staffLoginForm").reset();
-  $("#staffLoginError").textContent = "";
-}
-
-function completeStaffLogin(member) {
-  saveStaffSession(member);
-  closeStaffLogin();
-  $("#adminPanel").hidden = false;
-  setupAdmin();
-  $("#adminPanel").scrollIntoView({ behavior: "smooth" });
-  showToast(
-    localized({
-      es: `Sesión iniciada como ${member.name}.`,
-      en: `Signed in as ${member.name}.`,
-      pt: `Sessão iniciada como ${member.name}.`,
-    })
-  );
-}
-
-function setupStaffLogin() {
-  const current = currentStaffMember();
-  $("#adminToggle").setAttribute(
-    "aria-label",
-    current
-      ? localized({ es: `Panel interno: ${current.name}`, en: `Internal panel: ${current.name}`, pt: `Painel interno: ${current.name}` })
-      : localized({ es: "Iniciar sesión interna", en: "Internal sign in", pt: "Entrar no painel interno" })
-  );
-}
-
-function applyAdminPermissions() {
-  const current = currentStaffMember();
-  if (!current) return;
-  $("#propertyAdminArea").hidden = !hasStaffPermission("manageProperties");
-  $("#resetDemo").hidden = !hasStaffPermission("manageProperties");
-  $("#staffAdminSection").hidden = !(hasStaffPermission("manageStaff") || hasStaffPermission("ownAvailability"));
-  $("#appointmentAdminSection").hidden = !hasStaffPermission("viewAppointments");
-  $("#adminSessionSummary").textContent = `${current.name} · ${staffRoleLabel(current.role)}`;
-}
-
 function getAdminImages() {
   return $("#adminImagesInput")
     .value.split(",")
@@ -4959,18 +2143,15 @@ function renderAdminImageList() {
 
 function refreshLocalizedViews() {
   applyTranslations();
-  renderStaffSelector();
-  renderAppointmentCalendar();
-  renderAppointmentTimes();
-  renderAppointmentConfirmation();
   populateZoneOptions();
   renderProperties();
+  renderMap();
   renderReservationPreview();
   setupAdmin();
   renderFinanceCalculators();
   renderAutopaySchedule(
     $("#autopaySchedule"),
-    parseNumericInput($("#autopayAmount").value),
+    Number($("#autopayAmount").value),
     Number($("#autopayMonths").value),
     Number($("#autopayDay").value)
   );
@@ -4984,11 +2165,12 @@ function refreshLocalizedViews() {
 function refreshPriceViews() {
   applyCurrencyLabels();
   renderProperties();
+  renderMap();
   renderReservationPreview();
   renderFinanceCalculators();
   renderAutopaySchedule(
     $("#autopaySchedule"),
-    parseNumericInput($("#autopayAmount").value),
+    Number($("#autopayAmount").value),
     Number($("#autopayMonths").value),
     Number($("#autopayDay").value)
   );
@@ -4999,56 +2181,21 @@ function refreshPriceViews() {
   }
 }
 
-function activateCalculator(target) {
-  const nextTarget = !target || DISABLED_FINANCE_CALCULATORS.has(target) ? "mortgage" : target;
-  $$("[data-calculator]").forEach((item) => {
-    item.classList.toggle("active", item.dataset.calculator === nextTarget);
-  });
-  $$("[data-calculator-panel]").forEach((panel) => {
-    const isDisabled = DISABLED_FINANCE_CALCULATORS.has(panel.dataset.calculatorPanel);
-    panel.hidden = isDisabled;
-    panel.classList.toggle("active", !isDisabled && panel.dataset.calculatorPanel === nextTarget);
-  });
-}
-
 function bindEvents() {
   $("#languageToggle").addEventListener("click", () => {
-    toggleHeaderMenu("language");
+    const nextIndex = (LANGUAGES.indexOf(state.lang) + 1) % LANGUAGES.length;
+    state.lang = LANGUAGES[nextIndex];
+    localStorage.setItem(STORAGE.lang, state.lang);
+    refreshLocalizedViews();
   });
 
-  $("#currencyToggle").addEventListener("click", () => {
-    toggleHeaderMenu("currency");
-  });
-
-  $$("[data-lang-option]").forEach((option) =>
-    option.addEventListener("click", () => {
-      state.lang = LANGUAGES.includes(option.dataset.langOption) ? option.dataset.langOption : "es";
-      localStorage.setItem(STORAGE.lang, state.lang);
-      closeHeaderMenus();
-      refreshLocalizedViews();
-    })
-  );
-
-  $$("[data-currency-option]").forEach((option) =>
-    option.addEventListener("click", () => {
-      state.currency = CURRENCIES.includes(option.dataset.currencyOption) ? option.dataset.currencyOption : "USD";
-      localStorage.setItem(STORAGE.currency, state.currency);
-      closeHeaderMenus();
-      refreshPriceViews();
-    })
-  );
-
-  document.addEventListener("click", (event) => {
-    if (!event.target.closest("[data-header-dropdown]")) closeHeaderMenus();
-    if (!event.target.closest("[data-surface-select]")) closeSurfaceSelects();
-  });
-
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") closeSurfaceSelects();
+  $("#currencySelect").addEventListener("change", (event) => {
+    state.currency = CURRENCIES.includes(event.target.value) ? event.target.value : "USD";
+    localStorage.setItem(STORAGE.currency, state.currency);
+    refreshPriceViews();
   });
 
   $("#themeToggle").addEventListener("click", () => {
-    closeHeaderMenus();
     state.theme = state.theme === "dark" ? "light" : "dark";
     localStorage.setItem(STORAGE.theme, state.theme);
     applyTheme();
@@ -5056,86 +2203,7 @@ function bindEvents() {
 
   $(".brand").addEventListener("click", (event) => {
     event.preventDefault();
-    closeHeaderMenus();
-    if (document.body.dataset.pageMode === "home") {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-      return;
-    }
-    window.location.href = pageLink("home", "#top");
-  });
-
-  $("#appointmentPrevMonth").addEventListener("click", () => {
-    appointmentCalendarMonth = new Date(
-      appointmentCalendarMonth.getFullYear(),
-      appointmentCalendarMonth.getMonth() - 1,
-      1
-    );
-    renderAppointmentCalendar();
-  });
-
-  $("#appointmentNextMonth").addEventListener("click", () => {
-    appointmentCalendarMonth = new Date(
-      appointmentCalendarMonth.getFullYear(),
-      appointmentCalendarMonth.getMonth() + 1,
-      1
-    );
-    renderAppointmentCalendar();
-  });
-
-  $("#appointmentCalendarGrid").addEventListener("click", (event) => {
-    const day = event.target.closest("[data-appointment-date]");
-    if (!day || day.disabled) return;
-    selectedAppointmentDate = day.dataset.appointmentDate;
-    selectedAppointmentTime = "";
-    $("#appointmentValidation").textContent = "";
-    hideAppointmentConfirmation();
-    renderAppointmentCalendar();
-    renderAppointmentTimes();
-  });
-
-  $("#appointmentTimeSlots").addEventListener("click", (event) => {
-    const slot = event.target.closest("[data-appointment-time]");
-    if (!slot || slot.disabled) return;
-    selectedAppointmentTime = slot.dataset.appointmentTime;
-    $("#appointmentValidation").textContent = "";
-    hideAppointmentConfirmation();
-    renderAppointmentTimes();
-  });
-
-  $("#appointmentAdvisor").addEventListener("change", () => {
-    selectedAppointmentTime = "";
-    if (selectedAppointmentDate && !hasAvailableAppointmentSlot(selectedAppointmentDate, $("#appointmentAdvisor").value)) {
-      selectedAppointmentDate = "";
-    }
-    $("#appointmentValidation").textContent = "";
-    hideAppointmentConfirmation();
-    renderAppointmentCalendar();
-    renderAppointmentTimes();
-  });
-
-  $("#appointmentForm").addEventListener("change", (event) => {
-    if (event.target.name === "appointmentType") {
-      hideAppointmentConfirmation();
-      closeAppointmentSelectors();
-      syncAppointmentSelectorValues();
-      return;
-    }
-
-    if (event.target.name === "appointmentMode") {
-      hideAppointmentConfirmation();
-      closeAppointmentSelectors();
-      syncAppointmentSelectorValues();
-    }
-  });
-
-  $("#appointmentBackButton").addEventListener("click", () => {
-    closeAppointmentSelectors();
-    $("#appointments-title").scrollIntoView({ behavior: "smooth", block: "start" });
-  });
-
-  $("#appointmentForm").addEventListener("submit", (event) => {
-    event.preventDefault();
-    handleAppointmentSubmit(event.currentTarget);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   });
 
   $("#propertyFilters").addEventListener("submit", (event) => {
@@ -5159,56 +2227,6 @@ function bindEvents() {
   });
 
   document.addEventListener("click", (event) => {
-    const appointmentToggle = event.target.closest("[data-appointment-toggle]");
-    if (appointmentToggle) {
-      toggleAppointmentSelector(appointmentToggle.dataset.appointmentToggle);
-      return;
-    }
-
-    if (openAppointmentSelector && !event.target.closest("[data-appointment-selector-card]")) {
-      closeAppointmentSelectors();
-    }
-
-    const appointmentChoice = event.target.closest(".appointment-selector-panel .appointment-choice");
-    if (appointmentChoice) {
-      window.setTimeout(() => closeAppointmentSelectors(), 0);
-    }
-
-    const shareButton = event.target.closest("[data-share-property]");
-    if (shareButton) {
-      const property = state.properties.find((item) => item.id === shareButton.dataset.shareProperty);
-      if (property) void shareProperty(property);
-      return;
-    }
-
-    const shareChannel = event.target.closest("[data-share-channel]");
-    if (shareChannel) {
-      const property = state.properties.find((item) => item.id === $("#shareModal").dataset.propertyId);
-      if (property) void handleShareChannel(shareChannel.dataset.shareChannel, property);
-      return;
-    }
-
-    const staffSelector = event.target.closest("[data-select-staff]");
-    if (staffSelector) {
-      $("#appointmentAdvisor").value = staffSelector.dataset.selectStaff;
-      selectedAppointmentDate = "";
-      selectedAppointmentTime = "";
-      $("#appointmentValidation").textContent = "";
-      hideAppointmentConfirmation();
-      closeAppointmentSelectors();
-      renderStaffSelector();
-      renderAppointmentCalendar();
-      renderAppointmentSlots();
-      return;
-    }
-
-    const editStaff = event.target.closest("[data-edit-staff]");
-    if (editStaff) {
-      const member = state.staff.find((item) => item.id === editStaff.dataset.editStaff);
-      if (member && (hasStaffPermission("manageStaff") || member.id === currentStaffMember()?.id)) fillStaffAdminForm(member);
-      return;
-    }
-
     const removeImage = event.target.closest("[data-remove-admin-image]");
     if (removeImage) {
       const index = Number(removeImage.dataset.removeAdminImage);
@@ -5229,10 +2247,15 @@ function bindEvents() {
 
     const opener = event.target.closest("[data-open-property]");
     if (opener) {
-      openPropertyModal(opener.dataset.openProperty, opener.dataset.focusBooking === "true", true);
+      openPropertyModal(opener.dataset.openProperty, opener.dataset.focusBooking === "true");
       return;
     }
 
+    const mapPin = event.target.closest("[data-map-id]");
+    if (mapPin) {
+      state.activeMapId = mapPin.dataset.mapId;
+      renderMap();
+    }
   });
 
   $("#mortgageForm").addEventListener("submit", (event) => {
@@ -5257,7 +2280,7 @@ function bindEvents() {
 
   $("#autopayForm").addEventListener("submit", (event) => {
     event.preventDefault();
-    const amount = parseNumericInput($("#autopayAmount").value);
+    const amount = Number($("#autopayAmount").value) || 0;
     const months = Number($("#autopayMonths").value) || 1;
     const day = Number($("#autopayDay").value) || 15;
     renderAutopaySchedule($("#autopaySchedule"), amount, months, day);
@@ -5272,13 +2295,11 @@ function bindEvents() {
 
   $$("[data-calculator]").forEach((button) => {
     button.addEventListener("click", () => {
-      activateCalculator(button.dataset.calculator);
-    });
-  });
-
-  $$("[data-nav-calculator]").forEach((link) => {
-    link.addEventListener("click", () => {
-      activateCalculator(link.dataset.navCalculator);
+      const target = button.dataset.calculator;
+      $$("[data-calculator]").forEach((item) => item.classList.toggle("active", item === button));
+      $$("[data-calculator-panel]").forEach((panel) => {
+        panel.classList.toggle("active", panel.dataset.calculatorPanel === target);
+      });
     });
   });
 
@@ -5291,7 +2312,6 @@ function bindEvents() {
       message: $("#leadMessage").value.trim(),
     });
     event.currentTarget.reset();
-    if (currentStaffMember()) renderAdminLeads();
     showToast(
       localized({
         es: "Solicitud guardada. Te contactaremos pronto.",
@@ -5321,226 +2341,30 @@ function bindEvents() {
   });
 
   $("#adminToggle").addEventListener("click", () => {
-    if (!currentStaffMember()) {
-      openStaffLogin();
-      return;
-    }
-    $("#adminPanel").hidden = !$("#adminPanel").hidden;
-    if (!$("#adminPanel").hidden) {
+    if ($("#adminPanel").hidden) {
+      const pin = window.prompt(localized({ es: "PIN demo de admin", en: "Demo admin PIN", pt: "PIN demo de admin" }));
+      if (pin !== "1025") {
+        showToast(localized({ es: "PIN incorrecto.", en: "Incorrect PIN.", pt: "PIN incorreto." }));
+        return;
+      }
+      $("#adminPanel").hidden = false;
       setupAdmin();
       $("#adminPanel").scrollIntoView({ behavior: "smooth" });
+    } else {
+      $("#adminPanel").hidden = true;
     }
-  });
-
-  $("#staffLoginModal").addEventListener("click", (event) => {
-    if (event.target.closest("[data-close-staff-login]")) closeStaffLogin();
-  });
-
-  $("#shareModal").addEventListener("click", (event) => {
-    if (event.target.closest("[data-close-share]")) closeShareFallback();
-  });
-
-  window.addEventListener("popstate", handlePropertyRoute);
-
-  $("#staffLoginForm").addEventListener("submit", (event) => {
-    event.preventDefault();
-    const username = $("#staffLoginUsername").value.trim().toLowerCase();
-    const password = $("#staffLoginPassword").value;
-    const member = state.staff.find(
-      (item) => item.active && item.username.toLowerCase() === username && item.password === password
-    );
-    if (!member) {
-      $("#staffLoginError").textContent = localized({
-        es: "Usuario o contraseña incorrectos.",
-        en: "Incorrect username or password.",
-        pt: "Usuário ou senha incorretos.",
-      });
-      return;
-    }
-    completeStaffLogin(member);
-  });
-
-  $("#staffPinLogin").addEventListener("click", () => {
-    const pin = window.prompt(localized({ es: "PIN demo de admin", en: "Demo admin PIN", pt: "PIN demo de admin" }));
-    if (pin !== "1025") {
-      $("#staffLoginError").textContent = localized({ es: "PIN incorrecto.", en: "Incorrect PIN.", pt: "PIN incorreto." });
-      return;
-    }
-    const admin = state.staff.find((member) => member.active && isManagementRole(member));
-    if (admin) completeStaffLogin(admin);
-  });
-
-  $("#staffLogout").addEventListener("click", () => {
-    saveStaffSession(null);
-    $("#adminPanel").hidden = true;
-    setupStaffLogin();
-    showToast(localized({ es: "Sesión cerrada.", en: "Signed out.", pt: "Sessão encerrada." }));
-  });
-
-  $("#newStaffMember").addEventListener("click", () => {
-    if (!hasStaffPermission("manageStaff")) return;
-    fillStaffAdminForm(newStaffDraft());
-    $("#staffNameInput").focus();
-  });
-
-  $("#toggleStaffPassword").addEventListener("click", () => {
-    setStaffPasswordVisibility($("#staffPasswordInput").type === "password");
-  });
-
-  $("#staffPhoneInput").addEventListener("input", (event) => {
-    const digits = String(event.target.value || "").replace(/\D/g, "");
-    event.target.value = formatStaffPhone(digits);
-  });
-
-  $("#staffNameInput").addEventListener("input", refreshStaffAvatarPreview);
-
-  $("#staffAvatarUseLink").addEventListener("click", () => {
-    $("#staffAvatarLinkInput").focus();
-  });
-
-  $("#staffAvatarLinkInput").addEventListener("input", (event) => {
-    setStaffAvatarValue(event.target.value);
-  });
-
-  $("#staffAvatarUseFile").addEventListener("click", () => {
-    $("#staffAvatarFileInput").click();
-  });
-
-  $("#staffAvatarClear").addEventListener("click", () => {
-    setStaffAvatarValue("");
-    $("#staffAvatarFileInput").value = "";
-  });
-
-  $("#staffAvatarFileInput").addEventListener("change", async (event) => {
-    const [file] = [...event.target.files];
-    if (!file) return;
-    if (!file.type.startsWith("image/")) {
-      showToast(localized({ es: "El avatar debe ser una imagen.", en: "Avatar must be an image.", pt: "O avatar deve ser uma imagem." }));
-      event.target.value = "";
-      return;
-    }
-    if (file.size > 10 * 1024 * 1024) {
-      showToast(localized({ es: "El archivo supera 10 MB.", en: "File exceeds 10 MB.", pt: "O arquivo excede 10 MB." }));
-      event.target.value = "";
-      return;
-    }
-    try {
-      const avatar = await resizeStaffAvatarFile(file);
-      setStaffAvatarValue(avatar);
-    } catch {
-      showToast(localized({ es: "No se pudo cargar el avatar.", en: "Avatar could not be loaded.", pt: "Não foi possível carregar o avatar." }));
-    }
-    event.target.value = "";
-  });
-
-  $("#staffWeeklySchedule").addEventListener("click", (event) => {
-    const control = event.target.closest("[data-select-staff-day]");
-    if (!control) return;
-    syncStaffWeeklyDraftFromPanel();
-    selectedStaffScheduleDay = control.dataset.selectStaffDay;
-    renderStaffWeeklySchedule();
-  });
-
-  $("#staffWeeklySchedule").addEventListener("change", (event) => {
-    if (!event.target.closest(".staff-day-detail-panel")) return;
-    syncStaffWeeklyDraftFromPanel();
-    renderStaffWeeklySchedule();
-  });
-
-  $("#staffAdminForm").addEventListener("submit", (event) => {
-    event.preventDefault();
-    const current = currentStaffMember();
-    const selectedId = $("#staffIdInput").value;
-    const existing = state.staff.find((member) => member.id === selectedId);
-    if (!current || (!hasStaffPermission("manageStaff") && selectedId !== current.id)) return;
-    const member = collectStaffFromForm(existing);
-    const duplicateUsername = state.staff.some(
-      (item) => item.id !== member.id && item.username.toLowerCase() === member.username.toLowerCase()
-    );
-    if (duplicateUsername) {
-      showToast(localized({ es: "Ese usuario ya existe.", en: "That username already exists.", pt: "Esse usuário já existe." }));
-      return;
-    }
-    const nextStaff = existing
-      ? state.staff.map((item) => (item.id === member.id ? member : item))
-      : [...state.staff, member];
-    if (!nextStaff.some((item) => item.active && isManagementRole(item))) {
-      showToast(
-        localized({
-          es: "Debe existir al menos un administrador activo.",
-          en: "At least one active administrator is required.",
-          pt: "É necessário manter pelo menos um administrador ativo.",
-        })
-      );
-      return;
-    }
-    state.staff = nextStaff;
-    saveStaff();
-    renderStaffSelector();
-    setupStaffAdmin(member.id);
-    setupAppointmentAdmin();
-    renderAppointmentCalendar();
-    renderAppointmentSlots();
-    showToast(localized({ es: "Usuario y horario guardados.", en: "User and schedule saved.", pt: "Usuário e horário salvos." }));
-  });
-
-  $("#deleteStaffMember").addEventListener("click", () => {
-    if (!hasStaffPermission("manageStaff")) return;
-    const id = $("#staffIdInput").value;
-    if (!id || id === currentStaffMember()?.id) {
-      showToast(localized({ es: "No puedes eliminar tu propia sesión.", en: "You cannot delete your own session.", pt: "Você não pode excluir sua própria sessão." }));
-      return;
-    }
-    if (!window.confirm(localized({ es: "¿Eliminar este usuario?", en: "Delete this user?", pt: "Excluir este usuário?" }))) return;
-    state.staff = state.staff.filter((member) => member.id !== id);
-    saveStaff();
-    renderStaffSelector();
-    setupStaffAdmin();
-    setupAppointmentAdmin();
-  });
-
-  ["#appointmentAdminStaffFilter", "#appointmentAdminDateFilter", "#appointmentAdminStatusFilter", "#appointmentAdminModeFilter"].forEach(
-    (selector) => $(selector).addEventListener("change", renderAppointmentAdmin)
-  );
-
-  $("#appointmentAdminList").addEventListener("change", (event) => {
-    const control = event.target.closest("[data-appointment-status]");
-    if (control) updateAppointmentStatus(control.dataset.appointmentStatus, control.value);
   });
 
   $("#adminPropertySelect").addEventListener("change", (event) => {
-    if (!hasStaffPermission("manageProperties")) return;
     const property = state.properties.find((item) => item.id === event.target.value);
     if (property) fillAdminForm(property);
   });
 
-  $("#adminReservationProperty").addEventListener("change", (event) => {
-    if (!hasStaffPermission("manageProperties")) return;
-    syncAdminReservationViews(event.target.value);
-  });
-
-  $("#adminReservationCheckIn").addEventListener("change", () => {
-    ensureAdminReservationDates();
-  });
-
-  $("#adminReservationSave").addEventListener("click", () => {
-    if (!hasStaffPermission("manageProperties")) return;
-    ensureAdminReservationDates();
-    saveAdminReservation();
-  });
-
-  $("#adminReservationClear").addEventListener("click", () => {
-    if (!hasStaffPermission("manageProperties")) return;
-    clearAdminReservations();
-  });
-
   $("#adminUploadLocal").addEventListener("click", () => {
-    if (!hasStaffPermission("manageProperties")) return;
     $("#adminImageFileInput").click();
   });
 
   $("#adminImageFileInput").addEventListener("change", async (event) => {
-    if (!hasStaffPermission("manageProperties")) return;
     const files = [...event.target.files].filter((file) => file.type.startsWith("image/") || file.type.startsWith("video/"));
     if (!files.length) return;
     const images = await Promise.all(
@@ -5559,7 +2383,6 @@ function bindEvents() {
   });
 
   $("#adminUploadDrive").addEventListener("click", () => {
-    if (!hasStaffPermission("manageProperties")) return;
     const url = window.prompt(
       localized({
         es: "Pega el enlace compartido de Drive (imagen o video).",
@@ -5571,7 +2394,6 @@ function bindEvents() {
   });
 
   $("#adminUploadLink").addEventListener("click", () => {
-    if (!hasStaffPermission("manageProperties")) return;
     const url = window.prompt(
       localized({
         es: "Pega el enlace directo de la imagen o video.",
@@ -5583,7 +2405,6 @@ function bindEvents() {
   });
 
   $("#newProperty").addEventListener("click", () => {
-    if (!hasStaffPermission("manageProperties")) return;
     $("#adminForm").reset();
     $("#adminPropertySelect").value = "";
     setAdminImages([]);
@@ -5591,7 +2412,6 @@ function bindEvents() {
   });
 
   $("#deleteProperty").addEventListener("click", () => {
-    if (!hasStaffPermission("manageProperties")) return;
     const id = $("#adminPropertySelect").value;
     if (!id) return;
     const ok = window.confirm(localized({ es: "¿Eliminar esta propiedad?", en: "Delete this property?", pt: "Remover este imóvel?" }));
@@ -5606,7 +2426,6 @@ function bindEvents() {
 
   $("#adminForm").addEventListener("submit", (event) => {
     event.preventDefault();
-    if (!hasStaffPermission("manageProperties")) return;
     const selectedId = $("#adminPropertySelect").value;
     const existing = state.properties.find((property) => property.id === selectedId);
     const property = collectAdminProperty(existing);
@@ -5621,7 +2440,6 @@ function bindEvents() {
   });
 
   $("#resetDemo").addEventListener("click", () => {
-    if (!hasStaffPermission("manageProperties")) return;
     const ok = window.confirm(localized({ es: "¿Restaurar propiedades demo?", en: "Reset demo properties?", pt: "Restaurar imóveis demo?" }));
     if (!ok) return;
     state.properties = structuredClone(BASE_PROPERTIES);
@@ -5640,6 +2458,22 @@ function bindEvents() {
     }
   });
 
+  $("#propertyModal").addEventListener("change", (event) => {
+    const form = event.target.closest("form");
+    if (!form) return;
+    const checkInInput = $("input[name='checkIn']", form);
+    const checkOutInput = $("input[name='checkOut']", form);
+    const changedDateInput = event.target.closest("input[name='checkIn'], input[name='checkOut']");
+    if (!changedDateInput || !checkInInput || !checkOutInput) return;
+    checkOutInput.min = checkInInput.value;
+    if (checkOutInput.value && checkOutInput.value <= checkInInput.value) {
+      const nextDay = new Date(checkInInput.value);
+      nextDay.setDate(nextDay.getDate() + 1);
+      checkOutInput.value = formatDateInput(nextDay);
+    }
+    renderBookingAvailability(form);
+  });
+
   $("#propertyModal").addEventListener("submit", (event) => {
     const bookingForm = event.target.closest("[data-booking-form]");
     const paymentForm = event.target.closest("[data-payment-form]");
@@ -5650,14 +2484,6 @@ function bindEvents() {
     if (paymentForm) {
       event.preventDefault();
       handlePaymentSubmit(paymentForm);
-    }
-  });
-
-  $("#propertyModal").addEventListener("change", (event) => {
-    const form = event.target.closest("[data-booking-form]");
-    if (!form) return;
-    if (event.target.name === "checkIn") {
-      setBookingDateConstraints(form);
     }
   });
 
@@ -5690,55 +2516,33 @@ function bindEvents() {
   });
 
   document.addEventListener("keydown", (event) => {
-    if (event.key !== "Escape") return;
-    if ($$("[data-header-dropdown].is-open").length) closeHeaderMenus();
-    else if (openAppointmentSelector) closeAppointmentSelectors();
-    else if (!$("#shareModal").hidden) closeShareFallback();
-    else if (!$("#propertyModal").hidden) closeModal();
-    else if (!$("#staffLoginModal").hidden) closeStaffLogin();
+    if (event.key === "Escape" && !$("#propertyModal").hidden) closeModal();
   });
 }
 
 function refreshAfterDataChange(selectedId) {
   populateZoneOptions();
   renderProperties();
+  renderMap();
   renderReservationPreview();
   setupAdmin();
-  if (selectedId) {
-    populateAdminSelect(selectedId);
-    populateAdminReservationSelect(selectedId);
-    const property = state.properties.find((item) => item.id === selectedId);
-    if (property) fillAdminForm(property);
-    else syncAdminReservationViews();
-  }
+  if (selectedId) populateAdminSelect(selectedId);
   updateFavoriteCount();
 }
 
 function init() {
-  applyPageMode();
-  reorderPrimarySections();
   applyTheme();
   applyTranslations();
   initHeroSlideshow();
-  loadAppointments();
-  renderStaffSelector();
-  renderAppointmentCalendar();
-  renderAppointmentTimes();
   populateZoneOptions();
   bindEvents();
   updateFavoriteCount();
   renderProperties();
+  renderMap();
   renderReservationPreview();
   renderFinanceCalculators();
-  setupFormattedNumericInputs();
-  renderAutopaySchedule(
-    $("#autopaySchedule"),
-    parseNumericInput($("#autopayAmount").value),
-    Number($("#autopayMonths").value),
-    Number($("#autopayDay").value)
-  );
+  renderAutopaySchedule($("#autopaySchedule"), Number($("#autopayAmount").value), Number($("#autopayMonths").value), Number($("#autopayDay").value));
   setupAdmin();
-  handlePropertyRoute();
 }
 
 document.addEventListener("DOMContentLoaded", init);
