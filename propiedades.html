@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
@@ -47,9 +47,9 @@
 
       <nav class="main-nav" aria-label="Principal">
         <div class="nav-dropdown">
-          <a class="nav-dropdown-toggle" id="navAboutLink" href="#about" data-i18n="navAbout">Sobre nosotros</a>
-          <div class="nav-dropdown-menu" aria-label="Opciones de sobre nosotros">
-            <a id="navReviewsLink" href="#reviews">Referencias</a>
+          <a class="nav-dropdown-toggle" id="navAboutLink" href="#about" data-i18n="navAbout">Nosotros</a>
+          <div class="nav-dropdown-menu" aria-label="Opciones de nosotros">
+            <a id="navReviewsLink" href="#reviews">Reseñas</a>
             <a id="navBlogLink" href="#blog">Blog y noticias</a>
           </div>
         </div>
@@ -123,7 +123,7 @@
         </button>
         <a
           class="header-phone"
-          href="https://wa.me/18293935951?text=Hola%20Meirah%20Group%2C%20quiero%20informaci%C3%B3n."
+          href="https://wa.me/18495955951?text=Hola%20Meirah%20Group%2C%20quiero%20informaci%C3%B3n."
           target="_blank"
           rel="noreferrer"
         >
@@ -151,7 +151,7 @@
       <section class="trust-band" aria-label="Indicadores">
         <div>
           <strong>42+</strong>
-          <span data-i18n="statProperties">propiedades curadas</span>
+          <span data-i18n="statProperties">propiedades administradas</span>
         </div>
         <div>
           <strong>24/7</strong>
@@ -163,7 +163,7 @@
         </div>
         <div>
           <strong>4.9/5</strong>
-          <span data-i18n="statReviews">referencias verificadas</span>
+          <span data-i18n="statReviews">Reseñas</span>
         </div>
       </section>
 
@@ -245,10 +245,12 @@
             <label class="compact-label">
               <span data-i18n="sortLabel">Ordenar</span>
               <select id="sortProperties">
-                <option value="featured" data-i18n="sortFeatured">Destacadas</option>
-                <option value="price-asc" data-i18n="sortPriceAsc">Precio menor</option>
-                <option value="price-desc" data-i18n="sortPriceDesc">Precio mayor</option>
-                <option value="area-desc" data-i18n="sortArea">Más m²</option>
+                <option value="price-asc" data-i18n="sortPriceAsc">Menor a mayor precio</option>
+                <option value="price-desc" data-i18n="sortPriceDesc">Mayor a menor precio</option>
+                <option value="area-asc" data-i18n="sortAreaAsc">Menor a mayor m²</option>
+                <option value="area-desc" data-i18n="sortAreaDesc">Mayor a menor m²</option>
+                <option value="featured" data-i18n="sortFeatured">Destacados</option>
+                <option value="recent" data-i18n="sortRecent">Recientes</option>
               </select>
             </label>
             <button class="button button-light" id="showFavorites" type="button">
@@ -487,7 +489,7 @@
             </a>
             <a
               class="button button-light"
-              href="https://wa.me/18293935951?text=Hola%20Meirah%20Group%2C%20quiero%20que%20eval%C3%BAen%20mi%20propiedad%20para%20venta%20o%20alquiler."
+              href="https://wa.me/18495955951?text=Hola%20Meirah%20Group%2C%20quiero%20que%20eval%C3%BAen%20mi%20propiedad%20para%20venta%20o%20alquiler."
               target="_blank"
               rel="noreferrer"
             >
@@ -659,47 +661,7 @@
             </div>
 
             <div class="appointment-main-grid">
-              <section class="appointment-card appointment-schedule-card" aria-labelledby="appointmentScheduleHeading">
-                <div class="appointment-card-header">
-                  <div>
-                    <h3 id="appointmentScheduleHeading">
-                      <span class="appointment-step-number">4.</span>
-                      <span data-i18n="appointmentScheduleTitle">Selecciona fecha y hora</span>
-                    </h3>
-                    <p class="appointment-card-copy" id="appointmentScheduleMeta">Selecciona un agente para ver disponibilidad</p>
-                  </div>
-                  <span class="appointment-duration-chip" id="appointmentDurationChip">--</span>
-                </div>
-
-                <div class="appointment-date-layout">
-                  <section class="appointment-calendar" aria-labelledby="appointment-calendar-title">
-                    <div class="appointment-calendar-header">
-                      <button class="icon-button" id="appointmentPrevMonth" type="button" aria-label="Mes anterior">
-                        <i data-lucide="chevron-left"></i>
-                      </button>
-                      <h3 id="appointment-calendar-title">Mes</h3>
-                      <button class="icon-button" id="appointmentNextMonth" type="button" aria-label="Mes siguiente">
-                        <i data-lucide="chevron-right"></i>
-                      </button>
-                    </div>
-                    <div class="appointment-weekdays" id="appointmentWeekdays" aria-hidden="true"></div>
-                    <div class="appointment-calendar-grid" id="appointmentCalendarGrid"></div>
-                    <p class="appointment-calendar-hint" data-i18n="appointmentCalendarHint">
-                      Los días deshabilitados no están disponibles para citas.
-                    </p>
-                  </section>
-
-                  <section class="appointment-times" aria-labelledby="appointment-times-title">
-                    <div class="appointment-times-header">
-                      <h3 id="appointment-times-title" data-i18n="appointmentTimeTitle">Selecciona un horario</h3>
-                      <p id="appointmentSelectedDate" data-i18n="appointmentSelectDate">Primero selecciona una fecha.</p>
-                    </div>
-                    <div class="appointment-time-grid" id="appointmentTimeSlots"></div>
-                  </section>
-                </div>
-              </section>
-
-              <div class="appointment-sidebar">
+              <div class="appointment-sidebar appointment-sidebar-primary">
                 <section class="appointment-card appointment-details-card" aria-labelledby="appointment-details-title">
                   <div class="appointment-card-header">
                     <div>
@@ -744,6 +706,48 @@
                   </div>
                   <div class="appointment-summary-grid" id="appointmentSummaryGrid"></div>
                 </section>
+              </div>
+
+              <div class="appointment-sidebar appointment-sidebar-secondary">
+                <section class="appointment-card appointment-schedule-card" aria-labelledby="appointmentScheduleHeading">
+                  <div class="appointment-card-header">
+                    <div>
+                      <h3 id="appointmentScheduleHeading">
+                        <span class="appointment-step-number">4.</span>
+                        <span data-i18n="appointmentScheduleTitle">Selecciona fecha y hora</span>
+                      </h3>
+                      <p class="appointment-card-copy" id="appointmentScheduleMeta">Selecciona un agente para ver disponibilidad</p>
+                    </div>
+                    <span class="appointment-duration-chip" id="appointmentDurationChip">--</span>
+                  </div>
+
+                  <div class="appointment-date-layout">
+                    <section class="appointment-calendar" aria-labelledby="appointment-calendar-title">
+                      <div class="appointment-calendar-header">
+                        <button class="icon-button" id="appointmentPrevMonth" type="button" aria-label="Mes anterior">
+                          <i data-lucide="chevron-left"></i>
+                        </button>
+                        <h3 id="appointment-calendar-title">Mes</h3>
+                        <button class="icon-button" id="appointmentNextMonth" type="button" aria-label="Mes siguiente">
+                          <i data-lucide="chevron-right"></i>
+                        </button>
+                      </div>
+                      <div class="appointment-weekdays" id="appointmentWeekdays" aria-hidden="true"></div>
+                      <div class="appointment-calendar-grid" id="appointmentCalendarGrid"></div>
+                      <p class="appointment-calendar-hint" data-i18n="appointmentCalendarHint">
+                        Los días deshabilitados no están disponibles para citas.
+                      </p>
+                    </section>
+
+                    <section class="appointment-times" aria-labelledby="appointment-times-title">
+                      <div class="appointment-times-header">
+                        <h3 id="appointment-times-title" data-i18n="appointmentTimeTitle">Selecciona un horario</h3>
+                        <p id="appointmentSelectedDate" data-i18n="appointmentSelectDate">Primero selecciona una fecha.</p>
+                      </div>
+                      <div class="appointment-time-grid" id="appointmentTimeSlots"></div>
+                    </section>
+                  </div>
+                </section>
 
                 <aside class="appointment-confirmation" id="appointmentConfirmation" hidden aria-live="polite">
                   <div class="appointment-confirmation-icon"><i data-lucide="circle-check-big"></i></div>
@@ -785,7 +789,7 @@
           />
         </div>
         <div class="about-copy">
-          <p class="eyebrow" data-i18n="aboutEyebrow">Nuestra historia</p>
+          <p class="eyebrow" data-i18n="aboutEyebrow">Nosotros</p>
           <h2 id="about-title" data-i18n="aboutTitle">Una firma cercana para decisiones grandes</h2>
           <p data-i18n="aboutTextOne">
             Meirah Group nace en Jarabacoa con una idea simple: que comprar, vender o reservar una propiedad no se
@@ -805,8 +809,8 @@
 
       <section class="section reviews-section" id="reviews" aria-labelledby="reviews-title">
         <div class="section-heading">
-          <p class="eyebrow" data-i18n="reviewsEyebrow">Referencias</p>
-          <h2 id="reviews-title" data-i18n="reviewsTitle">Clientes que ya dieron el paso</h2>
+          <p class="eyebrow" data-i18n="reviewsEyebrow">Reseñas</p>
+          <h2 id="reviews-title" data-i18n="reviewsTitle">Referencias verificadas de clientes</h2>
         </div>
         <div class="review-grid">
           <article class="review-card">
@@ -919,7 +923,7 @@
           <h2 id="contact-title" data-i18n="contactTitle">Cuéntanos qué buscas y te contactamos</h2>
           <ul class="contact-list">
             <li><i data-lucide="map-pin"></i> Av. Federico Basilis, Jarabacoa, La Vega, RD</li>
-            <li><i data-lucide="phone"></i> +1 (829) 393-5951</li>
+            <li><i data-lucide="phone"></i> +1 (849) 595-5951</li>
             <li><i data-lucide="mail"></i> contacto@meirahgroup.com</li>
             <li><i data-lucide="clock"></i> <span data-i18n="contactHours">Lunes a viernes 9 a.m. - 5 p.m. | Sábados citas previas.</span></li>
             <li><i data-lucide="bot"></i> <span data-i18n="aiAdvisory">ChatBOT 24/7</span></li>
@@ -1314,10 +1318,10 @@
       </div>
       <div>
         <h3 data-i18n="footerCompany">Compañía</h3>
+        <a href="#about" data-i18n="navAbout">Nosotros</a>
+        <a href="#properties" data-i18n="navProperties">Propiedades</a>
         <a href="#owners" data-i18n="navOwners">Vende/Alquila</a>
         <a href="#appointments" data-i18n="navAppointment">Agenda tu cita</a>
-        <a href="#about" data-i18n="navAbout">Sobre nosotros</a>
-        <a href="#properties" data-i18n="navProperties">Propiedades</a>
       </div>
       <div>
         <h3 data-i18n="footerServices">Servicios</h3>
@@ -1329,7 +1333,7 @@
       <div>
         <h3 data-i18n="footerContact">Contacto</h3>
         <p>Av. Federico Basilis, Jarabacoa, RD</p>
-        <p><a href="tel:+18293935951">+1 (829) 393-5951</a></p>
+        <p><a href="tel:+18495955951">+1 (849) 595-5951</a></p>
         <p><a href="mailto:contacto@meirahgroup.com?subject=Consulta%20Meirah%20Group">contacto@meirahgroup.com</a></p>
       </div>
       <div class="site-footer-meta">
@@ -1340,7 +1344,7 @@
 
     <a
       class="whatsapp-float"
-href="https://wa.me/18293935951?text=Hola%20Meirah%20Group%2C%20quiero%20informaci%C3%B3n%20sobre%20una%20propiedad."
+href="https://wa.me/18495955951?text=Hola%20Meirah%20Group%2C%20quiero%20informaci%C3%B3n%20sobre%20una%20propiedad."
       target="_blank"
       rel="noreferrer"
       aria-label="WhatsApp Meirah Group"
