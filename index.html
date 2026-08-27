@@ -1,0 +1,1480 @@
+﻿<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Meirah Group, bienes raíces en Jarabacoa y República Dominicana. Compra, venta, alquiler, reservas y asesoría inmobiliaria."
+    />
+    <title>Meirah Group | Bienes Raíces en República Dominicana</title>
+    <link rel="preconnect" href="https://images.unsplash.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      id="siteFavicon"
+      rel="icon"
+      href="assets/brand/meirahgroup-black-favicon.svg"
+      data-favicon-light="assets/brand/meirahgroup-black-favicon.svg"
+      data-favicon-dark="assets/brand/meirahgroup-white-favicon.svg"
+      type="image/svg+xml"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script async src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" onload="window.lucide?.createIcons()"></script>
+    <script defer src="script.js"></script>
+  </head>
+  <body data-page-mode="home">
+    <header class="site-header" id="top">
+      <a class="brand" href="#top" aria-label="Meirah Group inicio">
+        <span class="brand-mark" aria-hidden="true">
+          <img
+            src="assets/brand/logo-meirahgroup-black.svg"
+            alt=""
+            data-logo-light="assets/brand/logo-meirahgroup-black.svg"
+            data-logo-dark="assets/brand/logo-meirahgroup-white.svg"
+            data-logo-fallback="assets/brand/1.png"
+          />
+        </span>
+        <span>
+          <strong>Meirah Group</strong>
+          <small data-i18n="brandTag">Bienes Raíces</small>
+        </span>
+      </a>
+
+      <nav class="main-nav" aria-label="Principal">
+        <div class="nav-dropdown">
+          <a class="nav-dropdown-toggle" id="navAboutLink" href="#about" data-i18n="navAbout">Nosotros</a>
+          <div class="nav-dropdown-menu" aria-label="Opciones de nosotros">
+            <a id="navReviewsLink" href="#reviews">Reseñas</a>
+            <a id="navBlogLink" href="#blog">Blog y noticias</a>
+          </div>
+        </div>
+        <a id="navPropertiesLink" href="#properties" data-i18n="navProperties">Propiedades</a>
+        <div class="nav-dropdown">
+          <a class="nav-dropdown-toggle" id="navFinancingLink" href="#financing" data-i18n="navFinancing">Calculadoras</a>
+          <div class="nav-dropdown-menu" aria-label="Opciones de calculadoras">
+            <a href="#financing" data-nav-calculator="mortgage">Calculadora hipotecaria</a>
+            <a href="#financing" data-nav-calculator="refinance">Calculadora de refinanciación</a>
+            <a href="#financing" data-nav-calculator="affordability">Calculadora de asequibilidad</a>
+            <a href="#financing" data-nav-calculator="rentbuy">Alquilar vs. comprar</a>
+            <!-- Auto-cobro oculto temporalmente hasta implementar la pasarela real. -->
+            <!-- <a href="#financing" data-nav-calculator="autopay">Auto-cobro</a> -->
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a class="nav-dropdown-toggle" id="navContactLink" href="#contact" data-i18n="navContact">Contacto</a>
+          <div class="nav-dropdown-menu" aria-label="Opciones de contacto">
+            <a id="navContactMenuLink" href="#contact" data-i18n="navContact">Contacto</a>
+            <a id="navAppointmentLink" href="#appointments" data-i18n="navAppointment">Agenda tu cita</a>
+          </div>
+        </div>
+      </nav>
+
+      <div class="header-actions">
+        <div class="header-dropdown" data-header-dropdown="language">
+          <button class="header-select-toggle" id="languageToggle" type="button" aria-label="Cambiar idioma" aria-haspopup="true" aria-expanded="false">
+            <span id="languageToggleValue">ES</span>
+            <i data-lucide="chevron-down"></i>
+          </button>
+          <div class="header-dropdown-menu" id="languageMenu" hidden>
+            <button class="header-dropdown-option" type="button" data-lang-option="es">
+              <strong>ES</strong>
+              <small>Español</small>
+            </button>
+            <button class="header-dropdown-option" type="button" data-lang-option="en">
+              <strong>EN</strong>
+              <small>English</small>
+            </button>
+            <button class="header-dropdown-option" type="button" data-lang-option="pt">
+              <strong>PT</strong>
+              <small>Português</small>
+            </button>
+          </div>
+        </div>
+        <div class="header-dropdown" data-header-dropdown="currency">
+          <button class="header-select-toggle" id="currencyToggle" type="button" aria-label="Cambiar moneda" aria-haspopup="true" aria-expanded="false">
+            <span id="currencyToggleValue">USD</span>
+            <i data-lucide="chevron-down"></i>
+          </button>
+          <div class="header-dropdown-menu" id="currencyMenu" hidden>
+            <button class="header-dropdown-option" type="button" data-currency-option="USD">
+              <strong>USD</strong>
+              <small>Dólar</small>
+            </button>
+            <button class="header-dropdown-option" type="button" data-currency-option="EUR">
+              <strong>EUR</strong>
+              <small>Euro</small>
+            </button>
+            <button class="header-dropdown-option" type="button" data-currency-option="DOP">
+              <strong>DOP</strong>
+              <small>Peso RD</small>
+            </button>
+          </div>
+        </div>
+        <button class="icon-button theme-toggle" id="themeToggle" type="button" aria-label="Modo claro u oscuro">
+          <i data-lucide="moon"></i>
+        </button>
+        <button class="icon-button" id="adminToggle" type="button" aria-label="Modo admin">
+          <i data-lucide="shield-check"></i>
+        </button>
+        <a
+          class="header-phone"
+          href="https://wa.me/18495955951?text=Hola%20Meirah%20Group%2C%20quiero%20informaci%C3%B3n."
+          target="_blank"
+          rel="noreferrer"
+        >
+          WhatsApp Business
+        </a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-media" aria-hidden="true">
+          <img
+            class="is-active"
+            src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1800&q=82"
+            alt=""
+          />
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <h1 id="hero-title">Meirah Group</h1>
+          <p class="hero-slogan" data-i18n="heroSlogan">Tu Esencia • Tu Espacio • Tu Patrimonio</p>
+        </div>
+      </section>
+
+      <section class="trust-band" aria-label="Indicadores">
+        <div>
+          <strong>42+</strong>
+          <span data-i18n="statProperties">propiedades administradas</span>
+        </div>
+        <div>
+          <strong>24/7</strong>
+          <span data-i18n="statFollow">asesoría activa</span>
+        </div>
+        <div>
+          <strong>ES/EN/PT</strong>
+          <span data-i18n="statLang">idiomas disponibles</span>
+        </div>
+        <div>
+          <strong>4.9/5</strong>
+          <span data-i18n="statReviews">Reseñas</span>
+        </div>
+      </section>
+
+      <section class="section filters-section" aria-labelledby="filters-title">
+        <div class="section-heading">
+          <p class="eyebrow" data-i18n="filtersEyebrow">Búsqueda inteligente</p>
+          <h2 id="filters-title" data-i18n="filtersTitle">Encuentra tu propiedad</h2>
+        </div>
+
+        <form class="filters" id="propertyFilters">
+          <label>
+            <span data-i18n="filterOperation">Operación</span>
+            <select id="filterOperation">
+              <option value="all" data-i18n="optionAll">Todas</option>
+              <option value="sale" data-i18n="optionSale">Venta</option>
+              <option value="rent" data-i18n="optionRent">Renta larga</option>
+              <option value="night" data-i18n="optionNight">Renta corta</option>
+            </select>
+          </label>
+          <label>
+            <span data-i18n="filterType">Tipo</span>
+            <select id="filterType">
+              <option value="all" data-i18n="optionAllTypes">Todos</option>
+              <option value="Villa">Villa</option>
+              <option value="Casa" data-i18n="typeHouse">Casa</option>
+              <option value="Apartamento" data-i18n="typeApartment">Apartamento</option>
+              <option value="Terreno" data-i18n="typeLand">Terreno</option>
+              <option value="Finca" data-i18n="typeFarm">Finca</option>
+            </select>
+          </label>
+          <label>
+            <span data-i18n="filterZone">Zona</span>
+            <select id="filterZone">
+              <option value="all" data-i18n="optionAllZones">Todas</option>
+            </select>
+          </label>
+          <label>
+            <span data-i18n="filterMin">Min. USD</span>
+            <input id="filterMin" type="number" min="0" step="1000" placeholder="USD $100,000.00" />
+          </label>
+          <label>
+            <span data-i18n="filterMax">Max. USD</span>
+            <input id="filterMax" type="number" min="0" step="1000" placeholder="USD $450,000.00" />
+          </label>
+          <label>
+            <span data-i18n="filterBeds">Habitaciones</span>
+            <select id="filterBeds">
+              <option value="0" data-i18n="optionAny">Cualquiera</option>
+              <option value="1">1+</option>
+              <option value="2">2+</option>
+              <option value="3">3+</option>
+              <option value="4">4+</option>
+            </select>
+          </label>
+          <label>
+            <span data-i18n="filterArea">m² min.</span>
+            <input id="filterArea" type="number" min="0" step="10" placeholder="120" />
+          </label>
+          <div class="filter-actions">
+            <button class="button button-primary" type="submit">
+              <i data-lucide="sliders-horizontal"></i>
+              <span data-i18n="filterApply">Filtrar</span>
+            </button>
+            <button class="button button-light" id="clearFilters" type="button">
+              <i data-lucide="rotate-ccw"></i>
+              <span data-i18n="filterClear">Limpiar</span>
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <section class="section properties-section" id="properties" aria-labelledby="properties-title">
+        <div class="section-heading row-heading">
+          <div>
+            <p class="eyebrow" data-i18n="propertiesEyebrow">Inventario destacado</p>
+            <h2 id="properties-title" data-i18n="propertiesTitle">Propiedades disponibles</h2>
+          </div>
+          <div class="toolbar">
+            <label class="compact-label">
+              <span data-i18n="sortLabel">Ordenar</span>
+              <select id="sortProperties">
+                <option value="price-asc" data-i18n="sortPriceAsc">Menor a mayor precio</option>
+                <option value="price-desc" data-i18n="sortPriceDesc">Mayor a menor precio</option>
+                <option value="area-asc" data-i18n="sortAreaAsc">Menor a mayor m²</option>
+                <option value="area-desc" data-i18n="sortAreaDesc">Mayor a menor m²</option>
+                <option value="featured" data-i18n="sortFeatured">Destacados</option>
+                <option value="recent" data-i18n="sortRecent">Recientes</option>
+              </select>
+            </label>
+            <button class="button button-light" id="showFavorites" type="button">
+              <i data-lucide="heart"></i>
+              <span data-i18n="favoritesButton">Favoritos</span>
+              <span class="count-pill" id="favoriteCount">0</span>
+            </button>
+          </div>
+        </div>
+        <div class="results-summary" id="resultsSummary"></div>
+        <div class="property-grid" id="propertyGrid"></div>
+      </section>
+
+      <section class="section split-section" id="financing" aria-labelledby="financing-title">
+        <div class="section-heading">
+          <p class="eyebrow" data-i18n="financeEyebrow">Compra con claridad</p>
+          <h2 id="financing-title" data-i18n="financeTitle">Calculadoras financieras</h2>
+        </div>
+        <div class="calculator-layout">
+          <aside class="calculator-menu" aria-label="Calculadoras">
+            <h3 data-i18n="calculatorsTitle">Calculadoras</h3>
+            <button class="calculator-card active" type="button" data-calculator="mortgage">
+              <i data-lucide="calculator"></i>
+              <span>
+                <strong data-i18n="mortgageTitle">Calculadora hipotecaria</strong>
+                <small data-i18n="mortgageCardCopy">Calcula tu pago mensual de la hipoteca.</small>
+              </span>
+            </button>
+            <button class="calculator-card" type="button" data-calculator="refinance">
+              <i data-lucide="refresh-cw"></i>
+              <span>
+                <strong data-i18n="refinanceTitle">Calculadora de refinanciacion</strong>
+                <small data-i18n="refinanceCardCopy">Compara tu cuota actual contra una nueva tasa.</small>
+              </span>
+            </button>
+            <button class="calculator-card" type="button" data-calculator="affordability">
+              <i data-lucide="badge-dollar-sign"></i>
+              <span>
+                <strong data-i18n="affordabilityTitle">Calculadora de asequibilidad</strong>
+                <small data-i18n="affordabilityCardCopy">Calcula el precio de casa que puedes permitirte.</small>
+              </span>
+            </button>
+            <button class="calculator-card" type="button" data-calculator="rentbuy">
+              <i data-lucide="scale"></i>
+              <span>
+                <strong data-i18n="rentBuyTitle">Alquilar vs. comprar</strong>
+                <small data-i18n="rentBuyCardCopy">Estima cuando tiene sentido comprar o alquilar.</small>
+              </span>
+            </button>
+            <!-- Auto-cobro oculto temporalmente hasta implementar la pasarela real.
+            <button class="calculator-card" type="button" data-calculator="autopay">
+              <i data-lucide="credit-card"></i>
+              <span>
+                <strong data-i18n="autopayTitle">Auto-cobro para pagos a plazos</strong>
+                <small data-i18n="autopayCardCopy">Genera un calendario de pagos recurrentes.</small>
+              </span>
+            </button>
+            -->
+          </aside>
+
+          <div class="calculator-panels">
+            <form class="tool-panel calculator-panel active" id="mortgageForm" data-calculator-panel="mortgage">
+              <h3 data-i18n="mortgageTitle">Calculadora hipotecaria</h3>
+              <div class="two-col">
+                <label>
+                  <span data-i18n="homePrice">Precio de la propiedad</span>
+                  <input id="homePrice" type="text" inputmode="decimal" value="285,000" data-format-number />
+                </label>
+                <label>
+                  <span data-i18n="downPayment">Inicial</span>
+                  <input id="downPayment" type="text" inputmode="decimal" value="57,000" data-format-number />
+                </label>
+                <label>
+                  <span data-i18n="interestRate">Tasa anual</span>
+                  <input id="interestRate" type="number" min="0" step="0.1" value="9.5" />
+                </label>
+                <label>
+                  <span data-i18n="loanYears">Plazo en años</span>
+                  <input id="loanYears" type="number" min="1" max="30" value="20" />
+                </label>
+              </div>
+              <button class="button button-primary" type="submit">
+                <i data-lucide="calculator"></i>
+                <span data-i18n="calculate">Calcular</span>
+              </button>
+              <output class="finance-output" id="mortgageOutput"></output>
+            </form>
+
+            <form class="tool-panel calculator-panel" id="refinanceForm" data-calculator-panel="refinance">
+              <h3 data-i18n="refinanceTitle">Calculadora de refinanciacion</h3>
+              <div class="two-col">
+                <label>
+                  <span data-i18n="currentBalance">Balance actual</span>
+                  <input id="currentBalance" type="text" inputmode="decimal" value="220,000" data-format-number />
+                </label>
+                <label>
+                  <span data-i18n="currentRate">Tasa actual</span>
+                  <input id="currentRate" type="number" min="0" step="0.1" value="10.5" />
+                </label>
+                <label>
+                  <span data-i18n="newRate">Nueva tasa</span>
+                  <input id="newRate" type="number" min="0" step="0.1" value="8.75" />
+                </label>
+                <label>
+                  <span data-i18n="remainingYears">Años restantes</span>
+                  <input id="remainingYears" type="number" min="1" max="30" value="18" />
+                </label>
+                <label>
+                  <span data-i18n="closingCosts">Gastos de cierre</span>
+                  <input id="closingCosts" type="text" inputmode="decimal" value="3,500" data-format-number />
+                </label>
+              </div>
+              <button class="button button-primary" type="submit">
+                <i data-lucide="refresh-cw"></i>
+                <span data-i18n="calculate">Calcular</span>
+              </button>
+              <output class="finance-output" id="refinanceOutput"></output>
+            </form>
+
+            <form class="tool-panel calculator-panel" id="affordabilityForm" data-calculator-panel="affordability">
+              <h3 data-i18n="affordabilityTitle">Calculadora de asequibilidad</h3>
+              <div class="two-col">
+                <label>
+                  <span data-i18n="monthlyIncome">Ingreso mensual</span>
+                  <input id="monthlyIncome" type="text" inputmode="decimal" value="6,500" data-format-number />
+                </label>
+                <label>
+                  <span data-i18n="monthlyDebt">Deudas mensuales</span>
+                  <input id="monthlyDebt" type="text" inputmode="decimal" value="700" data-format-number />
+                </label>
+                <label>
+                  <span data-i18n="affordDown">Inicial disponible</span>
+                  <input id="affordDown" type="text" inputmode="decimal" value="45,000" data-format-number />
+                </label>
+                <label>
+                  <span data-i18n="interestRate">Tasa anual</span>
+                  <input id="affordRate" type="number" min="0" step="0.1" value="9.5" />
+                </label>
+                <label>
+                  <span data-i18n="loanYears">Plazo en años</span>
+                  <input id="affordYears" type="number" min="1" max="30" value="20" />
+                </label>
+              </div>
+              <button class="button button-primary" type="submit">
+                <i data-lucide="badge-dollar-sign"></i>
+                <span data-i18n="calculate">Calcular</span>
+              </button>
+              <output class="finance-output" id="affordabilityOutput"></output>
+            </form>
+
+            <form class="tool-panel calculator-panel" id="rentBuyForm" data-calculator-panel="rentbuy">
+              <h3 data-i18n="rentBuyTitle">Alquilar vs. comprar</h3>
+              <div class="two-col">
+                <label>
+                  <span data-i18n="monthlyRent">Alquiler mensual</span>
+                  <input id="monthlyRent" type="text" inputmode="decimal" value="1,200" data-format-number />
+                </label>
+                <label>
+                  <span data-i18n="homePrice">Precio de la propiedad</span>
+                  <input id="compareHomePrice" type="text" inputmode="decimal" value="260,000" data-format-number />
+                </label>
+                <label>
+                  <span data-i18n="downPayment">Inicial</span>
+                  <input id="compareDownPayment" type="text" inputmode="decimal" value="52,000" data-format-number />
+                </label>
+                <label>
+                  <span data-i18n="interestRate">Tasa anual</span>
+                  <input id="compareRate" type="number" min="0" step="0.1" value="9.5" />
+                </label>
+                <label>
+                  <span data-i18n="yearsInHome">Años en la propiedad</span>
+                  <input id="yearsInHome" type="number" min="1" max="30" value="5" />
+                </label>
+              </div>
+              <button class="button button-primary" type="submit">
+                <i data-lucide="scale"></i>
+                <span data-i18n="calculate">Calcular</span>
+              </button>
+              <output class="finance-output" id="rentBuyOutput"></output>
+            </form>
+
+            <!-- Auto-cobro oculto temporalmente hasta implementar la pasarela real. -->
+            <form class="tool-panel calculator-panel" id="autopayForm" data-calculator-panel="autopay" hidden>
+              <h3 data-i18n="autopayTitle">Auto-cobro para pagos a plazos</h3>
+              <div class="two-col">
+                <label>
+                  <span data-i18n="clientName">Nombre del cliente</span>
+                  <input id="autopayName" type="text" placeholder="Maria Gomez" />
+                </label>
+                <label>
+                  <span data-i18n="paymentAmount">Monto mensual</span>
+                  <input id="autopayAmount" type="text" inputmode="decimal" value="1,250" data-format-number />
+                </label>
+                <label>
+                  <span data-i18n="paymentDay">Día de cobro</span>
+                  <input id="autopayDay" type="number" min="1" max="28" value="15" />
+                </label>
+                <label>
+                  <span data-i18n="paymentMonths">Cantidad de pagos</span>
+                  <input id="autopayMonths" type="number" min="1" max="60" value="18" />
+                </label>
+              </div>
+              <button class="button button-primary" type="submit">
+                <i data-lucide="credit-card"></i>
+                <span data-i18n="scheduleAutopay">Generar plan</span>
+              </button>
+              <div class="payment-schedule" id="autopaySchedule"></div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section class="section reservation-section" id="reservations" aria-labelledby="reservations-title">
+        <div class="reservation-copy">
+          <p class="eyebrow" data-i18n="reservationEyebrow">Alquileres y estadías</p>
+          <h2 id="reservations-title" data-i18n="reservationTitle">reserva fácil con confirmación rápida</h2>
+          <p data-i18n="reservationCopy">
+            Disponibilidad de renta corta y larga, cálculo de cargos, seguimiento de procesos y solicitud para una experiencia fluida.
+          </p>
+        </div>
+        <div class="reservation-preview" id="reservationPreview"></div>
+      </section>
+
+      <section class="section owners-section" id="owners" aria-labelledby="owners-title">
+        <div class="owners-copy">
+          <p class="eyebrow" data-i18n="ownersEyebrow">Para propietarios</p>
+          <h2 id="owners-title" data-i18n="ownersTitle">Vendemos o alquilamos tu propiedad como tu agente inmobiliario</h2>
+          <p data-i18n="ownersCopy">
+            Si tienes una casa, villa, apartamento, terreno, finca o local, Meirah Group puede representarte con estrategia
+            de precio, fotos, promoción, filtros de clientes, visitas, negociación y seguimiento hasta el cierre.
+          </p>
+          <div class="owners-actions">
+            <a class="button button-primary" href="#contact">
+              <i data-lucide="home"></i>
+              <span data-i18n="ownersPrimary">Quiero vender o alquilar</span>
+            </a>
+            <a
+              class="button button-light"
+              href="https://wa.me/18495955951?text=Hola%20Meirah%20Group%2C%20quiero%20que%20eval%C3%BAen%20mi%20propiedad%20para%20venta%20o%20alquiler."
+              target="_blank"
+              rel="noreferrer"
+            >
+              <i data-lucide="message-circle"></i>
+              <span data-i18n="ownersWhatsApp">Evaluar por WhatsApp</span>
+            </a>
+          </div>
+        </div>
+        <div class="owners-services">
+          <article>
+            <i data-lucide="badge-check"></i>
+            <h3 data-i18n="ownersSaleTitle">Representación para venta</h3>
+            <p data-i18n="ownersSaleCopy">Análisis de precio, publicación, prospectos calificados, visitas y negociación.</p>
+          </article>
+          <article>
+            <i data-lucide="calendar-check"></i>
+            <h3 data-i18n="ownersRentTitle">Gestión para renta</h3>
+            <p data-i18n="ownersRentCopy">Promoción para renta corta y larga, reservas, disponibilidad y perfilado de clientes.</p>
+          </article>
+          <article>
+            <i data-lucide="map"></i>
+            <h3 data-i18n="ownersLandTitle">Terrenos y fincas</h3>
+            <p data-i18n="ownersLandCopy">Presentamos potencial de uso, accesos, servicios cercanos y datos clave de inversión.</p>
+          </article>
+          <article>
+            <i data-lucide="file-check-2"></i>
+            <h3 data-i18n="ownersDocsTitle">Preparación comercial</h3>
+            <p data-i18n="ownersDocsCopy">Ordenamos fotos, descripción, documentos base y argumentos para vender con confianza.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section appointment-section" id="appointments" aria-labelledby="appointments-title">
+        <div class="appointment-intro-row">
+          <div class="section-heading appointment-copy">
+            <p class="eyebrow" data-i18n="appointmentEyebrow">Atención personalizada</p>
+            <h2 id="appointments-title" data-i18n="appointmentTitle">Agenda tu cita</h2>
+            <p data-i18n="appointmentCopy">
+              Elige el motivo, la modalidad y el horario que mejor te convenga. El equipo recibirá todos los detalles
+              para preparar la conversación antes de contactarte.
+            </p>
+          </div>
+
+          <aside class="appointment-note-card" aria-label="Información de privacidad">
+            <span class="appointment-note-icon"><i data-lucide="shield-check"></i></span>
+            <span class="appointment-note-copy">
+              <strong data-i18n="appointmentPrivacyTitle">Seguro y confidencial</strong>
+              <small data-i18n="appointmentPrivacyCopy">Tu información está protegida.</small>
+            </span>
+          </aside>
+        </div>
+
+        <div class="appointment-system">
+          <form class="appointment-form appointment-form-compact" id="appointmentForm">
+            <div class="appointment-top-grid">
+              <section class="appointment-selector-card" data-appointment-selector-card="type">
+                <button
+                  class="appointment-selector-toggle"
+                  type="button"
+                  data-appointment-toggle="type"
+                  aria-expanded="false"
+                  aria-controls="appointmentTypePanel"
+                >
+                  <span class="appointment-selector-icon"><i data-lucide="tags"></i></span>
+                  <span class="appointment-selector-copy">
+                    <small><span class="appointment-step-number">1.</span> <span data-i18n="appointmentTypeTitle">¿Qué necesitas?</span></small>
+                    <strong id="appointmentTypeValue">Comprar</strong>
+                  </span>
+                  <i data-lucide="chevron-down"></i>
+                </button>
+
+                <div class="appointment-selector-panel" id="appointmentTypePanel" hidden>
+                  <div class="appointment-choice-grid appointment-type-grid">
+                    <label class="appointment-choice">
+                      <input type="radio" name="appointmentType" value="buy" checked />
+                      <i data-lucide="key-round"></i>
+                      <span data-i18n="appointmentTypeBuy">Comprar</span>
+                    </label>
+                    <label class="appointment-choice">
+                      <input type="radio" name="appointmentType" value="sell" />
+                      <i data-lucide="badge-dollar-sign"></i>
+                      <span data-i18n="appointmentTypeSell">Vender</span>
+                    </label>
+                    <label class="appointment-choice">
+                      <input type="radio" name="appointmentType" value="rent" />
+                      <i data-lucide="house"></i>
+                      <span data-i18n="appointmentTypeRent">Alquilar</span>
+                    </label>
+                    <label class="appointment-choice">
+                      <input type="radio" name="appointmentType" value="invest" />
+                      <i data-lucide="chart-no-axes-combined"></i>
+                      <span data-i18n="appointmentTypeInvest">Invertir</span>
+                    </label>
+                    <label class="appointment-choice">
+                      <input type="radio" name="appointmentType" value="visit" />
+                      <i data-lucide="map-pinned"></i>
+                      <span data-i18n="appointmentTypeVisit">Visitar propiedad</span>
+                    </label>
+                  </div>
+                </div>
+              </section>
+
+              <section class="appointment-selector-card" data-appointment-selector-card="mode">
+                <button
+                  class="appointment-selector-toggle"
+                  type="button"
+                  data-appointment-toggle="mode"
+                  aria-expanded="false"
+                  aria-controls="appointmentModePanel"
+                >
+                  <span class="appointment-selector-icon"><i data-lucide="phone-call"></i></span>
+                  <span class="appointment-selector-copy">
+                    <small><span class="appointment-step-number">2.</span> <span data-i18n="appointmentModeTitle">Modalidad</span></small>
+                    <strong id="appointmentModeValue">WhatsApp</strong>
+                  </span>
+                  <i data-lucide="chevron-down"></i>
+                </button>
+
+                <div class="appointment-selector-panel" id="appointmentModePanel" hidden>
+                  <div class="appointment-choice-grid appointment-mode-grid">
+                    <label class="appointment-choice">
+                      <input type="radio" name="appointmentMode" value="whatsapp" checked />
+                      <i data-lucide="message-circle"></i>
+                      <span>WhatsApp</span>
+                    </label>
+                    <label class="appointment-choice">
+                      <input type="radio" name="appointmentMode" value="call" />
+                      <i data-lucide="phone"></i>
+                      <span data-i18n="appointmentModeCall">Llamada</span>
+                    </label>
+                    <label class="appointment-choice">
+                      <input type="radio" name="appointmentMode" value="video" />
+                      <i data-lucide="video"></i>
+                      <span data-i18n="appointmentModeVideo">Videollamada</span>
+                    </label>
+                    <label class="appointment-choice">
+                      <input type="radio" name="appointmentMode" value="in-person" />
+                      <i data-lucide="users"></i>
+                      <span data-i18n="appointmentModeInPerson">Presencial</span>
+                    </label>
+                  </div>
+                </div>
+              </section>
+
+              <section class="appointment-selector-card" data-appointment-selector-card="advisor">
+                <button
+                  class="appointment-selector-toggle"
+                  type="button"
+                  data-appointment-toggle="advisor"
+                  aria-expanded="false"
+                  aria-controls="appointmentAdvisorPanel"
+                >
+                  <span class="appointment-selector-icon"><i data-lucide="user-round"></i></span>
+                  <span class="appointment-selector-copy">
+                    <small><span class="appointment-step-number">3.</span> <span data-i18n="appointmentAdvisor">Agente</span></small>
+                    <strong id="appointmentAdvisorValue" class="is-placeholder" data-i18n="appointmentSelectAgentPlaceholder">Selecciona un agente</strong>
+                  </span>
+                  <i data-lucide="chevron-down"></i>
+                </button>
+
+                <div class="appointment-selector-panel" id="appointmentAdvisorPanel" hidden>
+                  <div class="appointment-staff-selector" id="appointmentStaffSelector"></div>
+                  <input id="appointmentAdvisor" name="appointmentAdvisor" type="hidden" required />
+                  <p class="appointment-staff-hint" id="appointmentStaffHint" data-i18n="appointmentAdvisorHint">
+                    El calendario mostrará únicamente la disponibilidad del agente elegido.
+                  </p>
+                </div>
+              </section>
+            </div>
+
+            <div class="appointment-main-grid">
+              <div class="appointment-sidebar appointment-sidebar-primary">
+                <section class="appointment-card appointment-details-card" aria-labelledby="appointment-details-title">
+                  <div class="appointment-card-header">
+                    <div>
+                      <h3 id="appointment-details-title">
+                        <span class="appointment-step-number">5.</span>
+                        <span data-i18n="appointmentDetailsTitle">Tus datos</span>
+                      </h3>
+                      <p class="appointment-card-copy" data-i18n="appointmentDetailsCopy">Completa tu información</p>
+                    </div>
+                  </div>
+
+                  <div class="appointment-details-grid">
+                    <label>
+                      <span data-i18n="appointmentName">Nombre completo</span>
+                      <input id="appointmentName" type="text" required autocomplete="name" placeholder="Tu nombre completo" data-i18n-placeholder="appointmentNamePlaceholder" />
+                    </label>
+                    <label>
+                      <span data-i18n="appointmentPhone">Teléfono o WhatsApp</span>
+                      <input id="appointmentPhone" type="tel" required autocomplete="tel" placeholder="+1 829 000 0000" />
+                    </label>
+                    <label>
+                      <span data-i18n="appointmentEmail">Correo electrónico (opcional)</span>
+                      <input id="appointmentEmail" type="email" autocomplete="email" placeholder="tu@email.com" />
+                    </label>
+                    <label class="appointment-message-field">
+                      <span data-i18n="appointmentMessage">Mensaje adicional</span>
+                      <textarea
+                        id="appointmentMessage"
+                        rows="4"
+                        placeholder="Cuéntanos qué propiedad o tema deseas tratar"
+                        data-i18n-placeholder="appointmentMessagePlaceholder"
+                      ></textarea>
+                    </label>
+                  </div>
+                </section>
+
+                <section class="appointment-card appointment-summary-card" aria-labelledby="appointment-summary-title">
+                  <div class="appointment-card-header">
+                    <div>
+                      <h3 id="appointment-summary-title" data-i18n="appointmentSummaryTitle">Resumen de tu cita</h3>
+                    </div>
+                  </div>
+                  <div class="appointment-summary-grid" id="appointmentSummaryGrid"></div>
+                </section>
+              </div>
+
+              <div class="appointment-sidebar appointment-sidebar-secondary">
+                <section class="appointment-card appointment-schedule-card" aria-labelledby="appointmentScheduleHeading">
+                  <div class="appointment-card-header">
+                    <div>
+                      <h3 id="appointmentScheduleHeading">
+                        <span class="appointment-step-number">4.</span>
+                        <span data-i18n="appointmentScheduleTitle">Selecciona fecha y hora</span>
+                      </h3>
+                      <p class="appointment-card-copy" id="appointmentScheduleMeta">Selecciona un agente para ver disponibilidad</p>
+                    </div>
+                    <span class="appointment-duration-chip" id="appointmentDurationChip">--</span>
+                  </div>
+
+                  <div class="appointment-date-layout">
+                    <section class="appointment-calendar" aria-labelledby="appointment-calendar-title">
+                      <div class="appointment-calendar-header">
+                        <button class="icon-button" id="appointmentPrevMonth" type="button" aria-label="Mes anterior">
+                          <i data-lucide="chevron-left"></i>
+                        </button>
+                        <h3 id="appointment-calendar-title">Mes</h3>
+                        <button class="icon-button" id="appointmentNextMonth" type="button" aria-label="Mes siguiente">
+                          <i data-lucide="chevron-right"></i>
+                        </button>
+                      </div>
+                      <div class="appointment-weekdays" id="appointmentWeekdays" aria-hidden="true"></div>
+                      <div class="appointment-calendar-grid" id="appointmentCalendarGrid"></div>
+                      <p class="appointment-calendar-hint" data-i18n="appointmentCalendarHint">
+                        Los días deshabilitados no están disponibles para citas.
+                      </p>
+                    </section>
+
+                    <section class="appointment-times" aria-labelledby="appointment-times-title">
+                      <div class="appointment-times-header">
+                        <h3 id="appointment-times-title" data-i18n="appointmentTimeTitle">Selecciona un horario</h3>
+                        <p id="appointmentSelectedDate" data-i18n="appointmentSelectDate">Primero selecciona una fecha.</p>
+                      </div>
+                      <div class="appointment-time-grid" id="appointmentTimeSlots"></div>
+                    </section>
+                  </div>
+                </section>
+
+                <aside class="appointment-confirmation" id="appointmentConfirmation" hidden aria-live="polite">
+                  <div class="appointment-confirmation-icon"><i data-lucide="circle-check-big"></i></div>
+                  <div>
+                    <p class="eyebrow" data-i18n="appointmentConfirmedEyebrow">Cita registrada</p>
+                    <h3 data-i18n="appointmentConfirmedTitle">Tu solicitud está lista</h3>
+                    <div class="appointment-confirmation-summary" id="appointmentConfirmationSummary"></div>
+                  </div>
+                  <a class="button button-primary" id="appointmentWhatsApp" href="#" target="_blank" rel="noreferrer">
+                    <i data-lucide="message-circle"></i>
+                    <span data-i18n="appointmentSendWhatsApp">Enviar resumen por WhatsApp</span>
+                  </a>
+                </aside>
+              </div>
+            </div>
+
+            <div class="appointment-footer-bar">
+              <p id="appointmentValidation" role="alert" aria-live="polite"></p>
+              <div class="appointment-submit-row">
+                <button class="button button-light appointment-back-button" id="appointmentBackButton" type="button">
+                  <i data-lucide="arrow-left"></i>
+                  <span data-i18n="appointmentBack">Volver</span>
+                </button>
+                <button class="button button-primary" type="submit">
+                  <i data-lucide="calendar-check-2"></i>
+                  <span data-i18n="appointmentConfirm">Confirmar cita</span>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <section class="section about-section" id="about" aria-labelledby="about-title">
+        <div class="about-image">
+          <img
+            src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1300&q=80"
+            alt="Equipo inmobiliario revisando documentos"
+          />
+        </div>
+        <div class="about-copy">
+          <p class="eyebrow" data-i18n="aboutEyebrow">Nosotros</p>
+          <h2 id="about-title" data-i18n="aboutTitle">Una firma cercana para decisiones grandes</h2>
+          <p data-i18n="aboutTextOne">
+            Meirah Group nace en Jarabacoa con una idea simple: que comprar, vender o reservar una propiedad no se
+            sienta como entrar a ciegas. Combinamos conocimiento local, criterio comercial y una comunicación clara.
+          </p>
+          <p data-i18n="aboutTextTwo">
+            Detrás de la compañía hay un equipo que conoce el ritmo de la zona, el valor de una buena ubicación y la
+            importancia de cuidar cada documento antes de firmar.
+          </p>
+          <div class="about-values">
+            <span data-i18n="valueOne">Transparencia</span>
+            <span data-i18n="valueTwo">Acompañamiento</span>
+            <span data-i18n="valueThree">Visión de inversión</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section vision-section" id="vision" aria-labelledby="vision-title">
+        <div class="vision-copy">
+          <p class="eyebrow" data-i18n="visionEyebrow">Visión</p>
+          <h2 id="vision-title" data-i18n="visionTitle">Una empresa orientada al valor y al largo plazo</h2>
+          <p data-i18n="visionTextOne">
+            Nuestra visión es posicionar a Meirah Group como una firma inmobiliaria confiable, moderna y estratégica,
+            capaz de acompañar tanto decisiones patrimoniales personales como oportunidades de inversión con criterio.
+          </p>
+          <p data-i18n="visionTextTwo">
+            Nuestra misión es ofrecer una asesoría clara, cercana y bien estructurada para que cada cliente pueda
+            comprar, vender, alquilar o desarrollar una propiedad con seguridad, enfoque y una perspectiva real de crecimiento.
+          </p>
+          <div class="about-values vision-values">
+            <span data-i18n="visionValueOne">Confianza</span>
+            <span data-i18n="visionValueTwo">Estrategia</span>
+            <span data-i18n="visionValueThree">Patrimonio</span>
+          </div>
+        </div>
+        <div class="vision-image">
+          <img
+            src="https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=1300&q=80"
+            alt="Vista arquitectónica moderna representando crecimiento patrimonial"
+          />
+        </div>
+      </section>
+
+      <section class="section reviews-section" id="reviews" aria-labelledby="reviews-title">
+        <div class="section-heading">
+          <p class="eyebrow" data-i18n="reviewsEyebrow">Reseñas</p>
+          <h2 id="reviews-title" data-i18n="reviewsTitle">Referencias verificadas de clientes</h2>
+        </div>
+        <div class="review-grid">
+          <article class="review-card">
+            <span>4.9</span>
+            <p data-i18n="reviewOne">
+              El equipo nos ayudó a comparar zonas, negociar y entender los costos reales antes de firmar.
+            </p>
+            <strong>Daniel R.</strong>
+          </article>
+          <article class="review-card">
+            <span>5.0</span>
+            <p data-i18n="reviewTwo">
+              Reservamos una villa para un fin de semana familiar. Todo fue rápido, claro y sin sorpresas.
+            </p>
+            <strong>Camila P.</strong>
+          </article>
+          <article class="review-card">
+            <span>4.8</span>
+            <p data-i18n="reviewThree">
+              Vivo fuera del país y necesitaba alguien que respondiera con precisión. Meirah Group lo hizo fácil.
+            </p>
+            <strong>Anthony M.</strong>
+          </article>
+        </div>
+      </section>
+
+      <section class="section blog-section" id="blog" aria-labelledby="blog-title">
+        <div class="section-heading row-heading">
+          <div>
+            <p class="eyebrow" data-i18n="blogEyebrow">Blog y noticias</p>
+            <h2 id="blog-title" data-i18n="blogTitle">Guías para comprar mejor</h2>
+          </div>
+          <a class="text-link" href="#contact" data-i18n="blogCta">Pedir una guia personalizada</a>
+        </div>
+        <div class="blog-grid">
+          <article>
+            <img
+              src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=900&q=80"
+              alt="Casa de montaña"
+            />
+            <p class="eyebrow" data-i18n="blogOneMeta">Inversión</p>
+            <h3 data-i18n="blogOneTitle">Qué mirar antes de comprar una villa en zona turística</h3>
+          </article>
+          <article>
+            <img
+              src="https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=900&q=80"
+              alt="Sala moderna"
+            />
+            <p class="eyebrow" data-i18n="blogTwoMeta">Financiamiento</p>
+            <h3 data-i18n="blogTwoTitle">Inicial, tasa y flujo: cómo estimar tu cuota mensual</h3>
+          </article>
+          <article>
+            <img
+              src="https://images.unsplash.com/photo-1572120360610-d971b9d7767c?auto=format&fit=crop&w=900&q=80"
+              alt="Exterior de propiedad"
+            />
+            <p class="eyebrow" data-i18n="blogThreeMeta">Legal</p>
+            <h3 data-i18n="blogThreeTitle">Documentos básicos que debes validar antes de separar</h3>
+          </article>
+        </div>
+      </section>
+
+      <section class="section member-section" id="members" aria-labelledby="members-title">
+        <div class="member-copy">
+          <p class="eyebrow" data-i18n="memberEyebrow">Acceso privado</p>
+          <h2 id="members-title" data-i18n="memberTitle">Inicio de sesión para socios e interesados</h2>
+          <p data-i18n="memberCopy">
+            Recibe alertas de nuevas propiedades, cambios de disponibilidad, oportunidades de inversión y publicaciones
+            del blog antes de que se pierdan entre mensajes.
+          </p>
+        </div>
+        <form class="member-form" id="memberLoginForm">
+          <label>
+            <span data-i18n="memberEmail">Correo electrónico</span>
+            <input id="memberEmail" type="email" required placeholder="tu@email.com" />
+          </label>
+          <label>
+            <span data-i18n="memberRole">Perfil</span>
+            <select id="memberRole">
+              <option data-i18n="memberPartner">Socio</option>
+              <option data-i18n="memberInvestor">Inversionista</option>
+              <option data-i18n="memberOwner">Propietario</option>
+              <option data-i18n="memberBuyer">Comprador interesado</option>
+            </select>
+          </label>
+          <div class="member-options" aria-label="Preferencias de notificación">
+            <label class="checkbox-line">
+              <input id="notifyProperties" type="checkbox" checked />
+              <span data-i18n="notifyProperties">Nuevas propiedades</span>
+            </label>
+            <label class="checkbox-line">
+              <input id="notifyBlogs" type="checkbox" checked />
+              <span data-i18n="notifyBlogs">Blog y noticias</span>
+            </label>
+            <label class="checkbox-line">
+              <input id="notifyUpdates" type="checkbox" checked />
+              <span data-i18n="notifyUpdates">Actualizaciones del mercado</span>
+            </label>
+          </div>
+          <button class="button button-primary" type="submit">
+            <i data-lucide="log-in"></i>
+            <span data-i18n="memberSubmit">Entrar y recibir alertas</span>
+          </button>
+        </form>
+      </section>
+
+      <section class="section contact-section" id="contact" aria-labelledby="contact-title">
+        <div class="contact-copy">
+          <p class="eyebrow" data-i18n="contactEyebrow">Captura de leads</p>
+          <h2 id="contact-title" data-i18n="contactTitle">Cuéntanos qué buscas y te contactamos</h2>
+          <ul class="contact-list">
+            <li><i data-lucide="map-pin"></i> Av. Federico Basilis, Jarabacoa, La Vega, RD</li>
+            <li><i data-lucide="phone"></i> +1 (849) 595-5951</li>
+            <li><i data-lucide="mail"></i> contacto@meirahgroup.com</li>
+            <li><i data-lucide="clock"></i> <span data-i18n="contactHours">Lunes a viernes 9 a.m. - 5 p.m. | Sábados citas previas.</span></li>
+            <li><i data-lucide="bot"></i> <span data-i18n="aiAdvisory">ChatBOT 24/7</span></li>
+          </ul>
+        </div>
+        <form class="lead-form" id="leadForm">
+          <label>
+            <span data-i18n="leadName">Nombre</span>
+            <input id="leadName" type="text" required placeholder="Tu nombre" />
+          </label>
+          <label>
+            <span data-i18n="leadPhone">Teléfono o WhatsApp</span>
+            <input id="leadPhone" type="tel" required placeholder="+1 829 000 0000" />
+          </label>
+          <label>
+            <span data-i18n="leadInterest">Interés</span>
+            <select id="leadInterest">
+              <option data-i18n="leadBuy">Comprar</option>
+              <option data-i18n="leadRent">Alquilar</option>
+              <option data-i18n="leadSell">Vender mi propiedad</option>
+              <option data-i18n="leadInvest">Invertir</option>
+            </select>
+          </label>
+          <label>
+            <span data-i18n="leadMessage">Mensaje</span>
+            <textarea id="leadMessage" rows="4" placeholder="Zona, presupuesto, fecha o cualquier detalle"></textarea>
+          </label>
+          <label class="checkbox-line">
+            <input id="leadConsent" type="checkbox" required />
+            <span data-i18n="leadConsent">Acepto que Meirah Group me contacte sobre mi solicitud.</span>
+          </label>
+          <button class="button button-primary" type="submit">
+            <i data-lucide="send"></i>
+            <span data-i18n="leadSend">Enviar solicitud</span>
+          </button>
+        </form>
+      </section>
+
+      <section class="section admin-section" id="adminPanel" aria-labelledby="admin-title" hidden>
+        <div class="section-heading row-heading">
+          <div>
+            <p class="eyebrow" data-i18n="adminEyebrow">Modo interno</p>
+            <h2 id="admin-title" data-i18n="adminTitle">Panel interno Meirah Group</h2>
+            <p class="admin-session-summary" id="adminSessionSummary"></p>
+          </div>
+          <div class="admin-header-actions">
+            <button class="button button-light" id="resetDemo" type="button">
+              <i data-lucide="refresh-cw"></i>
+              <span data-i18n="resetDemo">Restaurar demo</span>
+            </button>
+            <button class="button button-light" id="staffLogout" type="button">
+              <i data-lucide="log-out"></i>
+              <span data-i18n="staffLogout">Cerrar sesión</span>
+            </button>
+          </div>
+        </div>
+        <div class="admin-layout" id="propertyAdminArea">
+          <form class="admin-form" id="adminForm">
+            <label>
+              <span data-i18n="adminSelect">Editar propiedad</span>
+              <select id="adminPropertySelect"></select>
+            </label>
+            <div class="admin-actions">
+              <button class="button button-light" id="newProperty" type="button" data-i18n="newProperty">Nueva</button>
+              <button class="button button-danger" id="deleteProperty" type="button" data-i18n="deleteProperty">
+                Eliminar
+              </button>
+            </div>
+            <label>
+              <span data-i18n="adminName">Nombre</span>
+              <input id="adminTitleInput" type="text" required />
+            </label>
+            <label>
+              <span data-i18n="adminType">Tipo</span>
+              <select id="adminTypeInput">
+                <option>Villa</option>
+                <option>Casa</option>
+                <option>Apartamento</option>
+                <option>Terreno</option>
+                <option>Finca</option>
+              </select>
+            </label>
+            <label>
+              <span data-i18n="adminOperation">Operación</span>
+              <select id="adminOperationInput">
+                <option value="sale">Venta</option>
+                <option value="rent">Renta larga</option>
+                <option value="rent-night">Renta corta</option>
+                <option value="sale,rent">Venta y renta</option>
+              </select>
+            </label>
+            <label>
+              <span data-i18n="adminStatus">Estado</span>
+              <select id="adminStatusInput">
+                <option value="sale">En Venta</option>
+                <option value="rent">En Alquiler</option>
+                <option value="reserved">Reservado</option>
+                <option value="sold">Vendido</option>
+              </select>
+            </label>
+            <div class="two-col">
+              <label>
+                <span data-i18n="adminPrice">Precio venta</span>
+                <input id="adminPriceInput" type="number" min="0" />
+              </label>
+              <label>
+                <span data-i18n="adminNight">Precio noche</span>
+                <input id="adminNightInput" type="number" min="0" />
+              </label>
+            </div>
+            <div class="three-col">
+              <label>
+                <span data-i18n="adminBeds">Hab.</span>
+                <input id="adminBedsInput" type="number" min="0" />
+              </label>
+              <label>
+                <span data-i18n="adminBaths">Baños</span>
+                <input id="adminBathsInput" type="number" min="0" step="0.5" />
+              </label>
+              <label>
+                <span data-i18n="adminArea">m² construcción</span>
+                <input id="adminAreaInput" type="number" min="0" />
+              </label>
+            </div>
+            <label>
+              <span data-i18n="adminLotArea">m² terreno</span>
+              <input id="adminLotInput" type="number" min="0" />
+            </label>
+            <label>
+              <span data-i18n="adminZone">Zona</span>
+              <input id="adminZoneInput" type="text" />
+            </label>
+            <div class="admin-upload-field">
+              <span data-i18n="adminImages">Imágenes de la propiedad</span>
+              <div class="admin-upload-box">
+                <input id="adminImageFileInput" type="file" accept="image/*,video/mp4,video/webm,video/ogg,video/quicktime,video/x-m4v,video/*" multiple hidden />
+                <button class="button button-light" id="adminUploadLocal" type="button">
+                  <i data-lucide="upload"></i>
+                  <span data-i18n="adminUploadLocal">Cargar</span>
+                </button>
+                <button class="button button-light" id="adminUploadDrive" type="button">
+                  <i data-lucide="cloud"></i>
+                  <span data-i18n="adminUploadDrive">Subir</span>
+                </button>
+                <button class="button button-light" id="adminUploadLink" type="button">
+                  <i data-lucide="link"></i>
+                  <span data-i18n="adminUploadLink">Enlace</span>
+                </button>
+              </div>
+              <textarea id="adminImagesInput" rows="3" hidden></textarea>
+              <div class="admin-image-list" id="adminImageList"></div>
+            </div>
+            <label>
+              <span data-i18n="adminDesc">Descripción</span>
+              <textarea id="adminDescInput" rows="4"></textarea>
+            </label>
+            <button class="button button-primary" type="submit">
+              <i data-lucide="save"></i>
+              <span data-i18n="saveProperty">Guardar propiedad</span>
+            </button>
+          </form>
+          <div class="admin-insights">
+            <h3 data-i18n="adminInsights">Pendientes recomendados</h3>
+            <ul>
+              <li data-i18n="missingOne">Conectar pasarela local o Stripe para cargos reales y webhooks.</li>
+              <li data-i18n="missingTwo">Agregar CRM con seguimiento por etapa: nuevo, calificado, visita, oferta, cierre.</li>
+              <li data-i18n="missingThree">Subir documentos legales por propiedad: título, deslinde, impuestos y autorizaciones.</li>
+              <li data-i18n="missingFour">Crear panel de analíticas: leads, propiedades más vistas y tasa de reservas.</li>
+              <li data-i18n="missingFive">Activar SEO técnico con URLs por propiedad y schema inmobiliario.</li>
+            </ul>
+            <div class="admin-reservations">
+              <h3 data-i18n="adminReserveTitle">Calendario de reservas (admin)</h3>
+              <label>
+                <span data-i18n="adminReserveProperty">Propiedad reservada</span>
+                <select id="adminReservationProperty"></select>
+              </label>
+              <div class="two-col">
+                <label>
+                  <span data-i18n="adminReserveStart">Entrada</span>
+                  <input id="adminReservationCheckIn" type="date" />
+                </label>
+                <label>
+                  <span data-i18n="adminReserveEnd">Salida</span>
+                  <input id="adminReservationCheckOut" type="date" />
+                </label>
+              </div>
+              <div class="admin-reservation-actions">
+                <button class="button button-primary" id="adminReservationSave" type="button">
+                  <i data-lucide="calendar-plus"></i>
+                  <span data-i18n="adminReserveSave">Guardar reserva</span>
+                </button>
+                <button class="button button-light" id="adminReservationClear" type="button">
+                  <i data-lucide="trash-2"></i>
+                  <span data-i18n="adminReserveClear">Limpiar reservas</span>
+                </button>
+              </div>
+              <div class="admin-reservation-calendar" id="adminReservationCalendar"></div>
+              <div class="admin-reservation-list" id="adminReservationList"></div>
+            </div>
+          </div>
+        </div>
+
+        <section class="admin-workspace staff-admin-section" id="staffAdminSection" aria-labelledby="staff-admin-title">
+          <div class="admin-workspace-heading">
+            <div>
+              <p class="eyebrow" data-i18n="staffAdminEyebrow">Gestión interna</p>
+              <h3 id="staff-admin-title" data-i18n="staffAdminTitle">Equipo y disponibilidad</h3>
+            </div>
+            <button class="button button-light" id="newStaffMember" type="button">
+              <i data-lucide="user-plus"></i>
+              <span data-i18n="staffNew">Crear usuario</span>
+            </button>
+          </div>
+
+          <div class="staff-admin-layout">
+            <aside class="staff-admin-list" id="staffAdminList"></aside>
+            <form class="staff-admin-form" id="staffAdminForm">
+              <input id="staffIdInput" type="hidden" />
+              <div class="staff-form-grid">
+                <label>
+                  <span data-i18n="staffName">Nombre completo</span>
+                  <input id="staffNameInput" type="text" required />
+                </label>
+                <label>
+                  <span data-i18n="staffUsername">Usuario</span>
+                  <input id="staffUsernameInput" type="text" required autocomplete="off" />
+                </label>
+                <label>
+                  <span data-i18n="staffPassword">Contraseña demo</span>
+                  <span class="inline-input-control">
+                    <input id="staffPasswordInput" type="password" required autocomplete="new-password" />
+                    <button class="button button-light button-inline" id="toggleStaffPassword" type="button" data-i18n="staffPasswordShow">
+                      Ver
+                    </button>
+                  </span>
+                </label>
+                <label>
+                  <span data-i18n="staffRole">Rol</span>
+                  <select id="staffRoleInput">
+                    <option value="super_admin" data-i18n="staffRoleSuperAdmin">Super admin</option>
+                    <option value="admin">Admin</option>
+                    <option value="agent" data-i18n="staffRoleAdvisor">Agente</option>
+                    <option value="assistant" data-i18n="staffRoleAssistant">Asistente</option>
+                    <option value="editor" data-i18n="staffRoleEditor">Editor</option>
+                  </select>
+                </label>
+                <label>
+                  <span data-i18n="staffPhone">Teléfono/WhatsApp</span>
+                  <input id="staffPhoneInput" type="tel" inputmode="tel" placeholder="+1 (829) 000-0000" />
+                </label>
+                <label>
+                  <span data-i18n="staffEmail">Correo</span>
+                  <input id="staffEmailInput" type="email" />
+                </label>
+                <label class="staff-avatar-field">
+                  <span data-i18n="staffAvatar">Avatar opcional</span>
+                  <input id="staffAvatarInput" type="hidden" />
+                  <div class="staff-avatar-source-actions">
+                    <button class="button button-light" id="staffAvatarUseLink" type="button">
+                      <i data-lucide="link"></i>
+                      <span data-i18n="staffAvatarLinkMode">Poner enlace</span>
+                    </button>
+                    <button class="button button-light" id="staffAvatarUseFile" type="button">
+                      <i data-lucide="upload"></i>
+                      <span data-i18n="staffAvatarFileMode">Cargar archivo</span>
+                    </button>
+                    <button class="icon-button" id="staffAvatarClear" type="button" aria-label="Quitar avatar">
+                      <i data-lucide="trash-2"></i>
+                    </button>
+                  </div>
+                  <input id="staffAvatarLinkInput" type="url" placeholder="https://..." />
+                  <input id="staffAvatarFileInput" type="file" accept="image/*" hidden />
+                  <small data-i18n="staffAvatarHint">Archivo máximo 10 MB.</small>
+                  <div class="staff-avatar-preview" id="staffAvatarPreview">
+                    <span data-i18n="staffAvatarEmpty">Sin avatar</span>
+                  </div>
+                </label>
+                <label>
+                  <span data-i18n="staffDuration">Duración de cada cita</span>
+                  <select id="staffDurationInput">
+                    <option value="30">30 min</option>
+                    <option value="45">45 min</option>
+                    <option value="60">60 min</option>
+                    <option value="90">90 min</option>
+                  </select>
+                </label>
+              </div>
+
+              <label class="checkbox-line staff-active-toggle">
+                <input id="staffActiveInput" type="checkbox" checked />
+                <span data-i18n="staffActive">Usuario activo</span>
+              </label>
+              <label class="checkbox-line staff-active-toggle">
+                <input id="staffAcceptsAppointmentsInput" type="checkbox" />
+                <span data-i18n="staffAcceptsAppointments">Acepta citas públicas</span>
+              </label>
+              <label class="checkbox-line staff-active-toggle">
+                <input id="staffAvailabilityConfiguredInput" type="checkbox" />
+                <span data-i18n="staffAvailabilityConfigured">Disponibilidad configurada</span>
+              </label>
+
+              <div class="staff-schedule-editor">
+                <h4 data-i18n="staffWeeklyTitle">Disponibilidad semanal</h4>
+                <p data-i18n="staffWeeklyHint">Selecciona un día, define la jornada y marca hasta dos bloqueos internos.</p>
+                <div id="staffWeeklySchedule"></div>
+              </div>
+
+              <div class="staff-exceptions-grid">
+                <label>
+                  <span data-i18n="staffBlockedDates">Días bloqueados</span>
+                  <textarea id="staffBlockedDatesInput" rows="4" placeholder="2026-06-18, 2026-06-25"></textarea>
+                  <small data-i18n="staffBlockedDatesHint">Usa fechas AAAA-MM-DD separadas por coma o línea.</small>
+                </label>
+              </div>
+
+              <div class="admin-actions">
+                <button class="button button-primary" type="submit">
+                  <i data-lucide="save"></i>
+                  <span data-i18n="staffSave">Guardar usuario y horario</span>
+                </button>
+                <button class="button button-danger" id="deleteStaffMember" type="button">
+                  <i data-lucide="trash-2"></i>
+                  <span data-i18n="staffDelete">Eliminar usuario</span>
+                </button>
+              </div>
+            </form>
+          </div>
+        </section>
+
+        <section class="admin-workspace appointment-admin-section" id="appointmentAdminSection" aria-labelledby="appointment-admin-title">
+          <div class="admin-workspace-heading">
+            <div>
+              <p class="eyebrow" data-i18n="appointmentAdminEyebrow">Seguimiento</p>
+              <h3 id="appointment-admin-title" data-i18n="appointmentAdminTitle">Citas con agentes</h3>
+            </div>
+          </div>
+          <div class="appointment-admin-filters">
+            <label>
+              <span data-i18n="appointmentFilterStaff">Agente</span>
+              <select id="appointmentAdminStaffFilter"></select>
+            </label>
+            <label>
+              <span data-i18n="appointmentFilterDate">Fecha</span>
+              <input id="appointmentAdminDateFilter" type="date" />
+            </label>
+            <label>
+              <span data-i18n="appointmentFilterStatus">Estado</span>
+              <select id="appointmentAdminStatusFilter">
+                <option value="all" data-i18n="optionAll">Todos</option>
+                <option value="pending" data-i18n="appointmentStatusPending">Pendiente</option>
+                <option value="confirmed" data-i18n="appointmentStatusConfirmed">Confirmada</option>
+                <option value="cancelled" data-i18n="appointmentStatusCancelled">Cancelada</option>
+                <option value="completed" data-i18n="appointmentStatusCompleted">Completada</option>
+              </select>
+            </label>
+            <label>
+              <span data-i18n="appointmentFilterMode">Modalidad</span>
+              <select id="appointmentAdminModeFilter">
+                <option value="all" data-i18n="optionAll">Todas</option>
+                <option value="whatsapp">WhatsApp</option>
+                <option value="call" data-i18n="appointmentModeCall">Llamada</option>
+                <option value="video" data-i18n="appointmentModeVideo">Videollamada</option>
+                <option value="in-person" data-i18n="appointmentModeInPerson">Presencial</option>
+              </select>
+            </label>
+          </div>
+          <div class="appointment-admin-layout">
+            <div class="appointment-admin-list" id="appointmentAdminList"></div>
+            <aside class="admin-leads-panel" id="adminLeadsPanel">
+              <h4 data-i18n="adminLeadsTitle">Leads recientes</h4>
+              <div id="adminLeadsList"></div>
+            </aside>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        <a class="brand footer-brand" href="#top">
+          <span class="brand-mark" aria-hidden="true">
+            <img src="assets/brand/logo-meirahgroup-white.svg" data-asset-path="assets/brand/logo-meirahgroup-white.svg" alt="" />
+          </span>
+          <span>
+            <strong>Meirah Group</strong>
+            <small data-i18n="footerTag">Compra, venta y alquiler de propiedades</small>
+          </span>
+        </a>
+        <p data-i18n="footerCopy">
+          Una firma que ayuda a las personas a encontrar espacios alineados con su esencia y construir patrimonio con propósito.
+        </p>
+      </div>
+      <div>
+        <h3 data-i18n="footerCompany">Compañía</h3>
+        <a href="#about" data-i18n="navAbout">Nosotros</a>
+        <a href="#properties" data-i18n="navProperties">Propiedades</a>
+        <a href="#owners" data-i18n="navOwners">Vende/Alquila</a>
+        <a href="#appointments" data-i18n="navAppointment">Agenda tu cita</a>
+      </div>
+      <div>
+        <h3 data-i18n="footerServices">Servicios</h3>
+        <a href="#financing" data-i18n="footerFinancing">Calculadoras</a>
+        <a href="#reservations" data-i18n="footerReservations">Reservas</a>
+        <a href="#owners" data-i18n="footerOwners">Vende o alquila con nosotros</a>
+        <a href="#adminPanel" data-i18n="footerManagement">Administración de inventario</a>
+      </div>
+      <div>
+        <h3 data-i18n="footerContact">Contacto</h3>
+        <p>Av. Federico Basilis, Jarabacoa, RD</p>
+        <p><a href="tel:+18495955951">+1 (849) 595-5951</a></p>
+        <p><a href="mailto:contacto@meirahgroup.com?subject=Consulta%20Meirah%20Group">contacto@meirahgroup.com</a></p>
+      </div>
+      <div class="site-footer-meta">
+        <p>&copy; 2026 Meirah Group. Todos los derechos reservados.</p>
+        <p>Made by Akahawa Studio.</p>
+      </div>
+    </footer>
+
+    <a
+      class="whatsapp-float"
+href="https://wa.me/18495955951?text=Hola%20Meirah%20Group%2C%20quiero%20informaci%C3%B3n%20sobre%20una%20propiedad."
+      target="_blank"
+      rel="noreferrer"
+      aria-label="WhatsApp Meirah Group"
+    >
+      <i data-lucide="message-circle"></i>
+    </a>
+
+    <button class="chat-float" id="chatToggle" type="button" aria-label="Abrir chatbot">
+      <i data-lucide="bot"></i>
+    </button>
+
+    <aside class="chat-panel" id="chatPanel" hidden aria-label="Chatbot Meirah Group">
+      <div class="chat-header">
+        <div>
+          <strong>MeirahBot</strong>
+          <small data-i18n="chatStatus">Responde con datos del negocio</small>
+        </div>
+        <button class="icon-button" id="chatClose" type="button" aria-label="Cerrar chat">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+      <div class="chat-messages" id="chatMessages"></div>
+      <form class="chat-form" id="chatForm">
+        <input id="chatInput" type="text" placeholder="Escribe tu pregunta" autocomplete="off" />
+        <button class="icon-button" type="submit" aria-label="Enviar">
+          <i data-lucide="send"></i>
+        </button>
+      </form>
+    </aside>
+
+    <div class="modal" id="propertyModal" hidden role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-backdrop" data-close-modal></div>
+      <article class="modal-content">
+        <button class="icon-button modal-close" type="button" data-close-modal aria-label="Cerrar">
+          <i data-lucide="x"></i>
+        </button>
+        <div id="modalBody"></div>
+      </article>
+    </div>
+
+    <div class="modal staff-login-modal" id="staffLoginModal" hidden role="dialog" aria-modal="true" aria-labelledby="staffLoginTitle">
+      <div class="modal-backdrop" data-close-staff-login></div>
+      <article class="staff-login-card">
+        <button class="icon-button staff-login-close" type="button" data-close-staff-login aria-label="Cerrar">
+          <i data-lucide="x"></i>
+        </button>
+        <p class="eyebrow" data-i18n="staffLoginEyebrow">Acceso interno</p>
+        <h2 id="staffLoginTitle" data-i18n="staffLoginTitle">Iniciar sesión</h2>
+        <p data-i18n="staffLoginCopy">Acceso para administradores, asesores y asistentes de Meirah Group.</p>
+        <form class="staff-login-form" id="staffLoginForm">
+          <label>
+            <span data-i18n="staffUsername">Usuario</span>
+            <input id="staffLoginUsername" type="text" required autocomplete="username" />
+          </label>
+          <label>
+            <span data-i18n="staffPassword">Contraseña</span>
+            <input id="staffLoginPassword" type="password" required autocomplete="current-password" />
+          </label>
+          <button class="button button-primary" type="submit">
+            <i data-lucide="log-in"></i>
+            <span data-i18n="staffLoginSubmit">Entrar</span>
+          </button>
+          <button class="button button-light" id="staffPinLogin" type="button">
+            <i data-lucide="key-round"></i>
+            <span data-i18n="staffPinLogin">Usar PIN demo 1025</span>
+          </button>
+          <p class="staff-login-error" id="staffLoginError" role="alert"></p>
+        </form>
+      </article>
+    </div>
+
+    <div class="modal share-modal" id="shareModal" hidden role="dialog" aria-modal="true" aria-labelledby="shareModalTitle">
+      <div class="modal-backdrop" data-close-share></div>
+      <article class="share-modal-card">
+        <button class="icon-button share-modal-close" type="button" data-close-share aria-label="Cerrar">
+          <i data-lucide="x"></i>
+        </button>
+        <p class="eyebrow" data-i18n="propertyCode">Código</p>
+        <h2 id="shareModalTitle" data-i18n="shareTitle">Compartir propiedad</h2>
+        <p data-i18n="shareCopy">Elige dónde deseas compartir este enlace.</p>
+        <div class="share-modal-property" id="shareModalProperty"></div>
+        <div class="share-channel-grid">
+          <button class="share-channel" type="button" data-share-channel="whatsapp">
+            <i data-lucide="message-circle"></i><span>WhatsApp</span>
+          </button>
+          <button class="share-channel" type="button" data-share-channel="facebook">
+            <i data-lucide="facebook"></i><span>Facebook</span>
+          </button>
+          <button class="share-channel" type="button" data-share-channel="x">
+            <i data-lucide="twitter"></i><span>X</span>
+          </button>
+          <button class="share-channel" type="button" data-share-channel="copy">
+            <i data-lucide="copy"></i><span data-i18n="shareCopyLink">Copiar enlace</span>
+          </button>
+          <button class="share-channel" type="button" data-share-channel="instagram">
+            <i data-lucide="instagram"></i><span>Instagram</span>
+          </button>
+          <button class="share-channel" type="button" data-share-channel="tiktok">
+            <i data-lucide="music-2"></i><span>TikTok</span>
+          </button>
+        </div>
+      </article>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
