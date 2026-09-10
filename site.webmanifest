@@ -1,0 +1,22 @@
+{
+  "name": "Meirah Group | Bienes Raíces",
+  "short_name": "Meirah Group",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#101a24",
+  "theme_color": "#1e2e47",
+  "icons": [
+    {
+      "src": "assets/brand/meirahgroup-black-favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/brand/meirahgroup-white-favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ]
+}
